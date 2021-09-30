@@ -22776,7 +22776,7 @@
         "UserDataOverride": {
           "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-userdataoverride",
           "PrimitiveType": "String",
-          "Required": true,
+          "Required": false,
           "UpdateType": "Mutable"
         }
       }
@@ -22902,7 +22902,7 @@
         "UninstallAfterBuild": {
           "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-systemsmanageragent.html#cfn-imagebuilder-imagerecipe-systemsmanageragent-uninstallafterbuild",
           "PrimitiveType": "Boolean",
-          "Required": true,
+          "Required": false,
           "UpdateType": "Mutable"
         }
       }
@@ -32783,7 +32783,7 @@
       }
     }
   },
-  "ResourceSpecificationVersion": "41.2.0",
+  "ResourceSpecificationVersion": "42.0.0",
   "ResourceTypes": {
     "AWS::ACMPCA::Certificate": {
       "Attributes": {
@@ -38559,7 +38559,10 @@
           "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-aggregationauthorization.html#cfn-config-aggregationauthorization-authorizedaccountid",
           "PrimitiveType": "String",
           "Required": true,
-          "UpdateType": "Immutable"
+          "UpdateType": "Immutable",
+          "Value": {
+            "ValueType": "AWS::Config::AggregationAuthorization.AuthorizedAccountId"
+          }
         },
         "AuthorizedAwsRegion": {
           "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-aggregationauthorization.html#cfn-config-aggregationauthorization-authorizedawsregion",
@@ -38567,7 +38570,7 @@
           "Required": true,
           "UpdateType": "Immutable",
           "Value": {
-            "ValueType": "Region"
+            "ValueType": "AWS::Config::AggregationAuthorization.AuthorizedAwsRegion"
           }
         },
         "Tags": {
@@ -44046,7 +44049,10 @@
           "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-name",
           "PrimitiveType": "String",
           "Required": false,
-          "UpdateType": "Immutable"
+          "UpdateType": "Immutable",
+          "Value": {
+            "ValueType": "AWS::EKS::Cluster.Name"
+          }
         },
         "ResourcesVpcConfig": {
           "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-resourcesvpcconfig",
@@ -44064,7 +44070,10 @@
           "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-version",
           "PrimitiveType": "String",
           "Required": false,
-          "UpdateType": "Mutable"
+          "UpdateType": "Mutable",
+          "Value": {
+            "ValueType": "AWS::EKS::Cluster.Version"
+          }
         }
       }
     },
@@ -57696,6 +57705,7 @@
       "AllowedValues": [
         "AMAZON_DYNAMODB",
         "AMAZON_ELASTICSEARCH",
+        "AMAZON_OPENSEARCH_SERVICE",
         "AWS_LAMBDA",
         "HTTP",
         "NONE",
@@ -58991,6 +59001,13 @@
         "SUPPRESS"
       ]
     },
+    "AWS::Config::AggregationAuthorization.AuthorizedAccountId": {
+      "AllowedPatternRegex": "^\\d{12}$"
+    },
+    "AWS::Config::AggregationAuthorization.AuthorizedAwsRegion": {
+      "StringMax": 64,
+      "StringMin": 1
+    },
     "AWS::Config::ConfigRule.Description": {
       "StringMax": 256,
       "StringMin": 1
@@ -59912,6 +59929,14 @@
         "NONE",
         "OVERWRITE"
       ]
+    },
+    "AWS::EKS::Cluster.Name": {
+      "AllowedPatternRegex": "^[0-9A-Za-z][A-Za-z0-9\\-_]*",
+      "StringMax": 100,
+      "StringMin": 1
+    },
+    "AWS::EKS::Cluster.Version": {
+      "AllowedPatternRegex": "1\\.\\d\\d"
     },
     "AWS::EKS::FargateProfile.Label.Key": {
       "StringMax": 127,
