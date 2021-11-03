@@ -153,7 +153,7 @@ Optional parameters:
 | -h, --help  |   | | Get description of cfn-lint |
 | -z, --custom-rules | | filename | Text file containing user-defined custom rules. See [here](#Custom-Rules) for more information |
 | -t, --template  |   | filename | Alternative way to specify Template file path to the file that needs to be tested by cfn-lint |
-| -f, --format    | format | quiet, parseable, json, junit, pretty | Output format |
+| -f, --format    | format | quiet, parseable, json, junit, pretty, sarif | Output format |
 | -l, --list-rules | | | List all the rules |
 | -r, --regions | regions | [REGIONS [REGIONS ...]], ALL_REGIONS  | Test the template against many regions.  [Supported regions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification.html) |
 | -b, --ignore-bad-template | ignore_bad_template | | Ignores bad template errors |
@@ -301,7 +301,7 @@ If you'd like cfn-lint to be run automatically when making changes to files in y
 ```yaml
 repos:
 - repo: https://github.com/aws-cloudformation/cfn-python-lint
-  rev: v0.54.4  # The version of cfn-lint to use
+  rev: v0.55.0  # The version of cfn-lint to use
   hooks:
     - id: cfn-python-lint
       files: path/to/cfn/dir/.*\.(json|yml|yaml)$
