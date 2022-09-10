@@ -15,19 +15,12 @@ import re
 import inspect
 import gzip
 from io import BytesIO
-try:
-    import importlib.resources as pkg_resources
-except ImportError:
-    # Try backported to PY<37 `importlib_resources`.
-    import importlib_resources as pkg_resources
+from typing import Dict, List
+import importlib.resources as pkg_resources
 import importlib
+from urllib.request import urlopen, Request
 from cfnlint.decode.node import dict_node, list_node, str_node
 from cfnlint.data import CloudSpecs
-try:
-    from urllib.request import urlopen, Request
-except ImportError:
-    from urllib2 import urlopen
-
 
 
 LOGGER = logging.getLogger(__name__)
@@ -52,6 +45,7 @@ SPEC_REGIONS = {
     'eu-west-2': 'https://d1742qcu2c1ncx.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json',
     'eu-west-3': 'https://d2d0mfegowb3wk.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json',
     'me-south-1': 'https://cfn-resource-specifications-me-south-1-prod.s3.me-south-1.amazonaws.com/latest/gzip/CloudFormationResourceSpecification.json',
+    'me-central-1': 'https://cfn-resource-specifications-me-central-1-prod.s3.me-central-1.amazonaws.com/latest/gzip/CloudFormationResourceSpecification.json',
     'sa-east-1': 'https://d3c9jyj3w509b0.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json',
     'us-east-1': 'https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json',
     'us-east-2': 'https://dnwj8swjjbsbt.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json',
@@ -334,8 +328,8 @@ def load_resource(package, filename='us-east-1.json'):
     return json.loads(pkg_resources.read_text(package, filename, encoding='utf-8'))
 
 
-RESOURCE_SPECS = {}
-REGISTRY_SCHEMAS = []
+RESOURCE_SPECS: Dict[str, dict] = {}
+REGISTRY_SCHEMAS: List[dict] = []
 
 def merge_spec(source, destination):
     """ Recursive merge spec dict """
