@@ -6,7 +6,7 @@ import fileinput
 import sys
 import logging
 import json
-from json.decoder import WHITESPACE, WHITESPACE_STR, BACKSLASH, STRINGCHUNK # type: ignore
+from json.decoder import WHITESPACE, WHITESPACE_STR, BACKSLASH, STRINGCHUNK  # type: ignore
 from json.scanner import NUMBER_RE
 import cfnlint
 from cfnlint.decode.node import str_node, dict_node, list_node, sub_node
@@ -21,7 +21,7 @@ class DuplicateError(Exception):
     """
 
     def __init__(self, message, mapping, key):
-        super(DuplicateError, self).__init__(message)
+        super().__init__(message)
 
         self.mapping = mapping
         self.key = key
@@ -29,14 +29,14 @@ class DuplicateError(Exception):
 
 def check_duplicates(ordered_pairs, beg_mark, end_mark):
     """
-        Check for duplicate keys on the current level, this is not desirable
-        because a dict does not support this. It overwrites it with the last
-        occurrence, which can give unexpected results
+    Check for duplicate keys on the current level, this is not desirable
+    because a dict does not support this. It overwrites it with the last
+    occurrence, which can give unexpected results
     """
     mapping = dict_node({}, beg_mark, end_mark)
     for key, value in ordered_pairs:
         if key in mapping:
-            raise DuplicateError('"{}"'.format(key), mapping, key)
+            raise DuplicateError(f'"{key}"', mapping, key)
         mapping[key] = value
 
     if len(mapping) == 1:
@@ -53,6 +53,7 @@ class JSONDecodeError(ValueError):
     lineno: The line corresponding to pos
     colno: The column corresponding to pos
     """
+
     # Note that this exception is used from _json
 
     def __init__(self, doc, pos, errors):
@@ -60,7 +61,7 @@ class JSONDecodeError(ValueError):
         if isinstance(errors, cfnlint.rules.Match):
             errors = [errors]
 
-        errmsg = '%s: line %d column %d (char %d)' % (errors[0].message, errors[0].linenumber, errors[0].linenumber, pos)
+        errmsg = f'{errors[0].message}: line {errors[0].linenumber} column {errors[0].linenumber} (char {pos})'
         ValueError.__init__(self, errmsg)
         self.msg = errors[0].message
         self.doc = doc
@@ -79,18 +80,32 @@ def build_match(message, doc, pos, key=' '):
     colno = pos - doc.rfind('\n', 0, pos)
 
     return cfnlint.rules.Match(
-        lineno, colno + 1, lineno,
-        colno + 1 + len(key), '', cfnlint.rules.ParseError(), message=message)
+        lineno,
+        colno + 1,
+        lineno,
+        colno + 1 + len(key),
+        '',
+        cfnlint.rules.ParseError(),
+        message=message,
+    )
 
 
 def build_match_from_node(message, node, key):
 
     return cfnlint.rules.Match(
-        node[key].start_mark.line, node[key].start_mark.column + 1, node[key].end_mark.line,
-        node[key].end_mark.column + 1 + len(key), '', cfnlint.rules.ParseError(), message=message)
+        node[key].start_mark.line,
+        node[key].start_mark.column + 1,
+        node[key].end_mark.line,
+        node[key].end_mark.column + 1 + len(key),
+        '',
+        cfnlint.rules.ParseError(),
+        message=message,
+    )
 
-class Mark(object):
+
+class Mark:
     """Mark of line and column"""
+
     line = 1
     column = 1
 
@@ -101,8 +116,7 @@ class Mark(object):
 
 # pylint: disable=W0102
 # Exception based on builtin Python Function
-def py_scanstring(s, end, strict=True,
-                  _b=BACKSLASH, _m=STRINGCHUNK.match):
+def py_scanstring(s, end, strict=True, _b=BACKSLASH, _m=STRINGCHUNK.match):
     """Scan the string s for a JSON string. End is the index of the
     character in s after the quote that started the JSON string.
     Unescapes all valid JSON string escape sequences and raises ValueError
@@ -125,7 +139,7 @@ def py_scanstring(s, end, strict=True,
                         doc=s,
                         pos=begin,
                     ),
-                ]
+                ],
             )
         end = chunk.end()
         content, terminator = chunk.groups()
@@ -138,7 +152,7 @@ def py_scanstring(s, end, strict=True,
             break
         if terminator != '\\':
             if strict:
-                msg = 'Invalid control character {0!r} at'.format(terminator)
+                msg = f'Invalid control character {terminator!r} at'
                 raise JSONDecodeError(
                     doc=s,
                     pos=end,
@@ -148,13 +162,13 @@ def py_scanstring(s, end, strict=True,
                             doc=s,
                             pos=end,
                         ),
-                    ]
+                    ],
                 )
             _append(terminator)
             continue
         try:
             esc = s[end]
-        except IndexError:
+        except IndexError as exc:
             raise JSONDecodeError(
                 doc=s,
                 pos=begin,
@@ -164,14 +178,14 @@ def py_scanstring(s, end, strict=True,
                         doc=s,
                         pos=begin,
                     ),
-                ]
-            )
+                ],
+            ) from exc
         # If not a unicode escape sequence, must be in the lookup table
         if esc != 'u':
             try:
                 char = _b[esc]
-            except KeyError:
-                msg = 'Invalid \\escape: {0!r}'.format(esc)
+            except KeyError as exc:
+                msg = f'Invalid \\escape: {esc!r}'
                 raise JSONDecodeError(
                     doc=s,
                     pos=end,
@@ -181,16 +195,16 @@ def py_scanstring(s, end, strict=True,
                             doc=s,
                             pos=end,
                         ),
-                    ]
-                )
+                    ],
+                ) from exc
             end += 1
         else:
             uni = _decode_uXXXX(s, end)
             end += 5
-            if 0xd800 <= uni <= 0xdbff and s[end:end + 2] == '\\u':
+            if 0xD800 <= uni <= 0xDBFF and s[end : end + 2] == '\\u':
                 uni2 = _decode_uXXXX(s, end + 1)
-                if 0xdc00 <= uni2 <= 0xdfff:
-                    uni = 0x10000 + (((uni - 0xd800) << 10) | (uni2 - 0xdc00))
+                if 0xDC00 <= uni2 <= 0xDFFF:
+                    uni = 0x10000 + (((uni - 0xD800) << 10) | (uni2 - 0xDC00))
                     end += 6
             char = chr(uni)
         _append(char)
@@ -198,7 +212,7 @@ def py_scanstring(s, end, strict=True,
 
 
 def _decode_uXXXX(s, pos):
-    esc = s[pos + 1:pos + 5]
+    esc = s[pos + 1 : pos + 5]
     if len(esc) == 4 and esc[1] not in 'xX':
         try:
             return int(esc, 16)
@@ -214,14 +228,14 @@ def _decode_uXXXX(s, pos):
                 doc=s,
                 pos=pos,
             ),
-        ]
+        ],
     )
 
 
 def py_make_scanner(context):
     """
-        Make python based scanner
-        For this use case we will not use the C based scanner
+    Make python based scanner
+    For this use case we will not use the C based scanner
     """
     parse_object = context.parse_object
     parse_array = context.parse_array
@@ -238,25 +252,30 @@ def py_make_scanner(context):
     # pylint: disable=R0911
     # Based on Python standard function
     def _scan_once(string, idx):
-        """ Scan once internal function """
+        """Scan once internal function"""
         try:
             nextchar = string[idx]
-        except IndexError:
-            raise StopIteration(idx)
+        except IndexError as exc:
+            raise StopIteration(idx) from exc
 
         if nextchar == '"':
             return parse_string(string, idx + 1, strict)
         if nextchar == '{':
             return parse_object(
-                (string, idx + 1), strict,
-                scan_once, object_hook, object_pairs_hook, memo)
+                (string, idx + 1),
+                strict,
+                scan_once,
+                object_hook,
+                object_pairs_hook,
+                memo,
+            )
         if nextchar == '[':
             return parse_array((string, idx + 1), _scan_once)
-        if nextchar == 'n' and string[idx:idx + 4] == 'null':
+        if nextchar == 'n' and string[idx : idx + 4] == 'null':
             return None, idx + 4
-        if nextchar == 't' and string[idx:idx + 4] == 'true':
+        if nextchar == 't' and string[idx : idx + 4] == 'true':
             return True, idx + 4
-        if nextchar == 'f' and string[idx:idx + 5] == 'false':
+        if nextchar == 'f' and string[idx : idx + 5] == 'false':
             return False, idx + 5
 
         m = match_number(string, idx)
@@ -267,17 +286,17 @@ def py_make_scanner(context):
             else:
                 res = parse_int(integer)
             return res, m.end()
-        if nextchar == 'N' and string[idx:idx + 3] == 'NaN':
+        if nextchar == 'N' and string[idx : idx + 3] == 'NaN':
             return parse_constant('NaN'), idx + 3
-        if nextchar == 'I' and string[idx:idx + 8] == 'Infinity':
+        if nextchar == 'I' and string[idx : idx + 8] == 'Infinity':
             return parse_constant('Infinity'), idx + 8
-        if nextchar == '-' and string[idx:idx + 9] == '-Infinity':
+        if nextchar == '-' and string[idx : idx + 9] == '-Infinity':
             return parse_constant('-Infinity'), idx + 9
 
         raise StopIteration(idx)
 
     def scan_once(string, idx):
-        """ Scan Once"""
+        """Scan Once"""
         try:
             return _scan_once(string, idx)
         finally:
@@ -287,21 +306,21 @@ def py_make_scanner(context):
 
 
 def find_indexes(s, ch='\n'):
-    """Finds all instances of given char and returns list of indexes """
+    """Finds all instances of given char and returns list of indexes"""
     return [i for i, ltr in enumerate(s) if ltr == ch]
 
 
 def count_occurrences(arr, key):
-    """Binary search indexes to replace str.count """
+    """Binary search indexes to replace str.count"""
     n = len(arr)
     left = 0
     right = n - 1
     count = 0
 
-    while (left <= right):
+    while left <= right:
         mid = int((right + left) / 2)
 
-        if (arr[mid] <= key):
+        if arr[mid] <= key:
             count = mid + 1
             left = mid + 1
         else:
@@ -310,12 +329,12 @@ def count_occurrences(arr, key):
 
 
 def largest_less_than(indexes, line_num, pos):
-    """Replacement func for python str.rfind using indexes """
-    return indexes[line_num-1] if indexes and count_occurrences(indexes, pos) else -1
+    """Replacement func for python str.rfind using indexes"""
+    return indexes[line_num - 1] if indexes and count_occurrences(indexes, pos) else -1
 
 
 def get_beg_end_mark(start, end, indexes):
-    """Get the Start and End Mark """
+    """Get the Start and End Mark"""
     beg_lineno = count_occurrences(indexes, start)
     beg_colno = start - largest_less_than(indexes, beg_lineno, start)
     beg_mark = Mark(beg_lineno, beg_colno)
@@ -369,21 +388,30 @@ class CfnJSONDecoder(json.JSONDecoder):
         self.newline_indexes = []
 
     def decode(self, s, _w=WHITESPACE.match):
-        """Overridden to retrieve indexes """
+        """Overridden to retrieve indexes"""
         self.newline_indexes = find_indexes(s)
         obj = super().decode(s, _w)
         return obj
 
     def JSONArray(self, s_and_end, scan_once, **kwargs):
-        """ Convert JSON array to be a list_node object """
+        """Convert JSON array to be a list_node object"""
         values, end = json.decoder.JSONArray(s_and_end, scan_once, **kwargs)
         start = s_and_end[1]
         beg_mark, end_mark = get_beg_end_mark(start, end, self.newline_indexes)
         return list_node(values, beg_mark, end_mark), end
 
-    def cfn_json_object(self, s_and_end, strict, scan_once, object_hook, object_pairs_hook,
-                        memo=None, _w=WHITESPACE.match, _ws=WHITESPACE_STR):
-        """ Custom Cfn JSON Object to store keys with start and end times """
+    def cfn_json_object(
+        self,
+        s_and_end,
+        strict,
+        scan_once,
+        object_hook,
+        object_pairs_hook,
+        memo=None,
+        _w=WHITESPACE.match,
+        _ws=WHITESPACE_STR,
+    ):
+        """Custom Cfn JSON Object to store keys with start and end times"""
         s, end = s_and_end
         orginal_end = end
         pairs = []
@@ -394,17 +422,19 @@ class CfnJSONDecoder(json.JSONDecoder):
         memo_get = memo.setdefault
         # Use a slice to prevent IndexError from being raised, the following
         # check will raise a more specific ValueError if the string is empty
-        nextchar = s[end:end + 1]
+        nextchar = s[end : end + 1]
         # Normally we expect nextchar == '"'
         if nextchar != '"':
             if nextchar in _ws:
                 end = _w(s, end).end()
-                nextchar = s[end:end + 1]
+                nextchar = s[end : end + 1]
             # Trivial empty object
             if nextchar == '}':
                 if object_pairs_hook is not None:
                     try:
-                        beg_mark, end_mark = get_beg_end_mark(orginal_end, end + 1, self.newline_indexes)
+                        beg_mark, end_mark = get_beg_end_mark(
+                            orginal_end, end + 1, self.newline_indexes
+                        )
                         result = object_pairs_hook(pairs, beg_mark, end_mark)
                         return result, end + 1
                     except DuplicateError as err:
@@ -413,20 +443,22 @@ class CfnJSONDecoder(json.JSONDecoder):
                             pos=end,
                             errors=[
                                 build_match_from_node(
-                                    message='Duplicate found {}'.format(err),
+                                    message=f'Duplicate found {err}',
                                     node=err.mapping,
                                     key=err.key,
                                 ),
                                 build_match(
-                                    message='Duplicate found {}'.format(err),
+                                    message=f'Duplicate found {err}',
                                     doc=s,
                                     pos=end,
                                 ),
-                            ]
-                        )
+                            ],
+                        ) from err
                 pairs = {}
                 if object_hook is not None:
-                    beg_mark, end_mark = get_beg_end_mark(orginal_end, end + 1, self.newline_indexes)
+                    beg_mark, end_mark = get_beg_end_mark(
+                        orginal_end, end + 1, self.newline_indexes
+                    )
                     pairs = object_hook(pairs, beg_mark, end_mark)
                 return pairs, end + 1
 
@@ -440,7 +472,7 @@ class CfnJSONDecoder(json.JSONDecoder):
                             doc=s,
                             pos=end,
                         ),
-                    ]
+                    ],
                 )
         end += 1
         while True:
@@ -451,9 +483,9 @@ class CfnJSONDecoder(json.JSONDecoder):
             key = memo_get(key, key)
             # To skip some function call overhead we optimize the fast paths where
             # the JSON key separator is ": " or just ":".
-            if s[end:end + 1] != ':':
+            if s[end : end + 1] != ':':
                 end = _w(s, end).end()
-                if s[end:end + 1] != ':':
+                if s[end : end + 1] != ':':
                     raise JSONDecodeError(
                         doc=s,
                         pos=end,
@@ -463,7 +495,7 @@ class CfnJSONDecoder(json.JSONDecoder):
                                 doc=s,
                                 pos=end,
                             ),
-                        ]
+                        ],
                     )
             end += 1
 
@@ -475,7 +507,9 @@ class CfnJSONDecoder(json.JSONDecoder):
             except IndexError:
                 pass
 
-            beg_mark, end_mark = get_beg_end_mark(begin, begin + len(key), self.newline_indexes)
+            beg_mark, end_mark = get_beg_end_mark(
+                begin, begin + len(key), self.newline_indexes
+            )
             try:
                 value, end = scan_once(s, end)
             except StopIteration as err:
@@ -488,8 +522,8 @@ class CfnJSONDecoder(json.JSONDecoder):
                             doc=s,
                             pos=str(err),
                         ),
-                    ]
-                )
+                    ],
+                ) from err
             key_str = str_node(key, beg_mark, end_mark)
             pairs_append((key_str, value))
             try:
@@ -513,10 +547,10 @@ class CfnJSONDecoder(json.JSONDecoder):
                             doc=s,
                             pos=end - 1,
                         ),
-                    ]
+                    ],
                 )
             end = _w(s, end).end()
-            nextchar = s[end:end + 1]
+            nextchar = s[end : end + 1]
             end += 1
             if nextchar != '"':
                 raise JSONDecodeError(
@@ -528,11 +562,13 @@ class CfnJSONDecoder(json.JSONDecoder):
                             doc=s,
                             pos=end - 1,
                         ),
-                    ]
+                    ],
                 )
         if object_pairs_hook is not None:
             try:
-                beg_mark, end_mark = get_beg_end_mark(orginal_end, end, self.newline_indexes)
+                beg_mark, end_mark = get_beg_end_mark(
+                    orginal_end, end, self.newline_indexes
+                )
                 result = object_pairs_hook(pairs, beg_mark, end_mark)
             except DuplicateError as err:
                 raise JSONDecodeError(
@@ -540,21 +576,23 @@ class CfnJSONDecoder(json.JSONDecoder):
                     pos=end,
                     errors=[
                         build_match_from_node(
-                            message='Duplicate found {}'.format(err),
+                            message=f'Duplicate found {err}',
                             node=err.mapping,
                             key=err.key,
                         ),
                         build_match(
-                            message='Duplicate found {}'.format(err),
+                            message=f'Duplicate found {err}',
                             doc=s,
                             pos=end,
                         ),
-                    ]
-                )
+                    ],
+                ) from err
             return result, end
 
         pairs = dict(pairs)
         if object_hook is not None:
-            beg_mark, end_mark = get_beg_end_mark(orginal_end, end, self.newline_indexes)
+            beg_mark, end_mark = get_beg_end_mark(
+                orginal_end, end, self.newline_indexes
+            )
             pairs = object_hook(pairs, beg_mark, end_mark)
         return pairs, end

@@ -721,7 +721,7 @@
    "StringPrefix": "artifact"
   },
   "AWS Audit Manager": {
-   "ARNFormat": "arn:aws:auditmanager::${ResourceType}:${ResourceName}",
+   "ARNFormat": "arn:aws:auditmanager:::${ResourceType}/${ResourceName}",
    "ARNRegex": "^arn:aws:auditmanager::.+",
    "Actions": [
     "AssociateAssessmentReportEvidenceFolder",
@@ -891,8 +891,8 @@
    ]
   },
   "AWS Backup Gateway": {
-   "ARNFormat": "arn:aws:aws:backup-gateway:${Region}:${Account}:${ResourceType}/${ResourcePath}",
-   "ARNRegex": "^arn:?.*:aws:backup-gateway:.+:.+:.+",
+   "ARNFormat": "arn:aws:backup-gateway:${Region}:${Account}:${ResourceType}/${ResourcePath}",
+   "ARNRegex": "^arn:aws:*:backup-gateway:.+:.+:.+",
    "Actions": [
     "AssociateGatewayToServer",
     "Backup",
@@ -901,6 +901,7 @@
     "DeleteHypervisor",
     "DisassociateGatewayFromServer",
     "GetGateway",
+    "GetVirtualMachine",
     "ImportHypervisorConfiguration",
     "ListGateways",
     "ListHypervisors",
@@ -4588,8 +4589,8 @@
    ]
   },
   "AWS IoT Device Tester": {
-   "ARNFormat": "arn:aws:iot-device-tester:<region>:<account-id>:<resource-type>/<resource_name>",
-   "ARNRegex": "^arn:aws:iot-device-tester:.+:.+:.+",
+   "ARNFormat": "arn:${Partition}:iot-device-tester:${Region}:${Account}:${ResourceType}/${ResourceName}",
+   "ARNRegex": "^arn:.+:iot-device-tester:.+:.+:.+",
    "Actions": [
     "CheckVersion",
     "DownloadTestSuite",
@@ -7763,6 +7764,7 @@
    "Actions": [
     "CreateQuery",
     "ExtendQuery",
+    "GetExtensionAccounts",
     "GetQueryAnswer",
     "GetQueryExplanation"
    ],
@@ -9046,8 +9048,8 @@
    "StringPrefix": "clouddirectory"
   },
   "Amazon CloudFront": {
-   "ARNFormat": "arn:aws:cloudfront::${AccountId}:${ResourceType}/${ResourceId}",
-   "ARNRegex": "^arn:aws:cloudfront::[0-9]+:.+",
+   "ARNFormat": "arn:aws:cloudfront:${Region}:${Account}:${ResourceType}/${ResourceId}",
+   "ARNRegex": "^arn:aws:cloudfront:.+:[0-9]+:.+",
    "Actions": [
     "AssociateAlias",
     "CreateCachePolicy",
@@ -9428,8 +9430,8 @@
    ]
   },
   "Amazon CodeGuru": {
-   "ARNFormat": "arn:aws:codeguru:<region>:<account-id>:<resource-type>/<resource_name>",
-   "ARNRegex": "^arn:aws:codeguru:.+:.+:.+",
+   "ARNFormat": "arn:${Partition}:codeguru:${Region}:${Account}:${ResourceType}/${ResourceName}",
+   "ARNRegex": "^arn:${Partition}:codeguru:.+:.+:.+",
    "Actions": [
     "GetCodeGuruFreeTrialSummary"
    ],
@@ -10443,6 +10445,8 @@
     "CreateCarrierGateway",
     "CreateClientVpnEndpoint",
     "CreateClientVpnRoute",
+    "CreateCoipCidr",
+    "CreateCoipPool",
     "CreateCoipPoolPermission",
     "CreateCustomerGateway",
     "CreateDefaultSubnet",
@@ -10463,7 +10467,9 @@
     "CreateLaunchTemplate",
     "CreateLaunchTemplateVersion",
     "CreateLocalGatewayRoute",
+    "CreateLocalGatewayRouteTable",
     "CreateLocalGatewayRouteTablePermission",
+    "CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation",
     "CreateLocalGatewayRouteTableVpcAssociation",
     "CreateManagedPrefixList",
     "CreateNatGateway",
@@ -10515,6 +10521,8 @@
     "DeleteCarrierGateway",
     "DeleteClientVpnEndpoint",
     "DeleteClientVpnRoute",
+    "DeleteCoipCidr",
+    "DeleteCoipPool",
     "DeleteCoipPoolPermission",
     "DeleteCustomerGateway",
     "DeleteDhcpOptions",
@@ -10531,7 +10539,9 @@
     "DeleteLaunchTemplate",
     "DeleteLaunchTemplateVersions",
     "DeleteLocalGatewayRoute",
+    "DeleteLocalGatewayRouteTable",
     "DeleteLocalGatewayRouteTablePermission",
+    "DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation",
     "DeleteLocalGatewayRouteTableVpcAssociation",
     "DeleteManagedPrefixList",
     "DeleteNatGateway",
@@ -11020,7 +11030,6 @@
     "ec2:ReplayWindowSizePackets",
     "ec2:RequesterVpc",
     "ec2:ReservedInstancesOfferingType",
-    "ec2:ResourceTag/",
     "ec2:ResourceTag/${TagKey}",
     "ec2:RoleDelivery",
     "ec2:RootDeviceType",
@@ -11050,7 +11059,7 @@
    ]
   },
   "Amazon EC2 Auto Scaling": {
-   "ARNFormat": "arn:aws:autoscaling:<region>:<account>:<relative-id>",
+   "ARNFormat": "arn:aws:autoscaling:${Region}:${Account}:${RelativeId}",
    "ARNRegex": "^arn:aws:autoscaling:.+:.+:.+",
    "Actions": [
     "AttachInstances",
@@ -11228,6 +11237,7 @@
     "CreateApplication",
     "DeleteApplication",
     "GetApplication",
+    "GetDashboardForJobRun",
     "GetJobRun",
     "ListApplications",
     "ListJobRuns",
@@ -13329,7 +13339,7 @@
   },
   "Amazon Lookout for Equipment": {
    "ARNFormat": "arn:aws:lookoutequipment:${Region}:${Account}:${ResourceType}/${ResourceName}/${ResourceId}",
-   "ARNRegex": "^arn:aws:lookoutequipment:.+",
+   "ARNRegex": "^arn:aws:lookoutequipment:.+:.+:.+",
    "Actions": [
     "CreateDataset",
     "CreateInferenceScheduler",
@@ -13349,6 +13359,7 @@
     "Describelabel",
     "ListDataIngestionJobs",
     "ListDatasets",
+    "ListInferenceEvents",
     "ListInferenceExecutions",
     "ListInferenceSchedulers",
     "ListLabelGroups",
@@ -16736,15 +16747,23 @@
     "ImportTerminology",
     "ListLanguages",
     "ListParallelData",
+    "ListTagsForResource",
     "ListTerminologies",
     "ListTextTranslationJobs",
     "StartTextTranslationJob",
     "StopTextTranslationJob",
+    "TagResource",
     "TranslateText",
+    "UntagResource",
     "UpdateParallelData"
    ],
    "HasResource": true,
-   "StringPrefix": "translate"
+   "StringPrefix": "translate",
+   "conditionKeys": [
+    "aws:RequestTag/${TagKey}",
+    "aws:ResourceTag/${TagKey}",
+    "aws:TagKeys"
+   ]
   },
   "Amazon WorkDocs": {
    "Actions": [
@@ -16860,6 +16879,7 @@
     "AssociateMemberToGroup",
     "CancelMailboxExportJob",
     "CreateAlias",
+    "CreateAvailabilityConfiguration",
     "CreateGroup",
     "CreateInboundMailFlowRule",
     "CreateMailDomain",
@@ -16872,6 +16892,7 @@
     "CreateUser",
     "DeleteAccessControlRule",
     "DeleteAlias",
+    "DeleteAvailabilityConfiguration",
     "DeleteEmailMonitoringConfiguration",
     "DeleteGroup",
     "DeleteInboundMailFlowRule",
@@ -16926,6 +16947,7 @@
     "GetMobilePolicyDetails",
     "ListAccessControlRules",
     "ListAliases",
+    "ListAvailabilityConfigurations",
     "ListGroupMembers",
     "ListGroups",
     "ListInboundMailFlowRules",
@@ -16962,9 +16984,11 @@
     "SetMobilePolicyDetails",
     "StartMailboxExportJob",
     "TagResource",
+    "TestAvailabilityConfiguration",
     "TestInboundMailFlowRules",
     "TestOutboundMailFlowRules",
     "UntagResource",
+    "UpdateAvailabilityConfiguration",
     "UpdateDefaultMailDomain",
     "UpdateInboundMailFlowRule",
     "UpdateMailboxQuota",

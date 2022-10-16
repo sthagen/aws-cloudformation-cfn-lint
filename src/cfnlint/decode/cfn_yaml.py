@@ -19,9 +19,11 @@ from cfnlint.decode.node import str_node, dict_node, list_node, sub_node
 
 try:
     from yaml._yaml import CParser as Parser  # pylint: disable=ungrouped-imports,
+
     cyaml = True
 except ImportError:
     from yaml.parser import Parser  # type: ignore # pylint: disable=ungrouped-imports
+
     cyaml = False
 
 UNCONVERTED_SUFFIXES = ['Ref', 'Condition']
@@ -41,7 +43,7 @@ class CfnParseError(ConstructorError):
             errors = [errors]
 
         # Call the base class constructor with the parameters it needs
-        super(CfnParseError, self).__init__(errors[0].message)
+        super().__init__(errors[0].message)
 
         # Now for your custom code...
         self.filename = filename
@@ -50,8 +52,14 @@ class CfnParseError(ConstructorError):
 
 def build_match(filename, message, line_number, column_number, key):
     return cfnlint.rules.Match(
-        line_number + 1, column_number + 1, line_number + 1,
-        column_number + 1 + len(key), filename, cfnlint.rules.ParseError(), message=message)
+        line_number + 1,
+        column_number + 1,
+        line_number + 1,
+        column_number + 1 + len(key),
+        filename,
+        cfnlint.rules.ParseError(),
+        message=message,
+    )
 
 
 class NodeConstructor(SafeConstructor):
@@ -61,7 +69,7 @@ class NodeConstructor(SafeConstructor):
 
     def __init__(self, filename):
         # Call the base class constructor
-        super(NodeConstructor, self).__init__()
+        super().__init__()
 
         self.filename = filename
 
@@ -88,25 +96,23 @@ class NodeConstructor(SafeConstructor):
                         [
                             build_match(
                                 filename=self.filename,
-                                message='Duplicate resource found "{}" (line {})'.format(
-                                    key, key_dup.start_mark.line + 1),
+                                message=f'Duplicate resource found "{key}" (line {key_dup.start_mark.line + 1})',
                                 line_number=key_dup.start_mark.line,
                                 column_number=key_dup.start_mark.column,
-                                key=key
+                                key=key,
                             ),
                             build_match(
                                 filename=self.filename,
-                                message='Duplicate resource found "{}" (line {})'.format(
-                                    key, key_node.start_mark.line + 1),
+                                message=f'Duplicate resource found "{key}" (line {key_node.start_mark.line + 1})',
                                 line_number=key_node.start_mark.line,
                                 column_number=key_node.start_mark.column,
-                                key=key
+                                key=key,
                             ),
-                        ]
+                        ],
                     )
             try:
                 mapping[key] = value
-            except:
+            except Exception as exc:
                 raise CfnParseError(
                     self.filename,
                     [
@@ -115,12 +121,12 @@ class NodeConstructor(SafeConstructor):
                             message=f'Unhashable type "{key}" (line {key.start_mark.line + 1})',
                             line_number=key.start_mark.line,
                             column_number=key.start_mark.column,
-                            key=key
+                            key=key,
                         ),
-                    ]
-                )
+                    ],
+                ) from exc
 
-        obj, = SafeConstructor.construct_yaml_map(self, node)
+        (obj,) = SafeConstructor.construct_yaml_map(self, node)
 
         if len(mapping) == 1:
             if 'Fn::Sub' in mapping:
@@ -134,28 +140,29 @@ class NodeConstructor(SafeConstructor):
         return str_node(obj, node.start_mark, node.end_mark)
 
     def construct_yaml_seq(self, node):
-        obj, = SafeConstructor.construct_yaml_seq(self, node)
+        (obj,) = SafeConstructor.construct_yaml_seq(self, node)
         assert isinstance(obj, list)
         return list_node(obj, node.start_mark, node.end_mark)
 
 
-NodeConstructor.add_constructor( # type: ignore
-    'tag:yaml.org,2002:map',
-    NodeConstructor.construct_yaml_map)
+NodeConstructor.add_constructor(  # type: ignore
+    'tag:yaml.org,2002:map', NodeConstructor.construct_yaml_map
+)
 
-NodeConstructor.add_constructor( # type: ignore
-    'tag:yaml.org,2002:str',
-    NodeConstructor.construct_yaml_str)
+NodeConstructor.add_constructor(  # type: ignore
+    'tag:yaml.org,2002:str', NodeConstructor.construct_yaml_str
+)
 
-NodeConstructor.add_constructor( # type: ignore
-    'tag:yaml.org,2002:seq',
-    NodeConstructor.construct_yaml_seq)
+NodeConstructor.add_constructor(  # type: ignore
+    'tag:yaml.org,2002:seq', NodeConstructor.construct_yaml_seq
+)
 
-
+# pylint: disable=too-many-ancestors
 class MarkedLoader(Reader, Scanner, Parser, Composer, NodeConstructor, Resolver):
     """
     Class for marked loading YAML
     """
+
     # pylint: disable=non-parent-init-called,super-init-not-called
 
     def __init__(self, stream, filename):
@@ -177,7 +184,7 @@ def multi_constructor(loader, tag_suffix, node):
     """
 
     if tag_suffix not in UNCONVERTED_SUFFIXES:
-        tag_suffix = '{}{}'.format(FN_PREFIX, tag_suffix)
+        tag_suffix = f'{FN_PREFIX}{tag_suffix}'
 
     constructor = None
     if tag_suffix == 'Fn::GetAtt':
@@ -189,7 +196,7 @@ def multi_constructor(loader, tag_suffix, node):
     elif isinstance(node, MappingNode):
         constructor = loader.construct_mapping
     else:
-        raise 'Bad tag: !{}'.format(tag_suffix)
+        raise f'Bad tag: !{tag_suffix}'
 
     if tag_suffix == 'Fn::Sub':
         return sub_node({tag_suffix: constructor(node)}, node.start_mark, node.end_mark)
@@ -207,7 +214,7 @@ def construct_getatt(node):
     if isinstance(node.value, list):
         return list_node([s.value for s in node.value], node.start_mark, node.end_mark)
 
-    raise ValueError('Unexpected node type: {}'.format(type(node.value)))
+    raise ValueError(f'Unexpected node type: {type(node.value)}')
 
 
 def loads(yaml_string, fname=None):
