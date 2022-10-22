@@ -1,3 +1,17 @@
+### v0.68.1
+###### CloudFormation Specifications
+- Patch in `db.serverless` into `AWS::RDS::DBInstance.DBInstanceClass` (pull #[2424](https://github.com/aws-cloudformation/cfn-lint/pull/2424))
+- Update CloudFormation specs to `94.0.0` (pull #[2420](https://github.com/aws-cloudformation/cfn-lint/pull/2420))
+
+### v0.68.0
+###### Features
+- Ability to override location of the finding (pull #[2410](https://github.com/aws-cloudformation/cfn-lint/pull/2410))
+###### CloudFormation Specifications
+- Patch in `DBClusterResourceId` for as an Attribute of `AWS::RDS::DBCluster` (pull #[2407](https://github.com/aws-cloudformation/cfn-lint/pull/2407))
+- Update CloudFormation specs to `93.0.0` (pull #[2409](https://github.com/aws-cloudformation/cfn-lint/pull/2409))
+- Update `AllowedPatternRegex` for `AWS::CloudWatch::Alarm.MetricDataQuery.Id`  (pull #[2414](https://github.com/aws-cloudformation/cfn-lint/pull/2414)
+- Add GetAtt to AWS::KMS::ReplicaKey.Arn for KmsKey.Arn (pull #[2417](https://github.com/aws-cloudformation/cfn-lint/pull/2417))
+
 ### v0.67.0
 ###### Features
 - Support child rules allowing rules to add another rule in their match responses (pull #[2393](https://github.com/aws-cloudformation/cfn-lint/pull/2393))
