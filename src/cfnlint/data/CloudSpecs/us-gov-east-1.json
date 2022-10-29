@@ -38336,6 +38336,12 @@
      "PrimitiveType": "String",
      "Required": true,
      "UpdateType": "Immutable"
+    },
+    "UsageMode": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-usagemode",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Immutable"
     }
    }
   },
@@ -69819,6 +69825,7 @@
     "db.r6i.8xlarge",
     "db.r6i.large",
     "db.r6i.xlarge",
+    "db.serverless",
     "db.t2.2xlarge",
     "db.t2.large",
     "db.t2.medium",
@@ -70516,7 +70523,7 @@
    "StringMin": 1
   },
   "AWS::SSO::PermissionSet.Description": {
-   "AllowedPatternRegex": "[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u00A0-\\u00FF]*",
+   "AllowedPatternRegex": "[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u00A1-\\u00FF]*",
    "StringMax": 700,
    "StringMin": 1
   },
@@ -71334,7 +71341,8 @@
   "AWS::WorkSpaces::Workspace.RunningMode": {
    "AllowedValues": [
     "ALWAYS_ON",
-    "AUTO_STOP"
+    "AUTO_STOP",
+    "MANUAL"
    ]
   },
   "AppStreamInstanceType": {},
