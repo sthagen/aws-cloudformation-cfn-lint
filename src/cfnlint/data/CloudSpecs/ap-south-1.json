@@ -473,6 +473,7 @@
   "AWS::AppStream::AppBlock.S3Location": "CACHED",
   "AWS::AppStream::AppBlock.ScriptDetails": "CACHED",
   "AWS::AppStream::Application.S3Location": "CACHED",
+  "AWS::AppStream::DirectoryConfig.CertificateBasedAuthProperties": "CACHED",
   "AWS::AppStream::DirectoryConfig.ServiceAccountCredentials": "CACHED",
   "AWS::AppStream::Entitlement.Attribute": "CACHED",
   "AWS::AppStream::Fleet.ComputeCapacity": "CACHED",
@@ -603,6 +604,7 @@
   "AWS::Backup::Framework.FrameworkControl": "CACHED",
   "AWS::Batch::ComputeEnvironment.ComputeResources": "CACHED",
   "AWS::Batch::ComputeEnvironment.Ec2ConfigurationObject": "CACHED",
+  "AWS::Batch::ComputeEnvironment.EksConfiguration": "CACHED",
   "AWS::Batch::ComputeEnvironment.LaunchTemplateSpecification": "CACHED",
   "AWS::Batch::ComputeEnvironment.UpdatePolicy": "CACHED",
   "AWS::Batch::JobDefinition.AuthorizationConfig": "CACHED",
@@ -1124,6 +1126,7 @@
   "AWS::EC2::LaunchTemplate.MemoryMiB": "CACHED",
   "AWS::EC2::LaunchTemplate.MetadataOptions": "CACHED",
   "AWS::EC2::LaunchTemplate.Monitoring": "CACHED",
+  "AWS::EC2::LaunchTemplate.NetworkBandwidthGbps": "CACHED",
   "AWS::EC2::LaunchTemplate.NetworkInterface": "CACHED",
   "AWS::EC2::LaunchTemplate.NetworkInterfaceCount": "CACHED",
   "AWS::EC2::LaunchTemplate.Placement": "CACHED",
@@ -1261,6 +1264,7 @@
   "AWS::EFS::FileSystem.ElasticFileSystemTag": "CACHED",
   "AWS::EFS::FileSystem.LifecyclePolicy": "CACHED",
   "AWS::EKS::Cluster.ClusterLogging": "CACHED",
+  "AWS::EKS::Cluster.ControlPlanePlacement": "CACHED",
   "AWS::EKS::Cluster.EncryptionConfig": "CACHED",
   "AWS::EKS::Cluster.KubernetesNetworkConfig": "CACHED",
   "AWS::EKS::Cluster.Logging": "CACHED",
@@ -2821,6 +2825,7 @@
   "AWS::MediaPackage::PackagingConfiguration.DashEncryption": "CACHED",
   "AWS::MediaPackage::PackagingConfiguration.DashManifest": "CACHED",
   "AWS::MediaPackage::PackagingConfiguration.DashPackage": "CACHED",
+  "AWS::MediaPackage::PackagingConfiguration.EncryptionContractConfiguration": "CACHED",
   "AWS::MediaPackage::PackagingConfiguration.HlsEncryption": "CACHED",
   "AWS::MediaPackage::PackagingConfiguration.HlsManifest": "CACHED",
   "AWS::MediaPackage::PackagingConfiguration.HlsPackage": "CACHED",
@@ -2843,6 +2848,7 @@
   "AWS::NetworkFirewall::FirewallPolicy.FirewallPolicy": "CACHED",
   "AWS::NetworkFirewall::FirewallPolicy.PublishMetricAction": "CACHED",
   "AWS::NetworkFirewall::FirewallPolicy.StatefulEngineOptions": "CACHED",
+  "AWS::NetworkFirewall::FirewallPolicy.StatefulRuleGroupOverride": "CACHED",
   "AWS::NetworkFirewall::FirewallPolicy.StatefulRuleGroupReference": "CACHED",
   "AWS::NetworkFirewall::FirewallPolicy.StatelessRuleGroupReference": "CACHED",
   "AWS::NetworkFirewall::LoggingConfiguration.LogDestinationConfig": "CACHED",
@@ -3102,6 +3108,8 @@
   "AWS::ResilienceHub::App.PhysicalResourceId": "CACHED",
   "AWS::ResilienceHub::App.ResourceMapping": "CACHED",
   "AWS::ResilienceHub::ResiliencyPolicy.FailurePolicy": "CACHED",
+  "AWS::ResourceExplorer2::View.Filters": "CACHED",
+  "AWS::ResourceExplorer2::View.IncludedProperty": "CACHED",
   "AWS::ResourceGroups::Group.ConfigurationItem": "CACHED",
   "AWS::ResourceGroups::Group.ConfigurationParameter": "CACHED",
   "AWS::ResourceGroups::Group.Query": "CACHED",
@@ -3208,11 +3216,14 @@
   "AWS::S3Outposts::Bucket.LifecycleConfiguration": "CACHED",
   "AWS::S3Outposts::Bucket.Rule": "CACHED",
   "AWS::S3Outposts::Endpoint.NetworkInterface": "CACHED",
+  "AWS::SES::ConfigurationSet.DashboardOptions": "CACHED",
   "AWS::SES::ConfigurationSet.DeliveryOptions": "CACHED",
+  "AWS::SES::ConfigurationSet.GuardianOptions": "CACHED",
   "AWS::SES::ConfigurationSet.ReputationOptions": "CACHED",
   "AWS::SES::ConfigurationSet.SendingOptions": "CACHED",
   "AWS::SES::ConfigurationSet.SuppressionOptions": "CACHED",
   "AWS::SES::ConfigurationSet.TrackingOptions": "CACHED",
+  "AWS::SES::ConfigurationSet.VdmOptions": "CACHED",
   "AWS::SES::ConfigurationSetEventDestination.CloudWatchDestination": "CACHED",
   "AWS::SES::ConfigurationSetEventDestination.DimensionConfiguration": "CACHED",
   "AWS::SES::ConfigurationSetEventDestination.EventDestination": "CACHED",
@@ -3225,6 +3236,8 @@
   "AWS::SES::EmailIdentity.FeedbackAttributes": "CACHED",
   "AWS::SES::EmailIdentity.MailFromAttributes": "CACHED",
   "AWS::SES::Template.Template": "CACHED",
+  "AWS::SES::VdmAttributes.DashboardAttributes": "CACHED",
+  "AWS::SES::VdmAttributes.GuardianAttributes": "CACHED",
   "AWS::SNS::Topic.Subscription": "CACHED",
   "AWS::SSM::Association.InstanceAssociationOutputLocation": "CACHED",
   "AWS::SSM::Association.ParameterValues": "CACHED",
@@ -3613,7 +3626,7 @@
   "Alexa::ASK::Skill.SkillPackage": "CACHED",
   "Tag": "CACHED"
  },
- "ResourceSpecificationVersion": "96.0.0",
+ "ResourceSpecificationVersion": "97.0.0",
  "ResourceTypes": {
   "AWS::ACMPCA::Certificate": "CACHED",
   "AWS::ACMPCA::CertificateAuthority": "CACHED",
@@ -3651,29 +3664,7 @@
   "AWS::ApiGatewayV2::ApiGatewayManagedOverrides": "CACHED",
   "AWS::ApiGatewayV2::ApiMapping": "CACHED",
   "AWS::ApiGatewayV2::Authorizer": "CACHED",
-  "AWS::ApiGatewayV2::Deployment": {
-   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-deployment.html",
-   "Properties": {
-    "ApiId": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-deployment.html#cfn-apigatewayv2-deployment-apiid",
-     "PrimitiveType": "String",
-     "Required": true,
-     "UpdateType": "Immutable"
-    },
-    "Description": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-deployment.html#cfn-apigatewayv2-deployment-description",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable"
-    },
-    "StageName": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-deployment.html#cfn-apigatewayv2-deployment-stagename",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable"
-    }
-   }
-  },
+  "AWS::ApiGatewayV2::Deployment": "CACHED",
   "AWS::ApiGatewayV2::DomainName": "CACHED",
   "AWS::ApiGatewayV2::Integration": "CACHED",
   "AWS::ApiGatewayV2::IntegrationResponse": "CACHED",
@@ -3702,30 +3693,7 @@
   "AWS::AppStream::Application": "CACHED",
   "AWS::AppStream::ApplicationEntitlementAssociation": "CACHED",
   "AWS::AppStream::ApplicationFleetAssociation": "CACHED",
-  "AWS::AppStream::DirectoryConfig": {
-   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html",
-   "Properties": {
-    "DirectoryName": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html#cfn-appstream-directoryconfig-directoryname",
-     "PrimitiveType": "String",
-     "Required": true,
-     "UpdateType": "Immutable"
-    },
-    "OrganizationalUnitDistinguishedNames": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html#cfn-appstream-directoryconfig-organizationalunitdistinguishednames",
-     "PrimitiveItemType": "String",
-     "Required": true,
-     "Type": "List",
-     "UpdateType": "Mutable"
-    },
-    "ServiceAccountCredentials": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html#cfn-appstream-directoryconfig-serviceaccountcredentials",
-     "Required": true,
-     "Type": "ServiceAccountCredentials",
-     "UpdateType": "Mutable"
-    }
-   }
-  },
+  "AWS::AppStream::DirectoryConfig": "CACHED",
   "AWS::AppStream::Entitlement": "CACHED",
   "AWS::AppStream::Fleet": "CACHED",
   "AWS::AppStream::ImageBuilder": "CACHED",
@@ -4116,71 +4084,8 @@
   "AWS::IVS::PlaybackKeyPair": "CACHED",
   "AWS::IVS::RecordingConfiguration": "CACHED",
   "AWS::IVS::StreamKey": "CACHED",
-  "AWS::IdentityStore::Group": {
-   "Attributes": {
-    "GroupId": {
-     "PrimitiveType": "String"
-    }
-   },
-   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-group.html",
-   "Properties": {
-    "Description": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-group.html#cfn-identitystore-group-description",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable"
-    },
-    "DisplayName": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-group.html#cfn-identitystore-group-displayname",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable"
-    },
-    "IdentityStoreId": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-group.html#cfn-identitystore-group-identitystoreid",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Immutable",
-     "Value": {
-      "ValueType": "AWS::IdentityStore::Group.IdentityStoreId"
-     }
-    }
-   }
-  },
-  "AWS::IdentityStore::GroupMembership": {
-   "Attributes": {
-    "MembershipId": {
-     "PrimitiveType": "String"
-    }
-   },
-   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-groupmembership.html",
-   "Properties": {
-    "GroupId": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-groupmembership.html#cfn-identitystore-groupmembership-groupid",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable",
-     "Value": {
-      "ValueType": "AWS::IdentityStore::GroupMembership.GroupId"
-     }
-    },
-    "IdentityStoreId": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-groupmembership.html#cfn-identitystore-groupmembership-identitystoreid",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Immutable",
-     "Value": {
-      "ValueType": "AWS::IdentityStore::GroupMembership.IdentityStoreId"
-     }
-    },
-    "MemberId": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-groupmembership.html#cfn-identitystore-groupmembership-memberid",
-     "Required": false,
-     "Type": "MemberId",
-     "UpdateType": "Mutable"
-    }
-   }
-  },
+  "AWS::IdentityStore::Group": "CACHED",
+  "AWS::IdentityStore::GroupMembership": "CACHED",
   "AWS::ImageBuilder::Component": "CACHED",
   "AWS::ImageBuilder::ContainerRecipe": "CACHED",
   "AWS::ImageBuilder::DistributionConfiguration": "CACHED",
@@ -4565,6 +4470,9 @@
   "AWS::Rekognition::StreamProcessor": "CACHED",
   "AWS::ResilienceHub::App": "CACHED",
   "AWS::ResilienceHub::ResiliencyPolicy": "CACHED",
+  "AWS::ResourceExplorer2::DefaultViewAssociation": "CACHED",
+  "AWS::ResourceExplorer2::Index": "CACHED",
+  "AWS::ResourceExplorer2::View": "CACHED",
   "AWS::ResourceGroups::Group": "CACHED",
   "AWS::RolesAnywhere::CRL": "CACHED",
   "AWS::RolesAnywhere::Profile": "CACHED",
@@ -4604,6 +4512,7 @@
   "AWS::SES::DedicatedIpPool": "CACHED",
   "AWS::SES::EmailIdentity": "CACHED",
   "AWS::SES::Template": "CACHED",
+  "AWS::SES::VdmAttributes": "CACHED",
   "AWS::SNS::Subscription": "CACHED",
   "AWS::SNS::Topic": "CACHED",
   "AWS::SNS::TopicPolicy": "CACHED",
@@ -6406,6 +6315,8 @@
   "AWS::MediaPackage::PackagingConfiguration.DashManifest.ScteMarkersSource": "CACHED",
   "AWS::MediaPackage::PackagingConfiguration.DashPackage.PeriodTriggers": "CACHED",
   "AWS::MediaPackage::PackagingConfiguration.DashPackage.SegmentTemplateFormat": "CACHED",
+  "AWS::MediaPackage::PackagingConfiguration.EncryptionContractConfiguration.PresetSpeke20Audio": "CACHED",
+  "AWS::MediaPackage::PackagingConfiguration.EncryptionContractConfiguration.PresetSpeke20Video": "CACHED",
   "AWS::MediaPackage::PackagingConfiguration.HlsEncryption.EncryptionMethod": "CACHED",
   "AWS::MediaPackage::PackagingConfiguration.HlsManifest.AdMarkers": "CACHED",
   "AWS::MediaPackage::PackagingConfiguration.StreamSelection.StreamOrder": "CACHED",
@@ -6414,6 +6325,7 @@
   "AWS::MemoryDB::ACL.ACLName": "CACHED",
   "AWS::MemoryDB::Cluster.ACLName": "CACHED",
   "AWS::MemoryDB::Cluster.ClusterName": "CACHED",
+  "AWS::MemoryDB::Cluster.DataTiering": "CACHED",
   "AWS::MemoryDB::SubnetGroup.SubnetGroupName": "CACHED",
   "AWS::MemoryDB::User.UserName": "CACHED",
   "AWS::NetworkFirewall::Firewall.Description": "CACHED",
@@ -6425,6 +6337,7 @@
   "AWS::NetworkFirewall::FirewallPolicy.Dimension.Value": "CACHED",
   "AWS::NetworkFirewall::FirewallPolicy.FirewallPolicyName": "CACHED",
   "AWS::NetworkFirewall::FirewallPolicy.StatefulEngineOptions.RuleOrder": "CACHED",
+  "AWS::NetworkFirewall::FirewallPolicy.StatefulRuleGroupOverride.Action": "CACHED",
   "AWS::NetworkFirewall::FirewallPolicy.StatefulRuleGroupReference.Priority": "CACHED",
   "AWS::NetworkFirewall::FirewallPolicy.StatefulRuleGroupReference.ResourceArn": "CACHED",
   "AWS::NetworkFirewall::FirewallPolicy.StatelessRuleGroupReference.Priority": "CACHED",
@@ -6635,6 +6548,13 @@
     "db.m6g.8xlarge",
     "db.m6g.large",
     "db.m6g.xlarge",
+    "db.m6gd.12xlarge",
+    "db.m6gd.16xlarge",
+    "db.m6gd.2xlarge",
+    "db.m6gd.4xlarge",
+    "db.m6gd.8xlarge",
+    "db.m6gd.large",
+    "db.m6gd.xlarge",
     "db.m6i.12xlarge",
     "db.m6i.16xlarge",
     "db.m6i.24xlarge",
@@ -6690,6 +6610,13 @@
     "db.r6g.8xlarge",
     "db.r6g.large",
     "db.r6g.xlarge",
+    "db.r6gd.12xlarge",
+    "db.r6gd.16xlarge",
+    "db.r6gd.2xlarge",
+    "db.r6gd.4xlarge",
+    "db.r6gd.8xlarge",
+    "db.r6gd.large",
+    "db.r6gd.xlarge",
     "db.r6i.12xlarge",
     "db.r6i.16xlarge",
     "db.r6i.24xlarge",
@@ -6786,6 +6713,8 @@
   "AWS::ResilienceHub::ResiliencyPolicy.DataLocationConstraint": "CACHED",
   "AWS::ResilienceHub::ResiliencyPolicy.PolicyName": "CACHED",
   "AWS::ResilienceHub::ResiliencyPolicy.Tier": "CACHED",
+  "AWS::ResourceExplorer2::Index.Type": "CACHED",
+  "AWS::ResourceExplorer2::View.ViewName": "CACHED",
   "AWS::ResourceGroups::Group.ResourceQuery.Type": "CACHED",
   "AWS::RolesAnywhere::CRL.TrustAnchorArn": "CACHED",
   "AWS::RolesAnywhere::Profile.DurationSeconds": "CACHED",
@@ -6884,7 +6813,9 @@
   "AWS::S3Outposts::Endpoint.OutpostId": "CACHED",
   "AWS::S3Outposts::Endpoint.SecurityGroupId": "CACHED",
   "AWS::S3Outposts::Endpoint.SubnetId": "CACHED",
+  "AWS::SES::ConfigurationSet.DashboardOptions.EngagementMetrics": "CACHED",
   "AWS::SES::ConfigurationSet.DeliveryOptions.TlsPolicy": "CACHED",
+  "AWS::SES::ConfigurationSet.GuardianOptions.OptimizedSharedDelivery": "CACHED",
   "AWS::SES::ConfigurationSet.Name": "CACHED",
   "AWS::SES::ConfigurationSet.SuppressionOptions.SuppressedReasons": "CACHED",
   "AWS::SES::ConfigurationSetEventDestination.DimensionConfiguration.DefaultDimensionValue": "CACHED",
@@ -6898,6 +6829,8 @@
   "AWS::SES::EmailIdentity.DkimSigningAttributes.NextSigningKeyLength": "CACHED",
   "AWS::SES::EmailIdentity.MailFromAttributes.BehaviorOnMxFailure": "CACHED",
   "AWS::SES::Template.Template.TemplateName": "CACHED",
+  "AWS::SES::VdmAttributes.DashboardAttributes.EngagementMetrics": "CACHED",
+  "AWS::SES::VdmAttributes.GuardianAttributes.OptimizedSharedDelivery": "CACHED",
   "AWS::SNS::Topic.TopicName": "CACHED",
   "AWS::SQS::Queue.DelaySeconds": "CACHED",
   "AWS::SQS::Queue.KmsDataKeyReusePeriodSeconds": "CACHED",
