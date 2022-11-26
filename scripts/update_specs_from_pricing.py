@@ -24,7 +24,9 @@ region_map = {
     'Asia Pacific (Hong Kong)': 'ap-east-1',
     'Asia Pacific (Jakarta)': 'ap-southeast-3',
     'Asia Pacific (Mumbai)': 'ap-south-1',
+    'Asia Pacific (Hyderabad)': 'ap-south-2',
     'Asia Pacific (Osaka)': 'ap-northeast-3',
+    'Asia Pacific (Osaka-Local)': 'ap-northeast-3',
     'Asia Pacific (Seoul)': 'ap-northeast-2',
     'Asia Pacific (Singapore)': 'ap-southeast-1',
     'Asia Pacific (Sydney)': 'ap-southeast-2',
@@ -32,12 +34,13 @@ region_map = {
     'Canada (Central)': 'ca-central-1',
     'China (Beijing)': 'cn-north-1',
     'China (Ningxia)': 'cn-northwest-1',
-    'EU (Zurich)': 'eu-central-1',
-    'EU (Frankfurt)': 'eu-central-2',
+    'EU (Frankfurt)': 'eu-central-1',
+    'Europe (Zurich)': 'eu-central-2',
     'EU (Ireland)': 'eu-west-1',
     'EU (London)': 'eu-west-2',
     'EU (Milan)': 'eu-south-1',
     'EU (Paris)': 'eu-west-3',
+    'Europe (Spain)': 'eu-south-2',
     'EU (Stockholm)': 'eu-north-1',
     'Middle East (Bahrain)': 'me-south-1',
     'Middle East (UAE)': 'me-central-1',
@@ -82,7 +85,7 @@ def update_outputs(key, values, outputs):
 
 
 def get_paginator(service):
-    LOGGER.info('Get ' + service + ' pricing')
+    LOGGER.info('Get ' + service + ' pricing paginator')
     return client.get_paginator('get_products').paginate(
         ServiceCode=service,
         FormatVersion='aws_v1',

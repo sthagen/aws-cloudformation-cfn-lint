@@ -1,3 +1,18 @@
+### v0.72.0
+###### Features
+- Add more info into the graph including outputs and parameters(pull #[2452](https://github.com/aws-cloudformation/cfn-lint/pull/2452))
+###### CloudFormation Specifications
+- Update CloudFormation specs to `99.0.0` (pull #[2486](https://github.com/aws-cloudformation/cfn-lint/pull/2486))
+- Add `eu-south-2` region (pull #[2490](https://github.com/aws-cloudformation/cfn-lint/pull/2490))
+###### Fixes
+- Make sure regex patterns with `\w` are validating against ASCII (pull #[2487](https://github.com/aws-cloudformation/cfn-lint/pull/2487))
+
+### v0.71.1
+###### Features
+###### CloudFormation Specifications
+- Add support for region `eu-central-2` (pull #[2478](https://github.com/aws-cloudformation/cfn-lint/pull/2478))
+- Update CloudFormation specs to `97.0.0` (pull #[2475](https://github.com/aws-cloudformation/cfn-lint/pull/2475))
+
 ### v0.71.0
 ###### Features
 - Reduce storage on disk by reducing regional specs to only have differences from `us-east-1` spec (pull #[2457](https://github.com/aws-cloudformation/cfn-lint/pull/2457))
