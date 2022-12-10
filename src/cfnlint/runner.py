@@ -4,10 +4,11 @@ SPDX-License-Identifier: MIT-0
 """
 import logging
 from typing import List, Optional, Sequence, Union
+
+from cfnlint.graph import Graph
+from cfnlint.rules import Match, RulesCollection
 from cfnlint.template import Template
 from cfnlint.transform import Transform
-from .rules import Match, RulesCollection
-
 
 LOGGER = logging.getLogger(__name__)
 
@@ -33,10 +34,10 @@ class Runner:
 
     def transform(self):
         """Transform logic"""
-        LOGGER.debug('Transform templates if needed')
-        sam_transform = 'AWS::Serverless-2016-10-31'
+        LOGGER.debug("Transform templates if needed")
+        sam_transform = "AWS::Serverless-2016-10-31"
         matches = []
-        transform_declaration = self.cfn.template.get('Transform', [])
+        transform_declaration = self.cfn.template.get("Transform", [])
         transform_type = (
             transform_declaration
             if isinstance(transform_declaration, list)
@@ -48,15 +49,16 @@ class Runner:
         if sam_transform not in transform_type:
             return matches
         # Save the Globals section so its available for rule processing
-        self.cfn.transform_pre['Globals'] = self.cfn.template.get('Globals', {})
+        self.cfn.transform_pre["Globals"] = self.cfn.template.get("Globals", {})
         transform = Transform(self.filename, self.cfn.template, self.cfn.regions[0])
         matches = transform.transform_template()
         self.cfn.template = transform.template()
+        self.cfn.graph = Graph(self.cfn)
         return matches
 
     def run(self) -> List[Match]:
         """Run rules"""
-        LOGGER.info('Run scan of template %s', self.filename)
+        LOGGER.info("Run scan of template %s", self.filename)
         matches = []
         if self.cfn.template is not None:
             matches.extend(self.rules.run(self.filename, self.cfn))
@@ -77,8 +79,8 @@ class Runner:
                             break
                     else:
                         for directive in directives.get(match.rule.id):
-                            start = directive.get('start')
-                            end = directive.get('end')
+                            start = directive.get("start")
+                            end = directive.get("end")
                             if start[0] < match.linenumber < end[0]:
                                 break
                             if (
