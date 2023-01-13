@@ -1,3 +1,15 @@
+### v0.72.8
+###### Features
+- Support `Fn::FindInMap` [enhancements](https://github.com/aws-cloudformation/cfn-language-discussion/commit/42cec9ce0d980a0832dc0fd1aed5750980280892?short_path=be2a597#diff-be2a59710611cc501f7361fcff1c335613d5dabb8326ce3ea746f4474f954bc5) when template is declared with `AWS::LanguageExtensions` (pull #[2512](https://github.com/aws-cloudformation/cfn-lint/pull/2512))
+
+### v0.72.7
+###### CloudFormation Specifications
+- Update CloudFormation specs to `106.0.0` (pull #[2546](https://github.com/aws-cloudformation/cfn-lint/pull/2546))
+###### Fixes
+- Update rule [E1030](https://github.com/aws-cloudformation/cfn-python-lint/blob/main/docs/rules.md#E1030) to include `Fn::FindInMap` when using `Fn::Length` (pull #[2547](https://github.com/aws-cloudformation/cfn-lint/pull/2547))
+- Update rule [E3002](https://github.com/aws-cloudformation/cfn-python-lint/blob/main/docs/rules.md#E3002) to allow a `Fn::GetAtt` for an object (pull #[2548](https://github.com/aws-cloudformation/cfn-lint/pull/2548))
+- Update rule [E2532](https://github.com/aws-cloudformation/cfn-python-lint/blob/main/docs/rules.md#E2532) to include current task properties (pull #[2549](https://github.com/aws-cloudformation/cfn-lint/pull/2549))
+
 ### v0.72.6
 ###### CloudFormation Specifications
 - Update CloudFormation specs to `105.0.0` (pull #[2530](https://github.com/aws-cloudformation/cfn-lint/pull/2530))
