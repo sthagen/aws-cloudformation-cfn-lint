@@ -2711,6 +2711,10 @@
   "AWS::RDS::DBInstance.Endpoint": "CACHED",
   "AWS::RDS::DBInstance.MasterUserSecret": "CACHED",
   "AWS::RDS::DBInstance.ProcessorFeature": "CACHED",
+  "AWS::RDS::DBProxy.AuthFormat": "CACHED",
+  "AWS::RDS::DBProxy.TagFormat": "CACHED",
+  "AWS::RDS::DBProxyEndpoint.TagFormat": "CACHED",
+  "AWS::RDS::DBProxyTargetGroup.ConnectionPoolConfigurationInfoFormat": "CACHED",
   "AWS::RDS::DBSecurityGroup.Ingress": "CACHED",
   "AWS::RDS::OptionGroup.OptionConfiguration": "CACHED",
   "AWS::RDS::OptionGroup.OptionSetting": "CACHED",
@@ -3523,7 +3527,7 @@
   "AWS::XRay::SamplingRule.TagsItems": "CACHED",
   "Tag": "CACHED"
  },
- "ResourceSpecificationVersion": "114.0.0",
+ "ResourceSpecificationVersion": "115.0.0",
  "ResourceTypes": {
   "AWS::ACMPCA::Certificate": "CACHED",
   "AWS::ACMPCA::CertificateAuthority": "CACHED",
@@ -5035,128 +5039,7 @@
     }
    }
   },
-  "AWS::DynamoDB::Table": {
-   "Attributes": {
-    "Arn": {
-     "PrimitiveType": "String"
-    },
-    "StreamArn": {
-     "PrimitiveType": "String"
-    }
-   },
-   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html",
-   "Properties": {
-    "AttributeDefinitions": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-attributedefinitions",
-     "DuplicatesAllowed": false,
-     "ItemType": "AttributeDefinition",
-     "Required": true,
-     "Type": "List",
-     "UpdateType": "Mutable"
-    },
-    "BillingMode": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-billingmode",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable",
-     "Value": {
-      "ValueType": "AWS::DynamoDB::Table.BillingMode"
-     }
-    },
-    "ContributorInsightsSpecification": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-contributorinsightsspecification",
-     "Required": false,
-     "Type": "ContributorInsightsSpecification",
-     "UpdateType": "Mutable"
-    },
-    "GlobalSecondaryIndexes": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-globalsecondaryindexes",
-     "DuplicatesAllowed": true,
-     "ItemType": "GlobalSecondaryIndex",
-     "Required": false,
-     "Type": "List",
-     "UpdateType": "Mutable"
-    },
-    "ImportSourceSpecification": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-importsourcespecification",
-     "Required": false,
-     "Type": "ImportSourceSpecification",
-     "UpdateType": "Immutable"
-    },
-    "KeySchema": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-keyschema",
-     "DuplicatesAllowed": false,
-     "ItemType": "KeySchema",
-     "Required": true,
-     "Type": "List",
-     "UpdateType": "Immutable"
-    },
-    "KinesisStreamSpecification": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-kinesisstreamspecification",
-     "Required": false,
-     "Type": "KinesisStreamSpecification",
-     "UpdateType": "Mutable"
-    },
-    "LocalSecondaryIndexes": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-localsecondaryindexes",
-     "DuplicatesAllowed": true,
-     "ItemType": "LocalSecondaryIndex",
-     "Required": false,
-     "Type": "List",
-     "UpdateType": "Mutable"
-    },
-    "PointInTimeRecoverySpecification": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-pointintimerecoveryspecification",
-     "Required": false,
-     "Type": "PointInTimeRecoverySpecification",
-     "UpdateType": "Mutable"
-    },
-    "ProvisionedThroughput": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-provisionedthroughput",
-     "Required": false,
-     "Type": "ProvisionedThroughput",
-     "UpdateType": "Mutable"
-    },
-    "SSESpecification": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-ssespecification",
-     "Required": false,
-     "Type": "SSESpecification",
-     "UpdateType": "Mutable"
-    },
-    "StreamSpecification": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-streamspecification",
-     "Required": false,
-     "Type": "StreamSpecification",
-     "UpdateType": "Mutable"
-    },
-    "TableClass": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-tableclass",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable"
-    },
-    "TableName": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-tablename",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Immutable"
-    },
-    "Tags": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-tags",
-     "DuplicatesAllowed": true,
-     "ItemType": "Tag",
-     "Required": false,
-     "Type": "List",
-     "UpdateType": "Mutable"
-    },
-    "TimeToLiveSpecification": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-timetolivespecification",
-     "Required": false,
-     "Type": "TimeToLiveSpecification",
-     "UpdateType": "Mutable"
-    }
-   }
-  },
+  "AWS::DynamoDB::Table": "CACHED",
   "AWS::EC2::CapacityReservation": "CACHED",
   "AWS::EC2::CustomerGateway": "CACHED",
   "AWS::EC2::DHCPOptions": "CACHED",
@@ -5374,6 +5257,31 @@
   "AWS::EC2::VPNGatewayRoutePropagation": "CACHED",
   "AWS::EC2::Volume": "CACHED",
   "AWS::EC2::VolumeAttachment": "CACHED",
+  "AWS::ECR::PullThroughCacheRule": {
+   "Attributes": {
+    "RegistryId": {
+     "PrimitiveType": "String"
+    }
+   },
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-pullthroughcacherule.html",
+   "Properties": {
+    "EcrRepositoryPrefix": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-pullthroughcacherule.html#cfn-ecr-pullthroughcacherule-ecrrepositoryprefix",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Immutable",
+     "Value": {
+      "ValueType": "AWS::ECR::PullThroughCacheRule.EcrRepositoryPrefix"
+     }
+    },
+    "UpstreamRegistryUrl": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-pullthroughcacherule.html#cfn-ecr-pullthroughcacherule-upstreamregistryurl",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    }
+   }
+  },
   "AWS::ECR::RegistryPolicy": "CACHED",
   "AWS::ECR::ReplicationConfiguration": "CACHED",
   "AWS::ECR::Repository": "CACHED",
@@ -6563,6 +6471,9 @@
   "AWS::RDS::DBClusterParameterGroup": "CACHED",
   "AWS::RDS::DBInstance": "CACHED",
   "AWS::RDS::DBParameterGroup": "CACHED",
+  "AWS::RDS::DBProxy": "CACHED",
+  "AWS::RDS::DBProxyEndpoint": "CACHED",
+  "AWS::RDS::DBProxyTargetGroup": "CACHED",
   "AWS::RDS::DBSecurityGroup": "CACHED",
   "AWS::RDS::DBSecurityGroupIngress": "CACHED",
   "AWS::RDS::DBSubnetGroup": "CACHED",
@@ -7015,135 +6926,7 @@
   "AWS::SNS::Subscription": "CACHED",
   "AWS::SNS::Topic": "CACHED",
   "AWS::SNS::TopicPolicy": "CACHED",
-  "AWS::SQS::Queue": {
-   "Attributes": {
-    "Arn": {
-     "PrimitiveType": "String"
-    },
-    "QueueName": {
-     "PrimitiveType": "String"
-    }
-   },
-   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html",
-   "Properties": {
-    "ContentBasedDeduplication": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-contentbaseddeduplication",
-     "PrimitiveType": "Boolean",
-     "Required": false,
-     "UpdateType": "Mutable"
-    },
-    "DeduplicationScope": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-deduplicationscope",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable"
-    },
-    "DelaySeconds": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-delayseconds",
-     "PrimitiveType": "Integer",
-     "Required": false,
-     "UpdateType": "Mutable",
-     "Value": {
-      "ValueType": "AWS::SQS::Queue.DelaySeconds"
-     }
-    },
-    "FifoQueue": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-fifoqueue",
-     "PrimitiveType": "Boolean",
-     "Required": false,
-     "UpdateType": "Immutable"
-    },
-    "FifoThroughputLimit": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-fifothroughputlimit",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable"
-    },
-    "KmsDataKeyReusePeriodSeconds": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-kmsdatakeyreuseperiodseconds",
-     "PrimitiveType": "Integer",
-     "Required": false,
-     "UpdateType": "Mutable",
-     "Value": {
-      "ValueType": "AWS::SQS::Queue.KmsDataKeyReusePeriodSeconds"
-     }
-    },
-    "KmsMasterKeyId": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-kmsmasterkeyid",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable"
-    },
-    "MaximumMessageSize": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-maxmesgsize",
-     "PrimitiveType": "Integer",
-     "Required": false,
-     "UpdateType": "Mutable",
-     "Value": {
-      "ValueType": "AWS::SQS::Queue.MaximumMessageSize"
-     }
-    },
-    "MessageRetentionPeriod": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-msgretentionperiod",
-     "PrimitiveType": "Integer",
-     "Required": false,
-     "UpdateType": "Mutable",
-     "Value": {
-      "ValueType": "AWS::SQS::Queue.MessageRetentionPeriod"
-     }
-    },
-    "QueueName": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-name",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Immutable"
-    },
-    "ReceiveMessageWaitTimeSeconds": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-receivemsgwaittime",
-     "PrimitiveType": "Integer",
-     "Required": false,
-     "UpdateType": "Mutable",
-     "Value": {
-      "ValueType": "AWS::SQS::Queue.ReceiveMessageWaitTimeSeconds"
-     }
-    },
-    "RedriveAllowPolicy": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-redriveallowpolicy",
-     "PrimitiveType": "Json",
-     "Required": false,
-     "UpdateType": "Mutable"
-    },
-    "RedrivePolicy": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-redrive",
-     "PrimitiveType": "Json",
-     "Required": false,
-     "UpdateType": "Mutable"
-    },
-    "SqsManagedSseEnabled": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-SqsManagedSseEnabled",
-     "PrimitiveType": "Boolean",
-     "Required": false,
-     "UpdateType": "Mutable"
-    },
-    "Tags": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#cfn-sqs-queue-tags",
-     "DuplicatesAllowed": true,
-     "ItemType": "Tag",
-     "Required": false,
-     "Type": "List",
-     "UpdateType": "Mutable"
-    },
-    "VisibilityTimeout": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-visiblitytimeout",
-     "PrimitiveType": "Integer",
-     "Required": false,
-     "UpdateType": "Mutable",
-     "Value": {
-      "ValueType": "AWS::SQS::Queue.VisibilityTimeout"
-     }
-    }
-   }
-  },
+  "AWS::SQS::Queue": "CACHED",
   "AWS::SQS::QueuePolicy": "CACHED",
   "AWS::SSM::Association": "CACHED",
   "AWS::SSM::Document": "CACHED",
@@ -7673,6 +7456,7 @@
   "AWS::EC2::SpotFleet.SpotFleetTagSpecification.ResourceType": "CACHED",
   "AWS::EC2::SpotFleet.SpotPlacement.Tenancy": "CACHED",
   "AWS::EC2::VPC.Id": "CACHED",
+  "AWS::ECR::PullThroughCacheRule.EcrRepositoryPrefix": "CACHED",
   "AWS::ECR::ReplicationConfiguration.ReplicationDestination.Region": "CACHED",
   "AWS::ECR::ReplicationConfiguration.ReplicationDestination.RegistryId": "CACHED",
   "AWS::ECR::ReplicationConfiguration.RepositoryFilter.Filter": "CACHED",
@@ -8090,7 +7874,6 @@
   "AWS::Organizations::Account.RoleName": "CACHED",
   "AWS::Organizations::OrganizationalUnit.Name": "CACHED",
   "AWS::Organizations::OrganizationalUnit.ParentId": "CACHED",
-  "AWS::Organizations::Policy.Content": "CACHED",
   "AWS::Organizations::Policy.Description": "CACHED",
   "AWS::Organizations::Policy.Name": "CACHED",
   "AWS::Organizations::Policy.TargetIds": "CACHED",
@@ -8240,7 +8023,20 @@
   "AWS::RDS::DBInstance.ProcessorFeature.Name": "CACHED",
   "AWS::RDS::DBInstance.PromotionTier": "CACHED",
   "AWS::RDS::DBParameterGroup.DBParameterGroupName": "CACHED",
+  "AWS::RDS::DBProxy.AuthFormat.AuthScheme": "CACHED",
+  "AWS::RDS::DBProxy.AuthFormat.ClientPasswordAuthType": "CACHED",
+  "AWS::RDS::DBProxy.AuthFormat.IAMAuth": "CACHED",
+  "AWS::RDS::DBProxy.DBProxyName": "CACHED",
+  "AWS::RDS::DBProxy.EngineFamily": "CACHED",
+  "AWS::RDS::DBProxy.TagFormat.Key": "CACHED",
+  "AWS::RDS::DBProxy.TagFormat.Value": "CACHED",
+  "AWS::RDS::DBProxyEndpoint.DBProxyEndpointName": "CACHED",
+  "AWS::RDS::DBProxyEndpoint.DBProxyName": "CACHED",
+  "AWS::RDS::DBProxyEndpoint.TagFormat.Key": "CACHED",
+  "AWS::RDS::DBProxyEndpoint.TagFormat.Value": "CACHED",
   "AWS::RDS::DBProxyEndpoint.TargetRole": "CACHED",
+  "AWS::RDS::DBProxyTargetGroup.DBProxyName": "CACHED",
+  "AWS::RDS::DBProxyTargetGroup.TargetGroupName": "CACHED",
   "AWS::RDS::DBSubnetGroup.DBSubnetGroupName": "CACHED",
   "AWS::Redshift::Cluster.NumberOfNodes": "CACHED",
   "AWS::ResourceGroups::Group.ResourceQuery.Type": "CACHED",
