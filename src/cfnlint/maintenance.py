@@ -7,14 +7,15 @@ import json
 import logging
 import multiprocessing
 import os
-import re
 import subprocess
 import warnings
 import zipfile
+from copy import deepcopy
 from io import BytesIO
 from urllib.request import Request, urlopen
 
 import jsonpatch
+import regex as re
 
 import cfnlint
 import cfnlint.data.AdditionalSpecs
@@ -57,7 +58,7 @@ def update_resource_spec(region, url, schema_cache, force: bool = False):
     filename = os.path.join(
         os.path.dirname(cfnlint.__file__), f"data/CloudSpecs/{region}.json"
     )
-
+    schema_cache = deepcopy(schema_cache)
     multiprocessing_logger = multiprocessing.log_to_stderr()
 
     multiprocessing_logger.debug("Downloading template %s into %s", url, filename)
@@ -115,6 +116,9 @@ def update_resource_spec(region, url, schema_cache, force: bool = False):
             LOGGER.debug(
                 "Parent element not found for patch (%s) in region %s", patch, region
             )
+
+    # Patch provider schema data
+    spec = patch_spec(spec, "all", "ProviderSchemasPatches")
 
     botocore_cache = {}
 
@@ -252,13 +256,11 @@ def update_documentation(rules):
         new_file.write("\n\\* experimental rules\n")
 
 
-def patch_spec(content, region):
+def patch_spec(content, region, patch_types="ExtendedSpecs"):
     """Patch the spec file"""
     LOGGER.info('Patching spec file for region "%s"', region)
 
-    append_dir = os.path.join(
-        os.path.dirname(__file__), "data", "ExtendedSpecs", region
-    )
+    append_dir = os.path.join(os.path.dirname(__file__), "data", patch_types, region)
     for dirpath, _, filenames in os.walk(append_dir):
         filenames.sort()
         for filename in fnmatch.filter(filenames, "*.json"):
@@ -266,10 +268,9 @@ def patch_spec(content, region):
             module = dirpath.replace(f"{append_dir}", f"{region}").replace(
                 os.path.sep, "."
             )
-            LOGGER.info("Processing %s/%s", module, file_path)
             all_patches = jsonpatch.JsonPatch(
                 cfnlint.helpers.load_resource(
-                    f"cfnlint.data.ExtendedSpecs.{module}", file_path
+                    f"cfnlint.data.{patch_types}.{module}", file_path
                 )
             )
 
@@ -410,12 +411,6 @@ def get_schema_value_types():
                         results[".".join(names + [propname])] = {}
                 if propdetails.get("pattern"):
                     p = propdetails.get("pattern")
-                    if (
-                        ".".join(names + [propname])
-                        == "AWS::OpsWorksCM::Server.CustomPrivateKey"
-                    ):
-                        # one off exception to handle a weird parsing issue in python 2.7
-                        continue
                     # python 3 has the ability to test isascii
                     # python 3.7 introduces is ascii so switching to encode
                     try:
@@ -423,8 +418,6 @@ def get_schema_value_types():
                     except UnicodeEncodeError:
                         continue
                     try:
-                        if "\\p{" in p:
-                            continue
                         re.compile(p, re.UNICODE)
                         results[".".join(names + [propname])].update(
                             {"AllowedPatternRegex": p}
