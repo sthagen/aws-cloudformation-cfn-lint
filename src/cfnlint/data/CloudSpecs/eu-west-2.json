@@ -814,7 +814,31 @@
   "AWS::CloudWatch::AnomalyDetector.Range": "CACHED",
   "AWS::CloudWatch::AnomalyDetector.SingleMetricAnomalyDetector": "CACHED",
   "AWS::CloudWatch::InsightRule.Tags": "CACHED",
-  "AWS::CloudWatch::MetricStream.MetricStreamFilter": "CACHED",
+  "AWS::CloudWatch::MetricStream.MetricStreamFilter": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html",
+   "Properties": {
+    "MetricNames": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html#cfn-cloudwatch-metricstream-metricstreamfilter-metricnames",
+     "DuplicatesAllowed": true,
+     "PrimitiveItemType": "String",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable",
+     "Value": {
+      "ValueType": "AWS::CloudWatch::MetricStream.MetricStreamFilter.MetricNames"
+     }
+    },
+    "Namespace": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html#cfn-cloudwatch-metricstream-metricstreamfilter-namespace",
+     "PrimitiveType": "String",
+     "Required": true,
+     "UpdateType": "Mutable",
+     "Value": {
+      "ValueType": "AWS::CloudWatch::MetricStream.MetricStreamFilter.Namespace"
+     }
+    }
+   }
+  },
   "AWS::CloudWatch::MetricStream.MetricStreamStatisticsConfiguration": "CACHED",
   "AWS::CloudWatch::MetricStream.MetricStreamStatisticsMetric": "CACHED",
   "AWS::CodeBuild::Project.Artifacts": "CACHED",
@@ -1758,6 +1782,7 @@
   "AWS::Glue::Trigger.Predicate": "CACHED",
   "AWS::Grafana::Workspace.AssertionAttributes": "CACHED",
   "AWS::Grafana::Workspace.IdpMetadata": "CACHED",
+  "AWS::Grafana::Workspace.NetworkAccessControl": "CACHED",
   "AWS::Grafana::Workspace.RoleValues": "CACHED",
   "AWS::Grafana::Workspace.SamlConfiguration": "CACHED",
   "AWS::Grafana::Workspace.VpcConfiguration": "CACHED",
@@ -1898,6 +1923,7 @@
   "AWS::IoT::CACertificate.RegistrationConfig": "CACHED",
   "AWS::IoT::DomainConfiguration.AuthorizerConfig": "CACHED",
   "AWS::IoT::DomainConfiguration.ServerCertificateSummary": "CACHED",
+  "AWS::IoT::DomainConfiguration.TlsConfig": "CACHED",
   "AWS::IoT::FleetMetric.AggregationType": "CACHED",
   "AWS::IoT::JobTemplate.AbortConfig": "CACHED",
   "AWS::IoT::JobTemplate.AbortCriteria": "CACHED",
@@ -2434,6 +2460,7 @@
   "AWS::MediaLive::Channel.AudioChannelMapping": "CACHED",
   "AWS::MediaLive::Channel.AudioCodecSettings": "CACHED",
   "AWS::MediaLive::Channel.AudioDescription": "CACHED",
+  "AWS::MediaLive::Channel.AudioDolbyEDecode": "CACHED",
   "AWS::MediaLive::Channel.AudioHlsRenditionSelection": "CACHED",
   "AWS::MediaLive::Channel.AudioLanguageSelection": "CACHED",
   "AWS::MediaLive::Channel.AudioNormalizationSettings": "CACHED",
@@ -2459,17 +2486,20 @@
   "AWS::MediaLive::Channel.CaptionSelectorSettings": "CACHED",
   "AWS::MediaLive::Channel.CdiInputSpecification": "CACHED",
   "AWS::MediaLive::Channel.ColorSpacePassthroughSettings": "CACHED",
+  "AWS::MediaLive::Channel.DolbyVision81Settings": "CACHED",
   "AWS::MediaLive::Channel.DvbNitSettings": "CACHED",
   "AWS::MediaLive::Channel.DvbSdtSettings": "CACHED",
   "AWS::MediaLive::Channel.DvbSubDestinationSettings": "CACHED",
   "AWS::MediaLive::Channel.DvbSubSourceSettings": "CACHED",
   "AWS::MediaLive::Channel.DvbTdtSettings": "CACHED",
+  "AWS::MediaLive::Channel.Eac3AtmosSettings": "CACHED",
   "AWS::MediaLive::Channel.Eac3Settings": "CACHED",
   "AWS::MediaLive::Channel.EbuTtDDestinationSettings": "CACHED",
   "AWS::MediaLive::Channel.EmbeddedDestinationSettings": "CACHED",
   "AWS::MediaLive::Channel.EmbeddedPlusScte20DestinationSettings": "CACHED",
   "AWS::MediaLive::Channel.EmbeddedSourceSettings": "CACHED",
   "AWS::MediaLive::Channel.EncoderSettings": "CACHED",
+  "AWS::MediaLive::Channel.Esam": "CACHED",
   "AWS::MediaLive::Channel.FailoverCondition": "CACHED",
   "AWS::MediaLive::Channel.FailoverConditionSettings": "CACHED",
   "AWS::MediaLive::Channel.FeatureActivations": "CACHED",
@@ -2510,6 +2540,8 @@
   "AWS::MediaLive::Channel.KeyProviderSettings": "CACHED",
   "AWS::MediaLive::Channel.M2tsSettings": "CACHED",
   "AWS::MediaLive::Channel.M3u8Settings": "CACHED",
+  "AWS::MediaLive::Channel.MaintenanceCreateSettings": "CACHED",
+  "AWS::MediaLive::Channel.MaintenanceUpdateSettings": "CACHED",
   "AWS::MediaLive::Channel.MediaPackageGroupSettings": "CACHED",
   "AWS::MediaLive::Channel.MediaPackageOutputDestinationSettings": "CACHED",
   "AWS::MediaLive::Channel.MediaPackageOutputSettings": "CACHED",
@@ -2555,6 +2587,7 @@
   "AWS::MediaLive::Channel.TeletextDestinationSettings": "CACHED",
   "AWS::MediaLive::Channel.TeletextSourceSettings": "CACHED",
   "AWS::MediaLive::Channel.TemporalFilterSettings": "CACHED",
+  "AWS::MediaLive::Channel.TimecodeBurninSettings": "CACHED",
   "AWS::MediaLive::Channel.TimecodeConfig": "CACHED",
   "AWS::MediaLive::Channel.TtmlDestinationSettings": "CACHED",
   "AWS::MediaLive::Channel.UdpContainerSettings": "CACHED",
@@ -3788,6 +3821,9 @@
   "AWS::QuickSight::DataSource.SslProperties": "CACHED",
   "AWS::QuickSight::DataSource.TeradataParameters": "CACHED",
   "AWS::QuickSight::DataSource.VpcConnectionProperties": "CACHED",
+  "AWS::QuickSight::RefreshSchedule.RefreshOnDay": "CACHED",
+  "AWS::QuickSight::RefreshSchedule.RefreshScheduleMap": "CACHED",
+  "AWS::QuickSight::RefreshSchedule.ScheduleFrequency": "CACHED",
   "AWS::QuickSight::Template.AggregationFunction": "CACHED",
   "AWS::QuickSight::Template.AggregationSortConfiguration": "CACHED",
   "AWS::QuickSight::Template.AnalysisDefaults": "CACHED",
@@ -4980,106 +5016,13 @@
   "AWS::WorkSpaces::ConnectionAlias.ConnectionAliasAssociation": "CACHED",
   "AWS::WorkSpaces::Workspace.WorkspaceProperties": "CACHED",
   "AWS::XRay::Group.InsightsConfiguration": "CACHED",
-  "AWS::XRay::Group.TagsItems": "CACHED",
-  "AWS::XRay::SamplingRule.SamplingRule": {
-   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html",
-   "Properties": {
-    "Attributes": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-attributes",
-     "PrimitiveItemType": "String",
-     "Required": false,
-     "Type": "Map",
-     "UpdateType": "Mutable"
-    },
-    "FixedRate": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-fixedrate",
-     "PrimitiveType": "Double",
-     "Required": false,
-     "UpdateType": "Mutable"
-    },
-    "HTTPMethod": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-httpmethod",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable"
-    },
-    "Host": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-host",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable"
-    },
-    "Priority": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-priority",
-     "PrimitiveType": "Integer",
-     "Required": false,
-     "UpdateType": "Mutable",
-     "Value": {
-      "ValueType": "AWS::XRay::SamplingRule.SamplingRule.Priority"
-     }
-    },
-    "ReservoirSize": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-reservoirsize",
-     "PrimitiveType": "Integer",
-     "Required": false,
-     "UpdateType": "Mutable"
-    },
-    "ResourceARN": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-resourcearn",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable"
-    },
-    "RuleARN": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-rulearn",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable"
-    },
-    "RuleName": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-rulename",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable",
-     "Value": {
-      "ValueType": "AWS::XRay::SamplingRule.SamplingRule.RuleName"
-     }
-    },
-    "ServiceName": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-servicename",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable"
-    },
-    "ServiceType": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-servicetype",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable"
-    },
-    "URLPath": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-urlpath",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable"
-    },
-    "Version": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-version",
-     "PrimitiveType": "Integer",
-     "Required": false,
-     "UpdateType": "Mutable"
-    }
-   }
-  },
-  "AWS::XRay::SamplingRule.SamplingRuleRecord": "CACHED",
-  "AWS::XRay::SamplingRule.SamplingRuleUpdate": "CACHED",
-  "AWS::XRay::SamplingRule.TagsItems": "CACHED",
+  "AWS::XRay::SamplingRule.SamplingRule": "CACHED",
   "Alexa::ASK::Skill.AuthenticationConfiguration": "CACHED",
   "Alexa::ASK::Skill.Overrides": "CACHED",
   "Alexa::ASK::Skill.SkillPackage": "CACHED",
   "Tag": "CACHED"
  },
- "ResourceSpecificationVersion": "119.1.0",
+ "ResourceSpecificationVersion": "120.0.0",
  "ResourceTypes": {
   "AWS::ACMPCA::Certificate": "CACHED",
   "AWS::ACMPCA::CertificateAuthority": "CACHED",
@@ -5332,7 +5275,53 @@
   "AWS::ApiGatewayV2::Deployment": "CACHED",
   "AWS::ApiGatewayV2::DomainName": "CACHED",
   "AWS::ApiGatewayV2::Integration": "CACHED",
-  "AWS::ApiGatewayV2::IntegrationResponse": "CACHED",
+  "AWS::ApiGatewayV2::IntegrationResponse": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integrationresponse.html",
+   "Properties": {
+    "ApiId": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integrationresponse.html#cfn-apigatewayv2-integrationresponse-apiid",
+     "PrimitiveType": "String",
+     "Required": true,
+     "UpdateType": "Mutable"
+    },
+    "ContentHandlingStrategy": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integrationresponse.html#cfn-apigatewayv2-integrationresponse-contenthandlingstrategy",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "IntegrationId": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integrationresponse.html#cfn-apigatewayv2-integrationresponse-integrationid",
+     "PrimitiveType": "String",
+     "Required": true,
+     "UpdateType": "Mutable"
+    },
+    "IntegrationResponseKey": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integrationresponse.html#cfn-apigatewayv2-integrationresponse-integrationresponsekey",
+     "PrimitiveType": "String",
+     "Required": true,
+     "UpdateType": "Mutable"
+    },
+    "ResponseParameters": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integrationresponse.html#cfn-apigatewayv2-integrationresponse-responseparameters",
+     "PrimitiveType": "Json",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "ResponseTemplates": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integrationresponse.html#cfn-apigatewayv2-integrationresponse-responsetemplates",
+     "PrimitiveType": "Json",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "TemplateSelectionExpression": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integrationresponse.html#cfn-apigatewayv2-integrationresponse-templateselectionexpression",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    }
+   }
+  },
   "AWS::ApiGatewayV2::Model": "CACHED",
   "AWS::ApiGatewayV2::Route": "CACHED",
   "AWS::ApiGatewayV2::RouteResponse": "CACHED",
@@ -5937,7 +5926,24 @@
   "AWS::EC2::VPCEndpoint": "CACHED",
   "AWS::EC2::VPCEndpointConnectionNotification": "CACHED",
   "AWS::EC2::VPCEndpointService": "CACHED",
-  "AWS::EC2::VPCEndpointServicePermissions": "CACHED",
+  "AWS::EC2::VPCEndpointServicePermissions": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservicepermissions.html",
+   "Properties": {
+    "AllowedPrincipals": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservicepermissions.html#cfn-ec2-vpcendpointservicepermissions-allowedprincipals",
+     "PrimitiveItemType": "String",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable"
+    },
+    "ServiceId": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservicepermissions.html#cfn-ec2-vpcendpointservicepermissions-serviceid",
+     "PrimitiveType": "String",
+     "Required": true,
+     "UpdateType": "Immutable"
+    }
+   }
+  },
   "AWS::EC2::VPCGatewayAttachment": "CACHED",
   "AWS::EC2::VPCPeeringConnection": "CACHED",
   "AWS::EC2::VPNConnection": "CACHED",
@@ -6249,188 +6255,10 @@
   "AWS::M2::Environment": "CACHED",
   "AWS::MSK::BatchScramSecret": "CACHED",
   "AWS::MSK::Cluster": "CACHED",
+  "AWS::MSK::ClusterPolicy": "CACHED",
   "AWS::MSK::Configuration": "CACHED",
-  "AWS::MWAA::Environment": {
-   "Attributes": {
-    "Arn": {
-     "PrimitiveType": "String"
-    },
-    "LoggingConfiguration.DagProcessingLogs.CloudWatchLogGroupArn": {
-     "PrimitiveType": "String"
-    },
-    "LoggingConfiguration.SchedulerLogs.CloudWatchLogGroupArn": {
-     "PrimitiveType": "String"
-    },
-    "LoggingConfiguration.TaskLogs.CloudWatchLogGroupArn": {
-     "PrimitiveType": "String"
-    },
-    "LoggingConfiguration.WebserverLogs.CloudWatchLogGroupArn": {
-     "PrimitiveType": "String"
-    },
-    "LoggingConfiguration.WorkerLogs.CloudWatchLogGroupArn": {
-     "PrimitiveType": "String"
-    },
-    "WebserverUrl": {
-     "PrimitiveType": "String"
-    }
-   },
-   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html",
-   "Properties": {
-    "AirflowConfigurationOptions": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowconfigurationoptions",
-     "PrimitiveType": "Json",
-     "Required": false,
-     "UpdateType": "Mutable"
-    },
-    "AirflowVersion": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowversion",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable",
-     "Value": {
-      "ValueType": "AWS::MWAA::Environment.AirflowVersion"
-     }
-    },
-    "DagS3Path": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-dags3path",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable",
-     "Value": {
-      "ValueType": "AWS::MWAA::Environment.DagS3Path"
-     }
-    },
-    "EnvironmentClass": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-environmentclass",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable",
-     "Value": {
-      "ValueType": "AWS::MWAA::Environment.EnvironmentClass"
-     }
-    },
-    "ExecutionRoleArn": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-executionrolearn",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable",
-     "Value": {
-      "ValueType": "AWS::MWAA::Environment.ExecutionRoleArn"
-     }
-    },
-    "KmsKey": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-kmskey",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Immutable",
-     "Value": {
-      "ValueType": "AWS::MWAA::Environment.KmsKey"
-     }
-    },
-    "LoggingConfiguration": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-loggingconfiguration",
-     "Required": false,
-     "Type": "LoggingConfiguration",
-     "UpdateType": "Mutable"
-    },
-    "MaxWorkers": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-maxworkers",
-     "PrimitiveType": "Integer",
-     "Required": false,
-     "UpdateType": "Mutable"
-    },
-    "MinWorkers": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-minworkers",
-     "PrimitiveType": "Integer",
-     "Required": false,
-     "UpdateType": "Mutable"
-    },
-    "Name": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-name",
-     "PrimitiveType": "String",
-     "Required": true,
-     "UpdateType": "Immutable",
-     "Value": {
-      "ValueType": "AWS::MWAA::Environment.Name"
-     }
-    },
-    "NetworkConfiguration": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-networkconfiguration",
-     "Required": false,
-     "Type": "NetworkConfiguration",
-     "UpdateType": "Mutable"
-    },
-    "PluginsS3ObjectVersion": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3objectversion",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable"
-    },
-    "PluginsS3Path": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3path",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable",
-     "Value": {
-      "ValueType": "AWS::MWAA::Environment.PluginsS3Path"
-     }
-    },
-    "RequirementsS3ObjectVersion": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-requirementss3objectversion",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable"
-    },
-    "RequirementsS3Path": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-requirementss3path",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable",
-     "Value": {
-      "ValueType": "AWS::MWAA::Environment.RequirementsS3Path"
-     }
-    },
-    "Schedulers": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-schedulers",
-     "PrimitiveType": "Integer",
-     "Required": false,
-     "UpdateType": "Mutable"
-    },
-    "SourceBucketArn": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-sourcebucketarn",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable",
-     "Value": {
-      "ValueType": "AWS::MWAA::Environment.SourceBucketArn"
-     }
-    },
-    "Tags": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-tags",
-     "PrimitiveType": "Json",
-     "Required": false,
-     "UpdateType": "Mutable"
-    },
-    "WebserverAccessMode": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserveraccessmode",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable",
-     "Value": {
-      "ValueType": "AWS::MWAA::Environment.WebserverAccessMode"
-     }
-    },
-    "WeeklyMaintenanceWindowStart": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-weeklymaintenancewindowstart",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable",
-     "Value": {
-      "ValueType": "AWS::MWAA::Environment.WeeklyMaintenanceWindowStart"
-     }
-    }
-   }
-  },
+  "AWS::MSK::VpcConnection": "CACHED",
+  "AWS::MWAA::Environment": "CACHED",
   "AWS::Macie::AllowList": "CACHED",
   "AWS::Macie::CustomDataIdentifier": "CACHED",
   "AWS::Macie::FindingsFilter": "CACHED",
@@ -6623,8 +6451,10 @@
   "AWS::QuickSight::Dashboard": "CACHED",
   "AWS::QuickSight::DataSet": "CACHED",
   "AWS::QuickSight::DataSource": "CACHED",
+  "AWS::QuickSight::RefreshSchedule": "CACHED",
   "AWS::QuickSight::Template": "CACHED",
   "AWS::QuickSight::Theme": "CACHED",
+  "AWS::RAM::Permission": "CACHED",
   "AWS::RAM::ResourceShare": "CACHED",
   "AWS::RDS::DBCluster": "CACHED",
   "AWS::RDS::DBClusterParameterGroup": "CACHED",
@@ -6914,97 +6744,10 @@
   "AWS::Signer::ProfilePermission": "CACHED",
   "AWS::Signer::SigningProfile": "CACHED",
   "AWS::StepFunctions::Activity": "CACHED",
-  "AWS::StepFunctions::StateMachine": {
-   "Attributes": {
-    "Arn": {
-     "PrimitiveType": "String"
-    },
-    "Name": {
-     "PrimitiveType": "String"
-    },
-    "StateMachineRevisionId": {
-     "PrimitiveType": "String"
-    }
-   },
-   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html",
-   "Properties": {
-    "Definition": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definition",
-     "PrimitiveType": "Json",
-     "Required": false,
-     "UpdateType": "Mutable"
-    },
-    "DefinitionS3Location": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitions3location",
-     "Required": false,
-     "Type": "S3Location",
-     "UpdateType": "Mutable"
-    },
-    "DefinitionString": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionstring",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable",
-     "Value": {
-      "ValueType": "AWS::StepFunctions::StateMachine.DefinitionString"
-     }
-    },
-    "DefinitionSubstitutions": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionsubstitutions",
-     "PrimitiveItemType": "Json",
-     "Required": false,
-     "Type": "Map",
-     "UpdateType": "Mutable"
-    },
-    "LoggingConfiguration": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration",
-     "Required": false,
-     "Type": "LoggingConfiguration",
-     "UpdateType": "Mutable"
-    },
-    "RoleArn": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-rolearn",
-     "PrimitiveType": "String",
-     "Required": true,
-     "UpdateType": "Mutable",
-     "Value": {
-      "ValueType": "AWS::StepFunctions::StateMachine.RoleArn"
-     }
-    },
-    "StateMachineName": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinename",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Immutable",
-     "Value": {
-      "ValueType": "AWS::StepFunctions::StateMachine.StateMachineName"
-     }
-    },
-    "StateMachineType": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinetype",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Immutable",
-     "Value": {
-      "ValueType": "AWS::StepFunctions::StateMachine.StateMachineType"
-     }
-    },
-    "Tags": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tags",
-     "DuplicatesAllowed": true,
-     "ItemType": "TagsEntry",
-     "Required": false,
-     "Type": "List",
-     "UpdateType": "Mutable"
-    },
-    "TracingConfiguration": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tracingconfiguration",
-     "Required": false,
-     "Type": "TracingConfiguration",
-     "UpdateType": "Mutable"
-    }
-   }
-  },
+  "AWS::StepFunctions::StateMachine": "CACHED",
+  "AWS::SupportApp::AccountAlias": "CACHED",
+  "AWS::SupportApp::SlackChannelConfiguration": "CACHED",
+  "AWS::SupportApp::SlackWorkspaceConfiguration": "CACHED",
   "AWS::Synthetics::Canary": "CACHED",
   "AWS::Synthetics::Group": "CACHED",
   "AWS::SystemsManagerSAP::Application": "CACHED",
@@ -7545,6 +7288,10 @@
   "AWS::CloudWatch::CompositeAlarm.InsufficientDataActions": "CACHED",
   "AWS::CloudWatch::CompositeAlarm.OKActions": "CACHED",
   "AWS::CloudWatch::MetricStream.FirehoseArn": "CACHED",
+  "AWS::CloudWatch::MetricStream.MetricStreamFilter.MetricNames": {
+   "StringMax": 255,
+   "StringMin": 1
+  },
   "AWS::CloudWatch::MetricStream.MetricStreamFilter.Namespace": "CACHED",
   "AWS::CloudWatch::MetricStream.MetricStreamStatisticsMetric.MetricName": "CACHED",
   "AWS::CloudWatch::MetricStream.MetricStreamStatisticsMetric.Namespace": "CACHED",
@@ -8417,6 +8164,7 @@
   "AWS::InternetMonitor::Monitor.ResourcesToRemove": "CACHED",
   "AWS::InternetMonitor::Monitor.S3Config.LogDeliveryStatus": "CACHED",
   "AWS::InternetMonitor::Monitor.Status": "CACHED",
+  "AWS::InternetMonitor::Monitor.TrafficPercentageToMonitor": "CACHED",
   "AWS::IoT::AccountAuditConfiguration.AccountId": "CACHED",
   "AWS::IoT::AccountAuditConfiguration.AuditNotificationTarget.RoleArn": "CACHED",
   "AWS::IoT::AccountAuditConfiguration.RoleArn": "CACHED",
@@ -8901,6 +8649,12 @@
   "AWS::MSK::Cluster.KafkaVersion": "CACHED",
   "AWS::MSK::Cluster.PublicAccess.Type": "CACHED",
   "AWS::MSK::Cluster.StorageMode": "CACHED",
+  "AWS::MSK::ClusterPolicy.ClusterArn": "CACHED",
+  "AWS::MSK::VpcConnection.Authentication": "CACHED",
+  "AWS::MSK::VpcConnection.ClientSubnets": "CACHED",
+  "AWS::MSK::VpcConnection.SecurityGroups": "CACHED",
+  "AWS::MSK::VpcConnection.TargetClusterArn": "CACHED",
+  "AWS::MSK::VpcConnection.VpcId": "CACHED",
   "AWS::MWAA::Environment.AirflowVersion": "CACHED",
   "AWS::MWAA::Environment.DagS3Path": "CACHED",
   "AWS::MWAA::Environment.EnvironmentClass": "CACHED",
@@ -8914,6 +8668,7 @@
   "AWS::MWAA::Environment.PluginsS3Path": "CACHED",
   "AWS::MWAA::Environment.RequirementsS3Path": "CACHED",
   "AWS::MWAA::Environment.SourceBucketArn": "CACHED",
+  "AWS::MWAA::Environment.StartupScriptS3Path": "CACHED",
   "AWS::MWAA::Environment.WebserverAccessMode": "CACHED",
   "AWS::MWAA::Environment.WeeklyMaintenanceWindowStart": "CACHED",
   "AWS::Macie::FindingsFilter.Action": "CACHED",
@@ -10154,6 +9909,15 @@
   "AWS::QuickSight::DataSource.TeradataParameters.Host": "CACHED",
   "AWS::QuickSight::DataSource.TeradataParameters.Port": "CACHED",
   "AWS::QuickSight::DataSource.Type": "CACHED",
+  "AWS::QuickSight::RefreshSchedule.AwsAccountId": "CACHED",
+  "AWS::QuickSight::RefreshSchedule.RefreshOnDay.DayOfMonth": "CACHED",
+  "AWS::QuickSight::RefreshSchedule.RefreshOnDay.DayOfWeek": "CACHED",
+  "AWS::QuickSight::RefreshSchedule.RefreshScheduleMap.RefreshType": "CACHED",
+  "AWS::QuickSight::RefreshSchedule.RefreshScheduleMap.ScheduleId": "CACHED",
+  "AWS::QuickSight::RefreshSchedule.RefreshScheduleMap.StartAfterDateTime": "CACHED",
+  "AWS::QuickSight::RefreshSchedule.ScheduleFrequency.Interval": "CACHED",
+  "AWS::QuickSight::RefreshSchedule.ScheduleFrequency.TimeOfTheDay": "CACHED",
+  "AWS::QuickSight::RefreshSchedule.ScheduleFrequency.TimeZone": "CACHED",
   "AWS::QuickSight::Template.AggregationFunction.CategoricalAggregationFunction": "CACHED",
   "AWS::QuickSight::Template.AggregationFunction.DateAggregationFunction": "CACHED",
   "AWS::QuickSight::Template.AggregationSortConfiguration.SortDirection": "CACHED",
@@ -11535,6 +11299,14 @@
   "AWS::StepFunctions::StateMachine.StateMachineType": "CACHED",
   "AWS::StepFunctions::StateMachine.TagsEntry.Key": "CACHED",
   "AWS::StepFunctions::StateMachine.TagsEntry.Value": "CACHED",
+  "AWS::SupportApp::AccountAlias.AccountAlias": "CACHED",
+  "AWS::SupportApp::SlackChannelConfiguration.ChannelId": "CACHED",
+  "AWS::SupportApp::SlackChannelConfiguration.ChannelName": "CACHED",
+  "AWS::SupportApp::SlackChannelConfiguration.ChannelRoleArn": "CACHED",
+  "AWS::SupportApp::SlackChannelConfiguration.NotifyOnCaseSeverity": "CACHED",
+  "AWS::SupportApp::SlackChannelConfiguration.TeamId": "CACHED",
+  "AWS::SupportApp::SlackWorkspaceConfiguration.TeamId": "CACHED",
+  "AWS::SupportApp::SlackWorkspaceConfiguration.VersionId": "CACHED",
   "AWS::Synthetics::Canary.ArtifactS3Location": "CACHED",
   "AWS::Synthetics::Canary.Name": "CACHED",
   "AWS::Synthetics::Group.Name": "CACHED",
@@ -11734,8 +11506,6 @@
   "AWS::XRay::SamplingRule.RuleName": "CACHED",
   "AWS::XRay::SamplingRule.SamplingRule.Priority": "CACHED",
   "AWS::XRay::SamplingRule.SamplingRule.RuleName": "CACHED",
-  "AWS::XRay::SamplingRule.SamplingRuleUpdate.Priority": "CACHED",
-  "AWS::XRay::SamplingRule.SamplingRuleUpdate.RuleName": "CACHED",
   "AppStreamInstanceType": {
    "AllowedValues": [
     "stream.compute.2xlarge",
