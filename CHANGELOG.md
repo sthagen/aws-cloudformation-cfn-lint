@@ -1,3 +1,35 @@
+### v0.79.6
+###### CloudFormation Specifications
+- Fix `AWS::Glue::Job.Name` to use string min/max instead of number min/max (pull #[2831](https://github.com/aws-cloudformation/cfn-lint/pull/2831))
+
+### v0.79.5
+###### CloudFormation Specifications
+- Update schema to spec conversions to include include a default string minimum value of 0 if not specified (pull #[2824](https://github.com/aws-cloudformation/cfn-lint/pull/2824))
+- Update CloudFormation specs to `132.0.0` (pull #[2824](https://github.com/aws-cloudformation/cfn-lint/pull/2824))
+###### Fixes
+- Fix `AWS::LanguageExtensions` to not empty out a hardcoded string `Fn::FindInmap` that cannot be resolved (pull #[2827](https://github.com/aws-cloudformation/cfn-lint/pull/2827))
+
+### v0.79.4
+###### Fixes
+- Fix `AWS::LanguageExtensions` to not fully resolve `Fn::FindInMap` unless in `Fn::ForEach` collection (pull #[2822](https://github.com/aws-cloudformation/cfn-lint/pull/2822))
+- Update `convert_dict` to include `Mark` instead of tuple for default value (pull #[2821](https://github.com/aws-cloudformation/cfn-lint/pull/2821))
+
+### v0.79.3
+###### Fixes
+- Fix `Conditions` logic to not crash on a condition that isn't found (pull #[2814](https://github.com/aws-cloudformation/cfn-lint/pull/2814))
+- Update rule [E1011](https://github.com/aws-cloudformation/cfn-python-lint/blob/main/docs/rules.md#E1011) to better handle `Fn::FindInMap` with `AWS::LanguageExtensions` (pull #[2814](https://github.com/aws-cloudformation/cfn-lint/pull/2814))
+- Update rule [W2001](https://github.com/aws-cloudformation/cfn-python-lint/blob/main/docs/rules.md#W2001) to better handle `Ref` with `AWS::LanguageExtensions` (pull #[2814](https://github.com/aws-cloudformation/cfn-lint/pull/2814))
+
+### v0.79.2
+###### Features
+- Add rule [E1032](https://github.com/aws-cloudformation/cfn-python-lint/blob/main/docs/rules.md#E1032) to validate ForEach with transform (pull #[2809](https://github.com/aws-cloudformation/cfn-lint/pull/2809))
+###### Fixes
+- Fix `AWS::LanguageExtensions` regex for sub removal to handle pseudo parameters (pull #[2812](https://github.com/aws-cloudformation/cfn-lint/pull/2812))
+
+### v0.79.1
+###### Features
+- Add support for `Fn::ForEach` when using `AWS::LanguageExtensions` (pull #[2801](https://github.com/aws-cloudformation/cfn-lint/pull/2801))
+
 ### v0.78.2
 ###### Features
 - Add `test` function to test conditions given a scenario (pull #[2801](https://github.com/aws-cloudformation/cfn-lint/pull/2801))

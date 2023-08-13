@@ -22,7 +22,6 @@ from urllib.request import Request, urlopen
 import regex as re
 
 from cfnlint.data import CloudSpecs
-from cfnlint.decode.node import dict_node, list_node, str_node
 
 LOGGER = logging.getLogger(__name__)
 
@@ -41,6 +40,7 @@ SPEC_REGIONS = {
     "ca-central-1": "https://d2s8ygphhesbe7.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
     "cn-north-1": "https://cfn-resource-specifications-cn-north-1-prod.s3.cn-north-1.amazonaws.com.cn/latest/gzip/CloudFormationResourceSpecification.json",
     "cn-northwest-1": "https://cfn-resource-specifications-cn-northwest-1-prod.s3.cn-northwest-1.amazonaws.com.cn/latest/gzip/CloudFormationResourceSpecification.json",
+    "il-central-1": "https://cfn-resource-specifications-il-central-1-prod.s3.il-central-1.amazonaws.com/latest/gzip/CloudFormationResourceSpecification.json",
     "eu-central-1": "https://d1mta8qj7i28i2.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
     "eu-central-2": "https://cfn-resource-specifications-eu-central-2-prod.s3.eu-central-2.amazonaws.com/latest/gzip/CloudFormationResourceSpecification.json",
     "eu-north-1": "https://diy8iv58sj6ba.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json",
@@ -82,7 +82,6 @@ REGEX_DYN_REF_SSM_SECURE = re.compile(
     r"^.*{{resolve:ssm-secure:[a-zA-Z0-9_\.\-/]+(:\d+)?}}.*$"
 )
 
-
 FUNCTIONS = [
     "Fn::Base64",
     "Fn::GetAtt",
@@ -111,6 +110,7 @@ FUNCTION_AND = "Fn::And"
 FUNCTION_OR = "Fn::Or"
 FUNCTION_NOT = "Fn::Not"
 FUNCTION_EQUALS = "Fn::Equals"
+FUNCTION_FOR_EACH = re.compile(r"^Fn::ForEach::[a-zA-Z0-9]+$")
 
 PSEUDOPARAMS = [
     "AWS::AccountId",
@@ -541,29 +541,6 @@ def load_plugins(directory):
                 result.extend(create_rules(mod))
 
     return result
-
-
-def convert_dict(template, start_mark=(0, 0), end_mark=(0, 0)):
-    """Convert dict to template"""
-    if isinstance(template, dict):
-        if not isinstance(template, dict_node):
-            template = dict_node(template, start_mark, end_mark)
-        for k, v in template.copy().items():
-            k_start_mark = start_mark
-            k_end_mark = end_mark
-            if isinstance(k, str_node):
-                k_start_mark = k.start_mark
-                k_end_mark = k.end_mark
-            new_k = str_node(k, k_start_mark, k_end_mark)
-            del template[k]
-            template[new_k] = convert_dict(v, k_start_mark, k_end_mark)
-    elif isinstance(template, list):
-        if not isinstance(template, list_node):
-            template = list_node(template, start_mark, end_mark)
-        for i, v in enumerate(template):
-            template[i] = convert_dict(v, start_mark, end_mark)
-
-    return template
 
 
 def override_specs(override_spec_file):

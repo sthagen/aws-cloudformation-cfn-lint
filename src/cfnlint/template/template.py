@@ -2,15 +2,19 @@
 Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: MIT-0
 """
+from __future__ import annotations
+
 import logging
 from copy import deepcopy
-from typing import Union
+from typing import List, Union
 
 import regex as re
 
 import cfnlint.conditions
 import cfnlint.helpers
 from cfnlint.graph import Graph
+from cfnlint.match import Match
+from cfnlint.template.transforms import Transform
 
 LOGGER = logging.getLogger(__name__)
 
@@ -42,6 +46,10 @@ class Template:  # pylint: disable=R0904,too-many-lines,too-many-instance-attrib
         self.transform_pre["Fn::Sub"] = self.search_deep_keys("Fn::Sub")
         self.transform_pre["Fn::FindInMap"] = self.search_deep_keys("Fn::FindInMap")
         self.transform_pre["Transform"] = self.template.get("Transform", [])
+        self.transform_pre["Fn::ForEach"] = self.search_deep_keys(
+            cfnlint.helpers.FUNCTION_FOR_EACH
+        )
+
         self.conditions = cfnlint.conditions.Conditions(self)
         self.__cache_search_deep_class = {}
         self.graph: Union[Graph, None] = None
@@ -64,6 +72,13 @@ class Template:  # pylint: disable=R0904,too-many-lines,too-many-instance-attrib
         for k, v in self.__dict__.items():
             setattr(result, k, deepcopy(v, memo))
         return result
+
+    def transform(self) -> List[Match]:
+        """
+        Transform the template
+        """
+        transform = Transform()
+        return transform.transform(self)
 
     def build_graph(self):
         """Generates a DOT representation of the template"""
@@ -433,19 +448,28 @@ class Template:  # pylint: disable=R0904,too-many-lines,too-many-instance-attrib
         return results
 
     # pylint: disable=dangerous-default-value
-    def _search_deep_keys(self, searchText, cfndict, path):
+    def _search_deep_keys(self, searchText: str | re.Pattern, cfndict, path):
         """Search deep for keys and get their values"""
         keys = []
         if isinstance(cfndict, dict):
             for key in cfndict:
                 pathprop = path[:]
                 pathprop.append(key)
-                if key == searchText:
-                    pathprop.append(cfndict[key])
-                    keys.append(pathprop)
-                    # pop the last element off for nesting of found elements for
-                    # dict and list checks
-                    pathprop = pathprop[:-1]
+                if isinstance(searchText, str):
+                    if key == searchText:
+                        pathprop.append(cfndict[key])
+                        keys.append(pathprop)
+                        # pop the last element off for nesting of found elements for
+                        # dict and list checks
+                        pathprop = pathprop[:-1]
+                elif isinstance(searchText, re.Pattern):
+                    if isinstance(key, str):
+                        if re.match(searchText, key):
+                            pathprop.append(cfndict[key])
+                            keys.append(pathprop)
+                            # pop the last element off for nesting of found elements for
+                            # dict and list checks
+                            pathprop = pathprop[:-1]
                 if isinstance(cfndict[key], dict):
                     keys.extend(
                         self._search_deep_keys(searchText, cfndict[key], pathprop)
@@ -465,12 +489,13 @@ class Template:  # pylint: disable=R0904,too-many-lines,too-many-instance-attrib
 
         return keys
 
-    def search_deep_keys(self, searchText, includeGlobals=True):
+    def search_deep_keys(
+        self, searchText: str | re.Pattern, includeGlobals: bool = True
+    ):
         """
         Search for a key in all parts of the template.
         :return if searchText is "Ref", an array like ['Resources', 'myInstance', 'Properties', 'ImageId', 'Ref', 'Ec2ImageId']
         """
-        LOGGER.debug("Search for key %s as far down as the template goes", searchText)
         results = []
         results.extend(self._search_deep_keys(searchText, self.template, []))
         # Globals are removed during a transform.  They need to be checked manually
@@ -819,7 +844,7 @@ class Template:  # pylint: disable=R0904,too-many-lines,too-many-instance-attrib
         resource_condition = (
             self.template.get("Resources", {}).get(resource, {}).get("Condition")
         )
-        if resource_condition:
+        if isinstance(resource_condition, str):
             # if path conditions are empty that means its always true
             if not path_conditions:
                 return [{resource_condition: False}]
@@ -1108,7 +1133,7 @@ class Template:  # pylint: disable=R0904,too-many-lines,too-many-instance-attrib
             if len(path) >= 2:
                 if path[0] in ["Resources", "Outputs"]:
                     condition = text.get(path[0], {}).get(path[1], {}).get("Condition")
-                    if condition:
+                    if isinstance(condition, str):
                         if not results.get(condition):
                             results[condition] = set()
                         results[condition].add(True)
