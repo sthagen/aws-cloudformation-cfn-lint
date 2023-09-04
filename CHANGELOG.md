@@ -1,3 +1,19 @@
+### v0.79.8
+###### CloudFormation Specifications
+- Update CloudFormation specs to `136.0.0` (pull #[2848](https://github.com/aws-cloudformation/cfn-lint/pull/2848))
+###### Fixes
+- Added `ItemReader` key to StateMachine `Map` state (pull #[2850](https://github.com/aws-cloudformation/cfn-lint/pull/2850))
+- Update rule [E2503](https://github.com/aws-cloudformation/cfn-python-lint/blob/main/docs/rules.md#E2503) to allow network load balancers to use security groups (pull #[2850](https://github.com/aws-cloudformation/cfn-lint/pull/2850))
+
+### v0.79.7
+###### CloudFormation Specifications
+- Add region `il-central-1` (pull #[2836](https://github.com/aws-cloudformation/cfn-lint/pull/2836))
+- Update CloudFormation specs to `135.0.0` (pull #[2837](https://github.com/aws-cloudformation/cfn-lint/pull/2837))
+###### Fixes
+- Allow for `RetainExceptOnCreate` for `DeletionPolicy` (pull #[2834](https://github.com/aws-cloudformation/cfn-lint/pull/2834))
+- Fix language extension transform to resolve foreach refs in Sub parameters (pull #[2846](https://github.com/aws-cloudformation/cfn-lint/pull/2846))
+- Fix language extension transform to allow `Fn::FindInMap` to return arrays (pull #[2845](https://github.com/aws-cloudformation/cfn-lint/pull/2845))
+
 ### v0.79.6
 ###### CloudFormation Specifications
 - Fix `AWS::Glue::Job.Name` to use string min/max instead of number min/max (pull #[2831](https://github.com/aws-cloudformation/cfn-lint/pull/2831))
