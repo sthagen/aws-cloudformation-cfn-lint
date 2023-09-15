@@ -387,25 +387,528 @@
   "AWS::Athena::WorkGroup.EngineVersion": "CACHED",
   "AWS::Athena::WorkGroup.ResultConfiguration": "CACHED",
   "AWS::Athena::WorkGroup.WorkGroupConfiguration": "CACHED",
-  "AWS::AutoScaling::AutoScalingGroup.AcceleratorCountRequest": "CACHED",
-  "AWS::AutoScaling::AutoScalingGroup.AcceleratorTotalMemoryMiBRequest": "CACHED",
-  "AWS::AutoScaling::AutoScalingGroup.BaselineEbsBandwidthMbpsRequest": "CACHED",
-  "AWS::AutoScaling::AutoScalingGroup.InstanceRequirements": "CACHED",
-  "AWS::AutoScaling::AutoScalingGroup.InstancesDistribution": "CACHED",
-  "AWS::AutoScaling::AutoScalingGroup.LaunchTemplate": "CACHED",
-  "AWS::AutoScaling::AutoScalingGroup.LaunchTemplateOverrides": "CACHED",
-  "AWS::AutoScaling::AutoScalingGroup.LaunchTemplateSpecification": "CACHED",
+  "AWS::AutoScaling::AutoScalingGroup.AcceleratorCountRequest": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-acceleratorcountrequest.html",
+   "Properties": {
+    "Max": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-acceleratorcountrequest.html#cfn-autoscaling-autoscalinggroup-acceleratorcountrequest-max",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "Min": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-acceleratorcountrequest.html#cfn-autoscaling-autoscalinggroup-acceleratorcountrequest-min",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Conditional"
+    }
+   }
+  },
+  "AWS::AutoScaling::AutoScalingGroup.AcceleratorTotalMemoryMiBRequest": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-acceleratortotalmemorymibrequest.html",
+   "Properties": {
+    "Max": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-acceleratortotalmemorymibrequest.html#cfn-autoscaling-autoscalinggroup-acceleratortotalmemorymibrequest-max",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "Min": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-acceleratortotalmemorymibrequest.html#cfn-autoscaling-autoscalinggroup-acceleratortotalmemorymibrequest-min",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Conditional"
+    }
+   }
+  },
+  "AWS::AutoScaling::AutoScalingGroup.BaselineEbsBandwidthMbpsRequest": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-baselineebsbandwidthmbpsrequest.html",
+   "Properties": {
+    "Max": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-baselineebsbandwidthmbpsrequest.html#cfn-autoscaling-autoscalinggroup-baselineebsbandwidthmbpsrequest-max",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "Min": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-baselineebsbandwidthmbpsrequest.html#cfn-autoscaling-autoscalinggroup-baselineebsbandwidthmbpsrequest-min",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Conditional"
+    }
+   }
+  },
+  "AWS::AutoScaling::AutoScalingGroup.InstanceMaintenancePolicy": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancemaintenancepolicy.html",
+   "Properties": {
+    "MaxHealthyPercentage": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancemaintenancepolicy.html#cfn-autoscaling-autoscalinggroup-instancemaintenancepolicy-maxhealthypercentage",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "MinHealthyPercentage": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancemaintenancepolicy.html#cfn-autoscaling-autoscalinggroup-instancemaintenancepolicy-minhealthypercentage",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Mutable"
+    }
+   }
+  },
+  "AWS::AutoScaling::AutoScalingGroup.InstanceRequirements": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html",
+   "Properties": {
+    "AcceleratorCount": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-acceleratorcount",
+     "Required": false,
+     "Type": "AcceleratorCountRequest",
+     "UpdateType": "Conditional"
+    },
+    "AcceleratorManufacturers": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-acceleratormanufacturers",
+     "DuplicatesAllowed": false,
+     "PrimitiveItemType": "String",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Conditional"
+    },
+    "AcceleratorNames": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-acceleratornames",
+     "DuplicatesAllowed": false,
+     "PrimitiveItemType": "String",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Conditional"
+    },
+    "AcceleratorTotalMemoryMiB": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-acceleratortotalmemorymib",
+     "Required": false,
+     "Type": "AcceleratorTotalMemoryMiBRequest",
+     "UpdateType": "Conditional"
+    },
+    "AcceleratorTypes": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-acceleratortypes",
+     "DuplicatesAllowed": false,
+     "PrimitiveItemType": "String",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Conditional"
+    },
+    "AllowedInstanceTypes": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-allowedinstancetypes",
+     "DuplicatesAllowed": false,
+     "PrimitiveItemType": "String",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Conditional"
+    },
+    "BareMetal": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-baremetal",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "BaselineEbsBandwidthMbps": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-baselineebsbandwidthmbps",
+     "Required": false,
+     "Type": "BaselineEbsBandwidthMbpsRequest",
+     "UpdateType": "Conditional"
+    },
+    "BurstablePerformance": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-burstableperformance",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "CpuManufacturers": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-cpumanufacturers",
+     "DuplicatesAllowed": false,
+     "PrimitiveItemType": "String",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Conditional"
+    },
+    "ExcludedInstanceTypes": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-excludedinstancetypes",
+     "DuplicatesAllowed": false,
+     "PrimitiveItemType": "String",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Conditional"
+    },
+    "InstanceGenerations": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-instancegenerations",
+     "DuplicatesAllowed": false,
+     "PrimitiveItemType": "String",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Conditional"
+    },
+    "LocalStorage": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-localstorage",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "LocalStorageTypes": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-localstoragetypes",
+     "DuplicatesAllowed": false,
+     "PrimitiveItemType": "String",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Conditional"
+    },
+    "MemoryGiBPerVCpu": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-memorygibpervcpu",
+     "Required": false,
+     "Type": "MemoryGiBPerVCpuRequest",
+     "UpdateType": "Conditional"
+    },
+    "MemoryMiB": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-memorymib",
+     "Required": false,
+     "Type": "MemoryMiBRequest",
+     "UpdateType": "Conditional"
+    },
+    "NetworkBandwidthGbps": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-networkbandwidthgbps",
+     "Required": false,
+     "Type": "NetworkBandwidthGbpsRequest",
+     "UpdateType": "Conditional"
+    },
+    "NetworkInterfaceCount": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-networkinterfacecount",
+     "Required": false,
+     "Type": "NetworkInterfaceCountRequest",
+     "UpdateType": "Conditional"
+    },
+    "OnDemandMaxPricePercentageOverLowestPrice": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-ondemandmaxpricepercentageoverlowestprice",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "RequireHibernateSupport": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-requirehibernatesupport",
+     "PrimitiveType": "Boolean",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "SpotMaxPricePercentageOverLowestPrice": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-spotmaxpricepercentageoverlowestprice",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "TotalLocalStorageGB": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-totallocalstoragegb",
+     "Required": false,
+     "Type": "TotalLocalStorageGBRequest",
+     "UpdateType": "Conditional"
+    },
+    "VCpuCount": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-vcpucount",
+     "Required": false,
+     "Type": "VCpuCountRequest",
+     "UpdateType": "Conditional"
+    }
+   }
+  },
+  "AWS::AutoScaling::AutoScalingGroup.InstancesDistribution": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancesdistribution.html",
+   "Properties": {
+    "OnDemandAllocationStrategy": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancesdistribution.html#cfn-autoscaling-autoscalinggroup-instancesdistribution-ondemandallocationstrategy",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "OnDemandBaseCapacity": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancesdistribution.html#cfn-autoscaling-autoscalinggroup-instancesdistribution-ondemandbasecapacity",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "OnDemandPercentageAboveBaseCapacity": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancesdistribution.html#cfn-autoscaling-autoscalinggroup-instancesdistribution-ondemandpercentageabovebasecapacity",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "SpotAllocationStrategy": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancesdistribution.html#cfn-autoscaling-autoscalinggroup-instancesdistribution-spotallocationstrategy",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "SpotInstancePools": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancesdistribution.html#cfn-autoscaling-autoscalinggroup-instancesdistribution-spotinstancepools",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "SpotMaxPrice": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancesdistribution.html#cfn-autoscaling-autoscalinggroup-instancesdistribution-spotmaxprice",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Conditional"
+    }
+   }
+  },
+  "AWS::AutoScaling::AutoScalingGroup.LaunchTemplate": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html",
+   "Properties": {
+    "LaunchTemplateSpecification": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html#cfn-autoscaling-autoscalinggroup-launchtemplate-launchtemplatespecification",
+     "Required": true,
+     "Type": "LaunchTemplateSpecification",
+     "UpdateType": "Conditional"
+    },
+    "Overrides": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html#cfn-autoscaling-autoscalinggroup-launchtemplate-overrides",
+     "DuplicatesAllowed": true,
+     "ItemType": "LaunchTemplateOverrides",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Conditional"
+    }
+   }
+  },
+  "AWS::AutoScaling::AutoScalingGroup.LaunchTemplateOverrides": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html",
+   "Properties": {
+    "InstanceRequirements": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-instancerequirements",
+     "Required": false,
+     "Type": "InstanceRequirements",
+     "UpdateType": "Conditional"
+    },
+    "InstanceType": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-instancetype",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "LaunchTemplateSpecification": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-launchtemplatespecification",
+     "Required": false,
+     "Type": "LaunchTemplateSpecification",
+     "UpdateType": "Conditional"
+    },
+    "WeightedCapacity": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-weightedcapacity",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Conditional"
+    }
+   }
+  },
+  "AWS::AutoScaling::AutoScalingGroup.LaunchTemplateSpecification": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplatespecification.html",
+   "Properties": {
+    "LaunchTemplateId": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplatespecification.html#cfn-autoscaling-autoscalinggroup-launchtemplatespecification-launchtemplateid",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "LaunchTemplateName": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplatespecification.html#cfn-autoscaling-autoscalinggroup-launchtemplatespecification-launchtemplatename",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "Version": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplatespecification.html#cfn-autoscaling-autoscalinggroup-launchtemplatespecification-version",
+     "PrimitiveType": "String",
+     "Required": true,
+     "UpdateType": "Conditional"
+    }
+   }
+  },
   "AWS::AutoScaling::AutoScalingGroup.LifecycleHookSpecification": "CACHED",
-  "AWS::AutoScaling::AutoScalingGroup.MemoryGiBPerVCpuRequest": "CACHED",
-  "AWS::AutoScaling::AutoScalingGroup.MemoryMiBRequest": "CACHED",
-  "AWS::AutoScaling::AutoScalingGroup.MetricsCollection": "CACHED",
-  "AWS::AutoScaling::AutoScalingGroup.MixedInstancesPolicy": "CACHED",
-  "AWS::AutoScaling::AutoScalingGroup.NetworkBandwidthGbpsRequest": "CACHED",
-  "AWS::AutoScaling::AutoScalingGroup.NetworkInterfaceCountRequest": "CACHED",
-  "AWS::AutoScaling::AutoScalingGroup.NotificationConfiguration": "CACHED",
-  "AWS::AutoScaling::AutoScalingGroup.TagProperty": "CACHED",
-  "AWS::AutoScaling::AutoScalingGroup.TotalLocalStorageGBRequest": "CACHED",
-  "AWS::AutoScaling::AutoScalingGroup.VCpuCountRequest": "CACHED",
+  "AWS::AutoScaling::AutoScalingGroup.MemoryGiBPerVCpuRequest": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-memorygibpervcpurequest.html",
+   "Properties": {
+    "Max": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-memorygibpervcpurequest.html#cfn-autoscaling-autoscalinggroup-memorygibpervcpurequest-max",
+     "PrimitiveType": "Double",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "Min": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-memorygibpervcpurequest.html#cfn-autoscaling-autoscalinggroup-memorygibpervcpurequest-min",
+     "PrimitiveType": "Double",
+     "Required": false,
+     "UpdateType": "Conditional"
+    }
+   }
+  },
+  "AWS::AutoScaling::AutoScalingGroup.MemoryMiBRequest": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-memorymibrequest.html",
+   "Properties": {
+    "Max": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-memorymibrequest.html#cfn-autoscaling-autoscalinggroup-memorymibrequest-max",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "Min": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-memorymibrequest.html#cfn-autoscaling-autoscalinggroup-memorymibrequest-min",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Conditional"
+    }
+   }
+  },
+  "AWS::AutoScaling::AutoScalingGroup.MetricsCollection": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-metricscollection.html",
+   "Properties": {
+    "Granularity": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-metricscollection.html#cfn-autoscaling-autoscalinggroup-metricscollection-granularity",
+     "PrimitiveType": "String",
+     "Required": true,
+     "UpdateType": "Mutable"
+    },
+    "Metrics": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-metricscollection.html#cfn-autoscaling-autoscalinggroup-metricscollection-metrics",
+     "DuplicatesAllowed": true,
+     "PrimitiveItemType": "String",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable"
+    }
+   }
+  },
+  "AWS::AutoScaling::AutoScalingGroup.MixedInstancesPolicy": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html",
+   "Properties": {
+    "InstancesDistribution": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html#cfn-autoscaling-autoscalinggroup-mixedinstancespolicy-instancesdistribution",
+     "Required": false,
+     "Type": "InstancesDistribution",
+     "UpdateType": "Conditional"
+    },
+    "LaunchTemplate": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html#cfn-autoscaling-autoscalinggroup-mixedinstancespolicy-launchtemplate",
+     "Required": true,
+     "Type": "LaunchTemplate",
+     "UpdateType": "Conditional"
+    }
+   }
+  },
+  "AWS::AutoScaling::AutoScalingGroup.NetworkBandwidthGbpsRequest": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-networkbandwidthgbpsrequest.html",
+   "Properties": {
+    "Max": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-networkbandwidthgbpsrequest.html#cfn-autoscaling-autoscalinggroup-networkbandwidthgbpsrequest-max",
+     "PrimitiveType": "Double",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "Min": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-networkbandwidthgbpsrequest.html#cfn-autoscaling-autoscalinggroup-networkbandwidthgbpsrequest-min",
+     "PrimitiveType": "Double",
+     "Required": false,
+     "UpdateType": "Conditional"
+    }
+   }
+  },
+  "AWS::AutoScaling::AutoScalingGroup.NetworkInterfaceCountRequest": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-networkinterfacecountrequest.html",
+   "Properties": {
+    "Max": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-networkinterfacecountrequest.html#cfn-autoscaling-autoscalinggroup-networkinterfacecountrequest-max",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "Min": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-networkinterfacecountrequest.html#cfn-autoscaling-autoscalinggroup-networkinterfacecountrequest-min",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Conditional"
+    }
+   }
+  },
+  "AWS::AutoScaling::AutoScalingGroup.NotificationConfiguration": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-notificationconfiguration.html",
+   "Properties": {
+    "NotificationTypes": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-notificationconfiguration.html#cfn-autoscaling-autoscalinggroup-notificationconfiguration-notificationtypes",
+     "DuplicatesAllowed": true,
+     "PrimitiveItemType": "String",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable"
+    },
+    "TopicARN": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-notificationconfiguration.html#cfn-autoscaling-autoscalinggroup-notificationconfiguration-topicarn",
+     "DuplicatesAllowed": true,
+     "PrimitiveItemType": "String",
+     "Required": true,
+     "Type": "List",
+     "UpdateType": "Mutable"
+    }
+   }
+  },
+  "AWS::AutoScaling::AutoScalingGroup.TagProperty": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-tagproperty.html",
+   "Properties": {
+    "Key": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-tagproperty.html#cfn-autoscaling-autoscalinggroup-tagproperty-key",
+     "PrimitiveType": "String",
+     "Required": true,
+     "UpdateType": "Mutable"
+    },
+    "PropagateAtLaunch": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-tagproperty.html#cfn-autoscaling-autoscalinggroup-tagproperty-propagateatlaunch",
+     "PrimitiveType": "Boolean",
+     "Required": true,
+     "UpdateType": "Mutable"
+    },
+    "Value": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-tagproperty.html#cfn-autoscaling-autoscalinggroup-tagproperty-value",
+     "PrimitiveType": "String",
+     "Required": true,
+     "UpdateType": "Mutable"
+    }
+   }
+  },
+  "AWS::AutoScaling::AutoScalingGroup.TotalLocalStorageGBRequest": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-totallocalstoragegbrequest.html",
+   "Properties": {
+    "Max": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-totallocalstoragegbrequest.html#cfn-autoscaling-autoscalinggroup-totallocalstoragegbrequest-max",
+     "PrimitiveType": "Double",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "Min": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-totallocalstoragegbrequest.html#cfn-autoscaling-autoscalinggroup-totallocalstoragegbrequest-min",
+     "PrimitiveType": "Double",
+     "Required": false,
+     "UpdateType": "Conditional"
+    }
+   }
+  },
+  "AWS::AutoScaling::AutoScalingGroup.VCpuCountRequest": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-vcpucountrequest.html",
+   "Properties": {
+    "Max": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-vcpucountrequest.html#cfn-autoscaling-autoscalinggroup-vcpucountrequest-max",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "Min": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-vcpucountrequest.html#cfn-autoscaling-autoscalinggroup-vcpucountrequest-min",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Conditional"
+    }
+   }
+  },
   "AWS::AutoScaling::LaunchConfiguration.BlockDevice": "CACHED",
   "AWS::AutoScaling::LaunchConfiguration.BlockDeviceMapping": "CACHED",
   "AWS::AutoScaling::LaunchConfiguration.MetadataOptions": "CACHED",
@@ -837,9 +1340,17 @@
   "AWS::DataSync::LocationNFS.OnPremConfig": "CACHED",
   "AWS::DataSync::LocationS3.S3Config": "CACHED",
   "AWS::DataSync::LocationSMB.MountOptions": "CACHED",
+  "AWS::DataSync::Task.Deleted": "CACHED",
+  "AWS::DataSync::Task.Destination": "CACHED",
   "AWS::DataSync::Task.FilterRule": "CACHED",
   "AWS::DataSync::Task.Options": "CACHED",
+  "AWS::DataSync::Task.Overrides": "CACHED",
+  "AWS::DataSync::Task.S3": "CACHED",
+  "AWS::DataSync::Task.Skipped": "CACHED",
+  "AWS::DataSync::Task.TaskReportConfig": "CACHED",
   "AWS::DataSync::Task.TaskSchedule": "CACHED",
+  "AWS::DataSync::Task.Transferred": "CACHED",
+  "AWS::DataSync::Task.Verified": "CACHED",
   "AWS::DirectoryService::MicrosoftAD.VpcSettings": "CACHED",
   "AWS::DirectoryService::SimpleAD.VpcSettings": {
    "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-directoryservice-simplead-vpcsettings.html",
@@ -1229,7 +1740,23 @@
   "AWS::ElasticLoadBalancingV2::ListenerRule.SourceIpConfig": "CACHED",
   "AWS::ElasticLoadBalancingV2::ListenerRule.TargetGroupStickinessConfig": "CACHED",
   "AWS::ElasticLoadBalancingV2::ListenerRule.TargetGroupTuple": "CACHED",
-  "AWS::ElasticLoadBalancingV2::LoadBalancer.LoadBalancerAttribute": "CACHED",
+  "AWS::ElasticLoadBalancingV2::LoadBalancer.LoadBalancerAttribute": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattribute.html",
+   "Properties": {
+    "Key": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattribute.html#cfn-elasticloadbalancingv2-loadbalancer-loadbalancerattribute-key",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "Value": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattribute.html#cfn-elasticloadbalancingv2-loadbalancer-loadbalancerattribute-value",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    }
+   }
+  },
   "AWS::ElasticLoadBalancingV2::LoadBalancer.SubnetMapping": "CACHED",
   "AWS::ElasticLoadBalancingV2::TargetGroup.Matcher": "CACHED",
   "AWS::ElasticLoadBalancingV2::TargetGroup.TargetDescription": "CACHED",
@@ -1250,6 +1777,13 @@
   "AWS::EventSchemas::Discoverer.TagsEntry": "CACHED",
   "AWS::EventSchemas::Registry.TagsEntry": "CACHED",
   "AWS::EventSchemas::Schema.TagsEntry": "CACHED",
+  "AWS::Events::Connection.ApiKeyAuthParameters": "CACHED",
+  "AWS::Events::Connection.AuthParameters": "CACHED",
+  "AWS::Events::Connection.BasicAuthParameters": "CACHED",
+  "AWS::Events::Connection.ClientParameters": "CACHED",
+  "AWS::Events::Connection.ConnectionHttpParameters": "CACHED",
+  "AWS::Events::Connection.OAuthParameters": "CACHED",
+  "AWS::Events::Connection.Parameter": "CACHED",
   "AWS::Events::EventBus.TagEntry": "CACHED",
   "AWS::Events::EventBusPolicy.Condition": "CACHED",
   "AWS::Events::Rule.AwsVpcConfiguration": "CACHED",
@@ -1655,13 +2189,82 @@
   "AWS::GreengrassV2::Deployment.IoTJobTimeoutConfig": "CACHED",
   "AWS::GreengrassV2::Deployment.SystemResourceLimits": "CACHED",
   "AWS::GuardDuty::Detector.CFNDataSourceConfigurations": "CACHED",
-  "AWS::GuardDuty::Detector.CFNKubernetesAuditLogsConfiguration": "CACHED",
-  "AWS::GuardDuty::Detector.CFNKubernetesConfiguration": "CACHED",
+  "AWS::GuardDuty::Detector.CFNKubernetesAuditLogsConfiguration": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnkubernetesauditlogsconfiguration.html",
+   "Properties": {
+    "Enable": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnkubernetesauditlogsconfiguration.html#cfn-guardduty-detector-cfnkubernetesauditlogsconfiguration-enable",
+     "PrimitiveType": "Boolean",
+     "Required": false,
+     "UpdateType": "Mutable"
+    }
+   }
+  },
+  "AWS::GuardDuty::Detector.CFNKubernetesConfiguration": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnkubernetesconfiguration.html",
+   "Properties": {
+    "AuditLogs": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnkubernetesconfiguration.html#cfn-guardduty-detector-cfnkubernetesconfiguration-auditlogs",
+     "Required": false,
+     "Type": "CFNKubernetesAuditLogsConfiguration",
+     "UpdateType": "Mutable"
+    }
+   }
+  },
   "AWS::GuardDuty::Detector.CFNMalwareProtectionConfiguration": "CACHED",
-  "AWS::GuardDuty::Detector.CFNS3LogsConfiguration": "CACHED",
+  "AWS::GuardDuty::Detector.CFNS3LogsConfiguration": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfns3logsconfiguration.html",
+   "Properties": {
+    "Enable": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfns3logsconfiguration.html#cfn-guardduty-detector-cfns3logsconfiguration-enable",
+     "PrimitiveType": "Boolean",
+     "Required": false,
+     "UpdateType": "Mutable"
+    }
+   }
+  },
   "AWS::GuardDuty::Detector.CFNScanEc2InstanceWithFindingsConfiguration": "CACHED",
-  "AWS::GuardDuty::Detector.FeatureAdditionalConfiguration": "CACHED",
-  "AWS::GuardDuty::Detector.FeatureConfigurations": "CACHED",
+  "AWS::GuardDuty::Detector.FeatureAdditionalConfiguration": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureadditionalconfiguration.html",
+   "Properties": {
+    "Name": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureadditionalconfiguration.html#cfn-guardduty-detector-featureadditionalconfiguration-name",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "Status": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureadditionalconfiguration.html#cfn-guardduty-detector-featureadditionalconfiguration-status",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    }
+   }
+  },
+  "AWS::GuardDuty::Detector.FeatureConfigurations": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureconfigurations.html",
+   "Properties": {
+    "AdditionalConfiguration": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureconfigurations.html#cfn-guardduty-detector-featureconfigurations-additionalconfiguration",
+     "ItemType": "FeatureAdditionalConfiguration",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable"
+    },
+    "Name": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureconfigurations.html#cfn-guardduty-detector-featureconfigurations-name",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "Status": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureconfigurations.html#cfn-guardduty-detector-featureconfigurations-status",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    }
+   }
+  },
   "AWS::GuardDuty::Filter.Condition": "CACHED",
   "AWS::GuardDuty::Filter.FindingCriteria": "CACHED",
   "AWS::IAM::Group.Policy": "CACHED",
@@ -2133,6 +2736,29 @@
   "AWS::MSK::Cluster.VpcConnectivitySasl": "CACHED",
   "AWS::MSK::Cluster.VpcConnectivityScram": "CACHED",
   "AWS::MSK::Cluster.VpcConnectivityTls": "CACHED",
+  "AWS::MSK::Configuration.LatestRevision": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-configuration-latestrevision.html",
+   "Properties": {
+    "CreationTime": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-configuration-latestrevision.html#cfn-msk-configuration-latestrevision-creationtime",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "Description": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-configuration-latestrevision.html#cfn-msk-configuration-latestrevision-description",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "Revision": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-configuration-latestrevision.html#cfn-msk-configuration-latestrevision-revision",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Mutable"
+    }
+   }
+  },
   "AWS::MWAA::Environment.LoggingConfiguration": "CACHED",
   "AWS::MWAA::Environment.ModuleLoggingConfiguration": "CACHED",
   "AWS::MWAA::Environment.NetworkConfiguration": "CACHED",
@@ -2210,6 +2836,7 @@
   "AWS::ResourceGroups::Group.Query": "CACHED",
   "AWS::ResourceGroups::Group.ResourceQuery": "CACHED",
   "AWS::ResourceGroups::Group.TagFilter": "CACHED",
+  "AWS::RolesAnywhere::TrustAnchor.NotificationSetting": "CACHED",
   "AWS::RolesAnywhere::TrustAnchor.Source": "CACHED",
   "AWS::RolesAnywhere::TrustAnchor.SourceData": "CACHED",
   "AWS::Route53::CidrCollection.Location": "CACHED",
@@ -3177,8 +3804,55 @@
   "AWS::XRay::SamplingRule.SamplingRule": "CACHED",
   "Tag": "CACHED"
  },
- "ResourceSpecificationVersion": "137.0.0",
+ "ResourceSpecificationVersion": "140.0.0",
  "ResourceTypes": {
+  "AMZN::SDC::Deployment": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sdc-deployment.html",
+   "Properties": {
+    "ConfigName": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sdc-deployment.html#cfn-sdc-deployment-configname",
+     "PrimitiveType": "String",
+     "Required": true,
+     "UpdateType": "Mutable"
+    },
+    "Dimension": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sdc-deployment.html#cfn-sdc-deployment-dimension",
+     "PrimitiveType": "String",
+     "Required": true,
+     "UpdateType": "Mutable"
+    },
+    "PipelineId": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sdc-deployment.html#cfn-sdc-deployment-pipelineid",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "S3Bucket": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sdc-deployment.html#cfn-sdc-deployment-s3bucket",
+     "PrimitiveType": "String",
+     "Required": true,
+     "UpdateType": "Mutable"
+    },
+    "S3Key": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sdc-deployment.html#cfn-sdc-deployment-s3key",
+     "PrimitiveType": "String",
+     "Required": true,
+     "UpdateType": "Immutable"
+    },
+    "Stage": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sdc-deployment.html#cfn-sdc-deployment-stage",
+     "PrimitiveType": "String",
+     "Required": true,
+     "UpdateType": "Mutable"
+    },
+    "TargetRegionOverride": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sdc-deployment.html#cfn-sdc-deployment-targetregionoverride",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    }
+   }
+  },
   "AWS::AccessAnalyzer::Analyzer": "CACHED",
   "AWS::AmazonMQ::Broker": "CACHED",
   "AWS::AmazonMQ::Configuration": "CACHED",
@@ -3275,7 +3949,225 @@
   "AWS::Athena::NamedQuery": "CACHED",
   "AWS::Athena::PreparedStatement": "CACHED",
   "AWS::Athena::WorkGroup": "CACHED",
-  "AWS::AutoScaling::AutoScalingGroup": "CACHED",
+  "AWS::AutoScaling::AutoScalingGroup": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html",
+   "Properties": {
+    "AutoScalingGroupName": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-autoscalinggroupname",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Immutable"
+    },
+    "AvailabilityZones": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-availabilityzones",
+     "DuplicatesAllowed": true,
+     "PrimitiveItemType": "String",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable",
+     "Value": {
+      "ListValueType": "AvailabilityZones",
+      "ValueType": "AvailabilityZone"
+     }
+    },
+    "CapacityRebalance": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-capacityrebalance",
+     "PrimitiveType": "Boolean",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "Context": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-context",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "Cooldown": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-cooldown",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "DefaultInstanceWarmup": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-defaultinstancewarmup",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "DesiredCapacity": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-desiredcapacity",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "DesiredCapacityType": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-desiredcapacitytype",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "HealthCheckGracePeriod": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-healthcheckgraceperiod",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "HealthCheckType": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-healthchecktype",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable",
+     "Value": {
+      "ValueType": "AWS::AutoScaling::AutoScalingGroup.HealthCheckType"
+     }
+    },
+    "InstanceId": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-instanceid",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Immutable"
+    },
+    "InstanceMaintenancePolicy": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-instancemaintenancepolicy",
+     "Required": false,
+     "Type": "InstanceMaintenancePolicy",
+     "UpdateType": "Mutable"
+    },
+    "LaunchConfigurationName": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-launchconfigurationname",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Conditional",
+     "Value": {
+      "ValueType": "LaunchConfigurationName"
+     }
+    },
+    "LaunchTemplate": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-launchtemplate",
+     "Required": false,
+     "Type": "LaunchTemplateSpecification",
+     "UpdateType": "Conditional"
+    },
+    "LifecycleHookSpecificationList": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-lifecyclehookspecificationlist",
+     "DuplicatesAllowed": true,
+     "ItemType": "LifecycleHookSpecification",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable"
+    },
+    "LoadBalancerNames": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-loadbalancernames",
+     "DuplicatesAllowed": true,
+     "PrimitiveItemType": "String",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable",
+     "Value": {
+      "ListValueType": "LoadBalancerNames",
+      "ValueType": "LoadBalancerName"
+     }
+    },
+    "MaxInstanceLifetime": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-maxinstancelifetime",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "MaxSize": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-maxsize",
+     "PrimitiveType": "String",
+     "Required": true,
+     "UpdateType": "Mutable"
+    },
+    "MetricsCollection": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-metricscollection",
+     "DuplicatesAllowed": true,
+     "ItemType": "MetricsCollection",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable"
+    },
+    "MinSize": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-minsize",
+     "PrimitiveType": "String",
+     "Required": true,
+     "UpdateType": "Mutable"
+    },
+    "MixedInstancesPolicy": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-mixedinstancespolicy",
+     "Required": false,
+     "Type": "MixedInstancesPolicy",
+     "UpdateType": "Conditional"
+    },
+    "NewInstancesProtectedFromScaleIn": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-newinstancesprotectedfromscalein",
+     "PrimitiveType": "Boolean",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "NotificationConfigurations": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-notificationconfigurations",
+     "DuplicatesAllowed": true,
+     "ItemType": "NotificationConfiguration",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable"
+    },
+    "PlacementGroup": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-placementgroup",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "ServiceLinkedRoleARN": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-servicelinkedrolearn",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "Tags": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-tags",
+     "DuplicatesAllowed": true,
+     "ItemType": "TagProperty",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable"
+    },
+    "TargetGroupARNs": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-targetgrouparns",
+     "DuplicatesAllowed": true,
+     "PrimitiveItemType": "String",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable",
+     "Value": {
+      "ListValueType": "TargetGroupArns",
+      "ValueType": "TargetGroupArn"
+     }
+    },
+    "TerminationPolicies": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-terminationpolicies",
+     "DuplicatesAllowed": true,
+     "PrimitiveItemType": "String",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable"
+    },
+    "VPCZoneIdentifier": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-vpczoneidentifier",
+     "DuplicatesAllowed": true,
+     "PrimitiveItemType": "String",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Conditional",
+     "Value": {
+      "ListValueType": "SubnetIds",
+      "ValueType": "SubnetId"
+     }
+    }
+   }
+  },
   "AWS::AutoScaling::LaunchConfiguration": "CACHED",
   "AWS::AutoScaling::LifecycleHook": "CACHED",
   "AWS::AutoScaling::ScalingPolicy": "CACHED",
@@ -3951,66 +4843,95 @@
   "AWS::EC2::EIP": "CACHED",
   "AWS::EC2::EIPAssociation": "CACHED",
   "AWS::EC2::EgressOnlyInternetGateway": "CACHED",
-  "AWS::EC2::FlowLog": "CACHED",
-  "AWS::EC2::GatewayRouteTableAssociation": "CACHED",
-  "AWS::EC2::Host": {
+  "AWS::EC2::FlowLog": {
    "Attributes": {
-    "HostId": {
+    "Id": {
      "PrimitiveType": "String"
     }
    },
-   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html",
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html",
    "Properties": {
-    "AutoPlacement": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-autoplacement",
+    "DeliverLogsPermissionArn": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-deliverlogspermissionarn",
      "PrimitiveType": "String",
      "Required": false,
-     "UpdateType": "Mutable",
+     "UpdateType": "Immutable"
+    },
+    "DestinationOptions": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-destinationoptions",
+     "Required": false,
+     "Type": "DestinationOptions",
+     "UpdateType": "Immutable"
+    },
+    "LogDestination": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestination",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Immutable"
+    },
+    "LogDestinationType": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestinationtype",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Immutable",
      "Value": {
-      "ValueType": "Ec2HostAutoPlacement"
+      "ValueType": "AWS::EC2::FlowLog.LogDestinationType"
      }
     },
-    "AvailabilityZone": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-availabilityzone",
+    "LogFormat": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logformat",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Immutable"
+    },
+    "LogGroupName": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-loggroupname",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Immutable"
+    },
+    "MaxAggregationInterval": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-maxaggregationinterval",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Immutable"
+    },
+    "ResourceId": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourceid",
+     "PrimitiveType": "String",
+     "Required": true,
+     "UpdateType": "Immutable"
+    },
+    "ResourceType": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourcetype",
      "PrimitiveType": "String",
      "Required": true,
      "UpdateType": "Immutable",
      "Value": {
-      "ValueType": "AvailabilityZone"
+      "ValueType": "AWS::EC2::FlowLog.ResourceType"
      }
     },
-    "HostMaintenance": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-hostmaintenance",
-     "PrimitiveType": "String",
+    "Tags": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-tags",
+     "DuplicatesAllowed": true,
+     "ItemType": "Tag",
      "Required": false,
+     "Type": "List",
      "UpdateType": "Mutable"
     },
-    "HostRecovery": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-hostrecovery",
+    "TrafficType": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-traffictype",
      "PrimitiveType": "String",
      "Required": false,
-     "UpdateType": "Mutable"
-    },
-    "InstanceFamily": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-instancefamily",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Immutable"
-    },
-    "InstanceType": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-instancetype",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Immutable"
-    },
-    "OutpostArn": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-outpostarn",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Immutable"
+     "UpdateType": "Immutable",
+     "Value": {
+      "ValueType": "AWS::EC2::FlowLog.TrafficType"
+     }
     }
    }
   },
+  "AWS::EC2::GatewayRouteTableAssociation": "CACHED",
+  "AWS::EC2::Host": "CACHED",
   "AWS::EC2::Instance": "CACHED",
   "AWS::EC2::InternetGateway": "CACHED",
   "AWS::EC2::KeyPair": "CACHED",
@@ -4049,47 +4970,105 @@
    }
   },
   "AWS::EC2::NetworkInterfacePermission": "CACHED",
-  "AWS::EC2::PlacementGroup": {
+  "AWS::EC2::PlacementGroup": "CACHED",
+  "AWS::EC2::PrefixList": "CACHED",
+  "AWS::EC2::Route": {
    "Attributes": {
-    "GroupName": {
+    "CidrBlock": {
      "PrimitiveType": "String"
     }
    },
-   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html",
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html",
    "Properties": {
-    "PartitionCount": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html#cfn-ec2-placementgroup-partitioncount",
-     "PrimitiveType": "Integer",
-     "Required": false,
-     "UpdateType": "Immutable"
-    },
-    "SpreadLevel": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html#cfn-ec2-placementgroup-spreadlevel",
+    "CarrierGatewayId": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-carriergatewayid",
      "PrimitiveType": "String",
      "Required": false,
-     "UpdateType": "Immutable"
+     "UpdateType": "Mutable"
     },
-    "Strategy": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html#cfn-ec2-placementgroup-strategy",
+    "DestinationCidrBlock": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-destinationcidrblock",
      "PrimitiveType": "String",
      "Required": false,
      "UpdateType": "Immutable",
      "Value": {
-      "ValueType": "PlacementGroupStrategy"
+      "ValueType": "CidrIp"
      }
     },
-    "Tags": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html#cfn-ec2-placementgroup-tags",
-     "DuplicatesAllowed": false,
-     "ItemType": "Tag",
+    "DestinationIpv6CidrBlock": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-destinationipv6cidrblock",
+     "PrimitiveType": "String",
      "Required": false,
-     "Type": "List",
      "UpdateType": "Immutable"
+    },
+    "DestinationPrefixListId": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-destinationprefixlistid",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Immutable"
+    },
+    "EgressOnlyInternetGatewayId": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-egressonlyinternetgatewayid",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "GatewayId": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-gatewayid",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "InstanceId": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-instanceid",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "LocalGatewayId": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-localgatewayid",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "NatGatewayId": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-natgatewayid",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "NetworkInterfaceId": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-networkinterfaceid",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "RouteTableId": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-routetableid",
+     "PrimitiveType": "String",
+     "Required": true,
+     "UpdateType": "Immutable"
+    },
+    "TransitGatewayId": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-transitgatewayid",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "VpcEndpointId": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-vpcendpointid",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "VpcPeeringConnectionId": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-vpcpeeringconnectionid",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
     }
    }
   },
-  "AWS::EC2::PrefixList": "CACHED",
-  "AWS::EC2::Route": "CACHED",
   "AWS::EC2::RouteTable": "CACHED",
   "AWS::EC2::SecurityGroup": "CACHED",
   "AWS::EC2::SecurityGroupEgress": "CACHED",
@@ -4381,105 +5360,7 @@
   "AWS::EMR::SecurityConfiguration": "CACHED",
   "AWS::EMR::Step": "CACHED",
   "AWS::EMR::Studio": "CACHED",
-  "AWS::EMRServerless::Application": {
-   "Attributes": {
-    "ApplicationId": {
-     "PrimitiveType": "String"
-    },
-    "Arn": {
-     "PrimitiveType": "String"
-    }
-   },
-   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html",
-   "Properties": {
-    "Architecture": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-architecture",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Conditional",
-     "Value": {
-      "ValueType": "AWS::EMRServerless::Application.Architecture"
-     }
-    },
-    "AutoStartConfiguration": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-autostartconfiguration",
-     "Required": false,
-     "Type": "AutoStartConfiguration",
-     "UpdateType": "Conditional"
-    },
-    "AutoStopConfiguration": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-autostopconfiguration",
-     "Required": false,
-     "Type": "AutoStopConfiguration",
-     "UpdateType": "Conditional"
-    },
-    "ImageConfiguration": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-imageconfiguration",
-     "Required": false,
-     "Type": "ImageConfigurationInput",
-     "UpdateType": "Conditional"
-    },
-    "InitialCapacity": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-initialcapacity",
-     "DuplicatesAllowed": false,
-     "ItemType": "InitialCapacityConfigKeyValuePair",
-     "Required": false,
-     "Type": "List",
-     "UpdateType": "Conditional"
-    },
-    "MaximumCapacity": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-maximumcapacity",
-     "Required": false,
-     "Type": "MaximumAllowedResources",
-     "UpdateType": "Conditional"
-    },
-    "Name": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-name",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Immutable",
-     "Value": {
-      "ValueType": "AWS::EMRServerless::Application.Name"
-     }
-    },
-    "NetworkConfiguration": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-networkconfiguration",
-     "Required": false,
-     "Type": "NetworkConfiguration",
-     "UpdateType": "Conditional"
-    },
-    "ReleaseLabel": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-releaselabel",
-     "PrimitiveType": "String",
-     "Required": true,
-     "UpdateType": "Conditional",
-     "Value": {
-      "ValueType": "AWS::EMRServerless::Application.ReleaseLabel"
-     }
-    },
-    "Tags": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-tags",
-     "DuplicatesAllowed": false,
-     "ItemType": "Tag",
-     "Required": false,
-     "Type": "List",
-     "UpdateType": "Mutable"
-    },
-    "Type": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-type",
-     "PrimitiveType": "String",
-     "Required": true,
-     "UpdateType": "Immutable"
-    },
-    "WorkerTypeSpecifications": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-workertypespecifications",
-     "ItemType": "WorkerTypeSpecificationInput",
-     "Required": false,
-     "Type": "Map",
-     "UpdateType": "Conditional"
-    }
-   }
-  },
+  "AWS::EMRServerless::Application": "CACHED",
   "AWS::ElastiCache::CacheCluster": "CACHED",
   "AWS::ElastiCache::GlobalReplicationGroup": "CACHED",
   "AWS::ElastiCache::ParameterGroup": "CACHED",
@@ -4540,13 +5421,112 @@
     }
    }
   },
-  "AWS::ElasticLoadBalancingV2::LoadBalancer": "CACHED",
+  "AWS::ElasticLoadBalancingV2::LoadBalancer": {
+   "Attributes": {
+    "CanonicalHostedZoneID": {
+     "PrimitiveType": "String"
+    },
+    "DNSName": {
+     "PrimitiveType": "String"
+    },
+    "LoadBalancerArn": {
+     "PrimitiveType": "String"
+    },
+    "LoadBalancerFullName": {
+     "PrimitiveType": "String"
+    },
+    "LoadBalancerName": {
+     "PrimitiveType": "String"
+    },
+    "SecurityGroups": {
+     "PrimitiveItemType": "String",
+     "Type": "List"
+    }
+   },
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html",
+   "Properties": {
+    "IpAddressType": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-ipaddresstype",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "LoadBalancerAttributes": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-loadbalancerattributes",
+     "DuplicatesAllowed": false,
+     "ItemType": "LoadBalancerAttribute",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable"
+    },
+    "Name": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-name",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Immutable"
+    },
+    "Scheme": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-scheme",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Immutable"
+    },
+    "SecurityGroups": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-securitygroups",
+     "DuplicatesAllowed": false,
+     "PrimitiveItemType": "String",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable",
+     "Value": {
+      "ListValueType": "AWS::EC2::SecurityGroup.NamesOrGroupIds",
+      "ValueType": "AWS::EC2::SecurityGroup.NameOrGroupId"
+     }
+    },
+    "SubnetMappings": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmappings",
+     "DuplicatesAllowed": false,
+     "ItemType": "SubnetMapping",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable"
+    },
+    "Subnets": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-subnets",
+     "DuplicatesAllowed": false,
+     "PrimitiveItemType": "String",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable",
+     "Value": {
+      "ListValueType": "SubnetIds",
+      "ValueType": "SubnetId"
+     }
+    },
+    "Tags": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-tags",
+     "DuplicatesAllowed": true,
+     "ItemType": "Tag",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable"
+    },
+    "Type": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-type",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Immutable"
+    }
+   }
+  },
   "AWS::ElasticLoadBalancingV2::TargetGroup": "CACHED",
   "AWS::Elasticsearch::Domain": "CACHED",
   "AWS::EventSchemas::Discoverer": "CACHED",
   "AWS::EventSchemas::Registry": "CACHED",
   "AWS::EventSchemas::Schema": "CACHED",
+  "AWS::Events::ApiDestination": "CACHED",
   "AWS::Events::Archive": "CACHED",
+  "AWS::Events::Connection": "CACHED",
   "AWS::Events::EventBus": "CACHED",
   "AWS::Events::EventBusPolicy": "CACHED",
   "AWS::Events::Rule": "CACHED",
@@ -4618,7 +5598,46 @@
   "AWS::Greengrass::SubscriptionDefinitionVersion": "CACHED",
   "AWS::GreengrassV2::ComponentVersion": "CACHED",
   "AWS::GreengrassV2::Deployment": "CACHED",
-  "AWS::GuardDuty::Detector": "CACHED",
+  "AWS::GuardDuty::Detector": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html",
+   "Properties": {
+    "DataSources": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-datasources",
+     "Required": false,
+     "Type": "CFNDataSourceConfigurations",
+     "UpdateType": "Mutable"
+    },
+    "Enable": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-enable",
+     "PrimitiveType": "Boolean",
+     "Required": true,
+     "UpdateType": "Mutable"
+    },
+    "Features": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-features",
+     "ItemType": "FeatureConfigurations",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable"
+    },
+    "FindingPublishingFrequency": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-findingpublishingfrequency",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable",
+     "Value": {
+      "ValueType": "AWS::GuardDuty::Detector.FindingPublishingFrequency"
+     }
+    },
+    "Tags": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-tags",
+     "ItemType": "Tag",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable"
+    }
+   }
+  },
   "AWS::GuardDuty::Filter": "CACHED",
   "AWS::GuardDuty::IPSet": "CACHED",
   "AWS::GuardDuty::Master": "CACHED",
@@ -4716,12 +5735,6 @@
      "Required": false,
      "UpdateType": "Mutable"
     },
-    "AllowFullTableExternalDataAccess": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-allowfulltableexternaldataaccess",
-     "PrimitiveType": "Boolean",
-     "Required": false,
-     "UpdateType": "Mutable"
-    },
     "AuthorizedSessionTagValueList": {
      "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-authorizedsessiontagvaluelist",
      "PrimitiveItemType": "String",
@@ -4745,12 +5758,6 @@
      "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-externaldatafilteringallowlist",
      "Required": false,
      "Type": "ExternalDataFilteringAllowList",
-     "UpdateType": "Mutable"
-    },
-    "MutationType": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-mutationtype",
-     "PrimitiveType": "String",
-     "Required": false,
      "UpdateType": "Mutable"
     },
     "Parameters": {
@@ -4835,7 +5842,57 @@
   "AWS::MSK::BatchScramSecret": "CACHED",
   "AWS::MSK::Cluster": "CACHED",
   "AWS::MSK::ClusterPolicy": "CACHED",
-  "AWS::MSK::Configuration": "CACHED",
+  "AWS::MSK::Configuration": {
+   "Attributes": {
+    "Arn": {
+     "PrimitiveType": "String"
+    },
+    "LatestRevision.CreationTime": {
+     "PrimitiveType": "String"
+    },
+    "LatestRevision.Description": {
+     "PrimitiveType": "String"
+    },
+    "LatestRevision.Revision": {
+     "PrimitiveType": "Integer"
+    }
+   },
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html",
+   "Properties": {
+    "Description": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html#cfn-msk-configuration-description",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "KafkaVersionsList": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html#cfn-msk-configuration-kafkaversionslist",
+     "DuplicatesAllowed": true,
+     "PrimitiveItemType": "String",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Immutable"
+    },
+    "LatestRevision": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html#cfn-msk-configuration-latestrevision",
+     "Required": false,
+     "Type": "LatestRevision",
+     "UpdateType": "Mutable"
+    },
+    "Name": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html#cfn-msk-configuration-name",
+     "PrimitiveType": "String",
+     "Required": true,
+     "UpdateType": "Immutable"
+    },
+    "ServerProperties": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html#cfn-msk-configuration-serverproperties",
+     "PrimitiveType": "String",
+     "Required": true,
+     "UpdateType": "Mutable"
+    }
+   }
+  },
   "AWS::MSK::VpcConnection": "CACHED",
   "AWS::MWAA::Environment": "CACHED",
   "AWS::Neptune::DBCluster": "CACHED",
@@ -5904,6 +6961,7 @@
   "AWS::DataSync::LocationSMB.Subdirectory": "CACHED",
   "AWS::DataSync::LocationSMB.User": "CACHED",
   "AWS::DataSync::Task.CloudWatchLogGroupArn": "CACHED",
+  "AWS::DataSync::Task.Deleted.ReportLevel": "CACHED",
   "AWS::DataSync::Task.DestinationLocationArn": "CACHED",
   "AWS::DataSync::Task.FilterRule.FilterType": "CACHED",
   "AWS::DataSync::Task.FilterRule.Value": "CACHED",
@@ -5922,8 +6980,17 @@
   "AWS::DataSync::Task.Options.TransferMode": "CACHED",
   "AWS::DataSync::Task.Options.Uid": "CACHED",
   "AWS::DataSync::Task.Options.VerifyMode": "CACHED",
+  "AWS::DataSync::Task.S3.BucketAccessRoleArn": "CACHED",
+  "AWS::DataSync::Task.S3.S3BucketArn": "CACHED",
+  "AWS::DataSync::Task.S3.Subdirectory": "CACHED",
+  "AWS::DataSync::Task.Skipped.ReportLevel": "CACHED",
   "AWS::DataSync::Task.SourceLocationArn": "CACHED",
+  "AWS::DataSync::Task.TaskReportConfig.ObjectVersionIds": "CACHED",
+  "AWS::DataSync::Task.TaskReportConfig.OutputType": "CACHED",
+  "AWS::DataSync::Task.TaskReportConfig.ReportLevel": "CACHED",
   "AWS::DataSync::Task.TaskSchedule.ScheduleExpression": "CACHED",
+  "AWS::DataSync::Task.Transferred.ReportLevel": "CACHED",
+  "AWS::DataSync::Task.Verified.ReportLevel": "CACHED",
   "AWS::Default::Default.EnabledState": "CACHED",
   "AWS::DocDB::DBCluster.BackupRetentionPeriod": "CACHED",
   "AWS::DynamoDB::GlobalTable.AttributeDefinition.AttributeName": "CACHED",
@@ -6073,7 +7140,15 @@
   "AWS::ElasticLoadBalancingV2::ListenerRule.Priority": "CACHED",
   "AWS::ElasticLoadBalancingV2::TargetGroup.HealthCheckIntervalSeconds": "CACHED",
   "AWS::ElasticLoadBalancingV2::TargetGroup.UnhealthyThresholdCount": "CACHED",
+  "AWS::Events::ApiDestination.Description": "CACHED",
+  "AWS::Events::ApiDestination.HttpMethod": "CACHED",
+  "AWS::Events::ApiDestination.Name": "CACHED",
   "AWS::Events::Archive.ArchiveName": "CACHED",
+  "AWS::Events::Connection.AuthorizationType": "CACHED",
+  "AWS::Events::Connection.Description": "CACHED",
+  "AWS::Events::Connection.Name": "CACHED",
+  "AWS::Events::Connection.OAuthParameters.AuthorizationEndpoint": "CACHED",
+  "AWS::Events::Connection.OAuthParameters.HttpMethod": "CACHED",
   "AWS::Events::EventBusPolicy.Action": "CACHED",
   "AWS::Events::EventBusPolicy.Condition.Key": "CACHED",
   "AWS::Events::EventBusPolicy.Condition.Type": "CACHED",
@@ -7021,6 +8096,9 @@
   "AWS::RolesAnywhere::CRL.TrustAnchorArn": "CACHED",
   "AWS::RolesAnywhere::Profile.DurationSeconds": "CACHED",
   "AWS::RolesAnywhere::Profile.RoleArns": "CACHED",
+  "AWS::RolesAnywhere::TrustAnchor.NotificationSetting.Channel": "CACHED",
+  "AWS::RolesAnywhere::TrustAnchor.NotificationSetting.Event": "CACHED",
+  "AWS::RolesAnywhere::TrustAnchor.NotificationSetting.Threshold": "CACHED",
   "AWS::RolesAnywhere::TrustAnchor.Source.SourceType": "CACHED",
   "AWS::Route53::CidrCollection.Location.LocationName": "CACHED",
   "AWS::Route53::CidrCollection.Name": "CACHED",

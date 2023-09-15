@@ -297,6 +297,8 @@
   "AWS::AppFlow::Flow.S3OutputFormatConfig": "CACHED",
   "AWS::AppFlow::Flow.S3SourceProperties": "CACHED",
   "AWS::AppFlow::Flow.SAPODataDestinationProperties": "CACHED",
+  "AWS::AppFlow::Flow.SAPODataPaginationConfig": "CACHED",
+  "AWS::AppFlow::Flow.SAPODataParallelismConfig": "CACHED",
   "AWS::AppFlow::Flow.SAPODataSourceProperties": "CACHED",
   "AWS::AppFlow::Flow.SalesforceDestinationProperties": "CACHED",
   "AWS::AppFlow::Flow.SalesforceSourceProperties": "CACHED",
@@ -1312,9 +1314,17 @@
   "AWS::DataSync::LocationSMB.MountOptions": "CACHED",
   "AWS::DataSync::StorageSystem.ServerConfiguration": "CACHED",
   "AWS::DataSync::StorageSystem.ServerCredentials": "CACHED",
+  "AWS::DataSync::Task.Deleted": "CACHED",
+  "AWS::DataSync::Task.Destination": "CACHED",
   "AWS::DataSync::Task.FilterRule": "CACHED",
   "AWS::DataSync::Task.Options": "CACHED",
+  "AWS::DataSync::Task.Overrides": "CACHED",
+  "AWS::DataSync::Task.S3": "CACHED",
+  "AWS::DataSync::Task.Skipped": "CACHED",
+  "AWS::DataSync::Task.TaskReportConfig": "CACHED",
   "AWS::DataSync::Task.TaskSchedule": "CACHED",
+  "AWS::DataSync::Task.Transferred": "CACHED",
+  "AWS::DataSync::Task.Verified": "CACHED",
   "AWS::DirectoryService::MicrosoftAD.VpcSettings": "CACHED",
   "AWS::DirectoryService::SimpleAD.VpcSettings": {
    "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-directoryservice-simplead-vpcsettings.html",
@@ -1436,7 +1446,135 @@
   "AWS::EC2::LaunchTemplate.MetadataOptions": "CACHED",
   "AWS::EC2::LaunchTemplate.Monitoring": "CACHED",
   "AWS::EC2::LaunchTemplate.NetworkBandwidthGbps": "CACHED",
-  "AWS::EC2::LaunchTemplate.NetworkInterface": "CACHED",
+  "AWS::EC2::LaunchTemplate.NetworkInterface": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html",
+   "Properties": {
+    "AssociateCarrierIpAddress": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-associatecarrieripaddress",
+     "PrimitiveType": "Boolean",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "AssociatePublicIpAddress": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-associatepublicipaddress",
+     "PrimitiveType": "Boolean",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "DeleteOnTermination": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-deleteontermination",
+     "PrimitiveType": "Boolean",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "Description": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-description",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "DeviceIndex": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-deviceindex",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "Groups": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-groups",
+     "DuplicatesAllowed": true,
+     "PrimitiveItemType": "String",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable"
+    },
+    "InterfaceType": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-interfacetype",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "Ipv4PrefixCount": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-ipv4prefixcount",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "Ipv4Prefixes": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-ipv4prefixes",
+     "DuplicatesAllowed": true,
+     "ItemType": "Ipv4PrefixSpecification",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable"
+    },
+    "Ipv6AddressCount": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-ipv6addresscount",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "Ipv6Addresses": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-ipv6addresses",
+     "DuplicatesAllowed": true,
+     "ItemType": "Ipv6Add",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable"
+    },
+    "Ipv6PrefixCount": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-ipv6prefixcount",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "Ipv6Prefixes": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-ipv6prefixes",
+     "DuplicatesAllowed": true,
+     "ItemType": "Ipv6PrefixSpecification",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable"
+    },
+    "NetworkCardIndex": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-networkcardindex",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "NetworkInterfaceId": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-networkinterfaceid",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "PrivateIpAddress": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-privateipaddress",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "PrivateIpAddresses": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-privateipaddresses",
+     "DuplicatesAllowed": true,
+     "ItemType": "PrivateIpAdd",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable"
+    },
+    "SecondaryPrivateIpAddressCount": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-secondaryprivateipaddresscount",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "SubnetId": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-subnetid",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    }
+   }
+  },
   "AWS::EC2::LaunchTemplate.NetworkInterfaceCount": "CACHED",
   "AWS::EC2::LaunchTemplate.Placement": "CACHED",
   "AWS::EC2::LaunchTemplate.PrivateDnsNameOptions": "CACHED",
@@ -2007,13 +2145,82 @@
   "AWS::GroundStation::MissionProfile.DataflowEdge": "CACHED",
   "AWS::GroundStation::MissionProfile.StreamsKmsKey": "CACHED",
   "AWS::GuardDuty::Detector.CFNDataSourceConfigurations": "CACHED",
-  "AWS::GuardDuty::Detector.CFNKubernetesAuditLogsConfiguration": "CACHED",
-  "AWS::GuardDuty::Detector.CFNKubernetesConfiguration": "CACHED",
+  "AWS::GuardDuty::Detector.CFNKubernetesAuditLogsConfiguration": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnkubernetesauditlogsconfiguration.html",
+   "Properties": {
+    "Enable": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnkubernetesauditlogsconfiguration.html#cfn-guardduty-detector-cfnkubernetesauditlogsconfiguration-enable",
+     "PrimitiveType": "Boolean",
+     "Required": false,
+     "UpdateType": "Mutable"
+    }
+   }
+  },
+  "AWS::GuardDuty::Detector.CFNKubernetesConfiguration": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnkubernetesconfiguration.html",
+   "Properties": {
+    "AuditLogs": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnkubernetesconfiguration.html#cfn-guardduty-detector-cfnkubernetesconfiguration-auditlogs",
+     "Required": false,
+     "Type": "CFNKubernetesAuditLogsConfiguration",
+     "UpdateType": "Mutable"
+    }
+   }
+  },
   "AWS::GuardDuty::Detector.CFNMalwareProtectionConfiguration": "CACHED",
-  "AWS::GuardDuty::Detector.CFNS3LogsConfiguration": "CACHED",
+  "AWS::GuardDuty::Detector.CFNS3LogsConfiguration": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfns3logsconfiguration.html",
+   "Properties": {
+    "Enable": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfns3logsconfiguration.html#cfn-guardduty-detector-cfns3logsconfiguration-enable",
+     "PrimitiveType": "Boolean",
+     "Required": false,
+     "UpdateType": "Mutable"
+    }
+   }
+  },
   "AWS::GuardDuty::Detector.CFNScanEc2InstanceWithFindingsConfiguration": "CACHED",
-  "AWS::GuardDuty::Detector.FeatureAdditionalConfiguration": "CACHED",
-  "AWS::GuardDuty::Detector.FeatureConfigurations": "CACHED",
+  "AWS::GuardDuty::Detector.FeatureAdditionalConfiguration": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureadditionalconfiguration.html",
+   "Properties": {
+    "Name": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureadditionalconfiguration.html#cfn-guardduty-detector-featureadditionalconfiguration-name",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "Status": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureadditionalconfiguration.html#cfn-guardduty-detector-featureadditionalconfiguration-status",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    }
+   }
+  },
+  "AWS::GuardDuty::Detector.FeatureConfigurations": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureconfigurations.html",
+   "Properties": {
+    "AdditionalConfiguration": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureconfigurations.html#cfn-guardduty-detector-featureconfigurations-additionalconfiguration",
+     "ItemType": "FeatureAdditionalConfiguration",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable"
+    },
+    "Name": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureconfigurations.html#cfn-guardduty-detector-featureconfigurations-name",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "Status": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureconfigurations.html#cfn-guardduty-detector-featureconfigurations-status",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    }
+   }
+  },
   "AWS::GuardDuty::Filter.Condition": "CACHED",
   "AWS::GuardDuty::Filter.FindingCriteria": "CACHED",
   "AWS::IAM::Group.Policy": "CACHED",
@@ -2331,6 +2538,29 @@
   "AWS::MSK::Cluster.VpcConnectivitySasl": "CACHED",
   "AWS::MSK::Cluster.VpcConnectivityScram": "CACHED",
   "AWS::MSK::Cluster.VpcConnectivityTls": "CACHED",
+  "AWS::MSK::Configuration.LatestRevision": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-configuration-latestrevision.html",
+   "Properties": {
+    "CreationTime": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-configuration-latestrevision.html#cfn-msk-configuration-latestrevision-creationtime",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "Description": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-configuration-latestrevision.html#cfn-msk-configuration-latestrevision-description",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "Revision": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-configuration-latestrevision.html#cfn-msk-configuration-latestrevision-revision",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Mutable"
+    }
+   }
+  },
   "AWS::Macie::AllowList.Criteria": "CACHED",
   "AWS::Macie::AllowList.S3WordsList": "CACHED",
   "AWS::MediaConnect::Bridge.BridgeFlowSource": "CACHED",
@@ -2453,6 +2683,38 @@
   "AWS::OpenSearchService::Domain.VPCOptions": "CACHED",
   "AWS::OpenSearchService::Domain.WindowStartTime": "CACHED",
   "AWS::OpenSearchService::Domain.ZoneAwarenessConfig": "CACHED",
+  "AWS::PCAConnectorAD::Connector.VpcInformation": "CACHED",
+  "AWS::PCAConnectorAD::Template.ApplicationPolicies": "CACHED",
+  "AWS::PCAConnectorAD::Template.ApplicationPolicy": "CACHED",
+  "AWS::PCAConnectorAD::Template.CertificateValidity": "CACHED",
+  "AWS::PCAConnectorAD::Template.EnrollmentFlagsV2": "CACHED",
+  "AWS::PCAConnectorAD::Template.EnrollmentFlagsV3": "CACHED",
+  "AWS::PCAConnectorAD::Template.EnrollmentFlagsV4": "CACHED",
+  "AWS::PCAConnectorAD::Template.ExtensionsV2": "CACHED",
+  "AWS::PCAConnectorAD::Template.ExtensionsV3": "CACHED",
+  "AWS::PCAConnectorAD::Template.ExtensionsV4": "CACHED",
+  "AWS::PCAConnectorAD::Template.GeneralFlagsV2": "CACHED",
+  "AWS::PCAConnectorAD::Template.GeneralFlagsV3": "CACHED",
+  "AWS::PCAConnectorAD::Template.GeneralFlagsV4": "CACHED",
+  "AWS::PCAConnectorAD::Template.KeyUsage": "CACHED",
+  "AWS::PCAConnectorAD::Template.KeyUsageFlags": "CACHED",
+  "AWS::PCAConnectorAD::Template.KeyUsageProperty": "CACHED",
+  "AWS::PCAConnectorAD::Template.KeyUsagePropertyFlags": "CACHED",
+  "AWS::PCAConnectorAD::Template.PrivateKeyAttributesV2": "CACHED",
+  "AWS::PCAConnectorAD::Template.PrivateKeyAttributesV3": "CACHED",
+  "AWS::PCAConnectorAD::Template.PrivateKeyAttributesV4": "CACHED",
+  "AWS::PCAConnectorAD::Template.PrivateKeyFlagsV2": "CACHED",
+  "AWS::PCAConnectorAD::Template.PrivateKeyFlagsV3": "CACHED",
+  "AWS::PCAConnectorAD::Template.PrivateKeyFlagsV4": "CACHED",
+  "AWS::PCAConnectorAD::Template.SubjectNameFlagsV2": "CACHED",
+  "AWS::PCAConnectorAD::Template.SubjectNameFlagsV3": "CACHED",
+  "AWS::PCAConnectorAD::Template.SubjectNameFlagsV4": "CACHED",
+  "AWS::PCAConnectorAD::Template.TemplateDefinition": "CACHED",
+  "AWS::PCAConnectorAD::Template.TemplateV2": "CACHED",
+  "AWS::PCAConnectorAD::Template.TemplateV3": "CACHED",
+  "AWS::PCAConnectorAD::Template.TemplateV4": "CACHED",
+  "AWS::PCAConnectorAD::Template.ValidityPeriod": "CACHED",
+  "AWS::PCAConnectorAD::TemplateGroupAccessControlEntry.AccessRights": "CACHED",
   "AWS::Pipes::Pipe.AwsVpcConfiguration": "CACHED",
   "AWS::Pipes::Pipe.BatchArrayProperties": "CACHED",
   "AWS::Pipes::Pipe.BatchContainerOverrides": "CACHED",
@@ -2523,6 +2785,8 @@
   "AWS::Redshift::Cluster.LoggingProperties": "CACHED",
   "AWS::Redshift::ClusterParameterGroup.Parameter": "CACHED",
   "AWS::Rekognition::StreamProcessor.List": "CACHED",
+  "AWS::ResilienceHub::App.EventSubscription": "CACHED",
+  "AWS::ResilienceHub::App.PermissionModel": "CACHED",
   "AWS::ResilienceHub::App.PhysicalResourceId": "CACHED",
   "AWS::ResilienceHub::App.ResourceMapping": "CACHED",
   "AWS::ResilienceHub::ResiliencyPolicy.FailurePolicy": "CACHED",
@@ -2531,6 +2795,7 @@
   "AWS::ResourceGroups::Group.Query": "CACHED",
   "AWS::ResourceGroups::Group.ResourceQuery": "CACHED",
   "AWS::ResourceGroups::Group.TagFilter": "CACHED",
+  "AWS::RolesAnywhere::TrustAnchor.NotificationSetting": "CACHED",
   "AWS::RolesAnywhere::TrustAnchor.Source": "CACHED",
   "AWS::RolesAnywhere::TrustAnchor.SourceData": "CACHED",
   "AWS::Route53::CidrCollection.Location": "CACHED",
@@ -3387,8 +3652,55 @@
   "AWS::XRay::SamplingRule.SamplingRule": "CACHED",
   "Tag": "CACHED"
  },
- "ResourceSpecificationVersion": "137.0.0",
+ "ResourceSpecificationVersion": "140.0.0",
  "ResourceTypes": {
+  "AMZN::SDC::Deployment": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sdc-deployment.html",
+   "Properties": {
+    "ConfigName": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sdc-deployment.html#cfn-sdc-deployment-configname",
+     "PrimitiveType": "String",
+     "Required": true,
+     "UpdateType": "Mutable"
+    },
+    "Dimension": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sdc-deployment.html#cfn-sdc-deployment-dimension",
+     "PrimitiveType": "String",
+     "Required": true,
+     "UpdateType": "Mutable"
+    },
+    "PipelineId": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sdc-deployment.html#cfn-sdc-deployment-pipelineid",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "S3Bucket": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sdc-deployment.html#cfn-sdc-deployment-s3bucket",
+     "PrimitiveType": "String",
+     "Required": true,
+     "UpdateType": "Mutable"
+    },
+    "S3Key": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sdc-deployment.html#cfn-sdc-deployment-s3key",
+     "PrimitiveType": "String",
+     "Required": true,
+     "UpdateType": "Immutable"
+    },
+    "Stage": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sdc-deployment.html#cfn-sdc-deployment-stage",
+     "PrimitiveType": "String",
+     "Required": true,
+     "UpdateType": "Mutable"
+    },
+    "TargetRegionOverride": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sdc-deployment.html#cfn-sdc-deployment-targetregionoverride",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    }
+   }
+  },
   "AWS::ACMPCA::Certificate": "CACHED",
   "AWS::ACMPCA::CertificateAuthority": "CACHED",
   "AWS::ACMPCA::CertificateAuthorityActivation": "CACHED",
@@ -3836,6 +4148,8 @@
   "AWS::Connect::Rule": "CACHED",
   "AWS::Connect::SecurityKey": "CACHED",
   "AWS::Connect::TaskTemplate": "CACHED",
+  "AWS::Connect::View": "CACHED",
+  "AWS::Connect::ViewVersion": "CACHED",
   "AWS::ControlTower::EnabledControl": "CACHED",
   "AWS::CustomerProfiles::CalculatedAttributeDefinition": "CACHED",
   "AWS::CustomerProfiles::Domain": "CACHED",
@@ -4024,6 +4338,7 @@
   "AWS::EC2::IPAMResourceDiscoveryAssociation": "CACHED",
   "AWS::EC2::IPAMScope": "CACHED",
   "AWS::EC2::Instance": "CACHED",
+  "AWS::EC2::InstanceConnectEndpoint": "CACHED",
   "AWS::EC2::InternetGateway": "CACHED",
   "AWS::EC2::KeyPair": "CACHED",
   "AWS::EC2::LaunchTemplate": "CACHED",
@@ -4042,7 +4357,45 @@
   "AWS::EC2::NetworkInterfaceAttachment": "CACHED",
   "AWS::EC2::NetworkInterfacePermission": "CACHED",
   "AWS::EC2::NetworkPerformanceMetricSubscription": "CACHED",
-  "AWS::EC2::PlacementGroup": "CACHED",
+  "AWS::EC2::PlacementGroup": {
+   "Attributes": {
+    "GroupName": {
+     "PrimitiveType": "String"
+    }
+   },
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html",
+   "Properties": {
+    "PartitionCount": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html#cfn-ec2-placementgroup-partitioncount",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Immutable"
+    },
+    "SpreadLevel": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html#cfn-ec2-placementgroup-spreadlevel",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Immutable"
+    },
+    "Strategy": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html#cfn-ec2-placementgroup-strategy",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Immutable",
+     "Value": {
+      "ValueType": "PlacementGroupStrategy"
+     }
+    },
+    "Tags": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html#cfn-ec2-placementgroup-tags",
+     "DuplicatesAllowed": false,
+     "ItemType": "Tag",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable"
+    }
+   }
+  },
   "AWS::EC2::PrefixList": "CACHED",
   "AWS::EC2::Route": "CACHED",
   "AWS::EC2::RouteTable": "CACHED",
@@ -4063,7 +4416,24 @@
   "AWS::EC2::TransitGatewayMulticastGroupSource": "CACHED",
   "AWS::EC2::TransitGatewayPeeringAttachment": "CACHED",
   "AWS::EC2::TransitGatewayRoute": "CACHED",
-  "AWS::EC2::TransitGatewayRouteTable": "CACHED",
+  "AWS::EC2::TransitGatewayRouteTable": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html",
+   "Properties": {
+    "Tags": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html#cfn-ec2-transitgatewayroutetable-tags",
+     "ItemType": "Tag",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Immutable"
+    },
+    "TransitGatewayId": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html#cfn-ec2-transitgatewayroutetable-transitgatewayid",
+     "PrimitiveType": "String",
+     "Required": true,
+     "UpdateType": "Immutable"
+    }
+   }
+  },
   "AWS::EC2::TransitGatewayRouteTableAssociation": "CACHED",
   "AWS::EC2::TransitGatewayRouteTablePropagation": "CACHED",
   "AWS::EC2::TransitGatewayVpcAttachment": "CACHED",
@@ -4489,7 +4859,46 @@
   "AWS::GroundStation::Config": "CACHED",
   "AWS::GroundStation::DataflowEndpointGroup": "CACHED",
   "AWS::GroundStation::MissionProfile": "CACHED",
-  "AWS::GuardDuty::Detector": "CACHED",
+  "AWS::GuardDuty::Detector": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html",
+   "Properties": {
+    "DataSources": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-datasources",
+     "Required": false,
+     "Type": "CFNDataSourceConfigurations",
+     "UpdateType": "Mutable"
+    },
+    "Enable": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-enable",
+     "PrimitiveType": "Boolean",
+     "Required": true,
+     "UpdateType": "Mutable"
+    },
+    "Features": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-features",
+     "ItemType": "FeatureConfigurations",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable"
+    },
+    "FindingPublishingFrequency": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-findingpublishingfrequency",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable",
+     "Value": {
+      "ValueType": "AWS::GuardDuty::Detector.FindingPublishingFrequency"
+     }
+    },
+    "Tags": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-tags",
+     "ItemType": "Tag",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable"
+    }
+   }
+  },
   "AWS::GuardDuty::Filter": "CACHED",
   "AWS::GuardDuty::IPSet": "CACHED",
   "AWS::GuardDuty::Master": "CACHED",
@@ -4499,65 +4908,7 @@
   "AWS::IAM::Group": "CACHED",
   "AWS::IAM::GroupPolicy": "CACHED",
   "AWS::IAM::InstanceProfile": "CACHED",
-  "AWS::IAM::ManagedPolicy": {
-   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html",
-   "Properties": {
-    "Description": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-description",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Immutable"
-    },
-    "Groups": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-groups",
-     "DuplicatesAllowed": false,
-     "PrimitiveItemType": "String",
-     "Required": false,
-     "Type": "List",
-     "UpdateType": "Mutable"
-    },
-    "ManagedPolicyName": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-managedpolicyname",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Immutable"
-    },
-    "Path": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-path",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Immutable",
-     "Value": {
-      "ValueType": "AWS::IAM::Path.Path"
-     }
-    },
-    "PolicyDocument": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-policydocument",
-     "PrimitiveType": "Json",
-     "Required": true,
-     "UpdateType": "Mutable",
-     "Value": {
-      "ValueType": "AWS::IAM::ManagedPolicy.PolicyDocument"
-     }
-    },
-    "Roles": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-roles",
-     "DuplicatesAllowed": true,
-     "PrimitiveItemType": "String",
-     "Required": false,
-     "Type": "List",
-     "UpdateType": "Mutable"
-    },
-    "Users": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-users",
-     "DuplicatesAllowed": true,
-     "PrimitiveItemType": "String",
-     "Required": false,
-     "Type": "List",
-     "UpdateType": "Mutable"
-    }
-   }
-  },
+  "AWS::IAM::ManagedPolicy": "CACHED",
   "AWS::IAM::OIDCProvider": "CACHED",
   "AWS::IAM::Policy": "CACHED",
   "AWS::IAM::Role": "CACHED",
@@ -4618,7 +4969,57 @@
   "AWS::MSK::BatchScramSecret": "CACHED",
   "AWS::MSK::Cluster": "CACHED",
   "AWS::MSK::ClusterPolicy": "CACHED",
-  "AWS::MSK::Configuration": "CACHED",
+  "AWS::MSK::Configuration": {
+   "Attributes": {
+    "Arn": {
+     "PrimitiveType": "String"
+    },
+    "LatestRevision.CreationTime": {
+     "PrimitiveType": "String"
+    },
+    "LatestRevision.Description": {
+     "PrimitiveType": "String"
+    },
+    "LatestRevision.Revision": {
+     "PrimitiveType": "Integer"
+    }
+   },
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html",
+   "Properties": {
+    "Description": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html#cfn-msk-configuration-description",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "KafkaVersionsList": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html#cfn-msk-configuration-kafkaversionslist",
+     "DuplicatesAllowed": true,
+     "PrimitiveItemType": "String",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Immutable"
+    },
+    "LatestRevision": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html#cfn-msk-configuration-latestrevision",
+     "Required": false,
+     "Type": "LatestRevision",
+     "UpdateType": "Mutable"
+    },
+    "Name": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html#cfn-msk-configuration-name",
+     "PrimitiveType": "String",
+     "Required": true,
+     "UpdateType": "Immutable"
+    },
+    "ServerProperties": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html#cfn-msk-configuration-serverproperties",
+     "PrimitiveType": "String",
+     "Required": true,
+     "UpdateType": "Mutable"
+    }
+   }
+  },
   "AWS::MSK::VpcConnection": "CACHED",
   "AWS::Macie::AllowList": "CACHED",
   "AWS::Macie::Session": "CACHED",
@@ -4705,12 +5106,506 @@
   "AWS::Organizations::OrganizationalUnit": "CACHED",
   "AWS::Organizations::Policy": "CACHED",
   "AWS::Organizations::ResourcePolicy": "CACHED",
+  "AWS::PCAConnectorAD::Connector": "CACHED",
+  "AWS::PCAConnectorAD::DirectoryRegistration": "CACHED",
+  "AWS::PCAConnectorAD::ServicePrincipalName": "CACHED",
+  "AWS::PCAConnectorAD::Template": "CACHED",
+  "AWS::PCAConnectorAD::TemplateGroupAccessControlEntry": "CACHED",
   "AWS::Pipes::Pipe": "CACHED",
   "AWS::RAM::Permission": "CACHED",
   "AWS::RAM::ResourceShare": "CACHED",
   "AWS::RDS::DBCluster": "CACHED",
   "AWS::RDS::DBClusterParameterGroup": "CACHED",
-  "AWS::RDS::DBInstance": "CACHED",
+  "AWS::RDS::DBInstance": {
+   "Attributes": {
+    "CertificateDetails.CAIdentifier": {
+     "PrimitiveType": "String"
+    },
+    "CertificateDetails.ValidTill": {
+     "PrimitiveType": "String"
+    },
+    "DBInstanceArn": {
+     "PrimitiveType": "String"
+    },
+    "DBSystemId": {
+     "PrimitiveType": "String"
+    },
+    "DbiResourceId": {
+     "PrimitiveType": "String"
+    },
+    "Endpoint.Address": {
+     "PrimitiveType": "String"
+    },
+    "Endpoint.HostedZoneId": {
+     "PrimitiveType": "String"
+    },
+    "Endpoint.Port": {
+     "PrimitiveType": "String"
+    },
+    "MasterUserSecret.SecretArn": {
+     "PrimitiveType": "String"
+    }
+   },
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html",
+   "Properties": {
+    "AllocatedStorage": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-allocatedstorage",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable",
+     "Value": {
+      "ValueType": "AWS::RDS::DBInstance.AllocatedStorage"
+     }
+    },
+    "AllowMajorVersionUpgrade": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-allowmajorversionupgrade",
+     "PrimitiveType": "Boolean",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "AssociatedRoles": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-associatedroles",
+     "DuplicatesAllowed": true,
+     "ItemType": "DBInstanceRole",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable"
+    },
+    "AutoMinorVersionUpgrade": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-autominorversionupgrade",
+     "PrimitiveType": "Boolean",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "AvailabilityZone": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-availabilityzone",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Conditional",
+     "Value": {
+      "ValueType": "AvailabilityZone"
+     }
+    },
+    "BackupRetentionPeriod": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-backupretentionperiod",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Conditional",
+     "Value": {
+      "ValueType": "AWS::RDS::DBInstance.BackupRetentionPeriod"
+     }
+    },
+    "CACertificateIdentifier": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-cacertificateidentifier",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "CertificateDetails": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-certificatedetails",
+     "Required": false,
+     "Type": "CertificateDetails",
+     "UpdateType": "Mutable"
+    },
+    "CertificateRotationRestart": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-certificaterotationrestart",
+     "PrimitiveType": "Boolean",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "CharacterSetName": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-charactersetname",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Immutable"
+    },
+    "CopyTagsToSnapshot": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-copytagstosnapshot",
+     "PrimitiveType": "Boolean",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "CustomIAMInstanceProfile": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-customiaminstanceprofile",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Immutable"
+    },
+    "DBClusterIdentifier": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbclusteridentifier",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Immutable"
+    },
+    "DBClusterSnapshotIdentifier": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbclustersnapshotidentifier",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "DBInstanceClass": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbinstanceclass",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable",
+     "Value": {
+      "ValueType": "AWS::RDS::DBInstance.DBInstanceClass"
+     }
+    },
+    "DBInstanceIdentifier": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbinstanceidentifier",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Immutable",
+     "Value": {
+      "ValueType": "AWS::RDS::DBInstance.DBInstanceIdentifier"
+     }
+    },
+    "DBName": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbname",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Immutable",
+     "Value": {
+      "ValueType": "AWS::RDS::DBInstance.DBName"
+     }
+    },
+    "DBParameterGroupName": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbparametergroupname",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "DBSecurityGroups": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbsecuritygroups",
+     "DuplicatesAllowed": false,
+     "PrimitiveItemType": "String",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable"
+    },
+    "DBSnapshotIdentifier": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbsnapshotidentifier",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "DBSubnetGroupName": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbsubnetgroupname",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Immutable"
+    },
+    "DeleteAutomatedBackups": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-deleteautomatedbackups",
+     "PrimitiveType": "Boolean",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "DeletionProtection": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-deletionprotection",
+     "PrimitiveType": "Boolean",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "Domain": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-domain",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "DomainIAMRoleName": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-domainiamrolename",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "EnableCloudwatchLogsExports": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-enablecloudwatchlogsexports",
+     "DuplicatesAllowed": true,
+     "PrimitiveItemType": "String",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable"
+    },
+    "EnableIAMDatabaseAuthentication": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-enableiamdatabaseauthentication",
+     "PrimitiveType": "Boolean",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "EnablePerformanceInsights": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-enableperformanceinsights",
+     "PrimitiveType": "Boolean",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "Endpoint": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-endpoint",
+     "Required": false,
+     "Type": "Endpoint",
+     "UpdateType": "Mutable"
+    },
+    "Engine": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-engine",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Conditional",
+     "Value": {
+      "ValueType": "AWS::RDS::DBInstance.Engine"
+     }
+    },
+    "EngineVersion": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-engineversion",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "Iops": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-iops",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "KmsKeyId": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-kmskeyid",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Immutable"
+    },
+    "LicenseModel": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-licensemodel",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "ManageMasterUserPassword": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-managemasteruserpassword",
+     "PrimitiveType": "Boolean",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "MasterUserPassword": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-masteruserpassword",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "MasterUserSecret": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-masterusersecret",
+     "Required": false,
+     "Type": "MasterUserSecret",
+     "UpdateType": "Mutable"
+    },
+    "MasterUsername": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-masterusername",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Immutable",
+     "Value": {
+      "ValueType": "AWS::RDS::DBInstance.MasterUsername"
+     }
+    },
+    "MaxAllocatedStorage": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-maxallocatedstorage",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "MonitoringInterval": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-monitoringinterval",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Mutable",
+     "Value": {
+      "ValueType": "RdsInstanceMonitoringInterval"
+     }
+    },
+    "MonitoringRoleArn": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-monitoringrolearn",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "MultiAZ": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-multiaz",
+     "PrimitiveType": "Boolean",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "NcharCharacterSetName": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-ncharcharactersetname",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Immutable"
+    },
+    "NetworkType": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-networktype",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "OptionGroupName": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-optiongroupname",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "PerformanceInsightsKMSKeyId": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-performanceinsightskmskeyid",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "PerformanceInsightsRetentionPeriod": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-performanceinsightsretentionperiod",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Mutable",
+     "Value": {
+      "ValueType": "PerformanceInsightsRetentionPeriod"
+     }
+    },
+    "Port": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-port",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Immutable",
+     "Value": {
+      "ValueType": "AWS::RDS::DBInstance.Port"
+     }
+    },
+    "PreferredBackupWindow": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-preferredbackupwindow",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "PreferredMaintenanceWindow": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-preferredmaintenancewindow",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "ProcessorFeatures": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-processorfeatures",
+     "DuplicatesAllowed": true,
+     "ItemType": "ProcessorFeature",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable"
+    },
+    "PromotionTier": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-promotiontier",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Mutable",
+     "Value": {
+      "ValueType": "AWS::RDS::DBInstance.PromotionTier"
+     }
+    },
+    "PubliclyAccessible": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-publiclyaccessible",
+     "PrimitiveType": "Boolean",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "ReplicaMode": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-replicamode",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "RestoreTime": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-restoretime",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "SourceDBClusterIdentifier": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-sourcedbclusteridentifier",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "SourceDBInstanceAutomatedBackupsArn": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-sourcedbinstanceautomatedbackupsarn",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "SourceDBInstanceIdentifier": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-sourcedbinstanceidentifier",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "SourceDbiResourceId": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-sourcedbiresourceid",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "SourceRegion": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-sourceregion",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Immutable"
+    },
+    "StorageEncrypted": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-storageencrypted",
+     "PrimitiveType": "Boolean",
+     "Required": false,
+     "UpdateType": "Immutable"
+    },
+    "StorageThroughput": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-storagethroughput",
+     "PrimitiveType": "Integer",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "StorageType": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-storagetype",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "Tags": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-tags",
+     "DuplicatesAllowed": true,
+     "ItemType": "Tag",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable"
+    },
+    "Timezone": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-timezone",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Immutable"
+    },
+    "UseDefaultProcessorFeatures": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-usedefaultprocessorfeatures",
+     "PrimitiveType": "Boolean",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "UseLatestRestorableTime": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-uselatestrestorabletime",
+     "PrimitiveType": "Boolean",
+     "Required": false,
+     "UpdateType": "Conditional"
+    },
+    "VPCSecurityGroups": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-vpcsecuritygroups",
+     "DuplicatesAllowed": false,
+     "PrimitiveItemType": "String",
+     "Required": false,
+     "Type": "List",
+     "UpdateType": "Mutable"
+    }
+   }
+  },
   "AWS::RDS::DBParameterGroup": "CACHED",
   "AWS::RDS::DBProxy": "CACHED",
   "AWS::RDS::DBProxyEndpoint": "CACHED",
@@ -4727,76 +5622,7 @@
   "AWS::Redshift::ClusterSecurityGroupIngress": "CACHED",
   "AWS::Redshift::ClusterSubnetGroup": "CACHED",
   "AWS::Redshift::EventSubscription": "CACHED",
-  "AWS::ResilienceHub::App": {
-   "Attributes": {
-    "AppArn": {
-     "PrimitiveType": "String"
-    }
-   },
-   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html",
-   "Properties": {
-    "AppAssessmentSchedule": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-appassessmentschedule",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable",
-     "Value": {
-      "ValueType": "AWS::ResilienceHub::App.AppAssessmentSchedule"
-     }
-    },
-    "AppTemplateBody": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-apptemplatebody",
-     "PrimitiveType": "String",
-     "Required": true,
-     "UpdateType": "Mutable",
-     "Value": {
-      "ValueType": "AWS::ResilienceHub::App.AppTemplateBody"
-     }
-    },
-    "Description": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-description",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable",
-     "Value": {
-      "ValueType": "AWS::ResilienceHub::App.Description"
-     }
-    },
-    "Name": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-name",
-     "PrimitiveType": "String",
-     "Required": true,
-     "UpdateType": "Immutable",
-     "Value": {
-      "ValueType": "AWS::ResilienceHub::App.Name"
-     }
-    },
-    "ResiliencyPolicyArn": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-resiliencypolicyarn",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable",
-     "Value": {
-      "ValueType": "AWS::ResilienceHub::App.ResiliencyPolicyArn"
-     }
-    },
-    "ResourceMappings": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-resourcemappings",
-     "DuplicatesAllowed": true,
-     "ItemType": "ResourceMapping",
-     "Required": true,
-     "Type": "List",
-     "UpdateType": "Mutable"
-    },
-    "Tags": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-tags",
-     "PrimitiveItemType": "String",
-     "Required": false,
-     "Type": "Map",
-     "UpdateType": "Mutable"
-    }
-   }
-  },
+  "AWS::ResilienceHub::App": "CACHED",
   "AWS::ResilienceHub::ResiliencyPolicy": "CACHED",
   "AWS::ResourceGroups::Group": "CACHED",
   "AWS::RolesAnywhere::CRL": "CACHED",
@@ -5275,6 +6101,8 @@
   "AWS::AppFlow::Flow.S3SourceProperties.BucketPrefix": "CACHED",
   "AWS::AppFlow::Flow.SAPODataDestinationProperties.ObjectPath": "CACHED",
   "AWS::AppFlow::Flow.SAPODataDestinationProperties.WriteOperationType": "CACHED",
+  "AWS::AppFlow::Flow.SAPODataPaginationConfig.maxPageSize": "CACHED",
+  "AWS::AppFlow::Flow.SAPODataParallelismConfig.maxParallelism": "CACHED",
   "AWS::AppFlow::Flow.SAPODataSourceProperties.ObjectPath": "CACHED",
   "AWS::AppFlow::Flow.SalesforceDestinationProperties.DataTransferApi": "CACHED",
   "AWS::AppFlow::Flow.SalesforceDestinationProperties.Object": "CACHED",
@@ -5706,6 +6534,13 @@
   "AWS::Connect::TaskTemplate.InstanceArn": "CACHED",
   "AWS::Connect::TaskTemplate.Name": "CACHED",
   "AWS::Connect::TaskTemplate.Status": "CACHED",
+  "AWS::Connect::View.Actions": "CACHED",
+  "AWS::Connect::View.Description": "CACHED",
+  "AWS::Connect::View.InstanceArn": "CACHED",
+  "AWS::Connect::View.Name": "CACHED",
+  "AWS::Connect::ViewVersion.VersionDescription": "CACHED",
+  "AWS::Connect::ViewVersion.ViewArn": "CACHED",
+  "AWS::Connect::ViewVersion.ViewContentSha256": "CACHED",
   "AWS::ControlTower::EnabledControl.ControlIdentifier": "CACHED",
   "AWS::ControlTower::EnabledControl.TargetIdentifier": "CACHED",
   "AWS::CustomerProfiles::CalculatedAttributeDefinition.AttributeDetails.Expression": "CACHED",
@@ -5772,6 +6607,7 @@
   "AWS::CustomerProfiles::ObjectType.ObjectTypeKey.FieldNames": "CACHED",
   "AWS::CustomerProfiles::ObjectType.ObjectTypeKey.StandardIdentifiers": "CACHED",
   "AWS::CustomerProfiles::ObjectType.ObjectTypeName": "CACHED",
+  "AWS::CustomerProfiles::ObjectType.SourceLastUpdatedTimestampFormat": "CACHED",
   "AWS::CustomerProfiles::ObjectType.TemplateId": "CACHED",
   "AWS::DMS::ReplicationConfig.ReplicationType": "CACHED",
   "AWS::DataBrew::Dataset.CsvOptions.Delimiter": "CACHED",
@@ -5918,6 +6754,7 @@
   "AWS::DataSync::StorageSystem.ServerCredentials.Username": "CACHED",
   "AWS::DataSync::StorageSystem.SystemType": "CACHED",
   "AWS::DataSync::Task.CloudWatchLogGroupArn": "CACHED",
+  "AWS::DataSync::Task.Deleted.ReportLevel": "CACHED",
   "AWS::DataSync::Task.DestinationLocationArn": "CACHED",
   "AWS::DataSync::Task.FilterRule.FilterType": "CACHED",
   "AWS::DataSync::Task.FilterRule.Value": "CACHED",
@@ -5936,8 +6773,17 @@
   "AWS::DataSync::Task.Options.TransferMode": "CACHED",
   "AWS::DataSync::Task.Options.Uid": "CACHED",
   "AWS::DataSync::Task.Options.VerifyMode": "CACHED",
+  "AWS::DataSync::Task.S3.BucketAccessRoleArn": "CACHED",
+  "AWS::DataSync::Task.S3.S3BucketArn": "CACHED",
+  "AWS::DataSync::Task.S3.Subdirectory": "CACHED",
+  "AWS::DataSync::Task.Skipped.ReportLevel": "CACHED",
   "AWS::DataSync::Task.SourceLocationArn": "CACHED",
+  "AWS::DataSync::Task.TaskReportConfig.ObjectVersionIds": "CACHED",
+  "AWS::DataSync::Task.TaskReportConfig.OutputType": "CACHED",
+  "AWS::DataSync::Task.TaskReportConfig.ReportLevel": "CACHED",
   "AWS::DataSync::Task.TaskSchedule.ScheduleExpression": "CACHED",
+  "AWS::DataSync::Task.Transferred.ReportLevel": "CACHED",
+  "AWS::DataSync::Task.Verified.ReportLevel": "CACHED",
   "AWS::Default::Default.EnabledState": "CACHED",
   "AWS::Detective::MemberInvitation.GraphArn": "CACHED",
   "AWS::Detective::MemberInvitation.MemberEmailAddress": "CACHED",
@@ -6770,6 +7616,19 @@
   "AWS::Organizations::Policy.Name": "CACHED",
   "AWS::Organizations::Policy.TargetIds": "CACHED",
   "AWS::Organizations::Policy.Type": "CACHED",
+  "AWS::PCAConnectorAD::Connector.CertificateAuthorityArn": "CACHED",
+  "AWS::PCAConnectorAD::Connector.DirectoryId": "CACHED",
+  "AWS::PCAConnectorAD::Connector.VpcInformation.SecurityGroupIds": "CACHED",
+  "AWS::PCAConnectorAD::DirectoryRegistration.DirectoryId": "CACHED",
+  "AWS::PCAConnectorAD::ServicePrincipalName.ConnectorArn": "CACHED",
+  "AWS::PCAConnectorAD::ServicePrincipalName.DirectoryRegistrationArn": "CACHED",
+  "AWS::PCAConnectorAD::Template.ConnectorArn": "CACHED",
+  "AWS::PCAConnectorAD::Template.Name": "CACHED",
+  "AWS::PCAConnectorAD::TemplateGroupAccessControlEntry.AccessRights.AutoEnroll": "CACHED",
+  "AWS::PCAConnectorAD::TemplateGroupAccessControlEntry.AccessRights.Enroll": "CACHED",
+  "AWS::PCAConnectorAD::TemplateGroupAccessControlEntry.GroupDisplayName": "CACHED",
+  "AWS::PCAConnectorAD::TemplateGroupAccessControlEntry.GroupSecurityIdentifier": "CACHED",
+  "AWS::PCAConnectorAD::TemplateGroupAccessControlEntry.TemplateArn": "CACHED",
   "AWS::Pipes::Pipe.AwsVpcConfiguration.AssignPublicIp": "CACHED",
   "AWS::Pipes::Pipe.AwsVpcConfiguration.SecurityGroups": "CACHED",
   "AWS::Pipes::Pipe.AwsVpcConfiguration.Subnets": "CACHED",
@@ -6950,7 +7809,14 @@
     "db.t4g.medium",
     "db.t4g.micro",
     "db.t4g.small",
-    "db.t4g.xlarge"
+    "db.t4g.xlarge",
+    "db.x2iedn.16xlarge",
+    "db.x2iedn.24xlarge",
+    "db.x2iedn.2xlarge",
+    "db.x2iedn.32xlarge",
+    "db.x2iedn.4xlarge",
+    "db.x2iedn.8xlarge",
+    "db.x2iedn.xlarge"
    ]
   },
   "AWS::RDS::DBInstance.DBInstanceIdentifier": "CACHED",
@@ -6992,7 +7858,13 @@
   "AWS::ResilienceHub::App.AppAssessmentSchedule": "CACHED",
   "AWS::ResilienceHub::App.AppTemplateBody": "CACHED",
   "AWS::ResilienceHub::App.Description": "CACHED",
+  "AWS::ResilienceHub::App.EventSubscription.EventType": "CACHED",
+  "AWS::ResilienceHub::App.EventSubscription.Name": "CACHED",
+  "AWS::ResilienceHub::App.EventSubscription.SnsTopicArn": "CACHED",
   "AWS::ResilienceHub::App.Name": "CACHED",
+  "AWS::ResilienceHub::App.PermissionModel.CrossAccountRoleArns": "CACHED",
+  "AWS::ResilienceHub::App.PermissionModel.InvokerRoleName": "CACHED",
+  "AWS::ResilienceHub::App.PermissionModel.Type": "CACHED",
   "AWS::ResilienceHub::App.PhysicalResourceId.AwsAccountId": "CACHED",
   "AWS::ResilienceHub::App.PhysicalResourceId.AwsRegion": "CACHED",
   "AWS::ResilienceHub::App.PhysicalResourceId.Identifier": "CACHED",
@@ -7010,6 +7882,9 @@
   "AWS::RolesAnywhere::CRL.TrustAnchorArn": "CACHED",
   "AWS::RolesAnywhere::Profile.DurationSeconds": "CACHED",
   "AWS::RolesAnywhere::Profile.RoleArns": "CACHED",
+  "AWS::RolesAnywhere::TrustAnchor.NotificationSetting.Channel": "CACHED",
+  "AWS::RolesAnywhere::TrustAnchor.NotificationSetting.Event": "CACHED",
+  "AWS::RolesAnywhere::TrustAnchor.NotificationSetting.Threshold": "CACHED",
   "AWS::RolesAnywhere::TrustAnchor.Source.SourceType": "CACHED",
   "AWS::Route53::CidrCollection.Location.LocationName": "CACHED",
   "AWS::Route53::CidrCollection.Name": "CACHED",
@@ -8164,7 +9039,19 @@
     "x1e.32xlarge",
     "x1e.4xlarge",
     "x1e.8xlarge",
-    "x1e.xlarge"
+    "x1e.xlarge",
+    "x2idn.16xlarge",
+    "x2idn.24xlarge",
+    "x2idn.32xlarge",
+    "x2idn.metal",
+    "x2iedn.16xlarge",
+    "x2iedn.24xlarge",
+    "x2iedn.2xlarge",
+    "x2iedn.32xlarge",
+    "x2iedn.4xlarge",
+    "x2iedn.8xlarge",
+    "x2iedn.metal",
+    "x2iedn.xlarge"
    ],
    "Ref": {
     "Parameters": [

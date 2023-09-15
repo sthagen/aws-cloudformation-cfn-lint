@@ -1,3 +1,20 @@
+### v0.79.11
+###### Fixes
+- Update [E3031](https://github.com/aws-cloudformation/cfn-python-lint/blob/main/docs/rules.md#E3031) so all regex checks are run (pull #[2873](https://github.com/aws-cloudformation/cfn-lint/pull/2873))
+- Update [E2520](https://github.com/aws-cloudformation/cfn-python-lint/blob/main/docs/rules.md#E2520) to better skip properties we don't care about (pull #[2875](https://github.com/aws-cloudformation/cfn-lint/pull/2875))
+
+### v0.79.10
+###### CloudFormation Specifications
+- Update CloudFormation specs to `139.0.0` (pull #[2865](https://github.com/aws-cloudformation/cfn-lint/pull/2865))
+###### Fixes
+- Force regex to be at least 2022 for typing parameter (pull #[2867](https://github.com/aws-cloudformation/cfn-lint/pull/2867))
+
+### v0.79.9
+###### CloudFormation Specifications
+- Update CloudFormation specs to `138.0.0` (pull #[2857](https://github.com/aws-cloudformation/cfn-lint/pull/2857))
+###### Fixes
+- Fix `AWS::LanguageExtensions` to have regex escape for string replacement (pull #[2862](https://github.com/aws-cloudformation/cfn-lint/pull/2862))
+
 ### v0.79.8
 ###### CloudFormation Specifications
 - Update CloudFormation specs to `136.0.0` (pull #[2848](https://github.com/aws-cloudformation/cfn-lint/pull/2848))

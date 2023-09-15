@@ -1976,6 +1976,7 @@
     "ListApprovalRuleTemplates",
     "ListAssociatedApprovalRuleTemplatesForRepository",
     "ListBranches",
+    "ListFileCommitHistory",
     "ListPullRequests",
     "ListRepositories",
     "ListRepositoriesForApprovalRuleTemplate",
@@ -2259,6 +2260,7 @@
     "ExportEC2InstanceRecommendations",
     "ExportECSServiceRecommendations",
     "ExportLambdaFunctionRecommendations",
+    "ExportLicenseRecommendations",
     "GetAutoScalingGroupRecommendations",
     "GetEBSVolumeRecommendations",
     "GetEC2InstanceRecommendations",
@@ -2269,6 +2271,7 @@
     "GetEnrollmentStatus",
     "GetEnrollmentStatusesForOrganization",
     "GetLambdaFunctionRecommendations",
+    "GetLicenseRecommendations",
     "GetRecommendationPreferences",
     "GetRecommendationSummaries",
     "PutRecommendationPreferences",
@@ -2404,10 +2407,7 @@
     "ListDeviceIdentities"
    ],
    "HasResource": true,
-   "StringPrefix": "consoleapp",
-   "conditionKeys": [
-    "consoleapp:DeviceIdentityArn"
-   ]
+   "StringPrefix": "consoleapp"
   },
   "AWS Consolidated Billing": {
    "ARNFormat": "arn:${Partition}:consolidatedbilling::${Account}:${ResourceType}/${ResourceId}",
@@ -3339,6 +3339,7 @@
     "CreateSourceNetwork",
     "CreateSourceServerForDrs",
     "DeleteJob",
+    "DeleteLaunchAction",
     "DeleteLaunchConfigurationTemplate",
     "DeleteRecoveryInstance",
     "DeleteReplicationConfigurationTemplate",
@@ -3373,6 +3374,7 @@
     "InitializeService",
     "IssueAgentCertificateForDrs",
     "ListExtensibleSourceServers",
+    "ListLaunchActions",
     "ListStagingAccounts",
     "ListTagsForResource",
     "NotifyAgentAuthenticationForDrs",
@@ -3382,6 +3384,7 @@
     "NotifyConsistencyAttainedForDrs",
     "NotifyReplicationServerAuthenticationForDrs",
     "NotifyVolumeEventForDrs",
+    "PutLaunchAction",
     "RetryDataReplication",
     "ReverseReplication",
     "SendAgentLogsForDrs",
@@ -3671,7 +3674,10 @@
    "conditionKeys": [
     "aws:RequestTag/${TagKey}",
     "aws:ResourceTag/${TagKey}",
-    "aws:TagKeys"
+    "aws:TagKeys",
+    "mediaconvert:HttpInputsAllowed",
+    "mediaconvert:HttpsInputsAllowed",
+    "mediaconvert:S3InputsAllowed"
    ]
   },
   "AWS Elemental MediaLive": {
@@ -4502,13 +4508,14 @@
    ]
   },
   "AWS Health APIs and Notifications": {
-   "ARNFormat": "arn:aws:health::${Namespace}:${RelativeId}",
+   "ARNFormat": "arn:aws:health:${Region}::${RelativeId}",
    "ARNRegex": "^arn:aws:health:[^:]*:[^:]*:.+",
    "Actions": [
     "DescribeAffectedAccountsForOrganization",
     "DescribeAffectedEntities",
     "DescribeAffectedEntitiesForOrganization",
     "DescribeEntityAggregates",
+    "DescribeEntityAggregatesForOrganization",
     "DescribeEventAggregates",
     "DescribeEventDetails",
     "DescribeEventDetailsForOrganization",
@@ -6549,6 +6556,7 @@
     "aws:ResourceTag/${TagKey}",
     "aws:TagKeys",
     "lambda:CodeSigningConfigArn",
+    "lambda:EventSourceToken",
     "lambda:FunctionArn",
     "lambda:FunctionUrlAuthType",
     "lambda:Layer",
@@ -11340,9 +11348,13 @@
     "DeleteMonitor",
     "GetHealthEvent",
     "GetMonitor",
+    "GetQueryResults",
+    "GetQueryStatus",
     "ListHealthEvents",
     "ListMonitors",
     "ListTagsForResource",
+    "StartQuery",
+    "StopQuery",
     "TagResource",
     "UntagResource",
     "UpdateMonitor"
@@ -12005,6 +12017,8 @@
     "CreateUseCase",
     "CreateUser",
     "CreateUserHierarchyGroup",
+    "CreateView",
+    "CreateViewVersion",
     "CreateVocabulary",
     "DeactivateEvaluationForm",
     "DeleteContactEvaluation",
@@ -12025,6 +12039,8 @@
     "DeleteUseCase",
     "DeleteUser",
     "DeleteUserHierarchyGroup",
+    "DeleteView",
+    "DeleteViewVersion",
     "DeleteVocabulary",
     "DescribeAgentStatus",
     "DescribeContact",
@@ -12048,6 +12064,7 @@
     "DescribeUser",
     "DescribeUserHierarchyGroup",
     "DescribeUserHierarchyStructure",
+    "DescribeView",
     "DescribeVocabulary",
     "DisassociateApprovedOrigin",
     "DisassociateBot",
@@ -12108,6 +12125,8 @@
     "ListUseCases",
     "ListUserHierarchyGroups",
     "ListUsers",
+    "ListViewVersions",
+    "ListViews",
     "MonitorContact",
     "PutUserStatus",
     "ReleasePhoneNumber",
@@ -12178,7 +12197,9 @@
     "UpdateUserIdentityInfo",
     "UpdateUserPhoneConfig",
     "UpdateUserRoutingProfile",
-    "UpdateUserSecurityProfiles"
+    "UpdateUserSecurityProfiles",
+    "UpdateViewContent",
+    "UpdateViewMetadata"
    ],
    "HasResource": true,
    "StringPrefix": "connect",
@@ -16599,6 +16620,7 @@
    "HasResource": false,
    "StringPrefix": "ec2messages",
    "conditionKeys": [
+    "ec2:SourceInstanceARN",
     "ssm:SourceInstanceARN"
    ]
   },
@@ -19139,7 +19161,7 @@
     "GetModelPackageGroupPolicy",
     "GetRecord",
     "GetSagemakerServicecatalogPortfolioStatus",
-    "GetScalingPolicyConfigurationRecommendation",
+    "GetScalingConfigurationRecommendation",
     "GetSearchSuggestions",
     "ImportHubContent",
     "InvokeEndpoint",
@@ -19442,6 +19464,7 @@
    "HasResource": false,
    "StringPrefix": "ssmmessages",
    "conditionKeys": [
+    "ec2:SourceInstanceARN",
     "ssm:SourceInstanceARN"
    ]
   },
@@ -19450,6 +19473,7 @@
    "ARNRegex": "^arn:aws:ses:.+:[0-9]+:.+",
    "Actions": [
     "BatchGetMetricData",
+    "CancelExportJob",
     "CreateConfigurationSet",
     "CreateConfigurationSetEventDestination",
     "CreateContact",
@@ -19460,6 +19484,7 @@
     "CreateEmailIdentity",
     "CreateEmailIdentityPolicy",
     "CreateEmailTemplate",
+    "CreateExportJob",
     "CreateImportJob",
     "DeleteConfigurationSet",
     "DeleteConfigurationSetEventDestination",
@@ -19488,7 +19513,9 @@
     "GetEmailIdentity",
     "GetEmailIdentityPolicies",
     "GetEmailTemplate",
+    "GetExportJob",
     "GetImportJob",
+    "GetMessageInsights",
     "GetSuppressedDestination",
     "ListConfigurationSets",
     "ListContactLists",
@@ -19499,6 +19526,7 @@
     "ListDomainDeliverabilityCampaigns",
     "ListEmailIdentities",
     "ListEmailTemplates",
+    "ListExportJobs",
     "ListImportJobs",
     "ListRecommendations",
     "ListSuppressedDestinations",
@@ -19544,6 +19572,7 @@
     "aws:ResourceTag/${TagKey}",
     "aws:TagKeys",
     "ses:ApiVersion",
+    "ses:ExportSourceType",
     "ses:FeedbackAddress",
     "ses:FromAddress",
     "ses:FromDisplayName",
