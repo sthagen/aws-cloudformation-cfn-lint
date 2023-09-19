@@ -1,3 +1,14 @@
+### v0.80.2
+###### Fixes
+- Revert change #[2878](https://github.com/aws-cloudformation/cfn-lint/pull/2878) (pull #[2882](https://github.com/aws-cloudformation/cfn-lint/pull/2882))
+
+### v0.80.1
+###### CloudFormation Specifications
+- Update CloudFormation specs to `140.0.0` (pull #[2870](https://github.com/aws-cloudformation/cfn-lint/pull/2870))
+- Add `OriginAccessControlId` to `OnlyOne` (pull #[2878](https://github.com/aws-cloudformation/cfn-lint/pull/2878))
+###### Fixes
+- Allow `jsonschema` to be from v3.0.0 to v5 (pull #[2838](https://github.com/aws-cloudformation/cfn-lint/pull/2838))
+
 ### v0.79.11
 ###### Fixes
 - Update [E3031](https://github.com/aws-cloudformation/cfn-python-lint/blob/main/docs/rules.md#E3031) so all regex checks are run (pull #[2873](https://github.com/aws-cloudformation/cfn-lint/pull/2873))
