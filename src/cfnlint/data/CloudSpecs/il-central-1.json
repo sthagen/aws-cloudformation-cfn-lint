@@ -2177,7 +2177,23 @@
   "AWS::EC2::LaunchTemplate.LaunchTemplateElasticInferenceAccelerator": "CACHED",
   "AWS::EC2::LaunchTemplate.LaunchTemplateTagSpecification": "CACHED",
   "AWS::EC2::LaunchTemplate.LicenseSpecification": "CACHED",
-  "AWS::EC2::LaunchTemplate.MaintenanceOptions": "CACHED",
+  "AWS::EC2::LaunchTemplate.MaintenanceOptions": {
+   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-maintenanceoptions.html",
+   "Properties": {
+    "AutoRecovery": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-maintenanceoptions.html#cfn-ec2-launchtemplate-maintenanceoptions-autorecovery",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    },
+    "RebootMigration": {
+     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-maintenanceoptions.html#cfn-ec2-launchtemplate-maintenanceoptions-rebootmigration",
+     "PrimitiveType": "String",
+     "Required": false,
+     "UpdateType": "Mutable"
+    }
+   }
+  },
   "AWS::EC2::LaunchTemplate.MemoryGiBPerVCpu": "CACHED",
   "AWS::EC2::LaunchTemplate.MemoryMiB": "CACHED",
   "AWS::EC2::LaunchTemplate.MetadataOptions": "CACHED",
@@ -2911,6 +2927,7 @@
    }
   },
   "AWS::EC2::Subnet.PrivateDnsNameOptionsOnLaunch": "CACHED",
+  "AWS::EC2::TrafficMirrorFilterRule.TrafficMirrorPortRange": "CACHED",
   "AWS::EC2::TransitGatewayAttachment.Options": {
    "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayattachment-options.html",
    "Properties": {
@@ -4645,7 +4662,7 @@
   "AWS::XRay::SamplingRule.SamplingRule": "CACHED",
   "Tag": "CACHED"
  },
- "ResourceSpecificationVersion": "166.0.0",
+ "ResourceSpecificationVersion": "167.1.0",
  "ResourceTypes": {
   "AWS::ACMPCA::Certificate": "CACHED",
   "AWS::ACMPCA::CertificateAuthority": "CACHED",
@@ -6774,6 +6791,10 @@
   "AWS::EC2::SubnetCidrBlock": "CACHED",
   "AWS::EC2::SubnetNetworkAclAssociation": "CACHED",
   "AWS::EC2::SubnetRouteTableAssociation": "CACHED",
+  "AWS::EC2::TrafficMirrorFilter": "CACHED",
+  "AWS::EC2::TrafficMirrorFilterRule": "CACHED",
+  "AWS::EC2::TrafficMirrorSession": "CACHED",
+  "AWS::EC2::TrafficMirrorTarget": "CACHED",
   "AWS::EC2::TransitGateway": "CACHED",
   "AWS::EC2::TransitGatewayAttachment": "CACHED",
   "AWS::EC2::TransitGatewayConnect": "CACHED",

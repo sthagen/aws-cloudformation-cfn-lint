@@ -2094,6 +2094,7 @@
   "AWS::EC2::SpotFleet.TotalLocalStorageGBRequest": "CACHED",
   "AWS::EC2::SpotFleet.VCpuCountRangeRequest": "CACHED",
   "AWS::EC2::Subnet.PrivateDnsNameOptionsOnLaunch": "CACHED",
+  "AWS::EC2::TrafficMirrorFilterRule.TrafficMirrorPortRange": "CACHED",
   "AWS::EC2::TransitGatewayAttachment.Options": {
    "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayattachment-options.html",
    "Properties": {
@@ -2849,6 +2850,16 @@
   "AWS::MediaConnect::FlowSource.Encryption": "CACHED",
   "AWS::MediaConnect::FlowSource.GatewayBridgeSource": "CACHED",
   "AWS::MediaConnect::FlowSource.VpcInterfaceAttachment": "CACHED",
+  "AWS::MediaLive::Multiplex.MultiplexMediaConnectOutputDestinationSettings": "CACHED",
+  "AWS::MediaLive::Multiplex.MultiplexOutputDestination": "CACHED",
+  "AWS::MediaLive::Multiplex.MultiplexSettings": "CACHED",
+  "AWS::MediaLive::Multiplex.Tags": "CACHED",
+  "AWS::MediaLive::Multiplexprogram.MultiplexProgramPacketIdentifiersMap": "CACHED",
+  "AWS::MediaLive::Multiplexprogram.MultiplexProgramPipelineDetail": "CACHED",
+  "AWS::MediaLive::Multiplexprogram.MultiplexProgramServiceDescriptor": "CACHED",
+  "AWS::MediaLive::Multiplexprogram.MultiplexProgramSettings": "CACHED",
+  "AWS::MediaLive::Multiplexprogram.MultiplexStatmuxVideoSettings": "CACHED",
+  "AWS::MediaLive::Multiplexprogram.MultiplexVideoSettings": "CACHED",
   "AWS::Neptune::DBCluster.DBClusterRole": "CACHED",
   "AWS::Neptune::DBCluster.ServerlessScalingConfiguration": "CACHED",
   "AWS::NetworkFirewall::Firewall.SubnetMapping": "CACHED",
@@ -3828,7 +3839,7 @@
   "AWS::XRay::SamplingRule.SamplingRule": "CACHED",
   "Tag": "CACHED"
  },
- "ResourceSpecificationVersion": "166.0.0",
+ "ResourceSpecificationVersion": "167.1.0",
  "ResourceTypes": {
   "AWS::ACMPCA::Certificate": "CACHED",
   "AWS::ACMPCA::CertificateAuthority": "CACHED",
@@ -5969,6 +5980,10 @@
   "AWS::EC2::SubnetCidrBlock": "CACHED",
   "AWS::EC2::SubnetNetworkAclAssociation": "CACHED",
   "AWS::EC2::SubnetRouteTableAssociation": "CACHED",
+  "AWS::EC2::TrafficMirrorFilter": "CACHED",
+  "AWS::EC2::TrafficMirrorFilterRule": "CACHED",
+  "AWS::EC2::TrafficMirrorSession": "CACHED",
+  "AWS::EC2::TrafficMirrorTarget": "CACHED",
   "AWS::EC2::TransitGateway": "CACHED",
   "AWS::EC2::TransitGatewayAttachment": "CACHED",
   "AWS::EC2::TransitGatewayConnect": "CACHED",
@@ -6483,6 +6498,8 @@
   "AWS::MediaConnect::FlowOutput": "CACHED",
   "AWS::MediaConnect::FlowSource": "CACHED",
   "AWS::MediaConnect::FlowVpcInterface": "CACHED",
+  "AWS::MediaLive::Multiplex": "CACHED",
+  "AWS::MediaLive::Multiplexprogram": "CACHED",
   "AWS::Neptune::DBCluster": "CACHED",
   "AWS::Neptune::DBClusterParameterGroup": "CACHED",
   "AWS::Neptune::DBInstance": "CACHED",
@@ -8384,6 +8401,12 @@
   "AWS::MediaConnect::FlowSource.Encryption.Algorithm": "CACHED",
   "AWS::MediaConnect::FlowSource.Encryption.KeyType": "CACHED",
   "AWS::MediaConnect::FlowSource.Protocol": "CACHED",
+  "AWS::MediaLive::Multiplex.MultiplexSettings.MaximumVideoBufferDelayMilliseconds": "CACHED",
+  "AWS::MediaLive::Multiplex.MultiplexSettings.TransportStreamBitrate": "CACHED",
+  "AWS::MediaLive::Multiplexprogram.MultiplexProgramServiceDescriptor.ProviderName": "CACHED",
+  "AWS::MediaLive::Multiplexprogram.MultiplexProgramServiceDescriptor.ServiceName": "CACHED",
+  "AWS::MediaLive::Multiplexprogram.MultiplexProgramSettings.PreferredChannelPipeline": "CACHED",
+  "AWS::MediaLive::Multiplexprogram.PreferredChannelPipeline": "CACHED",
   "AWS::Neptune::DBCluster.DBClusterIdentifier": "CACHED",
   "AWS::Neptune::DBCluster.ServerlessScalingConfiguration.MaxCapacity": "CACHED",
   "AWS::Neptune::DBCluster.ServerlessScalingConfiguration.MinCapacity": "CACHED",
@@ -9382,7 +9405,13 @@
   "DmsEndpointSslMode": "CACHED",
   "DmsEndpointType": "CACHED",
   "DocumentDBEngineVersion": "CACHED",
-  "DocumentDBInstanceClass": "CACHED",
+  "DocumentDBInstanceClass": {
+   "Ref": {
+    "Parameters": [
+     "String"
+    ]
+   }
+  },
   "EC2CapacityReservationEndDateType": "CACHED",
   "EC2CapacityReservationInstanceMatchCriteria": "CACHED",
   "EC2CapacityReservationInstancePlatform": "CACHED",

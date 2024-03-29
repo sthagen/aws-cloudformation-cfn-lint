@@ -166,6 +166,11 @@
   "AWS::ACMPCA::CertificateAuthority.OtherName": "CACHED",
   "AWS::ACMPCA::CertificateAuthority.RevocationConfiguration": "CACHED",
   "AWS::ACMPCA::CertificateAuthority.Subject": "CACHED",
+  "AWS::APS::Scraper.AmpConfiguration": "CACHED",
+  "AWS::APS::Scraper.Destination": "CACHED",
+  "AWS::APS::Scraper.EksConfiguration": "CACHED",
+  "AWS::APS::Scraper.ScrapeConfiguration": "CACHED",
+  "AWS::APS::Scraper.Source": "CACHED",
   "AWS::APS::Workspace.LoggingConfiguration": "CACHED",
   "AWS::ARCZonalShift::ZonalAutoshiftConfiguration.ControlCondition": "CACHED",
   "AWS::ARCZonalShift::ZonalAutoshiftConfiguration.PracticeRunConfiguration": "CACHED",
@@ -786,6 +791,8 @@
   "AWS::CleanRooms::ConfiguredTable.AnalysisRuleList": "CACHED",
   "AWS::CleanRooms::ConfiguredTable.ConfiguredTableAnalysisRulePolicy": "CACHED",
   "AWS::CleanRooms::ConfiguredTable.ConfiguredTableAnalysisRulePolicyV1": "CACHED",
+  "AWS::CleanRooms::ConfiguredTable.DifferentialPrivacy": "CACHED",
+  "AWS::CleanRooms::ConfiguredTable.DifferentialPrivacyColumn": "CACHED",
   "AWS::CleanRooms::ConfiguredTable.GlueTableReference": "CACHED",
   "AWS::CleanRooms::ConfiguredTable.TableReference": "CACHED",
   "AWS::CleanRooms::Membership.MembershipPaymentConfiguration": "CACHED",
@@ -2650,57 +2657,9 @@
   "AWS::KafkaConnect::Connector.Vpc": "CACHED",
   "AWS::KafkaConnect::Connector.WorkerConfiguration": "CACHED",
   "AWS::KafkaConnect::Connector.WorkerLogDelivery": "CACHED",
-  "AWS::KafkaConnect::CustomPlugin.CustomPluginFileDescription": {
-   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-customplugin-custompluginfiledescription.html",
-   "Properties": {
-    "FileMd5": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-customplugin-custompluginfiledescription.html#cfn-kafkaconnect-customplugin-custompluginfiledescription-filemd5",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Mutable"
-    },
-    "FileSize": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-customplugin-custompluginfiledescription.html#cfn-kafkaconnect-customplugin-custompluginfiledescription-filesize",
-     "PrimitiveType": "Integer",
-     "Required": false,
-     "UpdateType": "Mutable"
-    }
-   }
-  },
-  "AWS::KafkaConnect::CustomPlugin.CustomPluginLocation": {
-   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-customplugin-custompluginlocation.html",
-   "Properties": {
-    "S3Location": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-customplugin-custompluginlocation.html#cfn-kafkaconnect-customplugin-custompluginlocation-s3location",
-     "Required": true,
-     "Type": "S3Location",
-     "UpdateType": "Immutable"
-    }
-   }
-  },
-  "AWS::KafkaConnect::CustomPlugin.S3Location": {
-   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-customplugin-s3location.html",
-   "Properties": {
-    "BucketArn": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-customplugin-s3location.html#cfn-kafkaconnect-customplugin-s3location-bucketarn",
-     "PrimitiveType": "String",
-     "Required": true,
-     "UpdateType": "Immutable"
-    },
-    "FileKey": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-customplugin-s3location.html#cfn-kafkaconnect-customplugin-s3location-filekey",
-     "PrimitiveType": "String",
-     "Required": true,
-     "UpdateType": "Immutable"
-    },
-    "ObjectVersion": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-customplugin-s3location.html#cfn-kafkaconnect-customplugin-s3location-objectversion",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Immutable"
-    }
-   }
-  },
+  "AWS::KafkaConnect::CustomPlugin.CustomPluginFileDescription": "CACHED",
+  "AWS::KafkaConnect::CustomPlugin.CustomPluginLocation": "CACHED",
+  "AWS::KafkaConnect::CustomPlugin.S3Location": "CACHED",
   "AWS::Kendra::DataSource.AccessControlListConfiguration": "CACHED",
   "AWS::Kendra::DataSource.AclConfiguration": "CACHED",
   "AWS::Kendra::DataSource.ColumnConfiguration": "CACHED",
@@ -5890,15 +5849,12 @@
   "AWS::SecurityHub::AutomationRule.SeverityUpdate": "CACHED",
   "AWS::SecurityHub::AutomationRule.StringFilter": "CACHED",
   "AWS::SecurityHub::AutomationRule.WorkflowUpdate": "CACHED",
-  "AWS::SecurityHub::Insight.AwsSecurityFindingFilters": "CACHED",
-  "AWS::SecurityHub::Insight.BooleanFilter": "CACHED",
-  "AWS::SecurityHub::Insight.DateFilter": "CACHED",
-  "AWS::SecurityHub::Insight.DateRange": "CACHED",
-  "AWS::SecurityHub::Insight.IpFilter": "CACHED",
-  "AWS::SecurityHub::Insight.MapFilter": "CACHED",
-  "AWS::SecurityHub::Insight.NumberFilter": "CACHED",
-  "AWS::SecurityHub::Insight.StringFilter": "CACHED",
   "AWS::SecurityHub::Standard.StandardsControl": "CACHED",
+  "AWS::SecurityLake::DataLake.EncryptionConfiguration": "CACHED",
+  "AWS::SecurityLake::DataLake.Expiration": "CACHED",
+  "AWS::SecurityLake::DataLake.LifecycleConfiguration": "CACHED",
+  "AWS::SecurityLake::DataLake.ReplicationConfiguration": "CACHED",
+  "AWS::SecurityLake::DataLake.Transitions": "CACHED",
   "AWS::ServiceCatalog::CloudFormationProduct.CodeStarParameters": "CACHED",
   "AWS::ServiceCatalog::CloudFormationProduct.ConnectionParameters": "CACHED",
   "AWS::ServiceCatalog::CloudFormationProduct.ProvisioningArtifactProperties": "CACHED",
@@ -6186,13 +6142,14 @@
   "Alexa::ASK::Skill.SkillPackage": "CACHED",
   "Tag": "CACHED"
  },
- "ResourceSpecificationVersion": "166.0.0",
+ "ResourceSpecificationVersion": "167.1.0",
  "ResourceTypes": {
   "AWS::ACMPCA::Certificate": "CACHED",
   "AWS::ACMPCA::CertificateAuthority": "CACHED",
   "AWS::ACMPCA::CertificateAuthorityActivation": "CACHED",
   "AWS::ACMPCA::Permission": "CACHED",
   "AWS::APS::RuleGroupsNamespace": "CACHED",
+  "AWS::APS::Scraper": "CACHED",
   "AWS::APS::Workspace": "CACHED",
   "AWS::ARCZonalShift::ZonalAutoshiftConfiguration": "CACHED",
   "AWS::AccessAnalyzer::Analyzer": "CACHED",
@@ -7287,99 +7244,8 @@
   "AWS::KMS::Key": "CACHED",
   "AWS::KMS::ReplicaKey": "CACHED",
   "AWS::KafkaConnect::Connector": "CACHED",
-  "AWS::KafkaConnect::CustomPlugin": {
-   "Attributes": {
-    "CustomPluginArn": {
-     "PrimitiveType": "String"
-    },
-    "FileDescription": {
-     "Type": "CustomPluginFileDescription"
-    },
-    "FileDescription.FileMd5": {
-     "PrimitiveType": "String"
-    },
-    "FileDescription.FileSize": {
-     "PrimitiveType": "Integer"
-    },
-    "Revision": {
-     "PrimitiveType": "Integer"
-    }
-   },
-   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-customplugin.html",
-   "Properties": {
-    "ContentType": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-customplugin.html#cfn-kafkaconnect-customplugin-contenttype",
-     "PrimitiveType": "String",
-     "Required": true,
-     "UpdateType": "Immutable"
-    },
-    "Description": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-customplugin.html#cfn-kafkaconnect-customplugin-description",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Immutable"
-    },
-    "Location": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-customplugin.html#cfn-kafkaconnect-customplugin-location",
-     "Required": true,
-     "Type": "CustomPluginLocation",
-     "UpdateType": "Immutable"
-    },
-    "Name": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-customplugin.html#cfn-kafkaconnect-customplugin-name",
-     "PrimitiveType": "String",
-     "Required": true,
-     "UpdateType": "Immutable"
-    },
-    "Tags": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-customplugin.html#cfn-kafkaconnect-customplugin-tags",
-     "DuplicatesAllowed": true,
-     "ItemType": "Tag",
-     "Required": false,
-     "Type": "List",
-     "UpdateType": "Mutable"
-    }
-   }
-  },
-  "AWS::KafkaConnect::WorkerConfiguration": {
-   "Attributes": {
-    "Revision": {
-     "PrimitiveType": "Integer"
-    },
-    "WorkerConfigurationArn": {
-     "PrimitiveType": "String"
-    }
-   },
-   "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-workerconfiguration.html",
-   "Properties": {
-    "Description": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-workerconfiguration.html#cfn-kafkaconnect-workerconfiguration-description",
-     "PrimitiveType": "String",
-     "Required": false,
-     "UpdateType": "Immutable"
-    },
-    "Name": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-workerconfiguration.html#cfn-kafkaconnect-workerconfiguration-name",
-     "PrimitiveType": "String",
-     "Required": true,
-     "UpdateType": "Immutable"
-    },
-    "PropertiesFileContent": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-workerconfiguration.html#cfn-kafkaconnect-workerconfiguration-propertiesfilecontent",
-     "PrimitiveType": "String",
-     "Required": true,
-     "UpdateType": "Immutable"
-    },
-    "Tags": {
-     "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-workerconfiguration.html#cfn-kafkaconnect-workerconfiguration-tags",
-     "DuplicatesAllowed": false,
-     "ItemType": "Tag",
-     "Required": false,
-     "Type": "List",
-     "UpdateType": "Mutable"
-    }
-   }
-  },
+  "AWS::KafkaConnect::CustomPlugin": "CACHED",
+  "AWS::KafkaConnect::WorkerConfiguration": "CACHED",
   "AWS::Kendra::DataSource": "CACHED",
   "AWS::Kendra::Faq": "CACHED",
   "AWS::Kendra::Index": "CACHED",
@@ -7781,11 +7647,9 @@
   "AWS::SecretsManager::Secret": "CACHED",
   "AWS::SecretsManager::SecretTargetAttachment": "CACHED",
   "AWS::SecurityHub::AutomationRule": "CACHED",
-  "AWS::SecurityHub::DelegatedAdmin": "CACHED",
   "AWS::SecurityHub::Hub": "CACHED",
-  "AWS::SecurityHub::Insight": "CACHED",
-  "AWS::SecurityHub::ProductSubscription": "CACHED",
   "AWS::SecurityHub::Standard": "CACHED",
+  "AWS::SecurityLake::DataLake": "CACHED",
   "AWS::ServiceCatalog::AcceptedPortfolioShare": "CACHED",
   "AWS::ServiceCatalog::CloudFormationProduct": "CACHED",
   "AWS::ServiceCatalog::CloudFormationProvisionedProduct": "CACHED",
@@ -7899,6 +7763,11 @@
  "ValueTypes": {
   "AWS::APS::RuleGroupsNamespace.Name": "CACHED",
   "AWS::APS::RuleGroupsNamespace.Workspace": "CACHED",
+  "AWS::APS::Scraper.Alias": "CACHED",
+  "AWS::APS::Scraper.AmpConfiguration.WorkspaceArn": "CACHED",
+  "AWS::APS::Scraper.EksConfiguration.ClusterArn": "CACHED",
+  "AWS::APS::Scraper.EksConfiguration.SecurityGroupIds": "CACHED",
+  "AWS::APS::Scraper.EksConfiguration.SubnetIds": "CACHED",
   "AWS::APS::Workspace.Alias": "CACHED",
   "AWS::APS::Workspace.KmsKeyArn": "CACHED",
   "AWS::APS::Workspace.LoggingConfiguration.LogGroupArn": "CACHED",
@@ -8652,8 +8521,10 @@
   "AWS::CodeStarConnections::RepositoryLink.EncryptionKeyArn": "CACHED",
   "AWS::CodeStarConnections::RepositoryLink.OwnerId": "CACHED",
   "AWS::CodeStarConnections::RepositoryLink.RepositoryName": "CACHED",
+  "AWS::CodeStarConnections::SyncConfiguration.PublishDeploymentStatus": "CACHED",
   "AWS::CodeStarConnections::SyncConfiguration.RepositoryLinkId": "CACHED",
   "AWS::CodeStarConnections::SyncConfiguration.ResourceName": "CACHED",
+  "AWS::CodeStarConnections::SyncConfiguration.TriggerResourceUpdateOn": "CACHED",
   "AWS::CodeStarNotifications::NotificationRule.CreatedBy": "CACHED",
   "AWS::CodeStarNotifications::NotificationRule.DetailType": "CACHED",
   "AWS::CodeStarNotifications::NotificationRule.EventTypeId": "CACHED",
@@ -9450,6 +9321,7 @@
   "AWS::EntityResolution::IdMappingWorkflow.IdMappingTechniques.IdMappingType": "CACHED",
   "AWS::EntityResolution::IdMappingWorkflow.IdMappingWorkflowInputSource.InputSourceARN": "CACHED",
   "AWS::EntityResolution::IdMappingWorkflow.IdMappingWorkflowInputSource.SchemaArn": "CACHED",
+  "AWS::EntityResolution::IdMappingWorkflow.IdMappingWorkflowInputSource.Type": "CACHED",
   "AWS::EntityResolution::IdMappingWorkflow.IdMappingWorkflowOutputSource.KMSArn": "CACHED",
   "AWS::EntityResolution::IdMappingWorkflow.IdMappingWorkflowOutputSource.OutputS3Path": "CACHED",
   "AWS::EntityResolution::IdMappingWorkflow.ProviderProperties.ProviderServiceArn": "CACHED",
@@ -10297,6 +10169,11 @@
   "AWS::KafkaConnect::Connector.ScaleOutPolicy.CpuUtilizationPercentage": "CACHED",
   "AWS::KafkaConnect::Connector.ServiceExecutionRoleArn": "CACHED",
   "AWS::KafkaConnect::Connector.WorkerConfiguration.WorkerConfigurationArn": "CACHED",
+  "AWS::KafkaConnect::CustomPlugin.ContentType": "CACHED",
+  "AWS::KafkaConnect::CustomPlugin.Description": "CACHED",
+  "AWS::KafkaConnect::CustomPlugin.Name": "CACHED",
+  "AWS::KafkaConnect::WorkerConfiguration.Description": "CACHED",
+  "AWS::KafkaConnect::WorkerConfiguration.Name": "CACHED",
   "AWS::Kendra::DataSource.AccessControlListConfiguration.KeyPath": "CACHED",
   "AWS::Kendra::DataSource.AclConfiguration.AllowedGroupsColumnName": "CACHED",
   "AWS::Kendra::DataSource.ColumnConfiguration.ChangeDetectingColumns": "CACHED",
@@ -13219,6 +13096,8 @@
   "AWS::RDS::EventSubscription.SubscriptionName": "CACHED",
   "AWS::RDS::GlobalCluster.Engine": "CACHED",
   "AWS::RDS::GlobalCluster.GlobalClusterIdentifier": "CACHED",
+  "AWS::RDS::Integration.DataFilter": "CACHED",
+  "AWS::RDS::Integration.Description": "CACHED",
   "AWS::RDS::Integration.IntegrationName": "CACHED",
   "AWS::RUM::AppMonitor.AppMonitorConfiguration.ExcludedPages": "CACHED",
   "AWS::RUM::AppMonitor.AppMonitorConfiguration.GuestRoleArn": "CACHED",
@@ -14168,17 +14047,12 @@
   "AWS::SecurityHub::AutomationRule.SeverityUpdate.Label": "CACHED",
   "AWS::SecurityHub::AutomationRule.StringFilter.Comparison": "CACHED",
   "AWS::SecurityHub::AutomationRule.WorkflowUpdate.Status": "CACHED",
-  "AWS::SecurityHub::DelegatedAdmin.AdminAccountId": "CACHED",
   "AWS::SecurityHub::Hub.ControlFindingGenerator": "CACHED",
-  "AWS::SecurityHub::Insight.DateFilter.End": "CACHED",
-  "AWS::SecurityHub::Insight.DateFilter.Start": "CACHED",
-  "AWS::SecurityHub::Insight.DateRange.Unit": "CACHED",
-  "AWS::SecurityHub::Insight.MapFilter.Comparison": "CACHED",
-  "AWS::SecurityHub::Insight.Name": "CACHED",
-  "AWS::SecurityHub::Insight.StringFilter.Comparison": "CACHED",
-  "AWS::SecurityHub::ProductSubscription.ProductArn": "CACHED",
   "AWS::SecurityHub::Standard.StandardsArn": "CACHED",
   "AWS::SecurityHub::Standard.StandardsControl.StandardsControlArn": "CACHED",
+  "AWS::SecurityLake::DataLake.MetaStoreManagerRoleArn": "CACHED",
+  "AWS::SecurityLake::DataLake.ReplicationConfiguration.Regions": "CACHED",
+  "AWS::SecurityLake::DataLake.ReplicationConfiguration.RoleArn": "CACHED",
   "AWS::ServiceCatalog::CloudFormationProvisionedProduct.AcceptLanguage": "CACHED",
   "AWS::ServiceCatalog::CloudFormationProvisionedProduct.PathId": "CACHED",
   "AWS::ServiceCatalog::CloudFormationProvisionedProduct.PathName": "CACHED",
