@@ -12,8 +12,6 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
       - name: Download All Artifacts
         uses: actions/download-artifact@v4
         with:
@@ -24,16 +22,22 @@ jobs:
         uses: actions/github-script@v7
         id: set-pr
         with:
-          script: return Number(fs.readFileSync('./NR'));
+          script: |
+            var fs = require('fs');
+            return Number(fs.readFileSync('./NR'));
           result-encoding: string
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          path: repo_clone
       - name: Upload coverage report
         if: '!cancelled()'
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v3
         with:
           override_commit: ${{ github.event.workflow_run.head_sha }}
           override_pr: ${{steps.set-pr.outputs.result}}
           token: ${{ secrets.CODECOV_TOKEN }}
-          exclude: ".github"
-          files: ".coverage.3.8.xml,.coverage.3.9.xml,.coverage.3.10.xml,.coverage.3.11.xml,.coverage.3.12.xml"
+          files: "${{ github.workspace}}/.coverage.3.8.xml,${{ github.workspace}}/.coverage.3.9.xml,${{ github.workspace}}/.coverage.3.10.xml,${{ github.workspace}}/.coverage.3.11.xml,${{ github.workspace}}/.coverage.3.12.xml"
           fail_ci_if_error: true
           verbose: true
+          root_dir: ${{ github.workspace }}/repo_clone
