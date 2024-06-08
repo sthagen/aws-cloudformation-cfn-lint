@@ -7,7 +7,7 @@ from collections import deque
 
 import pytest
 
-from cfnlint.jsonschema import CfnTemplateValidator, ValidationError
+from cfnlint.jsonschema import ValidationError
 from cfnlint.rules.resources.rds.DbInstanceEngineVersion import DbInstanceEngineVersion
 
 
@@ -15,11 +15,6 @@ from cfnlint.rules.resources.rds.DbInstanceEngineVersion import DbInstanceEngine
 def rule():
     rule = DbInstanceEngineVersion()
     yield rule
-
-
-@pytest.fixture(scope="module")
-def validator():
-    yield CfnTemplateValidator(schema={})
 
 
 @pytest.mark.parametrize(
@@ -79,8 +74,8 @@ def validator():
             [
                 ValidationError(
                     (
-                        "'foo' is not one of ['5.7.44', '8.0.32', '8.0.33', "
-                        "'8.0.34', '8.0.35', '8.0.36']"
+                        "'foo' is not one of ['5.7.44', '5.7.44-rds.20240408', "
+                        "'8.0.32', '8.0.33', '8.0.34', '8.0.35', '8.0.36']"
                     ),
                     rule=DbInstanceEngineVersion(),
                     path=deque(["EngineVersion"]),
