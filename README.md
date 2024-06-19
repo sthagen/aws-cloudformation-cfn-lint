@@ -47,22 +47,30 @@ Python 3.8+ is supported.
 `pip install cfn-lint`. If pip is not available, run
 `python setup.py clean --all` then `python setup.py install`.
 
+#### Optional dependencies
+
+`cfn-lint` has optional dependencies based on certain features you may need.
+
+* `pip install cfn-lint[graph]` for installing `pydot` to draw and output template graphs
+* `pip install cfn-lint[junit]` for installing the packages to output the `junit` format
+* `pip install cfn-lint[sarif]` for installing the packages to output the `sarif` format
+
 ### Homebrew (macOS)
 
 `brew install cfn-lint`
 
 ### Docker
 
-In `cfn-python-lint` source tree:
+In `cfn-lint` source tree:
 
 ```shell
-docker build --tag cfn-python-lint:latest .
+docker build --tag cfn-lint:latest .
 ```
 
 In repository to be linted:
 
 ```shell
-docker run --rm -v `pwd`:/data cfn-python-lint:latest /data/template.yaml
+docker run --rm -v `pwd`:/data cfn-lint:latest /data/template.yaml
 ```
 
 ### Editor Plugins
@@ -332,7 +340,7 @@ If you'd like cfn-lint to be run automatically when making changes to files in y
 ```yaml
 repos:
   - repo: https://github.com/aws-cloudformation/cfn-lint
-    rev: v0.87.1 # The version of cfn-lint to use
+    rev: v1.3.0 # The version of cfn-lint to use
     hooks:
       - id: cfn-lint
         files: path/to/cfn/dir/.*\.(json|yml|yaml)$
@@ -343,7 +351,7 @@ If you are using a `.cfnlintrc` and specifying the `templates` or `ignore_templa
 ```yaml
 repos:
   - repo: https://github.com/aws-cloudformation/cfn-lint
-    rev: v0.87.1 # The version of cfn-lint to use
+    rev: v1.3.0 # The version of cfn-lint to use
     hooks:
       - id: cfn-lint-rc
 ```
