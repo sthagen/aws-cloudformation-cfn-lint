@@ -1,3 +1,50 @@
+### v1.3.3
+## What's Changed
+* Remove rule setting in `PropertyNames` rule by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3365
+* update logic in rule [E3686](https://github.com/aws-cloudformation/cfn-python-lint/blob/main/docs/rules.md#E3686) by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3367
+* Patch `AWS::Glue::SecurityConfiguration` and other resource issues by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3371
+* Parameter of `List<Number>` can have an integer default by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3372
+* Better comparison of json schema types for cfn usage by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3373
+
+**Full Changelog**: https://github.com/aws-cloudformation/cfn-lint/compare/v1.3.2...v1.3.3
+
+### v1.3.2
+## What's Changed
+* Switch max condition logic to attemptes over returned by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3359
+* Update maintenance job to get data from boto by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3361
+* Update md5 creation to work better on FIPS compliant OSes by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3362
+* Add in awslogs-create-group to ECS task logging by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3363
+
+**Full Changelog**: https://github.com/aws-cloudformation/cfn-lint/compare/v1.3.1...v1.3.2
+
+### v1.3.1
+## What's Changed
+* Update some docs by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3314
+* Update policy can have non strict types by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3315
+* Add AWS::SSM::Parameter::Value<String> to use AllowedPattern by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3332
+* Allow `Fn::GetAtt` to be an array in Join by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3333
+* Skip empty strings in action validation by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3337
+* Don't validate dynamic references inside fn by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3335
+* Only escape type checking for pkg params when strict types is false by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3338
+* Remove additionalItems in prefix validation by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3339
+* Remove pattern from tag key/value validation by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3341
+* Add logic to ImageId format for SSM by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3340
+* Remove Refs to yourself in Fn::Sub by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3342
+* Update resource pattern for policy validation by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3343
+* Update logic on GetAtts for resources that have all attrs by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3344
+* Allow capital letters for rule W3687 by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3345
+* Skip getatt validation with custom resources by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3346
+* Remove AWS::EC2::LaunchTemplate requiredXor value for data by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3347
+* Update Null conditions to be scalar or singular by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3349
+* Condition satisfaction checks to raise error when unknown by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3350
+* Remove \/ as valid escape in yaml by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3331
+* Update CodeBuild::Project FilterGroup types by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3351
+* Update SQS MessageRetentionPeriod minimum by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3355
+* Backwards compatiblity for cloudformation-cli module validation by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3354
+* Allow OAI IDs in IAM policies by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3357
+
+**Full Changelog**: https://github.com/aws-cloudformation/cfn-lint/compare/v1.3.0...v1.3.1
+
 ### v1.3.0
 ## What's Changed
 * Allow IAM principal to be str or a list by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3306

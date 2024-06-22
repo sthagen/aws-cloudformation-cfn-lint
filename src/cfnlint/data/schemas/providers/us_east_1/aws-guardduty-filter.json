@@ -151,8 +151,8 @@
  "properties": {
   "Action": {
    "enum": [
-    "NOOP",
-    "ARCHIVE"
+    "ARCHIVE",
+    "NOOP"
    ],
    "type": "string"
   },
@@ -185,6 +185,8 @@
   }
  },
  "required": [
+  "DetectorId",
+  "Name",
   "FindingCriteria"
  ],
  "tagging": {

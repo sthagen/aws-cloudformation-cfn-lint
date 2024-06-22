@@ -54,8 +54,15 @@ class TestResourcePolicy(TestCase):
                         "AWS": [
                             "arn:aws:iam::123456789012:root",
                             "999999999999",
+                            "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity E1234ABCDE12AB",
                         ],
                         "CanonicalUser": "79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be",
+                    },
+                    "Condition": {
+                        "Null": {
+                            "s3:x-amz-server-side-encryption": [False],
+                            "aws:TagKeys": False,
+                        }
                     },
                 }
             ],

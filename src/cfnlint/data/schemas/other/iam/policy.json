@@ -16,11 +16,18 @@
    ]
   },
   "AwsArn": {
-   "pattern": "^(arn:(aws|aws-cn|aws-us-gov):[^:]+:[^:]*:(?:\\d{12}|\\*)?:.+|\\*)$",
+   "pattern": "^(arn:(aws|aws-cn|aws-us-gov):[^:]+:[^:]*:(?:\\d{12}|\\*|aws)?:.+|\\*)$",
    "type": "string"
   },
   "AwsPrincipalArn": {
-   "pattern": "^((arn:(aws|aws-cn|aws-us-gov):iam::\\d{12}:(?:root|user|group|role)|\\*)|\\d{12})",
+   "anyOf": [
+    {
+     "pattern": "^((arn:(aws|aws-cn|aws-us-gov):iam::\\d{12}:(?:root|user|group|role)|\\*)|\\d{12})"
+    },
+    {
+     "pattern": "^arn:(aws|aws-cn|aws-us-gov):iam::cloudfront:user/.+$"
+    }
+   ],
    "type": "string"
   },
   "Condition": {
@@ -107,12 +114,14 @@
     },
     "Null": {
      "additionalProperties": {
-      "enum": [
-       "true",
-       "false",
-       true,
-       false
-      ]
+      "scalarOrArray": {
+       "enum": [
+        "true",
+        "false",
+        true,
+        false
+       ]
+      }
      },
      "type": "object"
     }

@@ -16,7 +16,8 @@ from sympy.logic.boolalg import BooleanFalse, BooleanTrue
 from sympy.logic.inference import satisfiable
 
 from cfnlint.conditions._condition import ConditionNamed
-from cfnlint.conditions._equals import Equal
+from cfnlint.conditions._equals import Equal, EqualParameter
+from cfnlint.conditions._errors import UnknownSatisfisfaction
 from cfnlint.conditions._utils import get_hash
 from cfnlint.helpers import PSEUDOPARAMS
 
@@ -199,7 +200,7 @@ class Conditions:
         try:
             # build a large matric of True/False options
             # based on the provided conditions
-            scenarios_returned = 0
+            scenarios_attempted = 0
             if region:
                 products = itertools.starmap(
                     self.build_scenerios_on_region,
@@ -228,11 +229,11 @@ class Conditions:
                 # if the scenario can be satisfied then return it
                 if satisfiable(cnf):
                     yield {**params, **conditions_set}
-                    scenarios_returned += 1
 
+                scenarios_attempted += 1
                 # On occassions people will use a lot of non-related conditions
                 # this is fail safe to limit the maximum number of responses
-                if scenarios_returned >= self._max_scenarios:
+                if scenarios_attempted >= self._max_scenarios:
                     return
         except KeyError:
             # KeyError is because the listed condition doesn't exist because of bad
@@ -361,6 +362,9 @@ class Conditions:
 
         Returns:
             bool: True if the conditions are satisfied
+
+        Raises:
+            UnknownSatisfisfaction: If we don't know how to satisfy a condition
         """
         if not conditions:
             return True
@@ -375,6 +379,12 @@ class Conditions:
                         continue
 
                     ref_hash = get_hash({"Ref": param})
+                    for c_equal_param in c_equals.parameters:
+                        if isinstance(c_equal_param, EqualParameter):
+                            if c_equal_param.satisfiable is False:
+                                raise UnknownSatisfisfaction(
+                                    f"Can't resolve satisfaction for {condition_name!r}"
+                                )
                     if ref_hash in c_equals.parameters:
                         found_params = {ref_hash: value}
 
