@@ -26,9 +26,19 @@ def cfn():
     return Template(
         "",
         {
+            "Parameters": {
+                "MyParameter": {
+                    "Type": "String",
+                    "AllowedValues": [
+                        "one",
+                        "two",
+                    ],
+                }
+            },
             "Resources": {
                 "MyResource": {"Type": "AWS::S3::Bucket"},
                 "MySimpleAd": {"Type": "AWS::DirectoryService::SimpleAD"},
+                "MyPolicy": {"Type": "AWS::IAM::ManagedPolicy"},
             },
         },
         regions=["us-east-1"],
@@ -95,8 +105,8 @@ def context(cfn):
                 ValidationError(
                     (
                         "'bar' is not one of ["
-                        "'MyResource', 'MySimpleAd', 'AWS::AccountId', "
-                        "'AWS::NoValue', 'AWS::NotificationARNs', "
+                        "'MyParameter', 'MyResource', 'MySimpleAd', 'MyPolicy', "
+                        "'AWS::AccountId', 'AWS::NoValue', 'AWS::NotificationARNs', "
                         "'AWS::Partition', 'AWS::Region', "
                         "'AWS::StackId', 'AWS::StackName', 'AWS::URLSuffix']"
                     ),
@@ -114,8 +124,8 @@ def context(cfn):
                 ValidationError(
                     (
                         "'foo' is not one of ["
-                        "'MyResource', 'MySimpleAd', 'AWS::AccountId', "
-                        "'AWS::NoValue', 'AWS::NotificationARNs', "
+                        "'MyParameter', 'MyResource', 'MySimpleAd', 'MyPolicy', "
+                        "'AWS::AccountId', 'AWS::NoValue', 'AWS::NotificationARNs', "
                         "'AWS::Partition', 'AWS::Region', "
                         "'AWS::StackId', 'AWS::StackName', 'AWS::URLSuffix']"
                     ),
@@ -228,7 +238,7 @@ def context(cfn):
             {"type": "string"},
             [
                 ValidationError(
-                    "'Foo' is not one of ['MyResource', 'MySimpleAd']",
+                    "'Foo' is not one of ['MyResource', 'MySimpleAd', 'MyPolicy']",
                     path=deque(["Fn::Sub"]),
                     schema_path=deque([]),
                     validator="fn_sub",
@@ -241,10 +251,43 @@ def context(cfn):
             {"type": "string"},
             [
                 ValidationError(
-                    ("'MySimpleAd.DnsIpAddresses' is not " "of type 'string'"),
+                    ("'MySimpleAd.DnsIpAddresses' is not of type 'string'"),
                     instance="MySimpleAd.DnsIpAddresses",
                     path=deque(["Fn::Sub"]),
                     schema_path=deque([]),
+                    validator="fn_sub",
+                ),
+            ],
+        ),
+        (
+            "Invalid Fn::Sub with a GetAtt to an integer",
+            {"Fn::Sub": "${MyPolicy.AttachmentCount}"},
+            {"type": "string"},
+            [
+                ValidationError(
+                    ("'MyPolicy.AttachmentCount' is not of type 'string'"),
+                    instance="MySimpleAd.DnsIpAddresses",
+                    path=deque(["Fn::Sub"]),
+                    schema_path=deque([]),
+                    validator="fn_sub",
+                ),
+            ],
+        ),
+        (
+            "One valid resolution",
+            {"Fn::Sub": "${MyParameter}"},
+            {"type": "string", "const": "two"},
+            [],
+        ),
+        (
+            "No valid resolution",
+            {"Fn::Sub": "${MyParameter}"},
+            {"type": "string", "const": "three"},
+            [
+                ValidationError(
+                    ("'three' was expected when 'Fn::Sub' is resolved"),
+                    path=deque(["Fn::Sub"]),
+                    schema_path=deque(["const"]),
                     validator="fn_sub",
                 ),
             ],
