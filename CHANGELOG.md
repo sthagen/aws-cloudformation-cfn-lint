@@ -1,3 +1,23 @@
+### v1.3.6
+## What's Changed
+* Remove falsy issues with FindInMap resolution by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3410
+* Remove resolution errors when default value Ref AWS::NoValue and bad mappings in FindInMap by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3410
+* Patch AWS::ImageBuilder::ContainerRecipe.InstanceConfiguration by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3413
+
+**Full Changelog**: https://github.com/aws-cloudformation/cfn-lint/compare/v1.3.5...v1.3.6
+
+### v1.3.5
+## What's Changed
+* Allow Ref AWS::NoValue in FindInMap parameters by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3399
+* Update policy principal validation logic by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3400
+* Add Fn::Cidr as Fn::Join supported function by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3401
+* Update CloudFormation schemas to 2024-06-25 by @github-actions in https://github.com/aws-cloudformation/cfn-lint/pull/3313
+* Return resolution errors by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3402
+* Don't issue dynamicref issues in other fns by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3404
+* Greatly simplify `FindInMap` resolution by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3406
+
+**Full Changelog**: https://github.com/aws-cloudformation/cfn-lint/compare/v1.3.4...v1.3.5
+
 ### v1.3.4
 ## What's Changed
 * Clean up errors in the schemas by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/3375

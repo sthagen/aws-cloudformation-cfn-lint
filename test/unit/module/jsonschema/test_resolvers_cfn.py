@@ -8,6 +8,7 @@ from collections import deque
 import pytest
 
 from cfnlint.context.context import Context, Map
+from cfnlint.jsonschema import ValidationError
 from cfnlint.jsonschema.validators import CfnTemplateValidator
 
 
@@ -19,6 +20,10 @@ def _resolve(name, instance, expected_results, **kwargs):
     for i, (instance, v, errors) in enumerate(resolutions):
         assert instance == expected_results[i][0]
         assert v.context.path.value_path == expected_results[i][1]
+        if errors:
+            print(errors.validator)
+            print(errors.path)
+            print(errors.schema_path)
         assert errors == expected_results[i][2]
 
 
@@ -177,7 +182,10 @@ def test_resolvers_ref(name, instance, response):
     ],
 )
 def test_invalid_functions(name, instance, response):
-    _resolve(name, instance, response)
+    context = Context()
+    context.mappings["foo"] = Map({"first": {"second": "bar"}})
+
+    _resolve(name, instance, response, context=context)
 
 
 @pytest.mark.parametrize(
@@ -217,6 +225,86 @@ def test_invalid_functions(name, instance, response):
             [("default", deque([4, "DefaultValue"]), None)],
         ),
         (
+            "Valid FindInMap with a default value",
+            {"Fn::FindInMap": ["foo", "first", "second", {"DefaultValue": "default"}]},
+            [
+                ("default", deque([4, "DefaultValue"]), None),
+                ("bar", deque([2]), None),
+            ],
+        ),
+        (
+            "Valid FindInMap with a bad mapping",
+            {"Fn::FindInMap": ["bar", "first", "second"]},
+            [
+                (
+                    None,
+                    deque([]),
+                    ValidationError(
+                        ("'bar' is not one of ['foo']"),
+                        path=deque(["Fn::FindInMap", 0]),
+                    ),
+                )
+            ],
+        ),
+        (
+            "Valid FindInMap with a bad mapping and default",
+            {"Fn::FindInMap": ["bar", "first", "second", {"DefaultValue": "default"}]},
+            [("default", deque([4, "DefaultValue"]), None)],
+        ),
+        (
+            "Valid FindInMap with a bad mapping and aws no value",
+            {
+                "Fn::FindInMap": [
+                    "bar",
+                    "first",
+                    "second",
+                    {"DefaultValue": {"Ref": "AWS::NoValue"}},
+                ]
+            },
+            [],
+        ),
+        (
+            "Valid FindInMap with a bad top key",
+            {"Fn::FindInMap": ["foo", "second", "first"]},
+            [
+                (
+                    None,
+                    deque([]),
+                    ValidationError(
+                        ("'second' is not one of ['first'] for " "mapping 'foo'"),
+                        path=deque(["Fn::FindInMap", 1]),
+                    ),
+                )
+            ],
+        ),
+        (
+            "Valid FindInMap with a bad top key and default",
+            {"Fn::FindInMap": ["foo", "second", "first", {"DefaultValue": "default"}]},
+            [("default", deque([4, "DefaultValue"]), None)],
+        ),
+        (
+            "Valid FindInMap with a bad third key",
+            {"Fn::FindInMap": ["foo", "first", "third"]},
+            [
+                (
+                    None,
+                    deque([]),
+                    ValidationError(
+                        (
+                            "'third' is not one of ['second'] for "
+                            "mapping 'foo' and key 'first'"
+                        ),
+                        path=deque(["Fn::FindInMap", 2]),
+                    ),
+                )
+            ],
+        ),
+        (
+            "Valid FindInMap with a bad second key and default",
+            {"Fn::FindInMap": ["foo", "first", "third", {"DefaultValue": "default"}]},
+            [("default", deque([4, "DefaultValue"]), None)],
+        ),
+        (
             "Valid Sub with a resolvable values",
             {"Fn::Sub": ["${a}-${b}", {"a": "foo", "b": "bar"}]},
             [("foo-bar", deque([]), None)],
@@ -233,3 +321,31 @@ def test_valid_functions(name, instance, response):
     context.mappings["foo"] = Map({"first": {"second": "bar"}})
 
     _resolve(name, instance, response, context=context)
+
+
+@pytest.mark.parametrize(
+    "name,instance,response",
+    [
+        (
+            "Invalid FindInMap with no mappings",
+            {"Fn::FindInMap": [{"Ref": "MyParameter"}, "B", "C"]},
+            [
+                (
+                    None,
+                    deque([]),
+                    ValidationError(
+                        ("{'Ref': 'MyParameter'} is not one of []"),
+                        path=deque(["Fn::FindInMap", 0]),
+                    ),
+                )
+            ],
+        ),
+        (
+            "Invalid FindInMap with no mappings and default value",
+            {"Fn::FindInMap": ["A", "B", "C", {"DefaultValue": "default"}]},
+            [("default", deque([4, "DefaultValue"]), None)],
+        ),
+    ],
+)
+def test_no_mapping(name, instance, response):
+    _resolve(name, instance, response)
