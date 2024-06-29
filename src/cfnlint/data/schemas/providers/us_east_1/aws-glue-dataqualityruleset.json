@@ -34,7 +34,11 @@
    "type": "string"
   },
   "Tags": {
-   "type": "object"
+   "format": "json",
+   "type": [
+    "object",
+    "string"
+   ]
   },
   "TargetTable": {
    "$ref": "#/definitions/DataQualityTargetTable"

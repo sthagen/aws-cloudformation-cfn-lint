@@ -68,7 +68,11 @@
    "$ref": "#/definitions/ConnectionsList"
   },
   "DefaultArguments": {
-   "type": "object"
+   "format": "json",
+   "type": [
+    "object",
+    "string"
+   ]
   },
   "Description": {
    "type": "string"
@@ -101,7 +105,11 @@
    "type": "string"
   },
   "NonOverridableArguments": {
-   "type": "object"
+   "format": "json",
+   "type": [
+    "object",
+    "string"
+   ]
   },
   "NotificationProperty": {
    "$ref": "#/definitions/NotificationProperty"
@@ -118,7 +126,11 @@
    "type": "string"
   },
   "Tags": {
-   "type": "object"
+   "format": "json",
+   "type": [
+    "object",
+    "string"
+   ]
   },
   "Timeout": {
    "type": "integer"

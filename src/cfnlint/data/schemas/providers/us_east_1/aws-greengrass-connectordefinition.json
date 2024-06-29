@@ -14,7 +14,11 @@
      "type": "string"
     },
     "Parameters": {
-     "type": "object"
+     "format": "json",
+     "type": [
+      "object",
+      "string"
+     ]
     }
    },
    "required": [
@@ -60,7 +64,11 @@
    "type": "string"
   },
   "Tags": {
-   "type": "object"
+   "format": "json",
+   "type": [
+    "object",
+    "string"
+   ]
   }
  },
  "readOnlyProperties": [

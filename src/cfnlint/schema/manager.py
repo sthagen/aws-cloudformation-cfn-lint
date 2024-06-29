@@ -144,7 +144,7 @@ class ProviderSchemaManager:
 
     @lru_cache(maxsize=None)
     def get_resource_schema(self, region: str, resource_type: str) -> Schema:
-        """Get the provider resource shcema and cache it to speed up future lookups
+        """Get the provider resource schema and cache it to speed up future lookups
 
         Args:
             region (str): the region in which do get the provider schema for
@@ -368,23 +368,23 @@ class ProviderSchemaManager:
                                 e,
                             )
                 with open(f"{directory}__init__.py", encoding="utf-8", mode="w") as f:
-                    f.write("from typing import List\n\n")
-                    f.write("# pylint: disable=too-many-lines\ntypes = [\n")
-                    for rt in all_types:
+                    f.write("from __future__ import annotations\n\n")
+                    f.write("# pylint: disable=too-many-lines\ntypes: list[str] = [\n")
+                    for rt in sorted(all_types):
                         f.write(f'    "{rt}",\n')
                     f.write(
-                        "]\n\n# pylint: disable=too-many-lines\ncached: List[str] = [\n"
+                        "]\n\n# pylint: disable=too-many-lines\ncached: list[str] = [\n"
                     )
-                    for cache_file in cached:
+                    for cache_file in sorted(cached):
                         f.write(f'    "{cache_file}",\n')
                     f.write("]\n")
             else:
                 with open(f"{directory}__init__.py", encoding="utf-8", mode="w") as f:
-                    f.write("from typing import List\n\n")
-                    f.write("# pylint: disable=too-many-lines\ntypes = [\n")
-                    for rt in all_types:
+                    f.write("from __future__ import annotations\n\n")
+                    f.write("# pylint: disable=too-many-lines\ntypes: list[str] = [\n")
+                    for rt in sorted(all_types):
                         f.write(f'    "{rt}",\n')
-                    f.write("]\ncached: List[str] = []\n")
+                    f.write("]\ncached: list[str] = []\n")
 
         except Exception as e:  # pylint: disable=broad-except
             LOGGER.info("Issuing updating schemas for %s: %s", region, e)

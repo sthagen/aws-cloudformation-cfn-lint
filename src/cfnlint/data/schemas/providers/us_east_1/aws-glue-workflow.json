@@ -8,7 +8,11 @@
  ],
  "properties": {
   "DefaultRunProperties": {
-   "type": "object"
+   "format": "json",
+   "type": [
+    "object",
+    "string"
+   ]
   },
   "Description": {
    "type": "string"
@@ -23,7 +27,11 @@
    "type": "string"
   },
   "Tags": {
-   "type": "object"
+   "format": "json",
+   "type": [
+    "object",
+    "string"
+   ]
   }
  },
  "readOnlyProperties": [

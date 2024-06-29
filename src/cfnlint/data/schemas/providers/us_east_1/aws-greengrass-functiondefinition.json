@@ -33,7 +33,11 @@
      "uniqueItems": false
     },
     "Variables": {
-     "type": "object"
+     "format": "json",
+     "type": [
+      "object",
+      "string"
+     ]
     }
    },
    "type": "object"
@@ -164,7 +168,11 @@
    "type": "string"
   },
   "Tags": {
-   "type": "object"
+   "format": "json",
+   "type": [
+    "object",
+    "string"
+   ]
   }
  },
  "readOnlyProperties": [

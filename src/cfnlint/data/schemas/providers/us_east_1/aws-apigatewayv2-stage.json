@@ -71,15 +71,29 @@
    "type": "string"
   },
   "RouteSettings": {
-   "type": "object"
+   "format": "json",
+   "type": [
+    "object",
+    "string"
+   ]
   },
   "StageName": {
    "type": "string"
   },
   "StageVariables": {
-   "type": "object"
+   "format": "json",
+   "type": [
+    "object",
+    "string"
+   ]
   },
   "Tags": {
+   "additionalProperties": false,
+   "patternProperties": {
+    ".*": {
+     "type": "string"
+    }
+   },
    "type": "object"
   }
  },

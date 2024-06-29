@@ -177,7 +177,9 @@
    "type": "array"
   },
   "CustomConfig": {
-   "type": "object"
+   "type": [
+    "object"
+   ]
   },
   "Layout": {
    "enum": [
@@ -191,7 +193,11 @@
    "type": "string"
   },
   "Tags": {
-   "type": "object"
+   "format": "json",
+   "type": [
+    "object",
+    "string"
+   ]
   },
   "TemplateDescription": {
    "type": "string"

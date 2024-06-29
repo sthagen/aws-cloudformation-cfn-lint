@@ -122,7 +122,11 @@
    "uniqueItems": false
   },
   "Tags": {
-   "type": "object"
+   "format": "json",
+   "type": [
+    "object",
+    "string"
+   ]
   },
   "Type": {
    "type": "string"

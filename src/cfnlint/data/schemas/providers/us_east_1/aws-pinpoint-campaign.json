@@ -69,7 +69,11 @@
      "uniqueItems": false
     },
     "CustomConfig": {
-     "type": "object"
+     "format": "json",
+     "type": [
+      "object",
+      "string"
+     ]
     },
     "Layout": {
      "type": "string"
@@ -145,13 +149,21 @@
    "additionalProperties": false,
    "properties": {
     "Attributes": {
-     "type": "object"
+     "format": "json",
+     "type": [
+      "object",
+      "string"
+     ]
     },
     "EventType": {
      "$ref": "#/definitions/SetDimension"
     },
     "Metrics": {
-     "type": "object"
+     "format": "json",
+     "type": [
+      "object",
+      "string"
+     ]
     }
    },
    "type": "object"
@@ -510,7 +522,11 @@
    "type": "integer"
   },
   "Tags": {
-   "type": "object"
+   "format": "json",
+   "type": [
+    "object",
+    "string"
+   ]
   },
   "TemplateConfiguration": {
    "$ref": "#/definitions/TemplateConfiguration"

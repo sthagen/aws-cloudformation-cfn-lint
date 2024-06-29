@@ -68,13 +68,21 @@
    "type": "string"
   },
   "SettingsJson": {
-   "type": "object"
+   "format": "json",
+   "type": [
+    "object",
+    "string"
+   ]
   },
   "StatusUpdateInterval": {
    "type": "string"
   },
   "Tags": {
-   "type": "object"
+   "format": "json",
+   "type": [
+    "object",
+    "string"
+   ]
   }
  },
  "readOnlyProperties": [

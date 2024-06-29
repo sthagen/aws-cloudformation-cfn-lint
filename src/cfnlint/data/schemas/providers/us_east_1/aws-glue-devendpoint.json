@@ -8,7 +8,11 @@
  ],
  "properties": {
   "Arguments": {
-   "type": "object"
+   "format": "json",
+   "type": [
+    "object",
+    "string"
+   ]
   },
   "EndpointName": {
    "type": "string"
@@ -60,7 +64,11 @@
    "type": "string"
   },
   "Tags": {
-   "type": "object"
+   "format": "json",
+   "type": [
+    "object",
+    "string"
+   ]
   },
   "WorkerType": {
    "type": "string"
