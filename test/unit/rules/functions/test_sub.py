@@ -10,14 +10,17 @@ import pytest
 from cfnlint.context import create_context_for_template
 from cfnlint.jsonschema import CfnTemplateValidator, ValidationError
 from cfnlint.rules.functions.GetAtt import GetAtt
+from cfnlint.rules.functions.GetAz import GetAz
 from cfnlint.rules.functions.Ref import Ref
 from cfnlint.rules.functions.Sub import Sub
+from cfnlint.rules.functions.SubResolved import SubResolved
 from cfnlint.template import Template
 
 
 @pytest.fixture(scope="module")
 def rule():
     rule = Sub()
+    rule.child_rules["W1031"] = SubResolved()
     yield rule
 
 
@@ -199,10 +202,26 @@ def context(cfn):
                     ),
                     validator="fn_sub",
                 ),
+            ],
+        ),
+        (
+            "Invalid Fn::Sub with a bad object type from fn",
+            {
+                "Fn::Sub": [
+                    "${foo}",
+                    {
+                        "foo": {"Fn::GetAZs": ""},
+                    },
+                ]
+            },
+            {"type": "string"},
+            [
                 ValidationError(
-                    ("'foo' is not of type 'string' " "when 'Ref' is resolved"),
-                    path=deque(["Fn::Sub"]),
-                    schema_path=deque([]),
+                    "{'Fn::GetAZs': ''} is not of type 'string'",
+                    path=deque(["Fn::Sub", 1, "foo"]),
+                    schema_path=deque(
+                        ["fn_items", "patternProperties", "[a-zA-Z0-9]+", "fn_getazs"]
+                    ),
                     validator="fn_sub",
                 ),
             ],
@@ -289,12 +308,14 @@ def context(cfn):
                     path=deque(["Fn::Sub"]),
                     schema_path=deque(["const"]),
                     validator="fn_sub",
+                    rule=SubResolved(),
                 ),
                 ValidationError(
                     ("'three' was expected when 'Fn::Sub' is resolved"),
                     path=deque(["Fn::Sub"]),
                     schema_path=deque(["const"]),
                     validator="fn_sub",
+                    rule=SubResolved(),
                 ),
             ],
         ),
@@ -305,7 +326,9 @@ def test_validate(name, instance, schema, expected, rule, context, cfn):
         validators={
             "ref": Ref().ref,
             "fn_getatt": GetAtt().fn_getatt,
+            "fn_getazs": GetAz().fn_getazs,
         }
     )(context=context, cfn=cfn)
     errs = list(rule.fn_sub(validator, schema, instance, {}))
+
     assert errs == expected, f"Test {name!r} got {errs!r}"
