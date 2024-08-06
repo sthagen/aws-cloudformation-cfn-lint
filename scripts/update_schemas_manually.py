@@ -78,10 +78,6 @@ patches.extend(
                     path="/definitions/LaunchTemplateSpecification",
                 ),
                 Patch(
-                    values={"pattern": "^ephemeral([0-9]|[1][0-9]|[2][0-3])$"},
-                    path="/definitions/BlockDeviceMapping/properties/VirtualName",
-                ),
-                Patch(
                     values={
                         "dependentExcluded": {
                             "InstanceId": [
@@ -603,18 +599,6 @@ patches.extend(
                 Patch(
                     values={"requiredXor": ["ArtifactStore", "ArtifactStores"]},
                     path="/",
-                ),
-            ],
-        ),
-        ResourcePatch(
-            resource_type="AWS::Cognito::UserPoolClient",
-            patches=[
-                Patch(
-                    values={
-                        "maximum": 3650,
-                        "minimum": 0,
-                    },
-                    path="/properties/RefreshTokenValidity",
                 ),
             ],
         ),
