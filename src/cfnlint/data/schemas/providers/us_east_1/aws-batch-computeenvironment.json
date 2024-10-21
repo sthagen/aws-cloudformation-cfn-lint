@@ -32,6 +32,12 @@
    "additionalProperties": false,
    "properties": {
     "AllocationStrategy": {
+     "enum": [
+      "BEST_FIT",
+      "BEST_FIT_PROGRESSIVE",
+      "SPOT_CAPACITY_OPTIMIZED",
+      "SPOT_PRICE_CAPACITY_OPTIMIZED"
+     ],
      "type": "string"
     },
     "BidPercentage": {
@@ -92,8 +98,10 @@
      "type": "string"
     },
     "Subnets": {
+     "format": "AWS::EC2::Subnet.Ids",
      "insertionOrder": false,
      "items": {
+      "format": "AWS::EC2::Subnet.Id",
       "type": "string"
      },
      "type": "array",
@@ -109,6 +117,12 @@
      "type": "object"
     },
     "Type": {
+     "enum": [
+      "EC2",
+      "FARGATE",
+      "FARGATE_SPOT",
+      "SPOT"
+     ],
      "type": "string"
     },
     "UpdateToLatestImageVersion": {
