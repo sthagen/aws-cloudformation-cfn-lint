@@ -27,7 +27,7 @@
    "type": "string"
   },
   "DestinationSecurityGroupId": {
-   "format": "AWS::EC2::SecurityGroup.GroupId",
+   "format": "AWS::EC2::SecurityGroup.Id",
    "type": "string"
   },
   "FromPort": {
@@ -35,7 +35,7 @@
    "type": "integer"
   },
   "GroupId": {
-   "format": "AWS::EC2::SecurityGroup.GroupId",
+   "format": "AWS::EC2::SecurityGroup.Id",
    "type": "string"
   },
   "Id": {
@@ -60,6 +60,12 @@
  "required": [
   "IpProtocol",
   "GroupId"
+ ],
+ "requiredXor": [
+  "CidrIp",
+  "CidrIpv6",
+  "DestinationPrefixListId",
+  "DestinationSecurityGroupId"
  ],
  "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ec2.git",
  "tagging": {

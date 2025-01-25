@@ -66,7 +66,11 @@ def _create_subnet_ids_patch(type_name: str, ref: str, resolver: RefResolver):
 
 
 def _create_security_group_ids_patch(type_name: str, ref: str, resolver: RefResolver):
-    if type_name in ["AWS::Pipes::Pipe", "AWS::EC2::NetworkInsightsAnalysis"]:
+    if type_name in [
+        "AWS::Pipes::Pipe",
+        "AWS::EC2::NetworkInsightsAnalysis",
+        "AWS::AutoScaling::LaunchConfiguration",
+    ]:
         return []
 
     _, resolved = resolver.resolve(ref)
@@ -76,6 +80,8 @@ def _create_security_group_ids_patch(type_name: str, ref: str, resolver: RefReso
             ref=resolved["$ref"],
             resolver=resolver,
         )
+    if resolved.get("type") != "array":
+        return []
     items = resolved.get("items")
     if items:
         if "$ref" in items:
@@ -89,7 +95,7 @@ def _create_security_group_ids_patch(type_name: str, ref: str, resolver: RefReso
             path=ref[1:],
         ),
         _create_patch(
-            {"format": "AWS::EC2::SecurityGroup.GroupId"},
+            {"format": "AWS::EC2::SecurityGroup.Id"},
             items_path,
             resolver=resolver,
         ),
@@ -110,7 +116,7 @@ def _create_security_group_id(type_name: str, ref: str, resolver: RefResolver):
 
     return [
         _create_patch(
-            {"format": "AWS::EC2::SecurityGroup.GroupId"},
+            {"format": "AWS::EC2::SecurityGroup.Id"},
             ref,
             resolver=resolver,
         )
@@ -129,7 +135,7 @@ def _create_security_group_name(type_name: str, ref: str, resolver: RefResolver)
 
     return [
         _create_patch(
-            {"format": "AWS::EC2::SecurityGroup.GroupName"},
+            {"format": "AWS::EC2::SecurityGroup.Name"},
             ref,
             resolver=resolver,
         )
@@ -150,24 +156,53 @@ def _create_patch(value: dict[str, str], ref: Sequence[str], resolver: RefResolv
 _manual_patches = {
     "AWS::EC2::SecurityGroup": [
         Patch(
-            values={"format": "AWS::EC2::SecurityGroup.GroupId"},
+            values={"format": "AWS::EC2::SecurityGroup.Id"},
             path="/properties/GroupId",
         ),
         Patch(
-            values={"format": "AWS::EC2::SecurityGroup.GroupName"},
+            values={"format": "AWS::EC2::SecurityGroup.Name"},
             path="/properties/GroupName",
+        ),
+        Patch(
+            values={
+                "anyOf": [
+                    {"format": "AWS::EC2::SecurityGroup.Id"},
+                    {"format": "AWS::EC2::SecurityGroup.Name"},
+                ]
+            },
+            path="/properties/Id",
         ),
     ],
     "AWS::EC2::SecurityGroupIngress": [
         Patch(
-            values={"format": "AWS::EC2::SecurityGroup.GroupId"},
+            values={"format": "AWS::EC2::SecurityGroup.Id"},
             path="/properties/GroupId",
         ),
     ],
     "AWS::EC2::SecurityGroupEgress": [
         Patch(
-            values={"format": "AWS::EC2::SecurityGroup.GroupId"},
+            values={"format": "AWS::EC2::SecurityGroup.Id"},
             path="/properties/GroupId",
+        ),
+    ],
+    "AWS::AutoScaling::LaunchConfiguration": [
+        Patch(
+            values={
+                "anyOf": [
+                    {"format": "AWS::EC2::SecurityGroup.Ids"},
+                    {"format": "AWS::EC2::SecurityGroup.Names"},
+                ]
+            },
+            path="/properties/SecurityGroups",
+        ),
+        Patch(
+            values={
+                "anyOf": [
+                    {"format": "AWS::EC2::SecurityGroup.Id"},
+                    {"format": "AWS::EC2::SecurityGroup.Name"},
+                ]
+            },
+            path="/properties/SecurityGroups/items",
         ),
     ],
 }
@@ -231,7 +266,29 @@ def main():
                         )
                     )
 
-            for path in _descend(obj, ["SecurityGroupIds", "SecurityGroups"]):
+            for path in _descend(obj, ["LogGroupName"]):
+                if path[-2] == "properties":
+                    resource_patches.append(
+                        _create_patch(
+                            value={"format": "AWS::Logs::LogGroup.Name"},
+                            ref="#/" + "/".join(path),
+                            resolver=resolver,
+                        )
+                    )
+
+            for path in _descend(
+                obj,
+                [
+                    "CustomSecurityGroupIds",
+                    "Ec2SecurityGroupIds",
+                    "GroupSet",
+                    "InputSecurityGroups",
+                    "SecurityGroupIdList",
+                    "SecurityGroupIds",
+                    "SecurityGroups",
+                    "VpcSecurityGroupIds",
+                ],
+            ):
                 if path[-2] == "properties":
                     resource_patches.extend(
                         _create_security_group_ids_patch(
@@ -242,11 +299,14 @@ def main():
             for path in _descend(
                 obj,
                 [
+                    "ClusterSecurityGroupId",
                     "DefaultSecurityGroup",
-                    "SourceSecurityGroupId",
                     "DestinationSecurityGroupId",
+                    "EC2SecurityGroupId",
                     "SecurityGroup",
                     "SecurityGroupId",
+                    "SourceSecurityGroupId",
+                    "VpcSecurityGroupId",
                 ],
             ):
                 if path[-2] == "properties":
@@ -259,6 +319,9 @@ def main():
             for path in _descend(
                 obj,
                 [
+                    "CacheSecurityGroupName",
+                    "ClusterSecurityGroupName",
+                    "EC2SecurityGroupName",
                     "SourceSecurityGroupName",
                 ],
             ):

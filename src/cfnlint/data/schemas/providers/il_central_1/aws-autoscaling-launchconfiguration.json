@@ -173,9 +173,23 @@
    "type": "string"
   },
   "SecurityGroups": {
-   "format": "AWS::EC2::SecurityGroup.Ids",
+   "anyOf": [
+    {
+     "format": "AWS::EC2::SecurityGroup.Id"
+    },
+    {
+     "format": "AWS::EC2::SecurityGroup.Name"
+    }
+   ],
    "items": {
-    "format": "AWS::EC2::SecurityGroup.GroupId",
+    "anyOf": [
+     {
+      "format": "AWS::EC2::SecurityGroup.Id"
+     },
+     {
+      "format": "AWS::EC2::SecurityGroup.Name"
+     }
+    ],
     "type": "string"
    },
    "type": "array",
