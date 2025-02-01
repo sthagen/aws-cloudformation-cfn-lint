@@ -1,7 +1,8 @@
 {
  "additionalProperties": false,
  "createOnlyProperties": [
-  "/properties/GatewayPlatform"
+  "/properties/GatewayPlatform",
+  "/properties/GatewayVersion"
  ],
  "definitions": {
   "CapabilityConfiguration": {
@@ -45,9 +46,7 @@
     }
    ],
    "properties": {
-    "Greengrass": {
-     "$ref": "#/definitions/Greengrass"
-    },
+    "Greengrass": {},
     "GreengrassV2": {
      "$ref": "#/definitions/GreengrassV2"
     },
@@ -57,23 +56,23 @@
    },
    "type": "object"
   },
-  "Greengrass": {
-   "additionalProperties": false,
-   "properties": {
-    "GroupArn": {
-     "pattern": "^arn:aws(-cn|-us-gov)?:[a-zA-Z0-9-:\\/_\\.]+$",
-     "type": "string"
-    }
-   },
-   "required": [
-    "GroupArn"
-   ],
-   "type": "object"
+  "GatewayVersion": {
+   "type": "string"
   },
   "GreengrassV2": {
    "additionalProperties": false,
    "properties": {
+    "CoreDeviceOperatingSystem": {
+     "enum": [
+      "LINUX_AARCH64",
+      "LINUX_AMD64",
+      "WINDOWS_AMD64"
+     ],
+     "type": "string"
+    },
     "CoreDeviceThingName": {
+     "maxLength": 128,
+     "minLength": 1,
      "pattern": "^[a-zA-Z0-9:_-]+$",
      "type": "string"
     }
@@ -87,6 +86,8 @@
    "additionalProperties": false,
    "properties": {
     "IotCoreThingName": {
+     "maxLength": 128,
+     "minLength": 1,
      "pattern": "^[a-zA-Z0-9:_-]+$",
      "type": "string"
     }
@@ -113,6 +114,9 @@
    "type": "object"
   }
  },
+ "deprecatedProperties": [
+  "/properties/GatewayPlatform/Greengrass"
+ ],
  "primaryIdentifier": [
   "/properties/GatewayId"
  ],
@@ -129,11 +133,16 @@
    "type": "string"
   },
   "GatewayName": {
+   "maxLength": 256,
+   "minLength": 1,
    "pattern": "[^\\u0000-\\u001F\\u007F]+",
    "type": "string"
   },
   "GatewayPlatform": {
    "$ref": "#/definitions/GatewayPlatform"
+  },
+  "GatewayVersion": {
+   "type": "string"
   },
   "Tags": {
    "insertionOrder": false,

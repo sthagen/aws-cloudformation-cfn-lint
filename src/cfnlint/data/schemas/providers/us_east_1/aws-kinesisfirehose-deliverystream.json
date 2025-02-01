@@ -8,6 +8,7 @@
   "/properties/AmazonOpenSearchServerlessDestinationConfiguration/VpcConfiguration",
   "/properties/DatabaseSourceConfiguration",
   "/properties/KinesisStreamSourceConfiguration",
+  "/properties/DirectPutSourceConfiguration",
   "/properties/MSKSourceConfiguration",
   "/properties/IcebergDestinationConfiguration",
   "/properties/SnowflakeDestinationConfiguration/SnowflakeVpcConfiguration"
@@ -17,9 +18,12 @@
    "additionalProperties": false,
    "properties": {
     "IntervalInSeconds": {
+     "maximum": 900,
      "type": "integer"
     },
     "SizeInMBs": {
+     "maximum": 100,
+     "minimum": 1,
      "type": "integer"
     }
    },
@@ -90,6 +94,7 @@
    "additionalProperties": false,
    "properties": {
     "DurationInSeconds": {
+     "maximum": 7200,
      "type": "integer"
     }
    },
@@ -99,9 +104,12 @@
    "additionalProperties": false,
    "properties": {
     "IntervalInSeconds": {
+     "maximum": 900,
      "type": "integer"
     },
     "SizeInMBs": {
+     "maximum": 100,
+     "minimum": 1,
      "type": "integer"
     }
    },
@@ -192,6 +200,7 @@
    "additionalProperties": false,
    "properties": {
     "DurationInSeconds": {
+     "maximum": 7200,
      "type": "integer"
     }
    },
@@ -228,9 +237,12 @@
    "additionalProperties": false,
    "properties": {
     "IntervalInSeconds": {
+     "maximum": 900,
      "type": "integer"
     },
     "SizeInMBs": {
+     "maximum": 128,
+     "minimum": 1,
      "type": "integer"
     }
    },
@@ -256,6 +268,7 @@
     },
     "LogGroupName": {
      "format": "AWS::Logs::LogGroup.Name",
+     "maxLength": 512,
      "pattern": "[\\.\\-_/#A-Za-z0-9]*",
      "relationshipRef": {
       "propertyPath": "/properties/LogGroupName",
@@ -264,6 +277,7 @@
      "type": "string"
     },
     "LogStreamName": {
+     "maxLength": 512,
      "pattern": "[^:*]*",
      "relationshipRef": {
       "propertyPath": "/properties/LogStreamName",
@@ -570,6 +584,17 @@
    },
    "type": "array"
   },
+  "DirectPutSourceConfiguration": {
+   "additionalProperties": false,
+   "properties": {
+    "ThroughputHintInMBs": {
+     "maximum": 100,
+     "minimum": 1,
+     "type": "integer"
+    }
+   },
+   "type": "object"
+  },
   "DocumentIdOptions": {
    "additionalProperties": false,
    "properties": {
@@ -602,9 +627,12 @@
    "additionalProperties": false,
    "properties": {
     "IntervalInSeconds": {
+     "maximum": 900,
      "type": "integer"
     },
     "SizeInMBs": {
+     "maximum": 100,
+     "minimum": 1,
      "type": "integer"
     }
    },
@@ -709,6 +737,7 @@
    "additionalProperties": false,
    "properties": {
     "DurationInSeconds": {
+     "maximum": 7200,
      "type": "integer"
     }
    },
@@ -824,6 +853,8 @@
    "properties": {
     "TimestampFormats": {
      "items": {
+      "maxLength": 1024,
+      "minLength": 1,
       "pattern": "^(?!\\s*$).+",
       "type": "string"
      },
@@ -956,6 +987,9 @@
   "IcebergDestinationConfiguration": {
    "additionalProperties": false,
    "properties": {
+    "AppendOnly": {
+     "type": "boolean"
+    },
     "BufferingHints": {
      "$ref": "#/definitions/BufferingHints"
     },
@@ -1015,6 +1049,8 @@
    "additionalProperties": false,
    "properties": {
     "AWSKMSKeyARN": {
+     "maxLength": 512,
+     "minLength": 1,
      "pattern": "arn:.*:kms:[a-zA-Z0-9\\-]+:\\d{12}:(key|alias)/[a-zA-Z_0-9+=,.@\\-_/]+",
      "relationshipRef": {
       "propertyPath": "/properties/Arn",
@@ -1116,10 +1152,13 @@
    "additionalProperties": false,
    "properties": {
     "BlockSizeBytes": {
+     "minimum": 67108864,
      "type": "integer"
     },
     "BloomFilterColumns": {
      "items": {
+      "maxLength": 1024,
+      "minLength": 1,
       "pattern": "^\\S+$",
       "type": "string"
      },
@@ -1154,9 +1193,11 @@
      "type": "number"
     },
     "RowIndexStride": {
+     "minimum": 1000,
      "type": "integer"
     },
     "StripeSizeBytes": {
+     "minimum": 8388608,
      "type": "integer"
     }
    },
@@ -1175,6 +1216,7 @@
    "additionalProperties": false,
    "properties": {
     "BlockSizeBytes": {
+     "minimum": 67108864,
      "type": "integer"
     },
     "Compression": {
@@ -1192,6 +1234,7 @@
      "type": "integer"
     },
     "PageSizeBytes": {
+     "minimum": 65536,
      "type": "integer"
     },
     "WriterVersion": {
@@ -1287,6 +1330,8 @@
        }
       }
      ],
+     "maxLength": 5120,
+     "minLength": 1,
      "pattern": "^(?!\\s*$).+",
      "type": "string"
     }
@@ -1367,6 +1412,7 @@
    "additionalProperties": false,
    "properties": {
     "DurationInSeconds": {
+     "maximum": 7200,
      "type": "integer"
     }
    },
@@ -1376,6 +1422,7 @@
    "additionalProperties": false,
    "properties": {
     "DurationInSeconds": {
+     "maximum": 7200,
      "type": "integer"
     }
    },
@@ -1444,10 +1491,14 @@
    "additionalProperties": false,
    "properties": {
     "CatalogId": {
+     "maxLength": 1024,
+     "minLength": 1,
      "pattern": "^\\S+$",
      "type": "string"
     },
     "DatabaseName": {
+     "maxLength": 1024,
+     "minLength": 1,
      "pattern": "^\\S+$",
      "relationshipRef": {
       "propertyPath": "/properties/Id",
@@ -1456,6 +1507,8 @@
      "type": "string"
     },
     "Region": {
+     "maxLength": 1024,
+     "minLength": 1,
      "pattern": "^\\S+$",
      "type": "string"
     },
@@ -1470,6 +1523,8 @@
      "type": "string"
     },
     "TableName": {
+     "maxLength": 1024,
+     "minLength": 1,
      "pattern": "^\\S+$",
      "relationshipRef": {
       "propertyPath": "/properties/Id",
@@ -1478,6 +1533,8 @@
      "type": "string"
     },
     "VersionId": {
+     "maxLength": 1024,
+     "minLength": 1,
      "pattern": "^\\S+$",
      "type": "string"
     }
@@ -1532,9 +1589,12 @@
    "additionalProperties": false,
    "properties": {
     "IntervalInSeconds": {
+     "maximum": 900,
      "type": "integer"
     },
     "SizeInMBs": {
+     "maximum": 128,
+     "minimum": 1,
      "type": "integer"
     }
    },
@@ -1654,6 +1714,7 @@
    "additionalProperties": false,
    "properties": {
     "DurationInSeconds": {
+     "maximum": 7200,
      "type": "integer"
     }
    },
@@ -1692,9 +1753,12 @@
    "additionalProperties": false,
    "properties": {
     "IntervalInSeconds": {
+     "maximum": 60,
      "type": "integer"
     },
     "SizeInMBs": {
+     "maximum": 5,
+     "minimum": 1,
      "type": "integer"
     }
    },
@@ -1762,6 +1826,7 @@
    "additionalProperties": false,
    "properties": {
     "DurationInSeconds": {
+     "maximum": 7200,
      "type": "integer"
     }
    },
@@ -1889,6 +1954,9 @@
     "MSKAsSource"
    ],
    "type": "string"
+  },
+  "DirectPutSourceConfiguration": {
+   "$ref": "#/definitions/DirectPutSourceConfiguration"
   },
   "ElasticsearchDestinationConfiguration": {
    "$ref": "#/definitions/ElasticsearchDestinationConfiguration"
