@@ -39,6 +39,18 @@
   ],
   "AvailabilityZoneId": [
    "AvailabilityZone"
+  ],
+  "CidrBlock": [
+   "Ipv4IpamPoolId"
+  ],
+  "Ipv4IpamPoolId": [
+   "CidrBlock"
+  ],
+  "Ipv6CidrBlock": [
+   "Ipv6IpamPoolId"
+  ],
+  "Ipv6IpamPoolId": [
+   "Ipv6CidrBlock"
   ]
  },
  "dependentRequired": {
@@ -47,6 +59,12 @@
   ],
   "Ipv4NetmaskLength": [
    "Ipv4IpamPoolId"
+  ],
+  "Ipv6IpamPoolId": [
+   "Ipv6NetmaskLength"
+  ],
+  "Ipv6NetmaskLength": [
+   "Ipv6IpamPoolId"
   ]
  },
  "primaryIdentifier": [
@@ -144,9 +162,11 @@
  "required": [
   "VpcId"
  ],
- "requiredXor": [
+ "requiredOr": [
   "CidrBlock",
-  "Ipv4IpamPoolId"
+  "Ipv4IpamPoolId",
+  "Ipv6IpamPoolId",
+  "Ipv6CidrBlock"
  ],
  "tagging": {
   "cloudFormationSystemTags": true,
