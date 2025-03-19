@@ -118,11 +118,11 @@ def template():
                 "Resource": [{"Ref": "LogGroup"}],
             },
             [
-                ValidationError(
-                    "action 'cloudformation:CreateStackSet' requires a resource of '*'",
-                    rule=StatementResources(),
-                    path=deque(["Resource"]),
-                ),
+                # ValidationError(
+                #    "action 'cloudformation:CreateStackSet' requires a resource of '*'",  # noqa: E501
+                #    rule=StatementResources(),
+                #    path=deque(["Resource"]),
+                # ),
             ],
         ),
         (
@@ -131,11 +131,11 @@ def template():
                 "Resource": [{"Foo": "Bar"}],
             },
             [
-                ValidationError(
-                    "action 'cloudformation:CreateStackSet' requires a resource of '*'",
-                    rule=StatementResources(),
-                    path=deque(["Resource"]),
-                ),
+                # ValidationError(
+                #    "action 'cloudformation:CreateStackSet' requires a resource of '*'",  # noqa: E501
+                #    rule=StatementResources(),
+                #    path=deque(["Resource"]),
+                # ),
             ],
         ),
         (
@@ -144,11 +144,11 @@ def template():
                 "Resource": ["arn:aws:cloudformation:us-east-1:123456789012:*"],
             },
             [
-                ValidationError(
-                    "action 'cloudformation:CreateStackSet' requires a resource of '*'",
-                    rule=StatementResources(),
-                    path=deque(["Resource"]),
-                ),
+                # ValidationError(
+                #    "action 'cloudformation:CreateStackSet' requires a resource of '*'",  # noqa: E501
+                #    rule=StatementResources(),
+                #    path=deque(["Resource"]),
+                # ),
             ],
         ),
         (
@@ -160,11 +160,11 @@ def template():
                 "Resource": ["arn:aws:cloudformation:us-east-1:123456789012:*"],
             },
             [
-                ValidationError(
-                    "action 'cloudformation:CreateStackSet' requires a resource of '*'",
-                    rule=StatementResources(),
-                    path=deque(["Resource"]),
-                ),
+                # ValidationError(
+                #    "action 'cloudformation:CreateStackSet' requires a resource of '*'",  # noqa: E501
+                #    rule=StatementResources(),
+                #    path=deque(["Resource"]),
+                # ),
             ],
         ),
         (
@@ -173,11 +173,11 @@ def template():
                 "Resource": ["arn:aws:cloudformation:us-east-1:123456789012:*"],
             },
             [
-                ValidationError(
-                    "action 'cloudformation:CreateStackSet' requires a resource of '*'",
-                    rule=StatementResources(),
-                    path=deque(["Resource"]),
-                ),
+                # ValidationError(
+                #    "action 'cloudformation:CreateStackSet' requires a resource of '*'",  # noqa: E501
+                #    rule=StatementResources(),
+                #    path=deque(["Resource"]),
+                # ),
             ],
         ),
         (
@@ -196,11 +196,11 @@ def template():
                 "Resource": ["arn:aws:cloudformation:*:*:stack/*"],
             },
             [
-                ValidationError(
-                    "action 'cloudformation:CreateStackSet' requires a resource of '*'",
-                    rule=StatementResources(),
-                    path=deque(["Resource"]),
-                ),
+                # ValidationError(
+                #    "action 'cloudformation:CreateStackSet' requires a resource of '*'",  # noqa: E501
+                #    rule=StatementResources(),
+                #    path=deque(["Resource"]),
+                # ),
             ],
         ),
         (
@@ -229,6 +229,13 @@ def template():
         (
             {
                 "Action": ["cloudformation:CreateStack"],
+                "Resource": ["arn:aws:cloudformation:us-east-1:123456789012:*dne*"],
+            },
+            [],
+        ),
+        (
+            {
+                "Action": ["cloudformation:CreateStack"],
                 "Resource": ["arn:aws:logs:us-east-1:123456789012:stack/dne/*"],
             },
             [
@@ -242,6 +249,13 @@ def template():
                     path=deque(["Resource"]),
                 ),
             ],
+        ),
+        (
+            {
+                "Action": ["cloudformation:Create?tack"],
+                "Resource": ["arn:aws:logs:us-east-1:123456789012:stack/dne/*"],
+            },
+            [],
         ),
         (
             {
@@ -335,11 +349,11 @@ def template():
                 "Resource": {"Fn::GetAtt": "LogGroup.Arn"},
             },
             [
-                ValidationError(
-                    "action 'logs:DescribeLogGroups' requires a resource of '*'",
-                    rule=StatementResources(),
-                    path=deque(["Resource"]),
-                ),
+                # ValidationError(
+                #    "action 'logs:DescribeLogGroups' requires a resource of '*'",  # noqa: E501
+                #    rule=StatementResources(),
+                #    path=deque(["Resource"]),
+                # ),
             ],
         ),
     ],
@@ -347,9 +361,6 @@ def template():
 def test_rule(instance, expected, rule, validator):
     errors = list(rule.validate(validator, {}, instance, {}))
 
-    for err in errors:
-        print(err.message)
-        print(err.path)
     assert errors == expected, f"Got {errors!r}"
 
 

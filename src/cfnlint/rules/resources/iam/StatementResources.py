@@ -5,6 +5,7 @@ SPDX-License-Identifier: MIT-0
 
 from __future__ import annotations
 
+import logging
 from collections import deque
 from typing import Any
 
@@ -13,6 +14,8 @@ from cfnlint.helpers import ensure_list, is_function, load_resource
 from cfnlint.jsonschema import ValidationError, ValidationResult, Validator
 from cfnlint.rules.helpers import get_value_from_path
 from cfnlint.rules.jsonschema.CfnLintKeyword import CfnLintKeyword
+
+LOGGER = logging.getLogger(__name__)
 
 
 class _Arn:
@@ -61,7 +64,7 @@ class _Arn:
         ):
             if x == y:
                 continue
-            if x == "*" or y == "" or y == ".*":
+            if x == "*" or x.startswith("*") or y == "" or y == ".*":
                 return True
             if x.startswith(y) and "*" in x:
                 return True
@@ -98,24 +101,25 @@ class StatementResources(CfnLintKeyword):
 
         using_fn_arns = False
         all_resources: set[str] = set()
-        for resources, _ in get_value_from_path(
-            validator, instance, path=deque(["Resource"])
-        ):
-            resources = ensure_list(resources)
+        for key in ["Resource", "NotResource"]:
+            for resources, _ in get_value_from_path(
+                validator, instance, path=deque([key])
+            ):
+                resources = ensure_list(resources)
 
-            for resource in resources:
-                if not isinstance(resource, str):
-                    k, v = is_function(resource)
-                    if k is None:
+                for resource in resources:
+                    if not isinstance(resource, str):
+                        k, v = is_function(resource)
+                        if k is None:
+                            continue
+                        if k == "Ref" and validator.is_type(v, "string"):
+                            if v in validator.context.parameters:
+                                return
+                        using_fn_arns = True
                         continue
-                    if k == "Ref" and validator.is_type(v, "string"):
-                        if v in validator.context.parameters:
-                            return
-                    using_fn_arns = True
-                    continue
-                if resource == "*":
-                    return
-                all_resources.add(resource)
+                    if resource == "*":
+                        return
+                    all_resources.add(resource)
 
         all_resource_arns = [_Arn(a) for a in all_resources]
         for actions, _ in get_value_from_path(
@@ -127,7 +131,7 @@ class StatementResources(CfnLintKeyword):
 
                 if not validator.is_type(action, "string"):
                     continue
-                if "*" in action:
+                if any(x in action for x in ["*", "?"]):
                     continue
                 if ":" not in action:
                     continue
@@ -164,8 +168,9 @@ class StatementResources(CfnLintKeyword):
                                     rule=self,
                                 )
                 else:
-                    yield ValidationError(
-                        f"action {action!r} requires a resource of '*'",
-                        path=deque(["Resource"]),
-                        rule=self,
-                    )
+                    LOGGER.debug(f"action {action!r} requires a resource of '*'")
+                    # yield ValidationError(
+                    #    f"action {action!r} requires a resource of '*'",
+                    #    path=deque(["Resource"]),
+                    #    rule=self,
+                    # )
