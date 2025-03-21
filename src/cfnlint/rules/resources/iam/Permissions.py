@@ -41,7 +41,7 @@ class Permissions(CfnLintKeyword):
     ) -> ValidationResult:
         # Escape validation when using SAM transforms as a result of
         # https://github.com/aws/serverless-application-model/issues/3633
-        if validator.context.transforms.has_sam_transform():
+        if validator.cfn.has_serverless_transform():
             return
 
         actions = ensure_list(instance)
