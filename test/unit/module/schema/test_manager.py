@@ -8,8 +8,8 @@ import logging
 from test.testlib.testcase import BaseTestCase
 from unittest.mock import MagicMock, call, mock_open, patch
 
+from cfnlint.schema._patch import SchemaPatch
 from cfnlint.schema.manager import ProviderSchemaManager, ResourceNotFoundError
-from cfnlint.schema.patch import SchemaPatch
 
 LOGGER = logging.getLogger("cfnlint.schema.manager")
 LOGGER.disabled = True
@@ -245,58 +245,6 @@ class TestUpdateResourceSchemas(BaseTestCase):
         fake_pool.starmap.assert_called_once()
 
 
-class TestManagerPatch(BaseTestCase):
-    """Used for Testing Resource Schemas"""
-
-    def setUp(self) -> None:
-        super().setUp()
-
-        self.manager = ProviderSchemaManager()
-        self.schemas = dict.fromkeys(["aws-lambda-codesigningconfig"])
-        for resource in self.schemas:
-            with open(f"test/fixtures/registry/schemas/{resource}.json") as fh:
-                self.schemas[resource] = fh.read()
-
-    def test_patch_file_not_found_error(self):
-        with patch("builtins.open", mock_open()) as mock_builtin_open:
-            err = FileNotFoundError()
-            err.errno = 2
-            mock_builtin_open.side_effect = [err]
-            with self.assertRaises(SystemExit) as mock_exit:
-                self.manager.patch("bad", regions=["us-east-1"])
-                self.assertEqual(mock_exit.type, SystemExit)
-                self.assertEqual(mock_exit.value.code == 1)
-
-    def test_patch_file_is_dir(self):
-        with patch("builtins.open", mock_open()) as mock_builtin_open:
-            err = IOError()
-            err.errno = 21
-            mock_builtin_open.side_effect = [err]
-            with self.assertRaises(SystemExit) as mock_exit:
-                self.manager.patch("bad", regions=["us-east-1"])
-                self.assertEqual(mock_exit.type, SystemExit)
-                self.assertEqual(mock_exit.value.code == 1)
-
-    def test_patch_permission_error(self):
-        with patch("builtins.open", mock_open()) as mock_builtin_open:
-            err = PermissionError()
-            err.errno = 13
-            mock_builtin_open.side_effect = [err]
-            with self.assertRaises(SystemExit) as mock_exit:
-                self.manager.patch("bad", regions=["us-east-1"])
-                self.assertEqual(mock_exit.type, SystemExit)
-                self.assertEqual(mock_exit.value.code == 1)
-
-    def test_patch_value_error(self):
-        with patch("builtins.open", mock_open()) as mock_builtin_open:
-            err = ValueError()
-            mock_builtin_open.side_effect = [err]
-            with self.assertRaises(SystemExit) as mock_exit:
-                self.manager.patch("bad", regions=["us-east-1"])
-                self.assertEqual(mock_exit.type, SystemExit)
-                self.assertEqual(mock_exit.value.code == 1)
-
-
 class TestManagerGetResourceSchema(BaseTestCase):
     """Test get resource schema"""
 
@@ -316,7 +264,7 @@ class TestManagerGetResourceSchema(BaseTestCase):
     def test_removed_types(self):
         rt = "AWS::EC2::VPC"
         region = "us-east-1"
-        self.manager._patch(SchemaPatch([], [rt], {}), region)
+        self.manager.patch(SchemaPatch([], [rt], {}), region)
 
         with self.assertRaises(ResourceNotFoundError):
             self.manager.get_resource_schema(region, rt)
@@ -341,3 +289,41 @@ class TestManagerGetResourceSchema(BaseTestCase):
         self.manager._registry_schemas[rt] = True
         schema = self.manager.get_resource_schema("us-east-1", rt)
         assert schema is True
+
+
+class TestManagerPatch(BaseTestCase):
+    """Test patching schemas"""
+
+    def setUp(self) -> None:
+        super().setUp()
+        self.manager = ProviderSchemaManager()
+        self.schema_patch = [{"op": "add", "path": "/cfnSchema", "value": ["test"]}]
+
+    @patch("cfnlint.schema.manager.print")
+    @patch("cfnlint.schema.manager.sys.exit")
+    def test_patch_failure(self, mock_exit, mock_print):
+        """Test when patching a schema fails"""
+        # Create a mock schema that will raise an exception when patch is called
+        mock_schema = MagicMock()
+        mock_schema.patch.side_effect = Exception("Invalid patch operation")
+
+        # Mock get_resource_schema to return our mocked schema
+        self.manager.get_resource_schema = MagicMock(return_value=mock_schema)
+
+        # Create a patch
+        resource_type = "AWS::EC2::Instance"
+        patch = SchemaPatch([], [], {resource_type: self.schema_patch})
+
+        # Apply the patch
+        self.manager.patch(patch, "us-east-1")
+
+        # Verify that print was called with the error message
+        mock_print.assert_called_with(
+            (
+                f"Error applying patch {self.schema_patch} for "
+                f"{resource_type}: Invalid patch operation"
+            )
+        )
+
+        # Verify that sys.exit was called with exit code 1
+        mock_exit.assert_called_with(1)
