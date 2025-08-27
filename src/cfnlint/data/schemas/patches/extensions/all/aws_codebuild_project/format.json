@@ -1,6 +1,16 @@
 [
  {
   "op": "add",
+  "path": "/definitions/DockerServer/properties/SecurityGroupIds/format",
+  "value": "AWS::EC2::SecurityGroup.Ids"
+ },
+ {
+  "op": "add",
+  "path": "/definitions/DockerServer/properties/SecurityGroupIds/items/format",
+  "value": "AWS::EC2::SecurityGroup.Id"
+ },
+ {
+  "op": "add",
   "path": "/definitions/VpcConfig/properties/SecurityGroupIds/format",
   "value": "AWS::EC2::SecurityGroup.Ids"
  },

@@ -161,8 +161,12 @@ class Transform:
                 if isinstance(p_type, str):
                     if p_type.startswith("AWS::SSM::Parameter::"):
                         continue
-                if isinstance(v, dict) and v.get("Default"):
-                    parameters[k] = v.get("Default")
+                if isinstance(v, dict):
+                    if v.get("Default"):
+                        if v.get("Type") == "CommaDelimitedList":
+                            parameters[k] = v.get("Default").split(",")
+                        else:
+                            parameters[k] = v.get("Default")
 
             self._template["Resources"] = self._find_and_replace(
                 self._template.get("Resources", {}), parameters
@@ -271,10 +275,9 @@ class Transform:
 
         # ignore if dict or already an S3 Uri
         if isinstance(uri_property, dict):
-            if len(uri_property) == 1:
-                for k in uri_property.keys():
-                    if k in ["Ref", "Fn::Sub"]:
-                        resource_property_dict[property_key] = s3_uri_value
+            key, _ = is_function(uri_property)
+            if key:
+                resource_property_dict[property_key] = s3_uri_value
             return
         if Transform.is_s3_uri(uri_property):
             return
