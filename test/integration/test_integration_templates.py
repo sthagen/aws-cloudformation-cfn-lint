@@ -53,7 +53,7 @@ class TestQuickStartTemplates(BaseCliTestCase):
         {
             "filename": "test/fixtures/templates/integration/ref-types.yaml",
             "results_filename": "test/fixtures/results/integration/ref-types.json",
-            "exit_code": 2,
+            "exit_code": 6,
         },
         {
             "filename": "test/fixtures/templates/integration/formats.yaml",
@@ -103,6 +103,11 @@ class TestQuickStartTemplates(BaseCliTestCase):
                 "test/fixtures/results/integration/aws-lambda-function.json"
             ),
             "exit_code": 0,
+        },
+        {
+            "filename": "test/fixtures/templates/integration/cfn-gather.yaml",
+            "results_filename": ("test/fixtures/results/integration/cfn-gather.json"),
+            "exit_code": 14,
         },
     ]
 

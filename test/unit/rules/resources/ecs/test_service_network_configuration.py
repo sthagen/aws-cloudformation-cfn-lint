@@ -155,6 +155,16 @@ _service = {
                     "'NetworkConfiguration' is a required property",
                     validator="required",
                     rule=ServiceNetworkConfiguration(),
+                    schema_path=deque(
+                        [
+                            "cfnGather",
+                            "schema",
+                            "then",
+                            "properties",
+                            "service",
+                            "required",
+                        ]
+                    ),
                 )
             ],
         ),
@@ -184,6 +194,16 @@ _service = {
                     "'NetworkConfiguration' is a required property",
                     validator="required",
                     rule=ServiceNetworkConfiguration(),
+                    schema_path=deque(
+                        [
+                            "cfnGather",
+                            "schema",
+                            "then",
+                            "properties",
+                            "service",
+                            "required",
+                        ]
+                    ),
                 )
             ],
         ),
@@ -249,6 +269,29 @@ _service = {
                                 "op": "replace",
                                 "path": "/Properties/TaskDefinition",
                                 "value": {"Fn::Sub": "${TaskDefinition.Arn}"},
+                            },
+                        ],
+                    ),
+                },
+            },
+            deque(["Resources", "Service", "Properties"]),
+            [],
+        ),
+        # Hardcoded TaskDefinition ARN — no error
+        (
+            {
+                "Resources": {
+                    "Service": jsonpatch.apply_patch(
+                        dict(_service),
+                        [
+                            {
+                                "op": "remove",
+                                "path": "/Properties/NetworkConfiguration",
+                            },
+                            {
+                                "op": "replace",
+                                "path": "/Properties/TaskDefinition",
+                                "value": "arn:aws:ecs:us-east-1:0:task/t:1",
                             },
                         ],
                     ),

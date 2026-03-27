@@ -108,6 +108,16 @@ _service = {
                     validator="required",
                     rule=ServiceFargate(),
                     path_override=deque(["Resources", "TaskDefinition", "Properties"]),
+                    schema_path=deque(
+                        [
+                            "cfnGather",
+                            "schema",
+                            "then",
+                            "properties",
+                            "taskDef",
+                            "required",
+                        ]
+                    ),
                 )
             ],
         ),
@@ -188,6 +198,16 @@ _service = {
                     validator="required",
                     rule=ServiceFargate(),
                     path_override=deque(["Resources", "TaskDefinition", "Properties"]),
+                    schema_path=deque(
+                        [
+                            "cfnGather",
+                            "schema",
+                            "then",
+                            "properties",
+                            "taskDef",
+                            "required",
+                        ]
+                    ),
                 )
             ],
         ),
@@ -271,6 +291,19 @@ _service = {
                             "TaskDefinition",
                             "Properties",
                             "RequiresCompatibilities",
+                        ]
+                    ),
+                    schema_path=deque(
+                        [
+                            "cfnGather",
+                            "schema",
+                            "then",
+                            "properties",
+                            "taskDef",
+                            "properties",
+                            "RequiresCompatibilities",
+                            "then",
+                            "contains",
                         ]
                     ),
                 )
@@ -389,8 +422,37 @@ _service = {
                     validator="required",
                     rule=ServiceFargate(),
                     path_override=deque(["Resources", "TaskDefinition", "Properties"]),
+                    schema_path=deque(
+                        [
+                            "cfnGather",
+                            "schema",
+                            "then",
+                            "properties",
+                            "taskDef",
+                            "required",
+                        ]
+                    ),
                 )
             ],
+        ),
+        # Hardcoded TaskDefinition ARN — no error
+        (
+            {
+                "Resources": {
+                    "Service": jsonpatch.apply_patch(
+                        dict(_service),
+                        [
+                            {
+                                "op": "replace",
+                                "path": "/Properties/TaskDefinition",
+                                "value": "arn:aws:ecs:us-east-1:0:task/t:1",
+                            },
+                        ],
+                    ),
+                },
+            },
+            deque(["Resources", "Service", "Properties"]),
+            [],
         ),
     ],
     indirect=["template"],
