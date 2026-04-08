@@ -34,6 +34,7 @@ case_insensitive_services = [
 exceptions = {
     "ses": ["/definitions/EventDestination/properties/MatchingEventTypes/items"],
     "ecs": ["/definitions/LogConfiguration/properties/LogDriver"],
+    "lambda": ["/properties/FunctionName"],
 }
 
 
@@ -184,6 +185,9 @@ def build_resource_type_patches(
                         for f in ["enum", "pattern", "properties", "items"]
                     ):
                         continue
+                    if patch.source[0] in exceptions:
+                        if path in exceptions[patch.source[0]]:
+                            continue
                     if value in [".*", "^.*$"]:
                         continue
                     if isinstance(value, str):
