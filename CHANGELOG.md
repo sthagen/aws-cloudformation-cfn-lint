@@ -1,3 +1,28 @@
+### v1.49.3
+## What's Changed
+* chore(deps): update `sympy` requirement from >=1.0.0 to >=1.14.0 in /requirements by @dependabot[bot] in https://github.com/aws-cloudformation/cfn-lint/pull/4473
+* Fix [E3719](https://github.com/aws-cloudformation/cfn-python-lint/blob/main/docs/rules.md#E3719) false positive when `BackupRetentionPeriod` is omitted by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/4475
+* Update CloudFormation schemas to `2026-04-22` by @github-actions[bot] in https://github.com/aws-cloudformation/cfn-lint/pull/4467
+
+**Full Changelog**: https://github.com/aws-cloudformation/cfn-lint/compare/v1.49.2...v1.49.3
+
+### v1.49.2
+## What's Changed
+* Fix [E1041](https://github.com/aws-cloudformation/cfn-python-lint/blob/main/docs/rules.md#E1041) false positive: add Lambda::Function.Arn format to Lambda Alias by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/4469
+
+**Full Changelog**: https://github.com/aws-cloudformation/cfn-lint/compare/v1.49.1...v1.49.2
+
+### v1.49.1
+## What's Changed
+* Add rule [E3718](https://github.com/aws-cloudformation/cfn-python-lint/blob/main/docs/rules.md#E3718) to validate `AuthorizerResultTtlInSeconds` maximum of 3600 only applies to `TOKEN` and `REQUEST` authorizers by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/4444
+* Add rule [W3671](https://github.com/aws-cloudformation/cfn-python-lint/blob/main/docs/rules.md#W3671) to validate `Iops` is ignored for certain EBS volume types by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/4444
+* Add rule [E3719](https://github.com/aws-cloudformation/cfn-python-lint/blob/main/docs/rules.md#E3719) to validate RDS `BackupRetentionPeriod` based on instance configuration by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/4444
+* Fix schema false positives by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/4463
+* Fix [E3032](https://github.com/aws-cloudformation/cfn-python-lint/blob/main/docs/rules.md#E3032) false positive on arrays with mutually exclusive conditions by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/4464
+* Update CloudFormation schemas to `2026-04-21` by @github-actions[bot] in https://github.com/aws-cloudformation/cfn-lint/pull/4462
+
+**Full Changelog**: https://github.com/aws-cloudformation/cfn-lint/compare/v1.49.0...v1.49.1
+
 ### v1.49.0
 ## What's Changed
 * feat: add rule [E3712](https://github.com/aws-cloudformation/cfn-python-lint/blob/main/docs/rules.md#E3712) to validate `TargetTrackingScaling` policy requires ASG `MaxSize` greater than `MinSize` by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/4444
