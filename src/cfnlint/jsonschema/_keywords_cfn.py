@@ -131,6 +131,8 @@ def resolve_data_in_schema(schema: Any, root_instance: Any) -> Any:
                         resolved = int(resolved)
                     except (ValueError, TypeError):
                         continue
+                if k == "pattern" and not isinstance(resolved, str):
+                    continue
                 result[k] = resolved
             else:
                 result[k] = resolve_data_in_schema(v, root_instance)
@@ -249,7 +251,14 @@ def dynamicValidation(
 
             if collection is not None:
                 # Build a dynamic schema with an enum of valid values
-                dynamic_schema = {"enum": collection}
+                dynamic_schema: dict[str, Any] = {"enum": collection}
+
+                # For refs, also allow module sub-resource names
+                if context_source == "refs":
+                    module_names = validator.context.module_names
+                    if module_names:
+                        patterns = [{"pattern": f"^{name}.+"} for name in module_names]
+                        dynamic_schema = {"anyOf": [dynamic_schema] + patterns}
 
                 # Use descend to validate against the dynamic schema
                 yield from validator.descend(
