@@ -1,0 +1,114 @@
+[
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_iam.yaml",
+        "Id": "7f3b5a1d-7735-3d58-e7d2-19c699a46299",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 14,
+                "LineNumber": 57
+            },
+            "Path": [
+                "Resources",
+                "rIAMAdminProfile",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 57
+            }
+        },
+        "Message": "'rIAMAdminRole' dependency already enforced by a 'Ref' at 'Resources/rIAMAdminProfile/Properties/Roles/0'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_iam.yaml",
+        "Id": "e601a063-5d3f-2b9a-330c-f75f10fba4c9",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 14,
+                "LineNumber": 137
+            },
+            "Path": [
+                "Resources",
+                "rInstanceOpsProfile",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 137
+            }
+        },
+        "Message": "'rInstanceOpsRole' dependency already enforced by a 'Ref' at 'Resources/rInstanceOpsProfile/Properties/Roles/0'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_iam.yaml",
+        "Id": "32acc4c2-bca8-1937-0eb6-1ba9e6e252e5",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 14,
+                "LineNumber": 236
+            },
+            "Path": [
+                "Resources",
+                "rReadOnlyAdminProfile",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 236
+            }
+        },
+        "Message": "'rReadOnlyAdminRole' dependency already enforced by a 'Ref' at 'Resources/rReadOnlyAdminProfile/Properties/Roles/0'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_iam.yaml",
+        "Id": "bd3386c9-b22d-fe71-273d-8502c632de9d",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 14,
+                "LineNumber": 312
+            },
+            "Path": [
+                "Resources",
+                "rSysAdminProfile",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 312
+            }
+        },
+        "Message": "'rSysAdminRole' dependency already enforced by a 'Ref' at 'Resources/rSysAdminProfile/Properties/Roles/0'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    }
+]

@@ -1,0 +1,276 @@
+[
+    {
+        "Filename": "test/fixtures/templates/integration/getatt-types.yaml",
+        "Id": "ee655930-182c-2be9-568e-6377b79b5798",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 12,
+                "LineNumber": 18
+            },
+            "Path": [
+                "Resources",
+                "SsmParameter",
+                "Properties",
+                "Value",
+                "Fn::GetAtt"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 18
+            }
+        },
+        "Message": "{'Fn::GetAtt': ['CapacityReservation', 'InstanceCount']} is not of type 'string'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Validates that GetAtt parameters are to valid resources and properties of those resources",
+            "Id": "E1010",
+            "ShortDescription": "GetAtt validation of parameters",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/integration/getatt-types.yaml",
+        "Id": "16620b40-6f3e-69eb-874f-34b5f51cedee",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 28,
+                "LineNumber": 62
+            },
+            "Path": [
+                "Resources",
+                "TestTaskDefinitionWithGetAtt",
+                "Properties",
+                "ContainerDefinitions",
+                0,
+                "LogConfiguration",
+                "Options",
+                "awslogs-group"
+            ],
+            "Start": {
+                "ColumnNumber": 15,
+                "LineNumber": 62
+            }
+        },
+        "Message": "{'Fn::GetAtt': ['TestLogGroup', 'Arn']} does not match destination format of 'AWS::Logs::LogGroup.Name'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Validate that if source and destination format exists that they match",
+            "Id": "E1040",
+            "ShortDescription": "Check if GetAtt matches destination format",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/best-practices.html#parmtypes"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/integration/getatt-types.yaml",
+        "Id": "536e9277-ad5b-fed7-821e-34fb182c3ecc",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 69,
+                "LineNumber": 85
+            },
+            "Path": [
+                "Outputs",
+                "SubWithGetAtt",
+                "Value",
+                "Fn::Sub",
+                1,
+                "InstanceCount",
+                "Fn::GetAtt"
+            ],
+            "Start": {
+                "ColumnNumber": 57,
+                "LineNumber": 85
+            }
+        },
+        "Message": "{'Fn::GetAtt': ['CapacityReservation', 'InstanceCount']} is not of type 'string'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Make sure that output values have a type of string",
+            "Id": "E6101",
+            "ShortDescription": "Validate that outputs values are a string",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/integration/getatt-types.yaml",
+        "Id": "36c89a62-589a-e0db-d49b-3dae6791806c",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 10,
+                "LineNumber": 87
+            },
+            "Path": [
+                "Outputs",
+                "Ipv4NetmaskLength",
+                "Value",
+                "Fn::GetAtt"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 87
+            }
+        },
+        "Message": "{'Fn::GetAtt': ['CapacityReservation', 'InstanceCount']} is not of type 'string'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Make sure that output values have a type of string",
+            "Id": "E6101",
+            "ShortDescription": "Validate that outputs values are a string",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/integration/getatt-types.yaml",
+        "Id": "d66d8ee3-bb6c-8635-52ea-622393dd61b0",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 10,
+                "LineNumber": 89
+            },
+            "Path": [
+                "Outputs",
+                "String",
+                "Value",
+                "Fn::Sub"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 89
+            }
+        },
+        "Message": "'CapacityReservation.InstanceCount' is not of type 'string'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Make sure that output values have a type of string",
+            "Id": "E6101",
+            "ShortDescription": "Validate that outputs values are a string",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/integration/getatt-types.yaml",
+        "Id": "e188f184-e315-36dc-231e-6cfd557932bf",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 22,
+                "LineNumber": 91
+            },
+            "Path": [
+                "Outputs",
+                "Join",
+                "Value",
+                "Fn::Join",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 20,
+                "LineNumber": 91
+            }
+        },
+        "Message": "Prefer using Fn::Sub over Fn::Join with an empty delimiter",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Prefer a sub instead of Join when using a join delimiter that is empty",
+            "Id": "I1022",
+            "ShortDescription": "Use Sub instead of Join",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-sub.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/integration/getatt-types.yaml",
+        "Id": "78f2b914-89f3-f2a3-7013-d8d2d3dc3439",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 10,
+                "LineNumber": 93
+            },
+            "Path": [
+                "Outputs",
+                "JoinWithGetAtt",
+                "Value",
+                "Fn::Join",
+                1,
+                0,
+                "Fn::GetAtt"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 93
+            }
+        },
+        "Message": "{'Fn::GetAtt': ['CapacityReservation', 'InstanceCount']} is not of type 'string'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Make sure that output values have a type of string",
+            "Id": "E6101",
+            "ShortDescription": "Validate that outputs values are a string",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/integration/getatt-types.yaml",
+        "Id": "fb048506-abb7-1e8f-b3c4-16b5f8c63cae",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 22,
+                "LineNumber": 93
+            },
+            "Path": [
+                "Outputs",
+                "JoinWithGetAtt",
+                "Value",
+                "Fn::Join",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 20,
+                "LineNumber": 93
+            }
+        },
+        "Message": "Prefer using Fn::Sub over Fn::Join with an empty delimiter",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Prefer a sub instead of Join when using a join delimiter that is empty",
+            "Id": "I1022",
+            "ShortDescription": "Use Sub instead of Join",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-sub.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/integration/getatt-types.yaml",
+        "Id": "37606842-eb43-dd6c-36a2-d69c367b389d",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 10,
+                "LineNumber": 97
+            },
+            "Path": [
+                "Outputs",
+                "BooleanGetAtt",
+                "Value",
+                "Fn::GetAtt"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 97
+            }
+        },
+        "Message": "{'Fn::GetAtt': ['CapacityReservation', 'EphemeralStorage']} is not of type 'string'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Make sure that output values have a type of string",
+            "Id": "E6101",
+            "ShortDescription": "Validate that outputs values are a string",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html"
+        }
+    }
+]

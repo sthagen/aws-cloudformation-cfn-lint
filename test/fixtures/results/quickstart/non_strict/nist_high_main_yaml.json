@@ -1,0 +1,1172 @@
+[
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "94acc75e-cedd-e7a9-9436-22cb142b9b29",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 30,
+                "LineNumber": 11
+            },
+            "Path": [
+                "Conditions",
+                "LoadConfigRulesTemplateAuto"
+            ],
+            "Start": {
+                "ColumnNumber": 3,
+                "LineNumber": 11
+            }
+        },
+        "Message": "Condition LoadConfigRulesTemplateAuto not used",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Making sure the conditions defined are used",
+            "Id": "W8001",
+            "ShortDescription": "Check if Conditions are Used",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "c612bdd5-491a-6100-4d01-9f5cd44b6776",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 22,
+                "LineNumber": 276
+            },
+            "Path": [
+                "Resources",
+                "ApplicationTemplate"
+            ],
+            "Start": {
+                "ColumnNumber": 3,
+                "LineNumber": 276
+            }
+        },
+        "Message": "'DeletionPolicy' is a required property (The default action when replacing/removing a resource is to delete it. Set explicit values for stateful resource)",
+        "ParentId": null,
+        "Rule": {
+            "Description": "The default action when replacing/removing a resource is to delete it. This check requires you to explicitly set policies",
+            "Id": "I3011",
+            "ShortDescription": "Check stateful resources have a set UpdateReplacePolicy/DeletionPolicy",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "b94845ec-a968-dc49-1df5-399eac4b7121",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 22,
+                "LineNumber": 276
+            },
+            "Path": [
+                "Resources",
+                "ApplicationTemplate"
+            ],
+            "Start": {
+                "ColumnNumber": 3,
+                "LineNumber": 276
+            }
+        },
+        "Message": "'UpdateReplacePolicy' is a required property (The default action when replacing/removing a resource is to delete it. Set explicit values for stateful resource)",
+        "ParentId": null,
+        "Rule": {
+            "Description": "The default action when replacing/removing a resource is to delete it. This check requires you to explicitly set policies",
+            "Id": "I3011",
+            "ShortDescription": "Check stateful resources have a set UpdateReplacePolicy/DeletionPolicy",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "f82a4058-49c7-94dc-592b-f081adf6eb30",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 28,
+                "LineNumber": 278
+            },
+            "Path": [
+                "Resources",
+                "ApplicationTemplate",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 278
+            }
+        },
+        "Message": "'ProductionVpcTemplate' will not exist when condition 'EulaAccepted' is False",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check that the DependsOn values are valid",
+            "Id": "E3005",
+            "ShortDescription": "Check DependsOn values for Resources",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "be0a500d-2ab2-48a6-6e84-e401817216d8",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 28,
+                "LineNumber": 278
+            },
+            "Path": [
+                "Resources",
+                "ApplicationTemplate",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 278
+            }
+        },
+        "Message": "'ProductionVpcTemplate' dependency already enforced by a 'GetAtt' at 'Resources/ApplicationTemplate/Properties/Parameters/pAppPrivateSubnetA'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "44084af5-fd99-7458-928a-29c103f77623",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 28,
+                "LineNumber": 278
+            },
+            "Path": [
+                "Resources",
+                "ApplicationTemplate",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 278
+            }
+        },
+        "Message": "'ProductionVpcTemplate' dependency already enforced by a 'GetAtt' at 'Resources/ApplicationTemplate/Properties/Parameters/pAppPrivateSubnetB'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "fdee3bcd-0630-e267-d6ef-166c81817152",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 28,
+                "LineNumber": 278
+            },
+            "Path": [
+                "Resources",
+                "ApplicationTemplate",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 278
+            }
+        },
+        "Message": "'ProductionVpcTemplate' dependency already enforced by a 'GetAtt' at 'Resources/ApplicationTemplate/Properties/Parameters/pDBPrivateSubnetA'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "25be58d4-4dcf-8fb3-7084-f01822a289ca",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 28,
+                "LineNumber": 278
+            },
+            "Path": [
+                "Resources",
+                "ApplicationTemplate",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 278
+            }
+        },
+        "Message": "'ProductionVpcTemplate' dependency already enforced by a 'GetAtt' at 'Resources/ApplicationTemplate/Properties/Parameters/pDBPrivateSubnetB'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "9d05acde-c40a-40d6-eeda-6d1f4dc15eee",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 28,
+                "LineNumber": 278
+            },
+            "Path": [
+                "Resources",
+                "ApplicationTemplate",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 278
+            }
+        },
+        "Message": "'ProductionVpcTemplate' dependency already enforced by a 'GetAtt' at 'Resources/ApplicationTemplate/Properties/Parameters/pDMZSubnetA'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "9e9da405-d132-3d08-9358-9583f7f2a173",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 28,
+                "LineNumber": 278
+            },
+            "Path": [
+                "Resources",
+                "ApplicationTemplate",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 278
+            }
+        },
+        "Message": "'ProductionVpcTemplate' dependency already enforced by a 'GetAtt' at 'Resources/ApplicationTemplate/Properties/Parameters/pDMZSubnetB'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "4e4848fa-3304-015f-021c-b9635a0c97d7",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 28,
+                "LineNumber": 278
+            },
+            "Path": [
+                "Resources",
+                "ApplicationTemplate",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 278
+            }
+        },
+        "Message": "'ProductionVpcTemplate' dependency already enforced by a 'GetAtt' at 'Resources/ApplicationTemplate/Properties/Parameters/pProductionVPC'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "d3ef70db-996a-9363-67ab-22990ce55ae7",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 28,
+                "LineNumber": 279
+            },
+            "Path": [
+                "Resources",
+                "ApplicationTemplate",
+                "DependsOn",
+                1
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 279
+            }
+        },
+        "Message": "'ManagementVpcTemplate' dependency already enforced by a 'GetAtt' at 'Resources/ApplicationTemplate/Properties/Parameters/pDeepSecurityAgentDownload'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "bce9588b-0a1c-f1ca-0d1b-2bcb6daa6d2a",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 28,
+                "LineNumber": 279
+            },
+            "Path": [
+                "Resources",
+                "ApplicationTemplate",
+                "DependsOn",
+                1
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 279
+            }
+        },
+        "Message": "'ManagementVpcTemplate' dependency already enforced by a 'GetAtt' at 'Resources/ApplicationTemplate/Properties/Parameters/pDeepSecurityHeartbeat'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "d05ce032-29c2-e26e-6c7f-493134a1d6cf",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 27,
+                "LineNumber": 292
+            },
+            "Path": [
+                "Resources",
+                "ApplicationTemplate",
+                "Properties",
+                "Parameters",
+                "pAppPrivateSubnetA"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 292
+            }
+        },
+        "Message": "GetAtt to resource 'ProductionVpcTemplate' that may not be available when condition 'EulaAccepted' is False at Resources/ApplicationTemplate/Properties/Parameters/pAppPrivateSubnetA",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check the Conditions that affect a Ref/GetAtt to make sure the resource being related to is available when there is a resource condition.",
+            "Id": "W1001",
+            "ShortDescription": "Ref/GetAtt to resource that is available when conditions are applied",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "26327ab3-ad83-c100-551c-c6bc7802cdba",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 27,
+                "LineNumber": 296
+            },
+            "Path": [
+                "Resources",
+                "ApplicationTemplate",
+                "Properties",
+                "Parameters",
+                "pAppPrivateSubnetB"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 296
+            }
+        },
+        "Message": "GetAtt to resource 'ProductionVpcTemplate' that may not be available when condition 'EulaAccepted' is False at Resources/ApplicationTemplate/Properties/Parameters/pAppPrivateSubnetB",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check the Conditions that affect a Ref/GetAtt to make sure the resource being related to is available when there is a resource condition.",
+            "Id": "W1001",
+            "ShortDescription": "Ref/GetAtt to resource that is available when conditions are applied",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "4e39a36f-e39e-342e-324d-77e636c81c29",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 26,
+                "LineNumber": 310
+            },
+            "Path": [
+                "Resources",
+                "ApplicationTemplate",
+                "Properties",
+                "Parameters",
+                "pDBPrivateSubnetA"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 310
+            }
+        },
+        "Message": "GetAtt to resource 'ProductionVpcTemplate' that may not be available when condition 'EulaAccepted' is False at Resources/ApplicationTemplate/Properties/Parameters/pDBPrivateSubnetA",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check the Conditions that affect a Ref/GetAtt to make sure the resource being related to is available when there is a resource condition.",
+            "Id": "W1001",
+            "ShortDescription": "Ref/GetAtt to resource that is available when conditions are applied",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "5ea63bc8-b561-208c-f599-faca017444ff",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 26,
+                "LineNumber": 314
+            },
+            "Path": [
+                "Resources",
+                "ApplicationTemplate",
+                "Properties",
+                "Parameters",
+                "pDBPrivateSubnetB"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 314
+            }
+        },
+        "Message": "GetAtt to resource 'ProductionVpcTemplate' that may not be available when condition 'EulaAccepted' is False at Resources/ApplicationTemplate/Properties/Parameters/pDBPrivateSubnetB",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check the Conditions that affect a Ref/GetAtt to make sure the resource being related to is available when there is a resource condition.",
+            "Id": "W1001",
+            "ShortDescription": "Ref/GetAtt to resource that is available when conditions are applied",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "532f257f-047a-bf70-4ca6-ee81b9ed52f6",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 20,
+                "LineNumber": 319
+            },
+            "Path": [
+                "Resources",
+                "ApplicationTemplate",
+                "Properties",
+                "Parameters",
+                "pDMZSubnetA"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 319
+            }
+        },
+        "Message": "GetAtt to resource 'ProductionVpcTemplate' that may not be available when condition 'EulaAccepted' is False at Resources/ApplicationTemplate/Properties/Parameters/pDMZSubnetA",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check the Conditions that affect a Ref/GetAtt to make sure the resource being related to is available when there is a resource condition.",
+            "Id": "W1001",
+            "ShortDescription": "Ref/GetAtt to resource that is available when conditions are applied",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "1d3a78e5-f8c6-080e-499c-9dc05ad9e541",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 20,
+                "LineNumber": 323
+            },
+            "Path": [
+                "Resources",
+                "ApplicationTemplate",
+                "Properties",
+                "Parameters",
+                "pDMZSubnetB"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 323
+            }
+        },
+        "Message": "GetAtt to resource 'ProductionVpcTemplate' that may not be available when condition 'EulaAccepted' is False at Resources/ApplicationTemplate/Properties/Parameters/pDMZSubnetB",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check the Conditions that affect a Ref/GetAtt to make sure the resource being related to is available when there is a resource condition.",
+            "Id": "W1001",
+            "ShortDescription": "Ref/GetAtt to resource that is available when conditions are applied",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "cf4d4096-1fe9-fea7-2688-5c23e7292299",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 23,
+                "LineNumber": 344
+            },
+            "Path": [
+                "Resources",
+                "ApplicationTemplate",
+                "Properties",
+                "Parameters",
+                "pProductionVPC"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 344
+            }
+        },
+        "Message": "GetAtt to resource 'ProductionVpcTemplate' that may not be available when condition 'EulaAccepted' is False at Resources/ApplicationTemplate/Properties/Parameters/pProductionVPC",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check the Conditions that affect a Ref/GetAtt to make sure the resource being related to is available when there is a resource condition.",
+            "Id": "W1001",
+            "ShortDescription": "Ref/GetAtt to resource that is available when conditions are applied",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "42588ef3-4514-2754-f725-4bce281543da",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 28,
+                "LineNumber": 352
+            },
+            "Path": [
+                "Resources",
+                "ApplicationTemplate",
+                "Properties",
+                "Parameters",
+                "pSecurityAlarmTopic"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 352
+            }
+        },
+        "Message": "GetAtt to resource 'LoggingTemplate' that may not be available when condition 'EulaAccepted' is False at Resources/ApplicationTemplate/Properties/Parameters/pSecurityAlarmTopic",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check the Conditions that affect a Ref/GetAtt to make sure the resource being related to is available when there is a resource condition.",
+            "Id": "W1001",
+            "ShortDescription": "Ref/GetAtt to resource that is available when conditions are applied",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "329ef873-b4fe-8027-5521-35a45bf23a12",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 22,
+                "LineNumber": 386
+            },
+            "Path": [
+                "Resources",
+                "ConfigRulesTemplate"
+            ],
+            "Start": {
+                "ColumnNumber": 3,
+                "LineNumber": 386
+            }
+        },
+        "Message": "'DeletionPolicy' is a required property (The default action when replacing/removing a resource is to delete it. Set explicit values for stateful resource)",
+        "ParentId": null,
+        "Rule": {
+            "Description": "The default action when replacing/removing a resource is to delete it. This check requires you to explicitly set policies",
+            "Id": "I3011",
+            "ShortDescription": "Check stateful resources have a set UpdateReplacePolicy/DeletionPolicy",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "5e028338-a131-adaa-ae4f-9ce7a6982a61",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 22,
+                "LineNumber": 386
+            },
+            "Path": [
+                "Resources",
+                "ConfigRulesTemplate"
+            ],
+            "Start": {
+                "ColumnNumber": 3,
+                "LineNumber": 386
+            }
+        },
+        "Message": "'UpdateReplacePolicy' is a required property (The default action when replacing/removing a resource is to delete it. Set explicit values for stateful resource)",
+        "ParentId": null,
+        "Rule": {
+            "Description": "The default action when replacing/removing a resource is to delete it. This check requires you to explicitly set policies",
+            "Id": "I3011",
+            "ShortDescription": "Check stateful resources have a set UpdateReplacePolicy/DeletionPolicy",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "8a3e4978-65d3-14ba-c01d-3b0f0e50f1f2",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 18,
+                "LineNumber": 389
+            },
+            "Path": [
+                "Resources",
+                "ConfigRulesTemplate",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 389
+            }
+        },
+        "Message": "'IamTemplate' will not exist when condition 'EulaAccepted' is False and when condition 'LoadConfigRulesTemplate' is True",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check that the DependsOn values are valid",
+            "Id": "E3005",
+            "ShortDescription": "Check DependsOn values for Resources",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "a2f3be79-225c-d1eb-9d9a-c8607f4a21a5",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 28,
+                "LineNumber": 390
+            },
+            "Path": [
+                "Resources",
+                "ConfigRulesTemplate",
+                "DependsOn",
+                1
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 390
+            }
+        },
+        "Message": "'ProductionVpcTemplate' will not exist when condition 'EulaAccepted' is False and when condition 'LoadConfigRulesTemplate' is True",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check that the DependsOn values are valid",
+            "Id": "E3005",
+            "ShortDescription": "Check DependsOn values for Resources",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "6bda891b-2a5b-f8b7-e17d-d225a2324301",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 22,
+                "LineNumber": 392
+            },
+            "Path": [
+                "Resources",
+                "ConfigRulesTemplate",
+                "DependsOn",
+                3
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 392
+            }
+        },
+        "Message": "'LoggingTemplate' will not exist when condition 'EulaAccepted' is False and when condition 'LoadConfigRulesTemplate' is True",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check that the DependsOn values are valid",
+            "Id": "E3005",
+            "ShortDescription": "Check DependsOn values for Resources",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "e3ed7bb2-addd-34e6-79da-c71a76ef9471",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 14,
+                "LineNumber": 410
+            },
+            "Path": [
+                "Resources",
+                "IamTemplate"
+            ],
+            "Start": {
+                "ColumnNumber": 3,
+                "LineNumber": 410
+            }
+        },
+        "Message": "'DeletionPolicy' is a required property (The default action when replacing/removing a resource is to delete it. Set explicit values for stateful resource)",
+        "ParentId": null,
+        "Rule": {
+            "Description": "The default action when replacing/removing a resource is to delete it. This check requires you to explicitly set policies",
+            "Id": "I3011",
+            "ShortDescription": "Check stateful resources have a set UpdateReplacePolicy/DeletionPolicy",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "ddea8393-087e-246d-b33b-ff9d9f64297e",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 14,
+                "LineNumber": 410
+            },
+            "Path": [
+                "Resources",
+                "IamTemplate"
+            ],
+            "Start": {
+                "ColumnNumber": 3,
+                "LineNumber": 410
+            }
+        },
+        "Message": "'UpdateReplacePolicy' is a required property (The default action when replacing/removing a resource is to delete it. Set explicit values for stateful resource)",
+        "ParentId": null,
+        "Rule": {
+            "Description": "The default action when replacing/removing a resource is to delete it. This check requires you to explicitly set policies",
+            "Id": "I3011",
+            "ShortDescription": "Check stateful resources have a set UpdateReplacePolicy/DeletionPolicy",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "cd12820c-dbc6-64e1-94b7-1ffbe85c495d",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 18,
+                "LineNumber": 423
+            },
+            "Path": [
+                "Resources",
+                "LoggingTemplate"
+            ],
+            "Start": {
+                "ColumnNumber": 3,
+                "LineNumber": 423
+            }
+        },
+        "Message": "'DeletionPolicy' is a required property (The default action when replacing/removing a resource is to delete it. Set explicit values for stateful resource)",
+        "ParentId": null,
+        "Rule": {
+            "Description": "The default action when replacing/removing a resource is to delete it. This check requires you to explicitly set policies",
+            "Id": "I3011",
+            "ShortDescription": "Check stateful resources have a set UpdateReplacePolicy/DeletionPolicy",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "2961c225-6282-a305-96af-74f6edcefd22",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 18,
+                "LineNumber": 423
+            },
+            "Path": [
+                "Resources",
+                "LoggingTemplate"
+            ],
+            "Start": {
+                "ColumnNumber": 3,
+                "LineNumber": 423
+            }
+        },
+        "Message": "'UpdateReplacePolicy' is a required property (The default action when replacing/removing a resource is to delete it. Set explicit values for stateful resource)",
+        "ParentId": null,
+        "Rule": {
+            "Description": "The default action when replacing/removing a resource is to delete it. This check requires you to explicitly set policies",
+            "Id": "I3011",
+            "ShortDescription": "Check stateful resources have a set UpdateReplacePolicy/DeletionPolicy",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "1f9f5e42-12b0-61c4-5d28-a87d9cb68588",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 24,
+                "LineNumber": 444
+            },
+            "Path": [
+                "Resources",
+                "ManagementVpcTemplate"
+            ],
+            "Start": {
+                "ColumnNumber": 3,
+                "LineNumber": 444
+            }
+        },
+        "Message": "'DeletionPolicy' is a required property (The default action when replacing/removing a resource is to delete it. Set explicit values for stateful resource)",
+        "ParentId": null,
+        "Rule": {
+            "Description": "The default action when replacing/removing a resource is to delete it. This check requires you to explicitly set policies",
+            "Id": "I3011",
+            "ShortDescription": "Check stateful resources have a set UpdateReplacePolicy/DeletionPolicy",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "698f059c-8f61-9240-77e4-e4d4de08d933",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 24,
+                "LineNumber": 444
+            },
+            "Path": [
+                "Resources",
+                "ManagementVpcTemplate"
+            ],
+            "Start": {
+                "ColumnNumber": 3,
+                "LineNumber": 444
+            }
+        },
+        "Message": "'UpdateReplacePolicy' is a required property (The default action when replacing/removing a resource is to delete it. Set explicit values for stateful resource)",
+        "ParentId": null,
+        "Rule": {
+            "Description": "The default action when replacing/removing a resource is to delete it. This check requires you to explicitly set policies",
+            "Id": "I3011",
+            "ShortDescription": "Check stateful resources have a set UpdateReplacePolicy/DeletionPolicy",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "99bbfad0-7866-fdb9-5718-5c8c249f587c",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 14,
+                "LineNumber": 445
+            },
+            "Path": [
+                "Resources",
+                "ManagementVpcTemplate",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 445
+            }
+        },
+        "Message": "'ProductionVpcTemplate' will not exist when condition 'EulaAccepted' is False",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check that the DependsOn values are valid",
+            "Id": "E3005",
+            "ShortDescription": "Check DependsOn values for Resources",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "d56395d3-ab8e-3697-10b6-9c695fc7a11f",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 14,
+                "LineNumber": 445
+            },
+            "Path": [
+                "Resources",
+                "ManagementVpcTemplate",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 445
+            }
+        },
+        "Message": "'ProductionVpcTemplate' dependency already enforced by a 'GetAtt' at 'Resources/ManagementVpcTemplate/Properties/Parameters/pProductionVPC'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "234a31b0-40ba-5a68-9670-07358d545347",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 14,
+                "LineNumber": 445
+            },
+            "Path": [
+                "Resources",
+                "ManagementVpcTemplate",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 445
+            }
+        },
+        "Message": "'ProductionVpcTemplate' dependency already enforced by a 'GetAtt' at 'Resources/ManagementVpcTemplate/Properties/Parameters/pRouteTableProdPrivate'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "eb2b06c5-34b0-711d-c2d4-9063c7f7faea",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 14,
+                "LineNumber": 445
+            },
+            "Path": [
+                "Resources",
+                "ManagementVpcTemplate",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 445
+            }
+        },
+        "Message": "'ProductionVpcTemplate' dependency already enforced by a 'GetAtt' at 'Resources/ManagementVpcTemplate/Properties/Parameters/pRouteTableProdPublic'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "325465db-4ef8-2b3d-9076-323c4ab00ff2",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 23,
+                "LineNumber": 489
+            },
+            "Path": [
+                "Resources",
+                "ManagementVpcTemplate",
+                "Properties",
+                "Parameters",
+                "pProductionVPC"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 489
+            }
+        },
+        "Message": "GetAtt to resource 'ProductionVpcTemplate' that may not be available when condition 'EulaAccepted' is False at Resources/ManagementVpcTemplate/Properties/Parameters/pProductionVPC",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check the Conditions that affect a Ref/GetAtt to make sure the resource being related to is available when there is a resource condition.",
+            "Id": "W1001",
+            "ShortDescription": "Ref/GetAtt to resource that is available when conditions are applied",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "da4beef0-5d02-d79e-b2ae-e360a2238ef3",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 31,
+                "LineNumber": 497
+            },
+            "Path": [
+                "Resources",
+                "ManagementVpcTemplate",
+                "Properties",
+                "Parameters",
+                "pRouteTableProdPrivate"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 497
+            }
+        },
+        "Message": "GetAtt to resource 'ProductionVpcTemplate' that may not be available when condition 'EulaAccepted' is False at Resources/ManagementVpcTemplate/Properties/Parameters/pRouteTableProdPrivate",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check the Conditions that affect a Ref/GetAtt to make sure the resource being related to is available when there is a resource condition.",
+            "Id": "W1001",
+            "ShortDescription": "Ref/GetAtt to resource that is available when conditions are applied",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "e55ef318-ffb2-08f3-6839-4600643b1777",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 30,
+                "LineNumber": 501
+            },
+            "Path": [
+                "Resources",
+                "ManagementVpcTemplate",
+                "Properties",
+                "Parameters",
+                "pRouteTableProdPublic"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 501
+            }
+        },
+        "Message": "GetAtt to resource 'ProductionVpcTemplate' that may not be available when condition 'EulaAccepted' is False at Resources/ManagementVpcTemplate/Properties/Parameters/pRouteTableProdPublic",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check the Conditions that affect a Ref/GetAtt to make sure the resource being related to is available when there is a resource condition.",
+            "Id": "W1001",
+            "ShortDescription": "Ref/GetAtt to resource that is available when conditions are applied",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "69a3eb05-b545-3024-a773-350d4508a5f1",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 24,
+                "LineNumber": 525
+            },
+            "Path": [
+                "Resources",
+                "ProductionVpcTemplate"
+            ],
+            "Start": {
+                "ColumnNumber": 3,
+                "LineNumber": 525
+            }
+        },
+        "Message": "'DeletionPolicy' is a required property (The default action when replacing/removing a resource is to delete it. Set explicit values for stateful resource)",
+        "ParentId": null,
+        "Rule": {
+            "Description": "The default action when replacing/removing a resource is to delete it. This check requires you to explicitly set policies",
+            "Id": "I3011",
+            "ShortDescription": "Check stateful resources have a set UpdateReplacePolicy/DeletionPolicy",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_high_main.yaml",
+        "Id": "4151e5c2-57fe-f58b-0e3c-82fcb2d73197",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 24,
+                "LineNumber": 525
+            },
+            "Path": [
+                "Resources",
+                "ProductionVpcTemplate"
+            ],
+            "Start": {
+                "ColumnNumber": 3,
+                "LineNumber": 525
+            }
+        },
+        "Message": "'UpdateReplacePolicy' is a required property (The default action when replacing/removing a resource is to delete it. Set explicit values for stateful resource)",
+        "ParentId": null,
+        "Rule": {
+            "Description": "The default action when replacing/removing a resource is to delete it. This check requires you to explicitly set policies",
+            "Id": "I3011",
+            "ShortDescription": "Check stateful resources have a set UpdateReplacePolicy/DeletionPolicy",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html"
+        }
+    }
+]

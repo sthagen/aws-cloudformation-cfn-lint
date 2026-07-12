@@ -1,0 +1,1207 @@
+[
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "398631e7-677e-4c84-249d-39f5c8dc779b",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 21,
+                "LineNumber": 41
+            },
+            "Path": [
+                "Resources",
+                "rArchiveLogsBucket"
+            ],
+            "Start": {
+                "ColumnNumber": 3,
+                "LineNumber": 41
+            }
+        },
+        "Message": "Both 'UpdateReplacePolicy' and 'DeletionPolicy' are needed to protect resource from deletion",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Both UpdateReplacePolicy and DeletionPolicy are needed to protect resources from deletion",
+            "Id": "W3011",
+            "ShortDescription": "Check resources with UpdateReplacePolicy/DeletionPolicy have both",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "0d47fd25-2f36-4947-4be2-c6b2a3643dc8",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 15,
+                "LineNumber": 43
+            },
+            "Path": [
+                "Resources",
+                "rArchiveLogsBucket",
+                "Properties"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 43
+            }
+        },
+        "Message": "A bucket with 'AccessControl' set should also have at least one 'OwnershipControl' configured",
+        "ParentId": null,
+        "Rule": {
+            "Description": "When using AccessControl other than private you must also configure OwnershipControls. The default is bucket owner enforced which disables ACLs.",
+            "Id": "E3045",
+            "ShortDescription": "Validate AccessControl are set with OwnershipControls",
+            "Source": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "08431fc2-4f01-f616-7803-366e10beac74",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 20,
+                "LineNumber": 44
+            },
+            "Path": [
+                "Resources",
+                "rArchiveLogsBucket",
+                "Properties",
+                "AccessControl"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 44
+            }
+        },
+        "Message": "'AccessControl' is a legacy property. Consider using 'AWS::S3::BucketPolicy' instead",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Nearly all access control configurations can be more successfully achieved with bucket policies. Consider using bucket policies instead of access control.",
+            "Id": "W3045",
+            "ShortDescription": "Controlling access to an S3 bucket should be done with bucket policies",
+            "Source": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "7e1c9730-285f-bbc8-6dbc-3d50ceb7cfa9",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 27,
+                "LineNumber": 47
+            },
+            "Path": [
+                "Resources",
+                "rArchiveLogsBucket",
+                "Properties",
+                "LifecycleConfiguration",
+                "Rules",
+                0,
+                "ExpirationInDays"
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 47
+            }
+        },
+        "Message": "'2555' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "16d5a7b4-e0cf-ac10-24e1-dc0ab6de3396",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 29,
+                "LineNumber": 56
+            },
+            "Path": [
+                "Resources",
+                "rArchiveLogsBucket",
+                "Properties",
+                "LifecycleConfiguration",
+                "Rules",
+                0,
+                "Transition",
+                "TransitionInDays"
+            ],
+            "Start": {
+                "ColumnNumber": 13,
+                "LineNumber": 56
+            }
+        },
+        "Message": "'90' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "899674e8-6481-5705-da8c-269c2e899fb2",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 14,
+                "LineNumber": 61
+            },
+            "Path": [
+                "Resources",
+                "rArchiveLogsBucketPolicy",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 61
+            }
+        },
+        "Message": "'rArchiveLogsBucket' dependency already enforced by a 'Ref' at 'Resources/rArchiveLogsBucketPolicy/Properties/Bucket'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "6a1b8925-e68b-01e2-df3e-fb0491b2432f",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 14,
+                "LineNumber": 61
+            },
+            "Path": [
+                "Resources",
+                "rArchiveLogsBucketPolicy",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 61
+            }
+        },
+        "Message": "'rArchiveLogsBucket' dependency already enforced by a 'Ref' at 'Resources/rArchiveLogsBucketPolicy/Properties/PolicyDocument/Statement/0/Resource/0/Fn::Join/1/3'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "2b32f981-20bd-62fb-2002-fae438b838a4",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 14,
+                "LineNumber": 61
+            },
+            "Path": [
+                "Resources",
+                "rArchiveLogsBucketPolicy",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 61
+            }
+        },
+        "Message": "'rArchiveLogsBucket' dependency already enforced by a 'Ref' at 'Resources/rArchiveLogsBucketPolicy/Properties/PolicyDocument/Statement/1/Resource/0/Fn::Join/1/3'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "24da21b7-1f33-1256-31bd-ddb42b82dd36",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 14,
+                "LineNumber": 61
+            },
+            "Path": [
+                "Resources",
+                "rArchiveLogsBucketPolicy",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 61
+            }
+        },
+        "Message": "'rArchiveLogsBucket' dependency already enforced by a 'Ref' at 'Resources/rArchiveLogsBucketPolicy/Properties/PolicyDocument/Statement/2/Resource/0/Fn::Join/1/3'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "d2ec9dba-4422-9118-dcfa-f6933b5a0b5b",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 20,
+                "LineNumber": 119
+            },
+            "Path": [
+                "Resources",
+                "rCloudTrailBucket"
+            ],
+            "Start": {
+                "ColumnNumber": 3,
+                "LineNumber": 119
+            }
+        },
+        "Message": "Both 'UpdateReplacePolicy' and 'DeletionPolicy' are needed to protect resource from deletion",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Both UpdateReplacePolicy and DeletionPolicy are needed to protect resources from deletion",
+            "Id": "W3011",
+            "ShortDescription": "Check resources with UpdateReplacePolicy/DeletionPolicy have both",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "9cf035ba-037a-57fe-8287-7737ca7cd1eb",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 20,
+                "LineNumber": 122
+            },
+            "Path": [
+                "Resources",
+                "rCloudTrailBucket",
+                "Properties",
+                "AccessControl"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 122
+            }
+        },
+        "Message": "'AccessControl' is a legacy property. Consider using 'AWS::S3::BucketPolicy' instead",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Nearly all access control configurations can be more successfully achieved with bucket policies. Consider using bucket policies instead of access control.",
+            "Id": "W3045",
+            "ShortDescription": "Controlling access to an S3 bucket should be done with bucket policies",
+            "Source": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "c29d1047-3741-ed2e-6721-d2951e660aca",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 24,
+                "LineNumber": 151
+            },
+            "Path": [
+                "Resources",
+                "rCloudTrailChangeAlarm",
+                "Properties",
+                "EvaluationPeriods"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 151
+            }
+        },
+        "Message": "'1' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "6520d646-d053-7652-976f-72d3abb73394",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 13,
+                "LineNumber": 154
+            },
+            "Path": [
+                "Resources",
+                "rCloudTrailChangeAlarm",
+                "Properties",
+                "Period"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 154
+            }
+        },
+        "Message": "'300' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "57a4d5c2-e971-d247-1a0e-dd1fe2f05b0e",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 156
+            },
+            "Path": [
+                "Resources",
+                "rCloudTrailChangeAlarm",
+                "Properties",
+                "Threshold"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 156
+            }
+        },
+        "Message": "'1' is not of type 'number'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "5f855d14-3d58-d77e-3aed-aacf65c9e04d",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 22,
+                "LineNumber": 158
+            },
+            "Path": [
+                "Resources",
+                "rCloudTrailLogGroup"
+            ],
+            "Start": {
+                "ColumnNumber": 3,
+                "LineNumber": 158
+            }
+        },
+        "Message": "'DeletionPolicy' is a required property (The default action when replacing/removing a resource is to delete it. Set explicit values for stateful resource)",
+        "ParentId": null,
+        "Rule": {
+            "Description": "The default action when replacing/removing a resource is to delete it. This check requires you to explicitly set policies",
+            "Id": "I3011",
+            "ShortDescription": "Check stateful resources have a set UpdateReplacePolicy/DeletionPolicy",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "2b0b204b-106a-955c-5f97-ada3156f0b26",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 22,
+                "LineNumber": 158
+            },
+            "Path": [
+                "Resources",
+                "rCloudTrailLogGroup"
+            ],
+            "Start": {
+                "ColumnNumber": 3,
+                "LineNumber": 158
+            }
+        },
+        "Message": "'UpdateReplacePolicy' is a required property (The default action when replacing/removing a resource is to delete it. Set explicit values for stateful resource)",
+        "ParentId": null,
+        "Rule": {
+            "Description": "The default action when replacing/removing a resource is to delete it. This check requires you to explicitly set policies",
+            "Id": "I3011",
+            "ShortDescription": "Check stateful resources have a set UpdateReplacePolicy/DeletionPolicy",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "d964262d-80cc-eeb6-60dd-94244efa482d",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 22,
+                "LineNumber": 160
+            },
+            "Path": [
+                "Resources",
+                "rCloudTrailLogGroup",
+                "Properties",
+                "RetentionInDays"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 160
+            }
+        },
+        "Message": "'90' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "f8a94a42-6d14-2cf9-70c4-9ed6dc428a51",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 14,
+                "LineNumber": 180
+            },
+            "Path": [
+                "Resources",
+                "rCloudTrailProfile",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 180
+            }
+        },
+        "Message": "'rCloudTrailRole' dependency already enforced by a 'Ref' at 'Resources/rCloudTrailProfile/Properties/Roles/0'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "14f86f6b-2d60-ce39-396e-355eee0d18ad",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 14,
+                "LineNumber": 232
+            },
+            "Path": [
+                "Resources",
+                "rCloudTrailS3Policy",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 232
+            }
+        },
+        "Message": "'rCloudTrailBucket' dependency already enforced by a 'Ref' at 'Resources/rCloudTrailS3Policy/Properties/Bucket'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "050fe618-0788-4e58-737d-d0d16abf9cf1",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 14,
+                "LineNumber": 232
+            },
+            "Path": [
+                "Resources",
+                "rCloudTrailS3Policy",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 232
+            }
+        },
+        "Message": "'rCloudTrailBucket' dependency already enforced by a 'Ref' at 'Resources/rCloudTrailS3Policy/Properties/PolicyDocument/Statement/0/Resource/0/Fn::Join/1/3'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "5ccb8f41-cc16-5aaf-e339-25c38f58fe2e",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 14,
+                "LineNumber": 232
+            },
+            "Path": [
+                "Resources",
+                "rCloudTrailS3Policy",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 232
+            }
+        },
+        "Message": "'rCloudTrailBucket' dependency already enforced by a 'Ref' at 'Resources/rCloudTrailS3Policy/Properties/PolicyDocument/Statement/1/Resource/0/Fn::Join/1/3'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "1fec4949-e2cd-e673-93e8-97fb3c1b2a3a",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 14,
+                "LineNumber": 232
+            },
+            "Path": [
+                "Resources",
+                "rCloudTrailS3Policy",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 232
+            }
+        },
+        "Message": "'rCloudTrailBucket' dependency already enforced by a 'Ref' at 'Resources/rCloudTrailS3Policy/Properties/PolicyDocument/Statement/2/Resource/0/Fn::Join/1/3'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "809a9601-2457-2e17-98c5-e9c45b3c5918",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 14,
+                "LineNumber": 232
+            },
+            "Path": [
+                "Resources",
+                "rCloudTrailS3Policy",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 232
+            }
+        },
+        "Message": "'rCloudTrailBucket' dependency already enforced by a 'Ref' at 'Resources/rCloudTrailS3Policy/Properties/PolicyDocument/Statement/3/Resource/0/Fn::Join/1/3'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "4429c8f2-a48e-938f-cd06-33557fa96f53",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 14,
+                "LineNumber": 232
+            },
+            "Path": [
+                "Resources",
+                "rCloudTrailS3Policy",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 232
+            }
+        },
+        "Message": "'rCloudTrailBucket' dependency already enforced by a 'Ref' at 'Resources/rCloudTrailS3Policy/Properties/PolicyDocument/Statement/4/Resource/0/Fn::Join/1/3'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "d0dc7d38-a4bb-f344-529d-75f382244acc",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 24,
+                "LineNumber": 399
+            },
+            "Path": [
+                "Resources",
+                "rIAMCreateAccessKeyAlarm",
+                "Properties",
+                "EvaluationPeriods"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 399
+            }
+        },
+        "Message": "'1' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "1b94a802-1be9-8d58-f1d1-74fe46a47ab5",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 13,
+                "LineNumber": 402
+            },
+            "Path": [
+                "Resources",
+                "rIAMCreateAccessKeyAlarm",
+                "Properties",
+                "Period"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 402
+            }
+        },
+        "Message": "'300' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "2d442ae2-898a-b2c3-6045-93ecc98fb663",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 404
+            },
+            "Path": [
+                "Resources",
+                "rIAMCreateAccessKeyAlarm",
+                "Properties",
+                "Threshold"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 404
+            }
+        },
+        "Message": "'1' is not of type 'number'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "be99f4aa-10d9-b770-2637-65d2d9622da5",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 24,
+                "LineNumber": 414
+            },
+            "Path": [
+                "Resources",
+                "rIAMPolicyChangesAlarm",
+                "Properties",
+                "EvaluationPeriods"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 414
+            }
+        },
+        "Message": "'1' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "c8ab9149-519b-06ec-3cc2-121dbe366580",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 13,
+                "LineNumber": 417
+            },
+            "Path": [
+                "Resources",
+                "rIAMPolicyChangesAlarm",
+                "Properties",
+                "Period"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 417
+            }
+        },
+        "Message": "'300' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "85ec9573-dccb-58d3-3ce4-7ac5eab743ac",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 419
+            },
+            "Path": [
+                "Resources",
+                "rIAMPolicyChangesAlarm",
+                "Properties",
+                "Threshold"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 419
+            }
+        },
+        "Message": "'1' is not of type 'number'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "4987f015-df3d-c036-b056-68d2d268367d",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 24,
+                "LineNumber": 450
+            },
+            "Path": [
+                "Resources",
+                "rNetworkAclChangesAlarm",
+                "Properties",
+                "EvaluationPeriods"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 450
+            }
+        },
+        "Message": "'1' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "c391130f-fdfa-6e62-93ae-34deb13c6bb7",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 13,
+                "LineNumber": 453
+            },
+            "Path": [
+                "Resources",
+                "rNetworkAclChangesAlarm",
+                "Properties",
+                "Period"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 453
+            }
+        },
+        "Message": "'300' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "aa1728d5-1458-27f5-0607-b784f8bab057",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 455
+            },
+            "Path": [
+                "Resources",
+                "rNetworkAclChangesAlarm",
+                "Properties",
+                "Threshold"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 455
+            }
+        },
+        "Message": "'1' is not of type 'number'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "9fb9ad45-0fcb-76b5-6a7f-8f9d35244717",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 24,
+                "LineNumber": 478
+            },
+            "Path": [
+                "Resources",
+                "rRootActivityAlarm",
+                "Properties",
+                "EvaluationPeriods"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 478
+            }
+        },
+        "Message": "'1' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "b6cf7ebd-cbc1-42dc-684e-fa3794b19b4f",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 13,
+                "LineNumber": 481
+            },
+            "Path": [
+                "Resources",
+                "rRootActivityAlarm",
+                "Properties",
+                "Period"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 481
+            }
+        },
+        "Message": "'300' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "e449370d-9592-7d5b-55d1-c7b7ecde9e8f",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 483
+            },
+            "Path": [
+                "Resources",
+                "rRootActivityAlarm",
+                "Properties",
+                "Threshold"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 483
+            }
+        },
+        "Message": "'1' is not of type 'number'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "1ad7f934-c28f-8ca7-574d-6cc2e54e0cc5",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 24,
+                "LineNumber": 501
+            },
+            "Path": [
+                "Resources",
+                "rSecurityGroupChangesAlarm",
+                "Properties",
+                "EvaluationPeriods"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 501
+            }
+        },
+        "Message": "'1' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "5571a283-3c7f-68c1-e0db-b072b969ac99",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 13,
+                "LineNumber": 504
+            },
+            "Path": [
+                "Resources",
+                "rSecurityGroupChangesAlarm",
+                "Properties",
+                "Period"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 504
+            }
+        },
+        "Message": "'300' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "e40edeff-bc23-bdb8-25f2-5ea51c41ceed",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 506
+            },
+            "Path": [
+                "Resources",
+                "rSecurityGroupChangesAlarm",
+                "Properties",
+                "Threshold"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 506
+            }
+        },
+        "Message": "'1' is not of type 'number'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "f3af30e2-e95a-86b0-27c9-0785b09df2f5",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 24,
+                "LineNumber": 529
+            },
+            "Path": [
+                "Resources",
+                "rUnauthorizedAttemptAlarm",
+                "Properties",
+                "EvaluationPeriods"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 529
+            }
+        },
+        "Message": "'1' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "621d6e49-3a04-b575-a828-e498c8ae9215",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 13,
+                "LineNumber": 532
+            },
+            "Path": [
+                "Resources",
+                "rUnauthorizedAttemptAlarm",
+                "Properties",
+                "Period"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 532
+            }
+        },
+        "Message": "'300' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_logging.yaml",
+        "Id": "e4ac5e7b-c6d0-4b72-c9a8-6ccbf407f927",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 534
+            },
+            "Path": [
+                "Resources",
+                "rUnauthorizedAttemptAlarm",
+                "Properties",
+                "Threshold"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 534
+            }
+        },
+        "Message": "'5' is not of type 'number'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    }
+]

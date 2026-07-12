@@ -1,0 +1,3026 @@
+[
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "03ea7054-c827-0317-8bce-8e64baed02a0",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 11,
+                "LineNumber": 96
+            },
+            "Path": [
+                "Outputs",
+                "LandingPageURL",
+                "Value",
+                "Fn::Join",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 96
+            }
+        },
+        "Message": "Prefer using Fn::Sub over Fn::Join with an empty delimiter",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Prefer a sub instead of Join when using a join delimiter that is empty",
+            "Id": "I1022",
+            "ShortDescription": "Use Sub instead of Join",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-sub.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "ad25bb93-5ed1-e782-79e0-eec7b2634db3",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 11,
+                "LineNumber": 109
+            },
+            "Path": [
+                "Outputs",
+                "WebsiteURL",
+                "Value",
+                "Fn::Join",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 109
+            }
+        },
+        "Message": "Prefer using Fn::Sub over Fn::Join with an empty delimiter",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Prefer a sub instead of Join when using a join delimiter that is empty",
+            "Id": "I1022",
+            "ShortDescription": "Use Sub instead of Join",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-sub.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "a74e52ff-5b03-aeef-ef89-561d909bbb3b",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 9,
+                "LineNumber": 128
+            },
+            "Path": [
+                "Parameters",
+                "pAppAmi",
+                "Type"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 128
+            }
+        },
+        "Message": "'String' is not one of ['AWS::EC2::Image::Id', 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>']",
+        "ParentId": null,
+        "Rule": {
+            "Description": "See if there are any refs for ImageId to a parameter of inappropriate type. Appropriate Types are [AWS::EC2::Image::Id, AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>]",
+            "Id": "W2506",
+            "ShortDescription": "Check if ImageId Parameters have the correct type",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/best-practices.html#parmtypes"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "2faa6843-7a28-acb0-6d94-2f4b5bedddbb",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 12,
+                "LineNumber": 198
+            },
+            "Path": [
+                "Parameters",
+                "pSecurityAlarmTopic",
+                "Default"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 198
+            }
+        },
+        "Message": "{'Ref': 'pSecurityAlarmTopic'} does not match '^(arn:(aws[A-Za-z\\\\-]*?|\\\\*):[^:]+:[^:]*(:(?:\\\\d{12}|\\\\*|aws)?:.+|)|\\\\*)$' when 'Ref' is resolved at 'Resources/rPostProcInstanceRole/Properties/Policies/0/PolicyDocument/Statement/2/Resource/0'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Resolve the Ref and then validate the values against the schema",
+            "Id": "W1030",
+            "ShortDescription": "Validate the values that come from a Ref function",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "b7a8a842-4d76-ef25-b93f-f4ecfbd81984",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 9,
+                "LineNumber": 216
+            },
+            "Path": [
+                "Parameters",
+                "pWebServerAMI",
+                "Type"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 216
+            }
+        },
+        "Message": "'String' is not one of ['AWS::EC2::Image::Id', 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>']",
+        "ParentId": null,
+        "Rule": {
+            "Description": "See if there are any refs for ImageId to a parameter of inappropriate type. Appropriate Types are [AWS::EC2::Image::Id, AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>]",
+            "Id": "W2506",
+            "ShortDescription": "Check if ImageId Parameters have the correct type",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/best-practices.html#parmtypes"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "61fb8f67-d0c8-d0b2-52a5-c66cb685163a",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 14,
+                "LineNumber": 219
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingConfigApp",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 219
+            }
+        },
+        "Message": "'rRDSInstanceMySQL' dependency already enforced by a 'GetAtt' at 'Resources/rAutoScalingConfigApp/Metadata/AWS::CloudFormation::Init/install_wordpress/files//tmp/create-wp-config/content/Fn::Join/1/12'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "1b02631b-5ab6-3191-3cdf-990db993bd5d",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 19,
+                "LineNumber": 237
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingConfigApp",
+                "Metadata",
+                "AWS::CloudFormation::Init",
+                "copy_landing_content",
+                "sources",
+                "/var/www/html",
+                "Fn::Join",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 17,
+                "LineNumber": 237
+            }
+        },
+        "Message": "Prefer using Fn::Sub over Fn::Join with an empty delimiter",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Prefer a sub instead of Join when using a join delimiter that is empty",
+            "Id": "I1022",
+            "ShortDescription": "Use Sub instead of Join",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-sub.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "a07acadb-7b99-63d8-390f-bb264b5cf988",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 21,
+                "LineNumber": 245
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingConfigApp",
+                "Metadata",
+                "AWS::CloudFormation::Init",
+                "installDeepSecurityAgent",
+                "commands",
+                "0-download-DSA",
+                "command",
+                "Fn::Join",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 19,
+                "LineNumber": 245
+            }
+        },
+        "Message": "Prefer using Fn::Sub over Fn::Join with an empty delimiter",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Prefer a sub instead of Join when using a join delimiter that is empty",
+            "Id": "I1022",
+            "ShortDescription": "Use Sub instead of Join",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-sub.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "ec57cbf9-037a-b8fd-c440-dfc8dfe68a66",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 21,
+                "LineNumber": 256
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingConfigApp",
+                "Metadata",
+                "AWS::CloudFormation::Init",
+                "installDeepSecurityAgent",
+                "commands",
+                "3-activate-DSA",
+                "command",
+                "Fn::Join",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 19,
+                "LineNumber": 256
+            }
+        },
+        "Message": "Prefer using Fn::Sub over Fn::Join with an empty delimiter",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Prefer a sub instead of Join when using a join delimiter that is empty",
+            "Id": "I1022",
+            "ShortDescription": "Use Sub instead of Join",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-sub.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "099ab5aa-529f-20d2-d62a-f928b4a2832b",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 21,
+                "LineNumber": 265
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingConfigApp",
+                "Metadata",
+                "AWS::CloudFormation::Init",
+                "install_cfn",
+                "files",
+                "/etc/cfn/cfn-hup.conf",
+                "content",
+                "Fn::Join",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 19,
+                "LineNumber": 265
+            }
+        },
+        "Message": "Prefer using Fn::Sub over Fn::Join with an empty delimiter",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Prefer a sub instead of Join when using a join delimiter that is empty",
+            "Id": "I1022",
+            "ShortDescription": "Use Sub instead of Join",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-sub.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "15bfa2b3-f72d-3ecf-d4f9-be7d5949976e",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 21,
+                "LineNumber": 285
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingConfigApp",
+                "Metadata",
+                "AWS::CloudFormation::Init",
+                "install_cfn",
+                "files",
+                "/etc/cfn/hooks.d/cfn-auto-reloader.conf",
+                "content",
+                "Fn::Join",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 19,
+                "LineNumber": 285
+            }
+        },
+        "Message": "Prefer using Fn::Sub over Fn::Join with an empty delimiter",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Prefer a sub instead of Join when using a join delimiter that is empty",
+            "Id": "I1022",
+            "ShortDescription": "Use Sub instead of Join",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-sub.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "35353706-1c17-9168-7db8-be2e6c834a16",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 21,
+                "LineNumber": 325
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingConfigApp",
+                "Metadata",
+                "AWS::CloudFormation::Init",
+                "install_wordpress",
+                "files",
+                "/tmp/create-wp-config",
+                "content",
+                "Fn::Join",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 19,
+                "LineNumber": 325
+            }
+        },
+        "Message": "Prefer using Fn::Sub over Fn::Join with an empty delimiter",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Prefer a sub instead of Join when using a join delimiter that is empty",
+            "Id": "I1022",
+            "ShortDescription": "Use Sub instead of Join",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-sub.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "39e77192-b048-bff4-c443-586f0462bb51",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 24,
+                "LineNumber": 343
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingConfigApp",
+                "Metadata",
+                "AWS::CloudFormation::Init",
+                "install_wordpress",
+                "files",
+                "/tmp/create-wp-config",
+                "content",
+                "Fn::Join",
+                1,
+                9,
+                "Ref"
+            ],
+            "Start": {
+                "ColumnNumber": 21,
+                "LineNumber": 343
+            }
+        },
+        "Message": "Don't use 'NoEcho' parameter 'pDBPassword' in resource metadata",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Using the NoEcho attribute does not mask any information stored in the following: Metadata, Outputs, Resource Metadata",
+            "Id": "W2010",
+            "ShortDescription": "NoEcho parameters are not masked when used in Metadata and Outputs",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "ced90f3b-1262-1d96-6071-ad2a442e607e",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 15,
+                "LineNumber": 377
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingConfigApp",
+                "Properties"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 377
+            }
+        },
+        "Message": "Resource type 'AWS::AutoScaling::LaunchConfiguration' is from a service in maintenance mode since 2024-10-01. Consider migrating to an alternative",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks if a resource type belongs to an AWS service that is in maintenance mode with no new features",
+            "Id": "W3697",
+            "ShortDescription": "Resource type is from a service in maintenance mode",
+            "Source": "https://docs.aws.amazon.com/general/latest/gr/maintenance_services.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "e2b23fec-440d-6576-01e9-f0a09f5874d4",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 12,
+                "LineNumber": 379
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingConfigApp",
+                "Properties",
+                "ImageId",
+                "Ref"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 379
+            }
+        },
+        "Message": "{'Ref': 'pAppAmi'} is not a 'AWS::EC2::Image.Id' with pattern '^ami-([0-9a-z]{8}|[0-9a-z]{17})$' when 'Ref' is resolved",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Resolve the Ref and then validate the values against the schema",
+            "Id": "W1030",
+            "ShortDescription": "Validate the values that come from a Ref function",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "3660b41d-f26e-5e41-b3d5-d272146c34d8",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 12,
+                "LineNumber": 383
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingConfigApp",
+                "Properties",
+                "KeyName",
+                "Ref"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 383
+            }
+        },
+        "Message": "{'Ref': 'pEC2KeyPair'} is shorter than 1 when 'Ref' is resolved",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Resolve the Ref and then validate the values against the schema",
+            "Id": "W1030",
+            "ShortDescription": "Validate the values that come from a Ref function",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "0bccdd5b-c7c0-7e48-fe9e-7d7be0ee1a55",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 15,
+                "LineNumber": 389
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingConfigApp",
+                "Properties",
+                "UserData",
+                "Fn::Base64",
+                "Fn::Join",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 13,
+                "LineNumber": 389
+            }
+        },
+        "Message": "Prefer using Fn::Sub over Fn::Join with an empty delimiter",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Prefer a sub instead of Join when using a join delimiter that is empty",
+            "Id": "I1022",
+            "ShortDescription": "Use Sub instead of Join",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-sub.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "5c671ecf-f2b2-ca0e-1340-02d72c5b22b8",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 14,
+                "LineNumber": 418
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingConfigWeb",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 418
+            }
+        },
+        "Message": "'rELBApp' dependency already enforced by a 'GetAtt' at 'Resources/rAutoScalingConfigWeb/Metadata/AWS::CloudFormation::Init/nginx/files//tmp/nginx/default.conf/content/Fn::Join/1/9'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "611c7d25-bd32-cef0-4d93-dc9ed0855046",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 21,
+                "LineNumber": 431
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingConfigWeb",
+                "Metadata",
+                "AWS::CloudFormation::Init",
+                "installDeepSecurityAgent",
+                "commands",
+                "0-download-DSA",
+                "command",
+                "Fn::Join",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 19,
+                "LineNumber": 431
+            }
+        },
+        "Message": "Prefer using Fn::Sub over Fn::Join with an empty delimiter",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Prefer a sub instead of Join when using a join delimiter that is empty",
+            "Id": "I1022",
+            "ShortDescription": "Use Sub instead of Join",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-sub.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "004591c0-bbea-b550-7c07-45643c5ddb36",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 21,
+                "LineNumber": 442
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingConfigWeb",
+                "Metadata",
+                "AWS::CloudFormation::Init",
+                "installDeepSecurityAgent",
+                "commands",
+                "3-activate-DSA",
+                "command",
+                "Fn::Join",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 19,
+                "LineNumber": 442
+            }
+        },
+        "Message": "Prefer using Fn::Sub over Fn::Join with an empty delimiter",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Prefer a sub instead of Join when using a join delimiter that is empty",
+            "Id": "I1022",
+            "ShortDescription": "Use Sub instead of Join",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-sub.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "df03048d-05bd-5421-5ff7-142fc513b868",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 21,
+                "LineNumber": 451
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingConfigWeb",
+                "Metadata",
+                "AWS::CloudFormation::Init",
+                "nginx",
+                "files",
+                "/tmp/nginx/default.conf",
+                "content",
+                "Fn::Join",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 19,
+                "LineNumber": 451
+            }
+        },
+        "Message": "Prefer using Fn::Sub over Fn::Join with an empty delimiter",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Prefer a sub instead of Join when using a join delimiter that is empty",
+            "Id": "I1022",
+            "ShortDescription": "Use Sub instead of Join",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-sub.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "3d598a9c-f9ea-9733-9c3c-8bce41625560",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 15,
+                "LineNumber": 508
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingConfigWeb",
+                "Properties"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 508
+            }
+        },
+        "Message": "Resource type 'AWS::AutoScaling::LaunchConfiguration' is from a service in maintenance mode since 2024-10-01. Consider migrating to an alternative",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks if a resource type belongs to an AWS service that is in maintenance mode with no new features",
+            "Id": "W3697",
+            "ShortDescription": "Resource type is from a service in maintenance mode",
+            "Source": "https://docs.aws.amazon.com/general/latest/gr/maintenance_services.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "a7fb5142-fab0-4d68-4d8f-06e945951df6",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 31,
+                "LineNumber": 509
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingConfigWeb",
+                "Properties",
+                "AssociatePublicIpAddress"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 509
+            }
+        },
+        "Message": "'True' is not of type 'boolean'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "499f19a1-f0ba-d118-c02a-b8519ce4dcd7",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 12,
+                "LineNumber": 511
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingConfigWeb",
+                "Properties",
+                "ImageId",
+                "Ref"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 511
+            }
+        },
+        "Message": "{'Ref': 'pWebServerAMI'} is not a 'AWS::EC2::Image.Id' with pattern '^ami-([0-9a-z]{8}|[0-9a-z]{17})$' when 'Ref' is resolved",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Resolve the Ref and then validate the values against the schema",
+            "Id": "W1030",
+            "ShortDescription": "Validate the values that come from a Ref function",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "48257e52-cb5d-de2a-8f08-0416035b604f",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 12,
+                "LineNumber": 515
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingConfigWeb",
+                "Properties",
+                "KeyName",
+                "Ref"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 515
+            }
+        },
+        "Message": "{'Ref': 'pEC2KeyPair'} is shorter than 1 when 'Ref' is resolved",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Resolve the Ref and then validate the values against the schema",
+            "Id": "W1030",
+            "ShortDescription": "Validate the values that come from a Ref function",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "6f6aeae5-2311-f377-46a8-e0745e2321a0",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 15,
+                "LineNumber": 521
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingConfigWeb",
+                "Properties",
+                "UserData",
+                "Fn::Base64",
+                "Fn::Join",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 13,
+                "LineNumber": 521
+            }
+        },
+        "Message": "Prefer using Fn::Sub over Fn::Join with an empty delimiter",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Prefer a sub instead of Join when using a join delimiter that is empty",
+            "Id": "I1022",
+            "ShortDescription": "Use Sub instead of Join",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-sub.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "ef9a12cf-4b50-dcd4-1c0a-c06a55f573dd",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 24,
+                "LineNumber": 566
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingDownApp",
+                "Properties",
+                "ScalingAdjustment"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 566
+            }
+        },
+        "Message": "'1' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "58e47439-2f21-1eb4-e186-b7dddf8f9040",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 24,
+                "LineNumber": 574
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingDownWeb",
+                "Properties",
+                "ScalingAdjustment"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 574
+            }
+        },
+        "Message": "'-1' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "773f7899-a274-f6ca-5562-522843698ccc",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 14,
+                "LineNumber": 577
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingGroupApp",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 577
+            }
+        },
+        "Message": "'rAutoScalingConfigApp' dependency already enforced by a 'Ref' at 'Resources/rAutoScalingGroupApp/Properties/LaunchConfigurationName'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "f76847b7-5ed2-1582-1a43-0444bbc6e0e4",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 29,
+                "LineNumber": 582
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingGroupApp",
+                "Properties",
+                "HealthCheckGracePeriod"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 582
+            }
+        },
+        "Message": "'300' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "7b95cccd-db41-8849-1a32-8b0e501715c6",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 26,
+                "LineNumber": 592
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingGroupApp",
+                "Properties",
+                "Tags",
+                0,
+                "PropagateAtLaunch"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 592
+            }
+        },
+        "Message": "'true' is not of type 'boolean'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "a84c11ec-46f0-5de8-ba2d-f70b7e7dbfb4",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 26,
+                "LineNumber": 595
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingGroupApp",
+                "Properties",
+                "Tags",
+                1,
+                "PropagateAtLaunch"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 595
+            }
+        },
+        "Message": "'true' is not of type 'boolean'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "8094e160-9c42-ebfb-1d3b-c48994438680",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 14,
+                "LineNumber": 603
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingGroupWeb",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 603
+            }
+        },
+        "Message": "'rAutoScalingConfigWeb' dependency already enforced by a 'Ref' at 'Resources/rAutoScalingGroupWeb/Properties/LaunchConfigurationName'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "76bf318e-d783-4a84-bb4f-a979f39cb6da",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 29,
+                "LineNumber": 608
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingGroupWeb",
+                "Properties",
+                "HealthCheckGracePeriod"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 608
+            }
+        },
+        "Message": "'300' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "59e6f0f3-3bdd-6b10-cead-babffcd7cfae",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 26,
+                "LineNumber": 618
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingGroupWeb",
+                "Properties",
+                "Tags",
+                0,
+                "PropagateAtLaunch"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 618
+            }
+        },
+        "Message": "'true' is not of type 'boolean'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "cb9b5cf1-c9e6-fe9c-d3ae-aa2df9b47ac2",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 26,
+                "LineNumber": 621
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingGroupWeb",
+                "Properties",
+                "Tags",
+                1,
+                "PropagateAtLaunch"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 621
+            }
+        },
+        "Message": "'true' is not of type 'boolean'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "5924e4cf-86e1-e167-f1dc-a0e2eddc6917",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 24,
+                "LineNumber": 634
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingUpApp",
+                "Properties",
+                "ScalingAdjustment"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 634
+            }
+        },
+        "Message": "'-1' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "8d053a56-e609-8a71-663b-64b08c5e23dd",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 24,
+                "LineNumber": 642
+            },
+            "Path": [
+                "Resources",
+                "rAutoScalingUpWeb",
+                "Properties",
+                "ScalingAdjustment"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 642
+            }
+        },
+        "Message": "'1' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "1ed7ec02-b889-aecb-3afd-3168a69506c9",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 24,
+                "LineNumber": 655
+            },
+            "Path": [
+                "Resources",
+                "rCWAlarmHighCPUApp",
+                "Properties",
+                "EvaluationPeriods"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 655
+            }
+        },
+        "Message": "'1' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "555eb3d1-d551-6ef7-4b30-5fb4f76a3d15",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 13,
+                "LineNumber": 658
+            },
+            "Path": [
+                "Resources",
+                "rCWAlarmHighCPUApp",
+                "Properties",
+                "Period"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 658
+            }
+        },
+        "Message": "'60' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "27aa5f3a-4527-c5de-4257-4f0c85248727",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 660
+            },
+            "Path": [
+                "Resources",
+                "rCWAlarmHighCPUApp",
+                "Properties",
+                "Threshold"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 660
+            }
+        },
+        "Message": "'50' is not of type 'number'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "ad431cb6-feca-1967-9764-17a0efc52c7e",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 24,
+                "LineNumber": 673
+            },
+            "Path": [
+                "Resources",
+                "rCWAlarmHighCPUWeb",
+                "Properties",
+                "EvaluationPeriods"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 673
+            }
+        },
+        "Message": "'1' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "0f4779f7-04ae-60f8-8045-ae1ca1760c7d",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 13,
+                "LineNumber": 676
+            },
+            "Path": [
+                "Resources",
+                "rCWAlarmHighCPUWeb",
+                "Properties",
+                "Period"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 676
+            }
+        },
+        "Message": "'60' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "fcf673be-1c0e-daa3-47ed-086521c4eb60",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 678
+            },
+            "Path": [
+                "Resources",
+                "rCWAlarmHighCPUWeb",
+                "Properties",
+                "Threshold"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 678
+            }
+        },
+        "Message": "'50' is not of type 'number'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "bb56aaf9-ea72-a4f0-877a-7f6f183cc98e",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 24,
+                "LineNumber": 690
+            },
+            "Path": [
+                "Resources",
+                "rCWAlarmLowCPUApp",
+                "Properties",
+                "EvaluationPeriods"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 690
+            }
+        },
+        "Message": "'1' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "b8e5b639-0257-fd36-277d-4cafc846f453",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 13,
+                "LineNumber": 693
+            },
+            "Path": [
+                "Resources",
+                "rCWAlarmLowCPUApp",
+                "Properties",
+                "Period"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 693
+            }
+        },
+        "Message": "'60' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "5dcb378c-63fc-8395-80b0-0569e67d8df8",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 695
+            },
+            "Path": [
+                "Resources",
+                "rCWAlarmLowCPUApp",
+                "Properties",
+                "Threshold"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 695
+            }
+        },
+        "Message": "'10' is not of type 'number'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "ad59319d-30dc-6f60-6daf-330dbce2b4c0",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 14,
+                "LineNumber": 698
+            },
+            "Path": [
+                "Resources",
+                "rCWAlarmLowCPUWeb",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 698
+            }
+        },
+        "Message": "'rAutoScalingGroupWeb' dependency already enforced by a 'Ref' at 'Resources/rCWAlarmLowCPUWeb/Properties/Dimensions/0/Value'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "200d2446-9fe2-cdc8-35b3-42e0cbf90626",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 24,
+                "LineNumber": 708
+            },
+            "Path": [
+                "Resources",
+                "rCWAlarmLowCPUWeb",
+                "Properties",
+                "EvaluationPeriods"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 708
+            }
+        },
+        "Message": "'1' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "91b9c4a0-fd1b-2f16-5d7a-a63af4342fc0",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 13,
+                "LineNumber": 711
+            },
+            "Path": [
+                "Resources",
+                "rCWAlarmLowCPUWeb",
+                "Properties",
+                "Period"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 711
+            }
+        },
+        "Message": "'60' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "3a737c15-966f-b571-161c-9bfae6c4d6c5",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 713
+            },
+            "Path": [
+                "Resources",
+                "rCWAlarmLowCPUWeb",
+                "Properties",
+                "Threshold"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 713
+            }
+        },
+        "Message": "'10' is not of type 'number'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "bf9193bf-430c-d293-1da5-55860232bc37",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 23,
+                "LineNumber": 724
+            },
+            "Path": [
+                "Resources",
+                "rELBApp",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 724
+            }
+        },
+        "Message": "'rS3ELBAccessLogs' dependency already enforced by a 'Ref' at 'Resources/rELBApp/Properties/AccessLoggingPolicy/S3BucketName'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "fd879ff1-bedd-6686-bdee-71b231c798c1",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 24,
+                "LineNumber": 725
+            },
+            "Path": [
+                "Resources",
+                "rELBApp",
+                "DependsOn",
+                1
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 725
+            }
+        },
+        "Message": "'rSecurityGroupApp' dependency already enforced by a 'Ref' at 'Resources/rELBApp/Properties/SecurityGroups/0'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "576e600a-2a08-514f-a3a8-973334c2d3fe",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 21,
+                "LineNumber": 729
+            },
+            "Path": [
+                "Resources",
+                "rELBApp",
+                "Properties",
+                "AccessLoggingPolicy",
+                "EmitInterval"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 729
+            }
+        },
+        "Message": "'60' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "5f3b21ee-335e-5e2f-4717-0a025aa25c7f",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 730
+            },
+            "Path": [
+                "Resources",
+                "rELBApp",
+                "Properties",
+                "AccessLoggingPolicy",
+                "Enabled"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 730
+            }
+        },
+        "Message": "'true' is not of type 'boolean'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "0e16e729-4ce3-a94b-8b7d-2972bde68ec3",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 23,
+                "LineNumber": 760
+            },
+            "Path": [
+                "Resources",
+                "rELBWeb",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 760
+            }
+        },
+        "Message": "'rS3ELBAccessLogs' dependency already enforced by a 'Ref' at 'Resources/rELBWeb/Properties/AccessLoggingPolicy/S3BucketName'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "335cb9e7-4b18-09be-1fff-9dbfdc2201ff",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 24,
+                "LineNumber": 761
+            },
+            "Path": [
+                "Resources",
+                "rELBWeb",
+                "DependsOn",
+                1
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 761
+            }
+        },
+        "Message": "'rSecurityGroupWeb' dependency already enforced by a 'Ref' at 'Resources/rELBWeb/Properties/SecurityGroups/0'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "b3401f89-779a-24aa-32c0-7615ecd0d45f",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 21,
+                "LineNumber": 765
+            },
+            "Path": [
+                "Resources",
+                "rELBWeb",
+                "Properties",
+                "AccessLoggingPolicy",
+                "EmitInterval"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 765
+            }
+        },
+        "Message": "'60' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "f5220653-16e0-053d-8254-2b510acfeb4c",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 766
+            },
+            "Path": [
+                "Resources",
+                "rELBWeb",
+                "Properties",
+                "AccessLoggingPolicy",
+                "Enabled"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 766
+            }
+        },
+        "Message": "'true' is not of type 'boolean'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "a793117d-34b7-967d-1a68-ef79479b9f52",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 12,
+                "LineNumber": 801
+            },
+            "Path": [
+                "Resources",
+                "rPostProcInstance",
+                "Properties",
+                "ImageId",
+                "Ref"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 801
+            }
+        },
+        "Message": "{'Ref': 'pWebServerAMI'} is not a 'AWS::EC2::Image.Id' with pattern '^ami-([0-9a-z]{8}|[0-9a-z]{17})$' when 'Ref' is resolved",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Resolve the Ref and then validate the values against the schema",
+            "Id": "W1030",
+            "ShortDescription": "Validate the values that come from a Ref function",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "ba2f1979-b937-e0b4-c286-b900d78a675e",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 19,
+                "LineNumber": 924
+            },
+            "Path": [
+                "Resources",
+                "rPostProcInstance",
+                "Properties",
+                "UserData",
+                "Fn::Base64",
+                "Fn::Join",
+                1,
+                44,
+                "Fn::Join",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 17,
+                "LineNumber": 924
+            }
+        },
+        "Message": "Prefer using Fn::Sub over Fn::Join with an empty delimiter",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Prefer a sub instead of Join when using a join delimiter that is empty",
+            "Id": "I1022",
+            "ShortDescription": "Use Sub instead of Join",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-sub.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "7b1a3c7d-adcb-150f-41cb-e53fa35f8320",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 20,
+                "LineNumber": 1002
+            },
+            "Path": [
+                "Resources",
+                "rRDSInstanceMySQL"
+            ],
+            "Start": {
+                "ColumnNumber": 3,
+                "LineNumber": 1002
+            }
+        },
+        "Message": "'DeletionPolicy' is a required property (The default action when replacing/removing a resource is to delete it. Set explicit values for stateful resource)",
+        "ParentId": null,
+        "Rule": {
+            "Description": "The default action when replacing/removing a resource is to delete it. This check requires you to explicitly set policies",
+            "Id": "I3011",
+            "ShortDescription": "Check stateful resources have a set UpdateReplacePolicy/DeletionPolicy",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "95f9b184-dde7-3897-fd47-77589ac966b4",
+        "Level": "Informational",
+        "Location": {
+            "End": {
+                "ColumnNumber": 20,
+                "LineNumber": 1002
+            },
+            "Path": [
+                "Resources",
+                "rRDSInstanceMySQL"
+            ],
+            "Start": {
+                "ColumnNumber": 3,
+                "LineNumber": 1002
+            }
+        },
+        "Message": "'UpdateReplacePolicy' is a required property (The default action when replacing/removing a resource is to delete it. Set explicit values for stateful resource)",
+        "ParentId": null,
+        "Rule": {
+            "Description": "The default action when replacing/removing a resource is to delete it. This check requires you to explicitly set policies",
+            "Id": "I3011",
+            "ShortDescription": "Check stateful resources have a set UpdateReplacePolicy/DeletionPolicy",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "bfa6688b-a231-0891-8618-82bf627a4e0a",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 21,
+                "LineNumber": 1004
+            },
+            "Path": [
+                "Resources",
+                "rRDSInstanceMySQL",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 1004
+            }
+        },
+        "Message": "'rDBSubnetGroup' dependency already enforced by a 'Ref' at 'Resources/rRDSInstanceMySQL/Properties/DBSubnetGroupName'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "b0c8d839-91d0-ed87-9862-d5dcb6a51f7b",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 24,
+                "LineNumber": 1005
+            },
+            "Path": [
+                "Resources",
+                "rRDSInstanceMySQL",
+                "DependsOn",
+                1
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 1005
+            }
+        },
+        "Message": "'rSecurityGroupRDS' dependency already enforced by a 'Ref' at 'Resources/rRDSInstanceMySQL/Properties/VPCSecurityGroups/0'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "f9eea976-b0a1-e27c-c1d1-b5346047d92d",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 25,
+                "LineNumber": 1016
+            },
+            "Path": [
+                "Resources",
+                "rRDSInstanceMySQL",
+                "Properties",
+                "MasterUserPassword"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 1016
+            }
+        },
+        "Message": "Use dynamic references over parameters for secrets",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Instead of REFing a parameter for a secret use a dynamic reference. Solutions like SSM parameter store and secrets manager provide better security of sercrets",
+            "Id": "W1011",
+            "ShortDescription": "Instead of REFing a parameter for a secret use a dynamic reference",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/security-best-practices.html#creds"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "ed70c933-9f20-e711-73de-a72fdd1c144b",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 14,
+                "LineNumber": 1020
+            },
+            "Path": [
+                "Resources",
+                "rRDSInstanceMySQL",
+                "Properties",
+                "MultiAZ"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 1020
+            }
+        },
+        "Message": "'true' is not of type 'boolean'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "5d2c82ee-96fe-d6be-fd36-c390eabdf4e9",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 23,
+                "LineNumber": 1021
+            },
+            "Path": [
+                "Resources",
+                "rRDSInstanceMySQL",
+                "Properties",
+                "StorageEncrypted"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 1021
+            }
+        },
+        "Message": "'true' is not of type 'boolean'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "5bd0a726-e514-fb1d-0cbf-86030609d257",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 22,
+                "LineNumber": 1026
+            },
+            "Path": [
+                "Resources",
+                "rS3AccessLogsPolicy"
+            ],
+            "Start": {
+                "ColumnNumber": 3,
+                "LineNumber": 1026
+            }
+        },
+        "Message": "Both 'UpdateReplacePolicy' and 'DeletionPolicy' are needed to protect resource from deletion",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Both UpdateReplacePolicy and DeletionPolicy are needed to protect resources from deletion",
+            "Id": "W3011",
+            "ShortDescription": "Check resources with UpdateReplacePolicy/DeletionPolicy have both",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "a7bf2302-22bf-e0cf-94ce-bfafba867745",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 1058
+            },
+            "Path": [
+                "Resources",
+                "rS3AccessLogsPolicy",
+                "Properties",
+                "PolicyDocument",
+                "Version"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 1058
+            }
+        },
+        "Message": "IAM Policy Version should be updated to '2012-10-17'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "See if the elements inside an IAM Resource policy are configured correctly.",
+            "Id": "W2511",
+            "ShortDescription": "Check IAM Resource Policies syntax",
+            "Source": "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "b55f7c09-f9e7-8396-8239-ad741f60fddc",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 19,
+                "LineNumber": 1060
+            },
+            "Path": [
+                "Resources",
+                "rS3ELBAccessLogs"
+            ],
+            "Start": {
+                "ColumnNumber": 3,
+                "LineNumber": 1060
+            }
+        },
+        "Message": "Both 'UpdateReplacePolicy' and 'DeletionPolicy' are needed to protect resource from deletion",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Both UpdateReplacePolicy and DeletionPolicy are needed to protect resources from deletion",
+            "Id": "W3011",
+            "ShortDescription": "Check resources with UpdateReplacePolicy/DeletionPolicy have both",
+            "Source": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "048c6bc1-1c83-fa9e-2260-0d293e5ade46",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 20,
+                "LineNumber": 1063
+            },
+            "Path": [
+                "Resources",
+                "rS3ELBAccessLogs",
+                "Properties",
+                "AccessControl"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 1063
+            }
+        },
+        "Message": "'AccessControl' is a legacy property. Consider using 'AWS::S3::BucketPolicy' instead",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Nearly all access control configurations can be more successfully achieved with bucket policies. Consider using bucket policies instead of access control.",
+            "Id": "W3045",
+            "ShortDescription": "Controlling access to an S3 bucket should be done with bucket policies",
+            "Source": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "775437a3-4e86-b221-8d2e-0ba1f9b54a5a",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 17,
+                "LineNumber": 1070
+            },
+            "Path": [
+                "Resources",
+                "rSecurityGroupApp",
+                "Properties",
+                "SecurityGroupEgress",
+                0,
+                "FromPort"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 1070
+            }
+        },
+        "Message": "'443' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "d16b9792-2d6e-ac96-fa61-be6485bc1e98",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 15,
+                "LineNumber": 1072
+            },
+            "Path": [
+                "Resources",
+                "rSecurityGroupApp",
+                "Properties",
+                "SecurityGroupEgress",
+                0,
+                "ToPort"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 1072
+            }
+        },
+        "Message": "'443' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "1a3d2e8d-46fc-a554-6d80-775f3a5a77be",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 17,
+                "LineNumber": 1074
+            },
+            "Path": [
+                "Resources",
+                "rSecurityGroupApp",
+                "Properties",
+                "SecurityGroupEgress",
+                1,
+                "FromPort"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 1074
+            }
+        },
+        "Message": "'80' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "a9c2e1c8-0efe-4ae7-09e2-4574c8e11804",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 15,
+                "LineNumber": 1076
+            },
+            "Path": [
+                "Resources",
+                "rSecurityGroupApp",
+                "Properties",
+                "SecurityGroupEgress",
+                1,
+                "ToPort"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 1076
+            }
+        },
+        "Message": "'80' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "6ffa79be-9955-90d5-fe72-1b8a78973987",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 17,
+                "LineNumber": 1080
+            },
+            "Path": [
+                "Resources",
+                "rSecurityGroupApp",
+                "Properties",
+                "SecurityGroupIngress",
+                0,
+                "FromPort"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 1080
+            }
+        },
+        "Message": "'443' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "a73b620d-2384-f208-4cd5-83d3bf256acf",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 15,
+                "LineNumber": 1082
+            },
+            "Path": [
+                "Resources",
+                "rSecurityGroupApp",
+                "Properties",
+                "SecurityGroupIngress",
+                0,
+                "ToPort"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 1082
+            }
+        },
+        "Message": "'443' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "aa4926d5-3b02-6d73-a591-a94260ba2691",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 17,
+                "LineNumber": 1098
+            },
+            "Path": [
+                "Resources",
+                "rSecurityGroupAppInstance",
+                "Properties",
+                "SecurityGroupIngress",
+                0,
+                "FromPort"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 1098
+            }
+        },
+        "Message": "'443' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "d6ca0d5c-7ad2-7dd7-330c-1ca0a2fa0d8d",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 15,
+                "LineNumber": 1100
+            },
+            "Path": [
+                "Resources",
+                "rSecurityGroupAppInstance",
+                "Properties",
+                "SecurityGroupIngress",
+                0,
+                "ToPort"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 1100
+            }
+        },
+        "Message": "'443' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "6552b18e-4fd1-9b74-dbc8-410a5265ad88",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 17,
+                "LineNumber": 1103
+            },
+            "Path": [
+                "Resources",
+                "rSecurityGroupAppInstance",
+                "Properties",
+                "SecurityGroupIngress",
+                1,
+                "FromPort"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 1103
+            }
+        },
+        "Message": "'80' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "85ace59f-0bb7-db58-9bb4-d8d1f8da45ef",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 15,
+                "LineNumber": 1105
+            },
+            "Path": [
+                "Resources",
+                "rSecurityGroupAppInstance",
+                "Properties",
+                "SecurityGroupIngress",
+                1,
+                "ToPort"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 1105
+            }
+        },
+        "Message": "'80' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "54d11687-13dc-4332-2f28-167221ad2443",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 17,
+                "LineNumber": 1108
+            },
+            "Path": [
+                "Resources",
+                "rSecurityGroupAppInstance",
+                "Properties",
+                "SecurityGroupIngress",
+                2,
+                "FromPort"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 1108
+            }
+        },
+        "Message": "'22' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "6b1453de-ff6d-f84b-5a5c-37f6748337ad",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 15,
+                "LineNumber": 1110
+            },
+            "Path": [
+                "Resources",
+                "rSecurityGroupAppInstance",
+                "Properties",
+                "SecurityGroupIngress",
+                2,
+                "ToPort"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 1110
+            }
+        },
+        "Message": "'22' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "824fbddb-292d-995e-27cf-0579cc704646",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 17,
+                "LineNumber": 1124
+            },
+            "Path": [
+                "Resources",
+                "rSecurityGroupRDS",
+                "Properties",
+                "SecurityGroupIngress",
+                0,
+                "FromPort"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 1124
+            }
+        },
+        "Message": "'3306' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "95c6b500-e14d-dbd6-0451-f82fced6e710",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 15,
+                "LineNumber": 1128
+            },
+            "Path": [
+                "Resources",
+                "rSecurityGroupRDS",
+                "Properties",
+                "SecurityGroupIngress",
+                0,
+                "ToPort"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 1128
+            }
+        },
+        "Message": "'3306' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "be68ff95-36cd-0ef0-2980-ca8e363728fe",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 17,
+                "LineNumber": 1143
+            },
+            "Path": [
+                "Resources",
+                "rSecurityGroupWeb",
+                "Properties",
+                "SecurityGroupIngress",
+                0,
+                "FromPort"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 1143
+            }
+        },
+        "Message": "'443' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "2bbe7cb2-46df-0a40-8294-8b78455b444b",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 15,
+                "LineNumber": 1145
+            },
+            "Path": [
+                "Resources",
+                "rSecurityGroupWeb",
+                "Properties",
+                "SecurityGroupIngress",
+                0,
+                "ToPort"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 1145
+            }
+        },
+        "Message": "'443' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "dfebfb3d-9616-3e5a-71cd-5e4c370e7767",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 17,
+                "LineNumber": 1155
+            },
+            "Path": [
+                "Resources",
+                "rSecurityGroupWebInstance",
+                "Properties",
+                "SecurityGroupIngress",
+                0,
+                "FromPort"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 1155
+            }
+        },
+        "Message": "'443' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "03848200-ba08-2cb3-f1ea-cc657b122ec8",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 15,
+                "LineNumber": 1157
+            },
+            "Path": [
+                "Resources",
+                "rSecurityGroupWebInstance",
+                "Properties",
+                "SecurityGroupIngress",
+                0,
+                "ToPort"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 1157
+            }
+        },
+        "Message": "'443' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "19ced7fd-4c43-8ee0-c7e7-44a9882dc5bb",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 17,
+                "LineNumber": 1160
+            },
+            "Path": [
+                "Resources",
+                "rSecurityGroupWebInstance",
+                "Properties",
+                "SecurityGroupIngress",
+                1,
+                "FromPort"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 1160
+            }
+        },
+        "Message": "'80' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "9413ff6f-cbbe-c0f4-ad75-9a4485ea14c3",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 15,
+                "LineNumber": 1162
+            },
+            "Path": [
+                "Resources",
+                "rSecurityGroupWebInstance",
+                "Properties",
+                "SecurityGroupIngress",
+                1,
+                "ToPort"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 1162
+            }
+        },
+        "Message": "'80' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "a7889d41-d947-89e2-fa39-85cf211e07d1",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 17,
+                "LineNumber": 1165
+            },
+            "Path": [
+                "Resources",
+                "rSecurityGroupWebInstance",
+                "Properties",
+                "SecurityGroupIngress",
+                2,
+                "FromPort"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 1165
+            }
+        },
+        "Message": "'22' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "3e415e10-fa27-0d6c-149d-d22e723a4cea",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 15,
+                "LineNumber": 1167
+            },
+            "Path": [
+                "Resources",
+                "rSecurityGroupWebInstance",
+                "Properties",
+                "SecurityGroupIngress",
+                2,
+                "ToPort"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 1167
+            }
+        },
+        "Message": "'22' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "af13eaed-68b8-ecaf-ae37-9cdb57a15949",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 20,
+                "LineNumber": 1180
+            },
+            "Path": [
+                "Resources",
+                "rWebContentBucket",
+                "Properties",
+                "AccessControl"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 1180
+            }
+        },
+        "Message": "'AccessControl' is a legacy property. Consider using 'AWS::S3::BucketPolicy' instead",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Nearly all access control configurations can be more successfully achieved with bucket policies. Consider using bucket policies instead of access control.",
+            "Id": "W3045",
+            "ShortDescription": "Controlling access to an S3 bucket should be done with bucket policies",
+            "Source": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "0175fe50-8327-3ffa-ff8b-68b6400d0d63",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 27,
+                "LineNumber": 1183
+            },
+            "Path": [
+                "Resources",
+                "rWebContentBucket",
+                "Properties",
+                "LifecycleConfiguration",
+                "Rules",
+                0,
+                "ExpirationInDays"
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 1183
+            }
+        },
+        "Message": "'2555' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "8f816b0b-3c26-d9bb-83f1-d0e1621b5219",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 29,
+                "LineNumber": 1192
+            },
+            "Path": [
+                "Resources",
+                "rWebContentBucket",
+                "Properties",
+                "LifecycleConfiguration",
+                "Rules",
+                0,
+                "Transition",
+                "TransitionInDays"
+            ],
+            "Start": {
+                "ColumnNumber": 13,
+                "LineNumber": 1192
+            }
+        },
+        "Message": "'90' is not of type 'integer'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "78ffc9a6-4a55-34fa-8c11-8f2952b5c927",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 14,
+                "LineNumber": 1198
+            },
+            "Path": [
+                "Resources",
+                "rWebContentS3Policy",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 1198
+            }
+        },
+        "Message": "'rWebContentBucket' dependency already enforced by a 'Ref' at 'Resources/rWebContentS3Policy/Properties/Bucket'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "367d3a54-9e0a-da03-1ecc-55f9cdfc81ad",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 14,
+                "LineNumber": 1198
+            },
+            "Path": [
+                "Resources",
+                "rWebContentS3Policy",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 1198
+            }
+        },
+        "Message": "'rWebContentBucket' dependency already enforced by a 'Ref' at 'Resources/rWebContentS3Policy/Properties/PolicyDocument/Statement/0/Resource/Fn::Join/1/3'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/nist_application.yaml",
+        "Id": "4bbb26ba-6fac-4a96-177d-ca5f5e40d88f",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 14,
+                "LineNumber": 1198
+            },
+            "Path": [
+                "Resources",
+                "rWebContentS3Policy",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 1198
+            }
+        },
+        "Message": "'rWebContentBucket' dependency already enforced by a 'Ref' at 'Resources/rWebContentS3Policy/Properties/PolicyDocument/Statement/1/Resource/Fn::Join/1/3'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    }
+]

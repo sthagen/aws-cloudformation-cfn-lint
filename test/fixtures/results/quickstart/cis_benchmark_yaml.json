@@ -1,0 +1,2171 @@
+[
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "ddf99e3d-ba66-77c6-74f0-e9805228953b",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 27,
+                "LineNumber": 122
+            },
+            "Path": [
+                "Resources",
+                "FunctiontForEvaluateCisBenchmarkingPreconditions",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 122
+            }
+        },
+        "Message": "'MasterConfigRole' dependency already enforced by a 'GetAtt' at 'Resources/FunctiontForEvaluateCisBenchmarkingPreconditions/Properties/Role'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "5a65b948-e50c-80e9-4ffc-52bb4f27ee5a",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 176
+            },
+            "Path": [
+                "Resources",
+                "FunctiontForEvaluateCisBenchmarkingPreconditions",
+                "Properties",
+                "Runtime"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 176
+            }
+        },
+        "Message": "Runtime 'python3.8' was deprecated on '2024-10-14'. Creation was disabled on '2027-02-01' and update on '2027-03-03'. Please consider updating to 'python3.14'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if an EOL Lambda Runtime is specified and give a warning if used. ",
+            "Id": "W2531",
+            "ShortDescription": "Check if EOL Lambda Function Runtimes are used",
+            "Source": "https://docs.aws.amazon.com/lambda/latest/dg/runtime-support-policy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "3891b664-e01f-0ad7-5437-4ac9f5e53056",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 181
+            },
+            "Path": [
+                "Resources",
+                "ResourceForEvaluateCisBenchmarkingPreconditions",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 181
+            }
+        },
+        "Message": "'FunctiontForEvaluateCisBenchmarkingPreconditions' dependency already enforced by a 'GetAtt' at 'Resources/ResourceForEvaluateCisBenchmarkingPreconditions/Properties/ServiceToken'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "59f789b0-d0ef-6433-9c44-d2088e37438f",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 27,
+                "LineNumber": 228
+            },
+            "Path": [
+                "Resources",
+                "FunctionForEvaluateRootAccountRule",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 228
+            }
+        },
+        "Message": "'MasterConfigRole' dependency already enforced by a 'GetAtt' at 'Resources/FunctionForEvaluateRootAccountRule/Properties/Role'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "7fb9d895-5f49-a01c-e6e9-25e4fee97c87",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 309
+            },
+            "Path": [
+                "Resources",
+                "FunctionForEvaluateRootAccountRule",
+                "Properties",
+                "Runtime"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 309
+            }
+        },
+        "Message": "Runtime 'python3.8' was deprecated on '2024-10-14'. Creation was disabled on '2027-02-01' and update on '2027-03-03'. Please consider updating to 'python3.14'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if an EOL Lambda Runtime is specified and give a warning if used. ",
+            "Id": "W2531",
+            "ShortDescription": "Check if EOL Lambda Function Runtimes are used",
+            "Source": "https://docs.aws.amazon.com/lambda/latest/dg/runtime-support-policy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "3466106a-2089-d1ac-7fe4-aa5e211dd9e1",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 315
+            },
+            "Path": [
+                "Resources",
+                "EvaluateRootAccountFunctionPermission",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 315
+            }
+        },
+        "Message": "'FunctionForEvaluateRootAccountRule' dependency already enforced by a 'GetAtt' at 'Resources/EvaluateRootAccountFunctionPermission/Properties/FunctionName'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "a092165d-3313-2eef-6ecd-e074c0b13de5",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 27,
+                "LineNumber": 422
+            },
+            "Path": [
+                "Resources",
+                "FunctionForVpcFlowLogRule",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 422
+            }
+        },
+        "Message": "'MasterConfigRole' dependency already enforced by a 'GetAtt' at 'Resources/FunctionForVpcFlowLogRule/Properties/Role'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "4e4de0b0-e381-7524-4d7d-c1d1a2b741c8",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 481
+            },
+            "Path": [
+                "Resources",
+                "FunctionForVpcFlowLogRule",
+                "Properties",
+                "Runtime"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 481
+            }
+        },
+        "Message": "Runtime 'python3.8' was deprecated on '2024-10-14'. Creation was disabled on '2027-02-01' and update on '2027-03-03'. Please consider updating to 'python3.14'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if an EOL Lambda Runtime is specified and give a warning if used. ",
+            "Id": "W2531",
+            "ShortDescription": "Check if EOL Lambda Function Runtimes are used",
+            "Source": "https://docs.aws.amazon.com/lambda/latest/dg/runtime-support-policy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "7e60ce0a-dd32-349a-c0dd-f97d3e18b82e",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 486
+            },
+            "Path": [
+                "Resources",
+                "ConfigPermissionToCallVpcFlowLogLambda",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 486
+            }
+        },
+        "Message": "'FunctionForVpcFlowLogRule' dependency already enforced by a 'GetAtt' at 'Resources/ConfigPermissionToCallVpcFlowLogLambda/Properties/FunctionName'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "e7f0f768-21cf-e842-aec8-baa2f81fc15b",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 27,
+                "LineNumber": 498
+            },
+            "Path": [
+                "Resources",
+                "FunctionForVpcDefaultSecurityGroupsRule",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 498
+            }
+        },
+        "Message": "'MasterConfigRole' dependency already enforced by a 'GetAtt' at 'Resources/FunctionForVpcDefaultSecurityGroupsRule/Properties/Role'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "ebda5c20-7112-d614-c39d-820b15110ea6",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 551
+            },
+            "Path": [
+                "Resources",
+                "FunctionForVpcDefaultSecurityGroupsRule",
+                "Properties",
+                "Runtime"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 551
+            }
+        },
+        "Message": "Runtime 'python3.8' was deprecated on '2024-10-14'. Creation was disabled on '2027-02-01' and update on '2027-03-03'. Please consider updating to 'python3.14'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if an EOL Lambda Runtime is specified and give a warning if used. ",
+            "Id": "W2531",
+            "ShortDescription": "Check if EOL Lambda Function Runtimes are used",
+            "Source": "https://docs.aws.amazon.com/lambda/latest/dg/runtime-support-policy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "31276a05-2da2-5722-2e84-2b708f1d29d9",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 556
+            },
+            "Path": [
+                "Resources",
+                "ConfigPermissionToCallVpcDefaultSecurityGroupsLambda",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 556
+            }
+        },
+        "Message": "'FunctionForVpcDefaultSecurityGroupsRule' dependency already enforced by a 'GetAtt' at 'Resources/ConfigPermissionToCallVpcDefaultSecurityGroupsLambda/Properties/FunctionName'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "6bfdd232-6ff9-e0bf-4813-a112a1aaaa5d",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 50,
+                "LineNumber": 566
+            },
+            "Path": [
+                "Resources",
+                "ConfigRuleForVpcDefaultSecurityGroupss",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 566
+            }
+        },
+        "Message": "'FunctionForVpcDefaultSecurityGroupsRule' dependency already enforced by a 'GetAtt' at 'Resources/ConfigRuleForVpcDefaultSecurityGroupss/Properties/Source/SourceIdentifier'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "1895e3f1-fa3d-9a66-f81a-404599b5f3fa",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 36,
+                "LineNumber": 585
+            },
+            "Path": [
+                "Resources",
+                "ConfigRuleForVpcFlowLogs",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 585
+            }
+        },
+        "Message": "'FunctionForVpcFlowLogRule' dependency already enforced by a 'GetAtt' at 'Resources/ConfigRuleForVpcFlowLogs/Properties/Source/SourceIdentifier'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "e015660e-3fb0-d625-18c4-44b396b0e902",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 27,
+                "LineNumber": 607
+            },
+            "Path": [
+                "Resources",
+                "FunctionForRoleForMfaOnUsersRule",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 607
+            }
+        },
+        "Message": "'MasterConfigRole' dependency already enforced by a 'GetAtt' at 'Resources/FunctionForRoleForMfaOnUsersRule/Properties/Role'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "ca8cc9f0-3ce9-c795-4474-c9de70375b6e",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 666
+            },
+            "Path": [
+                "Resources",
+                "FunctionForRoleForMfaOnUsersRule",
+                "Properties",
+                "Runtime"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 666
+            }
+        },
+        "Message": "Runtime 'python3.8' was deprecated on '2024-10-14'. Creation was disabled on '2027-02-01' and update on '2027-03-03'. Please consider updating to 'python3.14'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if an EOL Lambda Runtime is specified and give a warning if used. ",
+            "Id": "W2531",
+            "ShortDescription": "Check if EOL Lambda Function Runtimes are used",
+            "Source": "https://docs.aws.amazon.com/lambda/latest/dg/runtime-support-policy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "82e72252-8ebe-ba6b-c7fd-d85aad75bac2",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 671
+            },
+            "Path": [
+                "Resources",
+                "ConfigPermissionToCallMfaForUsersLambda",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 671
+            }
+        },
+        "Message": "'FunctionForRoleForMfaOnUsersRule' dependency already enforced by a 'GetAtt' at 'Resources/ConfigPermissionToCallMfaForUsersLambda/Properties/FunctionName'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "c54ca287-18e3-3901-e482-83bb047603dd",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 27,
+                "LineNumber": 700
+            },
+            "Path": [
+                "Resources",
+                "FunctionForEvaluatePolicyPermissionsRule",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 700
+            }
+        },
+        "Message": "'MasterConfigRole' dependency already enforced by a 'GetAtt' at 'Resources/FunctionForEvaluatePolicyPermissionsRule/Properties/Role'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "f1d09997-0daf-ae9b-2761-34c36aed1682",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 760
+            },
+            "Path": [
+                "Resources",
+                "FunctionForEvaluatePolicyPermissionsRule",
+                "Properties",
+                "Runtime"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 760
+            }
+        },
+        "Message": "Runtime 'python3.8' was deprecated on '2024-10-14'. Creation was disabled on '2027-02-01' and update on '2027-03-03'. Please consider updating to 'python3.14'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if an EOL Lambda Runtime is specified and give a warning if used. ",
+            "Id": "W2531",
+            "ShortDescription": "Check if EOL Lambda Function Runtimes are used",
+            "Source": "https://docs.aws.amazon.com/lambda/latest/dg/runtime-support-policy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "05b6da3e-05ea-dd2d-b2e2-2eb38f9b157a",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 765
+            },
+            "Path": [
+                "Resources",
+                "ConfigPermissionToCallEvaluatePolicyPermissionsLambda",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 765
+            }
+        },
+        "Message": "'FunctionForEvaluatePolicyPermissionsRule' dependency already enforced by a 'GetAtt' at 'Resources/ConfigPermissionToCallEvaluatePolicyPermissionsLambda/Properties/FunctionName'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "754d9f9c-0b33-7fca-f679-81b3dececd35",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 51,
+                "LineNumber": 774
+            },
+            "Path": [
+                "Resources",
+                "ConfigRuleForEvaluatePolicyPermissions",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 774
+            }
+        },
+        "Message": "'FunctionForEvaluatePolicyPermissionsRule' dependency already enforced by a 'GetAtt' at 'Resources/ConfigRuleForEvaluatePolicyPermissions/Properties/Source/SourceIdentifier'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "ea5ab433-f245-2a65-131c-a4ed41350075",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 27,
+                "LineNumber": 796
+            },
+            "Path": [
+                "Resources",
+                "FunctionForEvaluateUserPolicyAssociationRule",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 796
+            }
+        },
+        "Message": "'MasterConfigRole' dependency already enforced by a 'GetAtt' at 'Resources/FunctionForEvaluateUserPolicyAssociationRule/Properties/Role'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "e60290e5-c3d9-07e4-8fc0-924508ebcee1",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 850
+            },
+            "Path": [
+                "Resources",
+                "FunctionForEvaluateUserPolicyAssociationRule",
+                "Properties",
+                "Runtime"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 850
+            }
+        },
+        "Message": "Runtime 'python3.8' was deprecated on '2024-10-14'. Creation was disabled on '2027-02-01' and update on '2027-03-03'. Please consider updating to 'python3.14'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if an EOL Lambda Runtime is specified and give a warning if used. ",
+            "Id": "W2531",
+            "ShortDescription": "Check if EOL Lambda Function Runtimes are used",
+            "Source": "https://docs.aws.amazon.com/lambda/latest/dg/runtime-support-policy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "e60469c7-c230-7901-ef33-e3bebf512f57",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 855
+            },
+            "Path": [
+                "Resources",
+                "ConfigPermissionToCallEvaluateUserPolicyAssociationLambda",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 855
+            }
+        },
+        "Message": "'FunctionForEvaluateUserPolicyAssociationRule' dependency already enforced by a 'GetAtt' at 'Resources/ConfigPermissionToCallEvaluateUserPolicyAssociationLambda/Properties/FunctionName'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "50b40e54-70ea-b895-bcd6-8849c32f7bf5",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 55,
+                "LineNumber": 864
+            },
+            "Path": [
+                "Resources",
+                "ConfigRuleForEvaluateUserPolicyAssociations",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 864
+            }
+        },
+        "Message": "'FunctionForEvaluateUserPolicyAssociationRule' dependency already enforced by a 'GetAtt' at 'Resources/ConfigRuleForEvaluateUserPolicyAssociations/Properties/Source/SourceIdentifier'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "3c30e54a-bc73-2f9c-35f8-7877aade50e8",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 27,
+                "LineNumber": 887
+            },
+            "Path": [
+                "Resources",
+                "FunctionForEvaluateCloudTrailRule",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 887
+            }
+        },
+        "Message": "'MasterConfigRole' dependency already enforced by a 'GetAtt' at 'Resources/FunctionForEvaluateCloudTrailRule/Properties/Role'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "0cdc169e-554c-05af-8357-497b50a2e37b",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 966
+            },
+            "Path": [
+                "Resources",
+                "FunctionForEvaluateCloudTrailRule",
+                "Properties",
+                "Runtime"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 966
+            }
+        },
+        "Message": "Runtime 'python3.8' was deprecated on '2024-10-14'. Creation was disabled on '2027-02-01' and update on '2027-03-03'. Please consider updating to 'python3.14'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if an EOL Lambda Runtime is specified and give a warning if used. ",
+            "Id": "W2531",
+            "ShortDescription": "Check if EOL Lambda Function Runtimes are used",
+            "Source": "https://docs.aws.amazon.com/lambda/latest/dg/runtime-support-policy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "7d51376a-eab8-89be-1deb-25e83cd68747",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 971
+            },
+            "Path": [
+                "Resources",
+                "ConfigPermissionToCallEvaluateCloudTrailLambda",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 971
+            }
+        },
+        "Message": "'FunctionForEvaluateCloudTrailRule' dependency already enforced by a 'GetAtt' at 'Resources/ConfigPermissionToCallEvaluateCloudTrailLambda/Properties/FunctionName'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "585fcfd4-cf99-fb05-11ec-5a2652214903",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 44,
+                "LineNumber": 980
+            },
+            "Path": [
+                "Resources",
+                "ConfigRuleForEvaluateCloudTrail",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 980
+            }
+        },
+        "Message": "'FunctionForEvaluateCloudTrailRule' dependency already enforced by a 'GetAtt' at 'Resources/ConfigRuleForEvaluateCloudTrail/Properties/Source/SourceIdentifier'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "bbaa9a43-524b-c706-6233-78342d5c99d6",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 27,
+                "LineNumber": 1000
+            },
+            "Path": [
+                "Resources",
+                "FunctionForEvaluateCloudTrailBucketRule",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 1000
+            }
+        },
+        "Message": "'MasterConfigRole' dependency already enforced by a 'GetAtt' at 'Resources/FunctionForEvaluateCloudTrailBucketRule/Properties/Role'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "670a0c28-26d5-b0eb-68cb-8aec5718f22c",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 1082
+            },
+            "Path": [
+                "Resources",
+                "FunctionForEvaluateCloudTrailBucketRule",
+                "Properties",
+                "Runtime"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 1082
+            }
+        },
+        "Message": "Runtime 'python3.8' was deprecated on '2024-10-14'. Creation was disabled on '2027-02-01' and update on '2027-03-03'. Please consider updating to 'python3.14'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if an EOL Lambda Runtime is specified and give a warning if used. ",
+            "Id": "W2531",
+            "ShortDescription": "Check if EOL Lambda Function Runtimes are used",
+            "Source": "https://docs.aws.amazon.com/lambda/latest/dg/runtime-support-policy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "7e666045-a2fb-2b7a-a2dc-01f4d35acc6a",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 1087
+            },
+            "Path": [
+                "Resources",
+                "ConfigPermissionToCallEvaluateCloudTrailBucketLambda",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 1087
+            }
+        },
+        "Message": "'FunctionForEvaluateCloudTrailBucketRule' dependency already enforced by a 'GetAtt' at 'Resources/ConfigPermissionToCallEvaluateCloudTrailBucketLambda/Properties/FunctionName'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "adbeddb5-2dc0-7416-5585-256560815a82",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 50,
+                "LineNumber": 1096
+            },
+            "Path": [
+                "Resources",
+                "ConfigRuleForEvaluateCloudTrailBucket",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 1096
+            }
+        },
+        "Message": "'FunctionForEvaluateCloudTrailBucketRule' dependency already enforced by a 'GetAtt' at 'Resources/ConfigRuleForEvaluateCloudTrailBucket/Properties/Source/SourceIdentifier'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "4f71b067-acc2-acee-4aeb-dc7a1990434c",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 27,
+                "LineNumber": 1117
+            },
+            "Path": [
+                "Resources",
+                "FunctionForEvaluateCloudTrailLogIntegrityRule",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 1117
+            }
+        },
+        "Message": "'MasterConfigRole' dependency already enforced by a 'GetAtt' at 'Resources/FunctionForEvaluateCloudTrailLogIntegrityRule/Properties/Role'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "3dea542b-c177-89e9-03e7-5d68ba5f25fc",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 1178
+            },
+            "Path": [
+                "Resources",
+                "FunctionForEvaluateCloudTrailLogIntegrityRule",
+                "Properties",
+                "Runtime"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 1178
+            }
+        },
+        "Message": "Runtime 'python3.8' was deprecated on '2024-10-14'. Creation was disabled on '2027-02-01' and update on '2027-03-03'. Please consider updating to 'python3.14'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if an EOL Lambda Runtime is specified and give a warning if used. ",
+            "Id": "W2531",
+            "ShortDescription": "Check if EOL Lambda Function Runtimes are used",
+            "Source": "https://docs.aws.amazon.com/lambda/latest/dg/runtime-support-policy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "573f890d-5c46-9489-e70e-0882b9e2b0d8",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 1184
+            },
+            "Path": [
+                "Resources",
+                "ConfigPermissionToCallEvaluateCloudTrailLogIntegrityLambda",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 1184
+            }
+        },
+        "Message": "'FunctionForEvaluateCloudTrailLogIntegrityRule' dependency already enforced by a 'GetAtt' at 'Resources/ConfigPermissionToCallEvaluateCloudTrailLogIntegrityLambda/Properties/FunctionName'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "ce7239a7-cc7f-51ed-5a59-a6a3d81c86eb",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 56,
+                "LineNumber": 1194
+            },
+            "Path": [
+                "Resources",
+                "ConfigRuleForEvaluateCloudTrailLogIntegrity",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 1194
+            }
+        },
+        "Message": "'FunctionForEvaluateCloudTrailLogIntegrityRule' dependency already enforced by a 'GetAtt' at 'Resources/ConfigRuleForEvaluateCloudTrailLogIntegrity/Properties/Source/SourceIdentifier'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "8c603320-c101-5429-05c5-e053d1c8ba5a",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 27,
+                "LineNumber": 1214
+            },
+            "Path": [
+                "Resources",
+                "FunctionForInstanceRoleUseRule",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 1214
+            }
+        },
+        "Message": "'MasterConfigRole' dependency already enforced by a 'GetAtt' at 'Resources/FunctionForInstanceRoleUseRule/Properties/Role'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "fe2b95d2-2bb2-0530-587c-c4244ae576c2",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 1260
+            },
+            "Path": [
+                "Resources",
+                "FunctionForInstanceRoleUseRule",
+                "Properties",
+                "Runtime"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 1260
+            }
+        },
+        "Message": "Runtime 'python3.8' was deprecated on '2024-10-14'. Creation was disabled on '2027-02-01' and update on '2027-03-03'. Please consider updating to 'python3.14'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if an EOL Lambda Runtime is specified and give a warning if used. ",
+            "Id": "W2531",
+            "ShortDescription": "Check if EOL Lambda Function Runtimes are used",
+            "Source": "https://docs.aws.amazon.com/lambda/latest/dg/runtime-support-policy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "89a5d94a-8004-af05-5a5c-0d98d97b70da",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 1266
+            },
+            "Path": [
+                "Resources",
+                "ConfigPermissionToCallInstanceRoleUseLambda",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 1266
+            }
+        },
+        "Message": "'FunctionForInstanceRoleUseRule' dependency already enforced by a 'GetAtt' at 'Resources/ConfigPermissionToCallInstanceRoleUseLambda/Properties/FunctionName'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "f955bed9-07cb-84ee-3781-58ad9499ea59",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 41,
+                "LineNumber": 1276
+            },
+            "Path": [
+                "Resources",
+                "ConfigRuleForInstanceRoleUses",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 1276
+            }
+        },
+        "Message": "'FunctionForInstanceRoleUseRule' dependency already enforced by a 'GetAtt' at 'Resources/ConfigRuleForInstanceRoleUses/Properties/Source/SourceIdentifier'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "57daeb9d-c73c-a53d-9ffd-b70e3bf8729e",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 27,
+                "LineNumber": 1299
+            },
+            "Path": [
+                "Resources",
+                "FunctionForEvaluateKeyRotationRule",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 1299
+            }
+        },
+        "Message": "'MasterConfigRole' dependency already enforced by a 'GetAtt' at 'Resources/FunctionForEvaluateKeyRotationRule/Properties/Role'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "02703fcb-8bbf-8e8f-3727-bf85632a2c76",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 1357
+            },
+            "Path": [
+                "Resources",
+                "FunctionForEvaluateKeyRotationRule",
+                "Properties",
+                "Runtime"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 1357
+            }
+        },
+        "Message": "Runtime 'python3.8' was deprecated on '2024-10-14'. Creation was disabled on '2027-02-01' and update on '2027-03-03'. Please consider updating to 'python3.14'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if an EOL Lambda Runtime is specified and give a warning if used. ",
+            "Id": "W2531",
+            "ShortDescription": "Check if EOL Lambda Function Runtimes are used",
+            "Source": "https://docs.aws.amazon.com/lambda/latest/dg/runtime-support-policy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "125adb67-0731-9620-de11-cbb2537c655f",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 1363
+            },
+            "Path": [
+                "Resources",
+                "ConfigPermissionToCallEvaluateKeyRotationLambda",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 1363
+            }
+        },
+        "Message": "'FunctionForEvaluateKeyRotationRule' dependency already enforced by a 'GetAtt' at 'Resources/ConfigPermissionToCallEvaluateKeyRotationLambda/Properties/FunctionName'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "20fcfe71-85d6-37a0-da3f-65eb8a2abc40",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 45,
+                "LineNumber": 1373
+            },
+            "Path": [
+                "Resources",
+                "ConfigRuleForEvaluateKeyRotations",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 1373
+            }
+        },
+        "Message": "'FunctionForEvaluateKeyRotationRule' dependency already enforced by a 'GetAtt' at 'Resources/ConfigRuleForEvaluateKeyRotations/Properties/Source/SourceIdentifier'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "f89cd2b0-2098-69ff-aca4-1904511b3955",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 27,
+                "LineNumber": 1395
+            },
+            "Path": [
+                "Resources",
+                "FunctionForEvaluateConfigInAllRegionsRule",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 1395
+            }
+        },
+        "Message": "'MasterConfigRole' dependency already enforced by a 'GetAtt' at 'Resources/FunctionForEvaluateConfigInAllRegionsRule/Properties/Role'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "cb5b1c2e-64ac-7532-7c6a-c24254f80c86",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 1465
+            },
+            "Path": [
+                "Resources",
+                "FunctionForEvaluateConfigInAllRegionsRule",
+                "Properties",
+                "Runtime"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 1465
+            }
+        },
+        "Message": "Runtime 'python3.8' was deprecated on '2024-10-14'. Creation was disabled on '2027-02-01' and update on '2027-03-03'. Please consider updating to 'python3.14'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if an EOL Lambda Runtime is specified and give a warning if used. ",
+            "Id": "W2531",
+            "ShortDescription": "Check if EOL Lambda Function Runtimes are used",
+            "Source": "https://docs.aws.amazon.com/lambda/latest/dg/runtime-support-policy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "62076221-d56b-28c5-76e7-31b1567a4c55",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 1470
+            },
+            "Path": [
+                "Resources",
+                "EvaluateConfigInAllRegionsFunctionPermission",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 1470
+            }
+        },
+        "Message": "'FunctionForEvaluateConfigInAllRegionsRule' dependency already enforced by a 'GetAtt' at 'Resources/EvaluateConfigInAllRegionsFunctionPermission/Properties/FunctionName'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "e5d24a36-8f95-36fe-c2f9-c48c9a8dcade",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 27,
+                "LineNumber": 1500
+            },
+            "Path": [
+                "Resources",
+                "FunctionForVpcPeeringRouteTablesRule",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 1500
+            }
+        },
+        "Message": "'MasterConfigRole' dependency already enforced by a 'GetAtt' at 'Resources/FunctionForVpcPeeringRouteTablesRule/Properties/Role'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "86581c61-ad65-65b3-512c-7a881e324fa2",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 1550
+            },
+            "Path": [
+                "Resources",
+                "FunctionForVpcPeeringRouteTablesRule",
+                "Properties",
+                "Runtime"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 1550
+            }
+        },
+        "Message": "Runtime 'python3.8' was deprecated on '2024-10-14'. Creation was disabled on '2027-02-01' and update on '2027-03-03'. Please consider updating to 'python3.14'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if an EOL Lambda Runtime is specified and give a warning if used. ",
+            "Id": "W2531",
+            "ShortDescription": "Check if EOL Lambda Function Runtimes are used",
+            "Source": "https://docs.aws.amazon.com/lambda/latest/dg/runtime-support-policy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "e4ee78ed-a945-c483-af33-96542780fccf",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 1555
+            },
+            "Path": [
+                "Resources",
+                "ConfigPermissionToCallVpcPeeringRouteTablesLambda",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 1555
+            }
+        },
+        "Message": "'FunctionForVpcPeeringRouteTablesRule' dependency already enforced by a 'GetAtt' at 'Resources/ConfigPermissionToCallVpcPeeringRouteTablesLambda/Properties/FunctionName'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "d8b6af10-a336-b290-8ef6-f3d2aed788ee",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 47,
+                "LineNumber": 1565
+            },
+            "Path": [
+                "Resources",
+                "ConfigRuleForVpcPeeringRouteTabless",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 1565
+            }
+        },
+        "Message": "'FunctionForVpcPeeringRouteTablesRule' dependency already enforced by a 'GetAtt' at 'Resources/ConfigRuleForVpcPeeringRouteTabless/Properties/Source/SourceIdentifier'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "796aa628-b071-d48b-67c4-df87a5c65641",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 1601
+            },
+            "Path": [
+                "Resources",
+                "GetCloudTrailCloudWatchLog",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 1601
+            }
+        },
+        "Message": "'MasterConfigRole' dependency already enforced by a 'GetAtt' at 'Resources/GetCloudTrailCloudWatchLog/Properties/Role'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "e54ea23d-7e06-9cfc-6cb0-09bea7e402ed",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 1633
+            },
+            "Path": [
+                "Resources",
+                "GetCloudTrailCloudWatchLog",
+                "Properties",
+                "Runtime"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 1633
+            }
+        },
+        "Message": "Runtime 'python3.8' was deprecated on '2024-10-14'. Creation was disabled on '2027-02-01' and update on '2027-03-03'. Please consider updating to 'python3.14'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if an EOL Lambda Runtime is specified and give a warning if used. ",
+            "Id": "W2531",
+            "ShortDescription": "Check if EOL Lambda Function Runtimes are used",
+            "Source": "https://docs.aws.amazon.com/lambda/latest/dg/runtime-support-policy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "bf7a59ea-bc0b-2c6e-1534-a3c77c17a1a5",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 1638
+            },
+            "Path": [
+                "Resources",
+                "ResourceForGetCloudTrailCloudWatchLog",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 1638
+            }
+        },
+        "Message": "'GetCloudTrailCloudWatchLog' dependency already enforced by a 'GetAtt' at 'Resources/ResourceForGetCloudTrailCloudWatchLog/Properties/ServiceToken'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "3bd1ad28-84e2-bfdf-04fd-96f6439542df",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 48,
+                "LineNumber": 1649
+            },
+            "Path": [
+                "Resources",
+                "UnauthorizedAttemptsCloudWatchFilter",
+                "DependsOn",
+                1
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 1649
+            }
+        },
+        "Message": "'ResourceForGetCloudTrailCloudWatchLog' dependency already enforced by a 'GetAtt' at 'Resources/UnauthorizedAttemptsCloudWatchFilter/Properties/LogGroupName'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "c15f0889-432c-3dc5-f727-fe44a046ee22",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 24,
+                "LineNumber": 1657
+            },
+            "Path": [
+                "Resources",
+                "UnauthorizedAttemptsCloudWatchFilter",
+                "Properties",
+                "MetricTransformations",
+                0,
+                "MetricValue"
+            ],
+            "Start": {
+                "ColumnNumber": 13,
+                "LineNumber": 1657
+            }
+        },
+        "Message": "1 is not of type 'string'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "151e6f59-71c2-3202-7bed-40027c28be95",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 48,
+                "LineNumber": 1683
+            },
+            "Path": [
+                "Resources",
+                "IAMRootActivityCloudWatchMetric",
+                "DependsOn",
+                1
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 1683
+            }
+        },
+        "Message": "'ResourceForGetCloudTrailCloudWatchLog' dependency already enforced by a 'GetAtt' at 'Resources/IAMRootActivityCloudWatchMetric/Properties/LogGroupName'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "47975107-cdcf-a659-3b82-f5e3d132cb8f",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 24,
+                "LineNumber": 1695
+            },
+            "Path": [
+                "Resources",
+                "IAMRootActivityCloudWatchMetric",
+                "Properties",
+                "MetricTransformations",
+                0,
+                "MetricValue"
+            ],
+            "Start": {
+                "ColumnNumber": 13,
+                "LineNumber": 1695
+            }
+        },
+        "Message": "1 is not of type 'string'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "d1f154f1-82b5-b4c0-a324-e85ee346f1f2",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 48,
+                "LineNumber": 1720
+            },
+            "Path": [
+                "Resources",
+                "ConsoleSigninWithoutMfaCloudWatchMetric",
+                "DependsOn",
+                1
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 1720
+            }
+        },
+        "Message": "'ResourceForGetCloudTrailCloudWatchLog' dependency already enforced by a 'GetAtt' at 'Resources/ConsoleSigninWithoutMfaCloudWatchMetric/Properties/LogGroupName'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "38c99ad9-7b0f-3b29-b464-a45df56f8068",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 24,
+                "LineNumber": 1733
+            },
+            "Path": [
+                "Resources",
+                "ConsoleSigninWithoutMfaCloudWatchMetric",
+                "Properties",
+                "MetricTransformations",
+                0,
+                "MetricValue"
+            ],
+            "Start": {
+                "ColumnNumber": 13,
+                "LineNumber": 1733
+            }
+        },
+        "Message": "1 is not of type 'string'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "d5a50aa5-b8cb-239f-47e5-eb078b8f0793",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 48,
+                "LineNumber": 1759
+            },
+            "Path": [
+                "Resources",
+                "ConsoleLoginFailureCloudWatchMetric",
+                "DependsOn",
+                1
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 1759
+            }
+        },
+        "Message": "'ResourceForGetCloudTrailCloudWatchLog' dependency already enforced by a 'GetAtt' at 'Resources/ConsoleLoginFailureCloudWatchMetric/Properties/LogGroupName'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "ac26dfe9-0a9e-5bb5-45bb-6f4c7474dd30",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 24,
+                "LineNumber": 1770
+            },
+            "Path": [
+                "Resources",
+                "ConsoleLoginFailureCloudWatchMetric",
+                "Properties",
+                "MetricTransformations",
+                0,
+                "MetricValue"
+            ],
+            "Start": {
+                "ColumnNumber": 13,
+                "LineNumber": 1770
+            }
+        },
+        "Message": "1 is not of type 'string'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "e2aa2de2-6b50-ec12-23a2-ccd787585547",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 48,
+                "LineNumber": 1796
+            },
+            "Path": [
+                "Resources",
+                "KMSCustomerKeyDeletionCloudWatchMetric",
+                "DependsOn",
+                1
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 1796
+            }
+        },
+        "Message": "'ResourceForGetCloudTrailCloudWatchLog' dependency already enforced by a 'GetAtt' at 'Resources/KMSCustomerKeyDeletionCloudWatchMetric/Properties/LogGroupName'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "84782580-2dbe-d870-1d60-b5f2ee27151a",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 24,
+                "LineNumber": 1807
+            },
+            "Path": [
+                "Resources",
+                "KMSCustomerKeyDeletionCloudWatchMetric",
+                "Properties",
+                "MetricTransformations",
+                0,
+                "MetricValue"
+            ],
+            "Start": {
+                "ColumnNumber": 13,
+                "LineNumber": 1807
+            }
+        },
+        "Message": "1 is not of type 'string'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "666fe8d5-b4ee-77c2-55e3-3f8a0ae4f7fb",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 1830
+            },
+            "Path": [
+                "Resources",
+                "RoleForCloudWatchEvents",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 1830
+            }
+        },
+        "Message": "'SnsTopicForCloudWatchEvents' dependency already enforced by a 'Ref' at 'Resources/RoleForCloudWatchEvents/Properties/Policies/0/PolicyDocument/Statement/0/Resource'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "334d18eb-bfe1-8444-56c6-7b6b2522d995",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 34,
+                "LineNumber": 1857
+            },
+            "Path": [
+                "Resources",
+                "FunctionToFormatCloudWatchEvent",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 1857
+            }
+        },
+        "Message": "'RoleForCloudWatchEvents' dependency already enforced by a 'GetAtt' at 'Resources/FunctionToFormatCloudWatchEvent/Properties/Role'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "e697c864-69f7-4772-2d5e-e243e8c023af",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 38,
+                "LineNumber": 1858
+            },
+            "Path": [
+                "Resources",
+                "FunctionToFormatCloudWatchEvent",
+                "DependsOn",
+                1
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 1858
+            }
+        },
+        "Message": "'SnsTopicForCloudWatchEvents' dependency already enforced by a 'Ref' at 'Resources/FunctionToFormatCloudWatchEvent/Properties/Code/ZipFile'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "55db5449-3d01-c32f-2f13-2842ea9c8fe1",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 1889
+            },
+            "Path": [
+                "Resources",
+                "FunctionToFormatCloudWatchEvent",
+                "Properties",
+                "Runtime"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 1889
+            }
+        },
+        "Message": "Runtime 'python3.8' was deprecated on '2024-10-14'. Creation was disabled on '2027-02-01' and update on '2027-03-03'. Please consider updating to 'python3.14'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if an EOL Lambda Runtime is specified and give a warning if used. ",
+            "Id": "W2531",
+            "ShortDescription": "Check if EOL Lambda Function Runtimes are used",
+            "Source": "https://docs.aws.amazon.com/lambda/latest/dg/runtime-support-policy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "eed64bb5-828a-92d6-c415-3d66b8d09dc6",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 42,
+                "LineNumber": 1895
+            },
+            "Path": [
+                "Resources",
+                "LambdaPermissionForCloudTrailCloudWatchEventRules",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 1895
+            }
+        },
+        "Message": "'FunctionToFormatCloudWatchEvent' dependency already enforced by a 'GetAtt' at 'Resources/LambdaPermissionForCloudTrailCloudWatchEventRules/Properties/FunctionName'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "62c4f147-2517-d7d3-531c-a36c9f4ab3ab",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 48,
+                "LineNumber": 2185
+            },
+            "Path": [
+                "Resources",
+                "BillingChangesCloudWatchFilter",
+                "DependsOn",
+                1
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 2185
+            }
+        },
+        "Message": "'ResourceForGetCloudTrailCloudWatchLog' dependency already enforced by a 'GetAtt' at 'Resources/BillingChangesCloudWatchFilter/Properties/LogGroupName'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "00987aaf-d322-5563-e108-7c54485d9925",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 24,
+                "LineNumber": 2197
+            },
+            "Path": [
+                "Resources",
+                "BillingChangesCloudWatchFilter",
+                "Properties",
+                "MetricTransformations",
+                0,
+                "MetricValue"
+            ],
+            "Start": {
+                "ColumnNumber": 13,
+                "LineNumber": 2197
+            }
+        },
+        "Message": "1 is not of type 'string'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "ccf1bcd9-33ab-f786-0066-6e1043c6ef3c",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 2253
+            },
+            "Path": [
+                "Resources",
+                "FunctionToDisableUnusedCredentials",
+                "DependsOn"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 2253
+            }
+        },
+        "Message": "'RoleForDisableUnusedCredentialsFunction' dependency already enforced by a 'GetAtt' at 'Resources/FunctionToDisableUnusedCredentials/Properties/Role'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "baf5cbbd-e551-22d7-6372-c4f4ed574669",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 16,
+                "LineNumber": 2334
+            },
+            "Path": [
+                "Resources",
+                "FunctionToDisableUnusedCredentials",
+                "Properties",
+                "Runtime"
+            ],
+            "Start": {
+                "ColumnNumber": 9,
+                "LineNumber": 2334
+            }
+        },
+        "Message": "Runtime 'python3.8' was deprecated on '2024-10-14'. Creation was disabled on '2027-02-01' and update on '2027-03-03'. Please consider updating to 'python3.14'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if an EOL Lambda Runtime is specified and give a warning if used. ",
+            "Id": "W2531",
+            "ShortDescription": "Check if EOL Lambda Function Runtimes are used",
+            "Source": "https://docs.aws.amazon.com/lambda/latest/dg/runtime-support-policy.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/quickstart/cis_benchmark.yaml",
+        "Id": "fbe108bc-bb53-2c94-c88e-5287c0ace4e7",
+        "Level": "Warning",
+        "Location": {
+            "End": {
+                "ColumnNumber": 45,
+                "LineNumber": 2340
+            },
+            "Path": [
+                "Resources",
+                "LambdaPermissionForDisableUnusedCredentials",
+                "DependsOn",
+                0
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 2340
+            }
+        },
+        "Message": "'FunctionToDisableUnusedCredentials' dependency already enforced by a 'GetAtt' at 'Resources/LambdaPermissionForDisableUnusedCredentials/Properties/FunctionName'",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Check if DependsOn is specified if not needed. A Ref or a Fn::GetAtt already is an implicit dependency.",
+            "Id": "W3005",
+            "ShortDescription": "Check obsolete DependsOn configuration for Resources",
+            "Source": "https://aws.amazon.com/blogs/devops/optimize-aws-cloudformation-templates/"
+        }
+    }
+]

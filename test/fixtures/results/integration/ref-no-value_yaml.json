@@ -1,0 +1,271 @@
+[
+    {
+        "Filename": "test/fixtures/templates/integration/ref-no-value.yaml",
+        "Id": "34a6a87d-10dd-2bd9-1c1a-ceceba271dc7",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 31,
+                "LineNumber": 10
+            },
+            "Path": [
+                "Resources",
+                "IamRole1",
+                "Properties",
+                "AssumeRolePolicyDocument"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 10
+            }
+        },
+        "Message": "'Statement' is a required property",
+        "ParentId": null,
+        "Rule": {
+            "Description": "IAM trust polices are embedded JSON in CloudFormation. This rule validates those embedded policies.",
+            "Id": "E3530",
+            "ShortDescription": "Validate IAM trust polices",
+            "Source": "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/integration/ref-no-value.yaml",
+        "Id": "bc432adb-6b22-c519-4df7-26cd9aa0c67f",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 3,
+                "LineNumber": 24
+            },
+            "Path": [
+                "Resources",
+                "IamRole1",
+                "Properties",
+                "Tags",
+                3
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 22
+            }
+        },
+        "Message": "'Key' is a required property",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Make sure that Resources properties that are required exist",
+            "Id": "E3003",
+            "ShortDescription": "Required Resource properties are missing",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#required"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/integration/ref-no-value.yaml",
+        "Id": "c9effb29-057b-04bc-7889-c95a6d3de51d",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 3,
+                "LineNumber": 24
+            },
+            "Path": [
+                "Resources",
+                "IamRole1",
+                "Properties",
+                "Tags",
+                3
+            ],
+            "Start": {
+                "ColumnNumber": 11,
+                "LineNumber": 22
+            }
+        },
+        "Message": "'Key' is a required property",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Validates tag values to make sure they have unique keys and they follow pattern requirements",
+            "Id": "E3024",
+            "ShortDescription": "Validate tag configuration",
+            "Source": "https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/integration/ref-no-value.yaml",
+        "Id": "93c41f0b-56b3-2349-8fb6-4be356befb25",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 15,
+                "LineNumber": 26
+            },
+            "Path": [
+                "Resources",
+                "IamRole2",
+                "Properties",
+                "Ref"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 26
+            }
+        },
+        "Message": "{'Ref': 'AWS::NoValue'} is not of type object",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/integration/ref-no-value.yaml",
+        "Id": "d2a1ac33-b077-ea54-1d8f-aaed4ebf0c67",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 31,
+                "LineNumber": 30
+            },
+            "Path": [
+                "Resources",
+                "IamRole3",
+                "Properties",
+                "AssumeRolePolicyDocument"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 30
+            }
+        },
+        "Message": "'Statement' is a required property",
+        "ParentId": null,
+        "Rule": {
+            "Description": "IAM trust polices are embedded JSON in CloudFormation. This rule validates those embedded policies.",
+            "Id": "E3530",
+            "ShortDescription": "Validate IAM trust polices",
+            "Source": "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/integration/ref-no-value.yaml",
+        "Id": "5714e7bb-7c4b-573d-88cb-cbda0df6276d",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 15,
+                "LineNumber": 39
+            },
+            "Path": [
+                "Resources",
+                "CloudFront1",
+                "Properties",
+                "Ref"
+            ],
+            "Start": {
+                "ColumnNumber": 5,
+                "LineNumber": 39
+            }
+        },
+        "Message": "{'Ref': 'AWS::NoValue'} is not of type object",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Checks resource property values with Primitive Types for values that match those types.",
+            "Id": "E3012",
+            "ShortDescription": "Check resource properties values",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#type"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/integration/ref-no-value.yaml",
+        "Id": "aabc1fd4-1a8c-eca6-cedc-2270876f6523",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 25,
+                "LineNumber": 43
+            },
+            "Path": [
+                "Resources",
+                "CloudFront2",
+                "Properties",
+                "DistributionConfig"
+            ],
+            "Start": {
+                "ColumnNumber": 7,
+                "LineNumber": 43
+            }
+        },
+        "Message": "'DefaultCacheBehavior' is a required property",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Make sure that Resources properties that are required exist",
+            "Id": "E3003",
+            "ShortDescription": "Required Resource properties are missing",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#required"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/integration/ref-no-value.yaml",
+        "Id": "9409bd79-0f38-7a61-1eb7-a4705b6e650a",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 15,
+                "LineNumber": 49
+            },
+            "Path": [
+                "Resources",
+                "CloudFront2",
+                "Properties",
+                "DistributionConfig",
+                "DefaultCacheBehavior",
+                "Fn::If",
+                2
+            ],
+            "Start": {
+                "ColumnNumber": 13,
+                "LineNumber": 49
+            }
+        },
+        "Message": "'TargetOriginId' is a required property",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Make sure that Resources properties that are required exist",
+            "Id": "E3003",
+            "ShortDescription": "Required Resource properties are missing",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#required"
+        }
+    },
+    {
+        "Filename": "test/fixtures/templates/integration/ref-no-value.yaml",
+        "Id": "6e5a7510-66ea-63ee-96d4-08a42d6340e4",
+        "Level": "Error",
+        "Location": {
+            "End": {
+                "ColumnNumber": 15,
+                "LineNumber": 49
+            },
+            "Path": [
+                "Resources",
+                "CloudFront2",
+                "Properties",
+                "DistributionConfig",
+                "DefaultCacheBehavior",
+                "Fn::If",
+                2
+            ],
+            "Start": {
+                "ColumnNumber": 13,
+                "LineNumber": 49
+            }
+        },
+        "Message": "'ViewerProtocolPolicy' is a required property",
+        "ParentId": null,
+        "Rule": {
+            "Description": "Make sure that Resources properties that are required exist",
+            "Id": "E3003",
+            "ShortDescription": "Required Resource properties are missing",
+            "Source": "https://github.com/aws-cloudformation/cfn-lint/blob/main/docs/cfn-schema-specification.md#required"
+        }
+    }
+]
