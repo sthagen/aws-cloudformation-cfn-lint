@@ -1804,11 +1804,17 @@
    "environment": {
     "ARNFormats": [
      "arn:${Partition}:airflow:${Region}:${Account}:environment/.*"
+    ],
+    "ConditionKeys": [
+     "aws:ResourceTag/${TagKey}"
     ]
    },
    "rbac-role": {
     "ARNFormats": [
      "arn:${Partition}:airflow:${Region}:${Account}:role/.*"
+    ],
+    "ConditionKeys": [
+     "aws:ResourceTag/${TagKey}"
     ]
    }
   }
@@ -8548,6 +8554,11 @@
      "SellerDashboard"
     ]
    },
+   "gettaxcomplianceprofile": {
+    "Resources": [
+     "TaxComplianceProfile"
+    ]
+   },
    "getverification": {},
    "getverificationevidence": {
     "Resources": [
@@ -8588,9 +8599,13 @@
      "Entity",
      "InvoiceSubmissionTask",
      "IssuedTaxInvoice",
+     "TaxComplianceProfile",
+     "TaxComplianceProfileChangeTask",
      "VerificationEvidence"
     ]
    },
+   "listtaxcomplianceprofilechangetasks": {},
+   "listtaxcomplianceprofiles": {},
    "listverificationevidence": {},
    "listverifications": {},
    "meterusage": {},
@@ -8634,6 +8649,11 @@
      "InvoiceSubmissionTask"
     ]
    },
+   "starttaxcomplianceprofilechangetask": {
+    "Resources": [
+     "TaxComplianceProfileChangeTask"
+    ]
+   },
    "startverification": {
     "Resources": [
      "VerificationEvidence"
@@ -8647,6 +8667,8 @@
      "Entity",
      "InvoiceSubmissionTask",
      "IssuedTaxInvoice",
+     "TaxComplianceProfile",
+     "TaxComplianceProfileChangeTask",
      "VerificationEvidence"
     ]
    },
@@ -8658,6 +8680,8 @@
      "Entity",
      "InvoiceSubmissionTask",
      "IssuedTaxInvoice",
+     "TaxComplianceProfile",
+     "TaxComplianceProfileChangeTask",
      "VerificationEvidence"
     ]
    },
@@ -8763,6 +8787,22 @@
    "sellerdashboard": {
     "ARNFormats": [
      "arn:${Partition}:aws-marketplace::${Account}:.*"
+    ]
+   },
+   "taxcomplianceprofile": {
+    "ARNFormats": [
+     "arn:${Partition}:aws-marketplace:${Region}:${Account}:tax-compliance-profile/.*"
+    ],
+    "ConditionKeys": [
+     "aws:ResourceTag/${TagKey}"
+    ]
+   },
+   "taxcomplianceprofilechangetask": {
+    "ARNFormats": [
+     "arn:${Partition}:aws-marketplace:${Region}:${Account}:tax-compliance-profile-change-task/.*"
+    ],
+    "ConditionKeys": [
+     "aws:ResourceTag/${TagKey}"
     ]
    },
    "verificationevidence": {
@@ -13427,17 +13467,7 @@
    "getcontractinformation": {},
    "getcreditallocationhistory": {},
    "getcredits": {},
-   "getcumulativetracking": {
-    "Resources": [
-     "contract"
-    ]
-   },
    "getiamaccesspreference": {},
-   "getmonthlytracking": {
-    "Resources": [
-     "contract"
-    ]
-   },
    "getresourcepolicy": {
     "Resources": [
      "billingview"
@@ -13488,11 +13518,6 @@
     ],
     "ConditionKeys": [
      "aws:ResourceTag/${TagKey}"
-    ]
-   },
-   "contract": {
-    "ARNFormats": [
-     "arn:${Partition}:billing::${Account}:contract/.*"
     ]
    }
   }
@@ -22238,6 +22263,11 @@
      "userpool"
     ]
    },
+   "admingetuserauthfactors": {
+    "Resources": [
+     "userpool"
+    ]
+   },
    "admininitiateauth": {
     "Resources": [
      "userpool"
@@ -25229,6 +25259,11 @@
      "instance"
     ]
    },
+   "searchrules": {
+    "Resources": [
+     "instance"
+    ]
+   },
    "searchsecurityprofiles": {
     "Resources": [
      "instance"
@@ -27545,6 +27580,7 @@
    "createdataproduct": {},
    "createdataproductrevision": {},
    "createdatasource": {},
+   "createdesignation": {},
    "createdomain": {},
    "createdomainunit": {},
    "createenvironment": {},
@@ -27575,6 +27611,7 @@
    "deletedataexportconfiguration": {},
    "deletedataproduct": {},
    "deletedatasource": {},
+   "deletedesignation": {},
    "deletedomain": {
     "Resources": [
      "domain"
@@ -27614,10 +27651,12 @@
    "getcompute": {},
    "getconnection": {},
    "getconversation": {},
+   "getcurrenteffectivepolicy": {},
    "getdataexportconfiguration": {},
    "getdataproduct": {},
    "getdatasource": {},
    "getdatasourcerun": {},
+   "getdesignation": {},
    "getdomain": {
     "Resources": [
      "domain"
@@ -27669,6 +27708,7 @@
    "listdatasourcerunactivities": {},
    "listdatasourceruns": {},
    "listdatasources": {},
+   "listdesignations": {},
    "listdomains": {},
    "listdomainunitsforparent": {},
    "listentityowners": {},
@@ -27762,6 +27802,7 @@
    "updateconnection": {},
    "updatedatasource": {},
    "updatedatasourcerunactivities": {},
+   "updatedesignation": {},
    "updatedomain": {
     "Resources": [
      "domain"
@@ -27785,7 +27826,8 @@
    "updatesubscriptionrequest": {},
    "updatesubscriptiontarget": {},
    "updateuserprofile": {},
-   "validatepassrole": {}
+   "validatepassrole": {},
+   "validatepolicy": {}
   },
   "Resources": {
    "domain": {
@@ -41809,8 +41851,7 @@
    },
    "createeventbus": {
     "Resources": [
-     "event-bus",
-     "event-busv2"
+     "event-bus"
     ]
    },
    "createpartnereventsource": {
@@ -41850,8 +41891,7 @@
    },
    "deleteeventbus": {
     "Resources": [
-     "event-bus",
-     "event-busv2"
+     "event-bus"
     ]
    },
    "deletepartnereventsource": {
@@ -41888,8 +41928,7 @@
    },
    "describeeventbus": {
     "Resources": [
-     "event-bus",
-     "event-busv2"
+     "event-bus"
     ]
    },
    "describeeventsource": {
@@ -41948,11 +41987,8 @@
    "listtagsforresource": {
     "Resources": [
      "event-bus",
-     "event-busv2",
-     "publisher",
      "rule-on-custom-event-bus",
-     "rule-on-default-event-bus",
-     "subscriber"
+     "rule-on-default-event-bus"
     ]
    },
    "listtargetsbyrule": {
@@ -41963,8 +41999,7 @@
    },
    "putevents": {
     "Resources": [
-     "event-bus",
-     "event-busv2"
+     "event-bus"
     ]
    },
    "putpartnerevents": {},
@@ -42003,22 +42038,16 @@
    "tagresource": {
     "Resources": [
      "event-bus",
-     "event-busv2",
-     "publisher",
      "rule-on-custom-event-bus",
-     "rule-on-default-event-bus",
-     "subscriber"
+     "rule-on-default-event-bus"
     ]
    },
    "testeventpattern": {},
    "untagresource": {
     "Resources": [
      "event-bus",
-     "event-busv2",
-     "publisher",
      "rule-on-custom-event-bus",
-     "rule-on-default-event-bus",
-     "subscriber"
+     "rule-on-default-event-bus"
     ]
    },
    "updateapidestination": {
@@ -42045,8 +42074,7 @@
    },
    "updateeventbus": {
     "Resources": [
-     "event-bus",
-     "event-busv2"
+     "event-bus"
     ]
    }
   },
@@ -46387,6 +46415,7 @@
  },
  "glue": {
   "Actions": {
+   "accessdataqualityruntimeconfiguration": {},
    "authorizeinboundintegration": {
     "Resources": [
      "integration"
@@ -49576,6 +49605,12 @@
      "Integration"
     ]
    },
+   "listpatientmedications": {
+    "Resources": [
+     "Domain",
+     "Integration"
+    ]
+   },
    "listproviders": {
     "Resources": [
      "Domain",
@@ -49615,6 +49650,12 @@
      "Integration"
     ]
    },
+   "resetpassword": {
+    "Resources": [
+     "Domain",
+     "Integration"
+    ]
+   },
    "scheduleappointment": {
     "Resources": [
      "Domain",
@@ -49631,6 +49672,12 @@
     "Resources": [
      "Domain",
      "PatientInsightsJob"
+    ]
+   },
+   "submitmedicationrenewal": {
+    "Resources": [
+     "Domain",
+     "Integration"
     ]
    },
    "tagresource": {
@@ -49725,10 +49772,16 @@
      "datastore"
     ]
    },
+   "createdatatransformationprofile": {},
    "createfhirdatastore": {},
    "createresource": {
     "Resources": [
      "datastore"
+    ]
+   },
+   "deletedatatransformationprofile": {
+    "Resources": [
+     "dataTransformationProfile"
     ]
    },
    "deletefhirdatastore": {
@@ -49741,6 +49794,7 @@
      "datastore"
     ]
    },
+   "describedatatransformationjob": {},
    "describefhirbulkdeletejob": {
     "Resources": [
      "datastore"
@@ -49796,6 +49850,11 @@
      "datastore"
     ]
    },
+   "getdatatransformationprofile": {
+    "Resources": [
+     "dataTransformationProfile"
+    ]
+   },
    "getexportedfile": {
     "Resources": [
      "datastore"
@@ -49811,6 +49870,13 @@
      "datastore"
     ]
    },
+   "listdatatransformationjobs": {},
+   "listdatatransformationprofiles": {},
+   "listdatatransformationprofileversions": {
+    "Resources": [
+     "dataTransformationProfile"
+    ]
+   },
    "listfhirdatastores": {},
    "listfhirexportjobs": {
     "Resources": [
@@ -49824,6 +49890,7 @@
    },
    "listtagsforresource": {
     "Resources": [
+     "dataTransformationProfile",
      "datastore"
     ]
    },
@@ -49862,6 +49929,11 @@
      "datastore"
     ]
    },
+   "publishdatatransformationprofile": {
+    "Resources": [
+     "dataTransformationProfile"
+    ]
+   },
    "questionnairepackage": {
     "Resources": [
      "datastore"
@@ -49890,6 +49962,11 @@
    "searchwithpost": {
     "Resources": [
      "datastore"
+    ]
+   },
+   "startdatatransformationjob": {
+    "Resources": [
+     "dataTransformationProfile"
     ]
    },
    "startfhirbulkdeletejob": {
@@ -49929,17 +50006,34 @@
    },
    "tagresource": {
     "Resources": [
+     "dataTransformationProfile",
      "datastore"
+    ]
+   },
+   "transformdata": {
+    "Resources": [
+     "dataTransformationProfile"
     ]
    },
    "untagresource": {
     "Resources": [
+     "dataTransformationProfile",
      "datastore"
+    ]
+   },
+   "updatedatatransformationprofile": {
+    "Resources": [
+     "dataTransformationProfile"
     ]
    },
    "updatefhirdatastore": {
     "Resources": [
      "datastore"
+    ]
+   },
+   "updateprofilewithagent": {
+    "Resources": [
+     "dataTransformationProfile"
     ]
    },
    "updateresource": {
@@ -49952,6 +50046,7 @@
      "datastore"
     ]
    },
+   "validatesource": {},
    "versionreadresource": {
     "Resources": [
      "datastore"
@@ -49962,6 +50057,14 @@
    "datastore": {
     "ARNFormats": [
      "arn:${Partition}:healthlake:${Region}:${Account}:datastore/fhir/.*"
+    ],
+    "ConditionKeys": [
+     "aws:ResourceTag/${TagKey}"
+    ]
+   },
+   "datatransformationprofile": {
+    "ARNFormats": [
+     "arn:${Partition}:healthlake:${Region}:${Account}:dataTransformationProfile/.*"
     ],
     "ConditionKeys": [
      "aws:ResourceTag/${TagKey}"
@@ -52159,20 +52262,24 @@
    "listprocurementportalpreferences": {},
    "listtagsforresource": {
     "Resources": [
-     "invoice-unit"
+     "invoice-unit",
+     "procurement-portal-preference"
     ]
    },
    "putinvoiceemaildeliverypreferences": {},
    "putprocurementportalpreference": {},
+   "sendprocurementportalvalidation": {},
    "startinvoicecorrection": {},
    "tagresource": {
     "Resources": [
-     "invoice-unit"
+     "invoice-unit",
+     "procurement-portal-preference"
     ]
    },
    "untagresource": {
     "Resources": [
-     "invoice-unit"
+     "invoice-unit",
+     "procurement-portal-preference"
     ]
    },
    "updateinvoiceunit": {
@@ -52180,7 +52287,8 @@
      "invoice-unit"
     ]
    },
-   "updateprocurementportalpreferencestatus": {}
+   "updateprocurementportalpreferencestatus": {},
+   "verifyprocurementportalvalidation": {}
   },
   "Resources": {
    "invoice-unit": {
@@ -72521,7 +72629,12 @@
      "datasource"
     ]
    },
-   "submitautooptimizejob": {}
+   "submitautooptimizejob": {},
+   "viewloginpage": {
+    "Resources": [
+     "application"
+    ]
+   }
   },
   "Resources": {
    "application": {
@@ -73923,6 +74036,21 @@
      "ProspectingFromEngagementTask"
     ]
    },
+   "getqualificationsassociationdetails": {
+    "Resources": [
+     "Partner"
+    ]
+   },
+   "getqualificationsassociationtask": {
+    "Resources": [
+     "Partner"
+    ]
+   },
+   "getqualificationsdisassociationtask": {
+    "Resources": [
+     "Partner"
+    ]
+   },
    "getrelationship": {
     "Resources": [
      "Relationship"
@@ -74085,6 +74213,16 @@
    "startprospectingfromengagementtask": {
     "Resources": [
      "Engagement"
+    ]
+   },
+   "startqualificationsassociationtask": {
+    "Resources": [
+     "Partner"
+    ]
+   },
+   "startqualificationsdisassociationtask": {
+    "Resources": [
+     "Partner"
     ]
    },
    "startresourcesnapshotjob": {
@@ -78684,6 +78822,12 @@
      "ingestion"
     ]
    },
+   "createknowledgebase": {
+    "Resources": [
+     "datasource",
+     "knowledgeBase"
+    ]
+   },
    "createlimitsprofile": {
     "Resources": [
      "limitsProfile"
@@ -79752,6 +79896,11 @@
    "updateidentitypropagationconfig": {},
    "updateiprestriction": {},
    "updatekeyregistration": {},
+   "updateknowledgebase": {
+    "Resources": [
+     "knowledgeBase"
+    ]
+   },
    "updateknowledgebasepermissions": {
     "Resources": [
      "knowledgeBase"
@@ -86432,7 +86581,7 @@
    },
    "createaccessgrant": {
     "Resources": [
-     "accessgrantslocation"
+     "accessgrant"
     ]
    },
    "createaccessgrantsinstance": {
@@ -86442,7 +86591,7 @@
    },
    "createaccessgrantslocation": {
     "Resources": [
-     "accessgrantsinstance"
+     "accessgrantslocation"
     ]
    },
    "createaccesspoint": {
@@ -93144,6 +93293,11 @@
      "hub"
     ]
    },
+   "batchgetenabledregionsv2": {
+    "Resources": [
+     "hubv2"
+    ]
+   },
    "batchgetsecuritycontrols": {},
    "batchgetstandardscontrolassociations": {},
    "batchimportfindings": {
@@ -93384,6 +93538,11 @@
    "getcontrolfindingsummary": {
     "Resources": [
      "hub"
+    ]
+   },
+   "getcoveragestatisticsv2": {
+    "Resources": [
+     "hubv2"
     ]
    },
    "getenabledstandards": {
@@ -100027,6 +100186,9 @@
    "device": {
     "ARNFormats": [
      "arn:${Partition}:storagegateway:${Region}:${Account}:gateway/.*"
+    ],
+    "ConditionKeys": [
+     "aws:ResourceTag/${TagKey}"
     ]
    },
    "fs-association": {
@@ -100072,6 +100234,9 @@
    "target": {
     "ARNFormats": [
      "arn:${Partition}:storagegateway:${Region}:${Account}:gateway/.*"
+    ],
+    "ConditionKeys": [
+     "aws:ResourceTag/${TagKey}"
     ]
    },
    "volume": {
@@ -100300,11 +100465,19 @@
  },
  "supportplans": {
   "Actions": {
+   "acceptsupportagreement": {},
+   "cancelsupportagreement": {},
+   "createsupportagreement": {},
    "createsupportplanschedule": {},
+   "getsupportagreement": {},
    "getsupportplan": {},
    "getsupportplanupdatestatus": {},
+   "listsupportagreementrevisions": {},
+   "listsupportagreements": {},
    "listsupportplanmodifiers": {},
-   "startsupportplanupdate": {}
+   "rejectsupportagreement": {},
+   "startsupportplanupdate": {},
+   "updatesupportagreement": {}
   },
   "Resources": {}
  },
@@ -100312,7 +100485,9 @@
   "Actions": {
    "getcarbonfootprintsummary": {},
    "getestimatedcarbonemissions": {},
-   "getestimatedcarbonemissionsdimensionvalues": {}
+   "getestimatedcarbonemissionsdimensionvalues": {},
+   "getestimatedwaterallocation": {},
+   "getestimatedwaterallocationdimensionvalues": {}
   },
   "Resources": {}
  },
@@ -107103,8 +107278,7 @@
    },
    "createstandbyworkspaces": {
     "Resources": [
-     "directoryid",
-     "workspaceid"
+     "directoryid"
     ]
    },
    "createtags": {},
@@ -107115,7 +107289,6 @@
    },
    "createworkspacebundle": {
     "Resources": [
-     "workspacebundle",
      "workspaceimage"
     ]
    },
@@ -107127,15 +107300,13 @@
    "createworkspaces": {
     "Resources": [
      "directoryid",
-     "workspacebundle",
-     "workspaceid"
+     "workspacebundle"
     ]
    },
    "createworkspacespool": {
     "Resources": [
      "directoryid",
-     "workspacebundle",
-     "workspacespoolid"
+     "workspacebundle"
     ]
    },
    "deleteaccountlinkinvitation": {},
@@ -107255,7 +107426,7 @@
    "describeworkspacespools": {},
    "describeworkspacespoolsessions": {
     "Resources": [
-     "workspacespoolid"
+     "workspacespool"
     ]
    },
    "directoryaccessmanagement": {
@@ -107395,7 +107566,7 @@
    },
    "startworkspacespool": {
     "Resources": [
-     "workspacespoolid"
+     "workspacespool"
     ]
    },
    "stopworkspaces": {
@@ -107405,7 +107576,7 @@
    },
    "stopworkspacespool": {
     "Resources": [
-     "workspacespoolid"
+     "workspacespool"
     ]
    },
    "stream": {
@@ -107420,7 +107591,7 @@
    },
    "terminateworkspacespool": {
     "Resources": [
-     "workspacespoolid"
+     "workspacespool"
     ]
    },
    "terminateworkspacespoolsession": {},
@@ -107458,7 +107629,7 @@
    },
    "updateworkspacespool": {
     "Resources": [
-     "workspacespoolid"
+     "workspacespool"
     ]
    }
   },
@@ -107466,6 +107637,9 @@
    "certificateid": {
     "ARNFormats": [
      "arn:${Partition}:workspaces:${Region}:${Account}:workspacecertificate/.*"
+    ],
+    "ConditionKeys": [
+     "aws:ResourceTag/${TagKey}"
     ]
    },
    "connectionalias": {
@@ -107524,7 +107698,7 @@
      "aws:ResourceTag/${TagKey}"
     ]
    },
-   "workspacespoolid": {
+   "workspacespool": {
     "ARNFormats": [
      "arn:${Partition}:workspaces:${Region}:${Account}:workspacespool/.*"
     ],
