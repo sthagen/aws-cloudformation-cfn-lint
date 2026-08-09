@@ -1,3 +1,22 @@
+### v1.54.0
+## What's Changed
+* fix(ec2): Allow FromPort/ToPort for ICMPv6 in W3687 by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/4600
+* Remove SAM translator dependency, validate SAM templates via schemas by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/4491
+* Update CloudFormation schemas to `2026-08-04` by @github-actions[bot] in https://github.com/aws-cloudformation/cfn-lint/pull/4601
+
+**Full Changelog**: https://github.com/aws-cloudformation/cfn-lint/compare/v1.53.3...v1.54.0
+
+### v1.53.3
+## What's Changed
+* Cache `RefResolver` subschemas lookup per instance by @sir-sigurd in https://github.com/aws-cloudformation/cfn-lint/pull/4590
+* chore(deps): bump pyinstaller from 6.20.0 to 6.21.0 in /requirements by @dependabot[bot] in https://github.com/aws-cloudformation/cfn-lint/pull/4595
+* chore(deps): bump setuptools from 82.0.1 to 83.0.0 in /requirements by @dependabot[bot] in https://github.com/aws-cloudformation/cfn-lint/pull/4593
+* fix([E3701](https://github.com/aws-cloudformation/cfn-python-lint/blob/main/docs/rules.md#E3701)): Prevent false positive for `Fn::If` in `OutputArtifacts` `Name` by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/4596
+* fix(schema): Add file locking to prevent concurrent cache corruption by @kddejong in https://github.com/aws-cloudformation/cfn-lint/pull/4598
+* Update CloudFormation schemas to `2026-07-28` by @github-actions[bot] in https://github.com/aws-cloudformation/cfn-lint/pull/4589
+
+**Full Changelog**: https://github.com/aws-cloudformation/cfn-lint/compare/v1.53.2...v1.53.3
+
 ### v1.53.2
 ## What's Changed
 * Compute Context.module_names lazily to avoid rescan on every evolve() by @sir-sigurd in https://github.com/aws-cloudformation/cfn-lint/pull/4586
