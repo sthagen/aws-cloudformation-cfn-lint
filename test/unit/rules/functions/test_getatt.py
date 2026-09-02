@@ -23,6 +23,7 @@ _template = {
         "MyBucket": {"Type": "AWS::S3::Bucket"},
         "MyCodePipeline": {"Type": "AWS::CodePipeline::Pipeline"},
         "DocDBCluster": {"Type": "AWS::DocDB::DBCluster"},
+        "MyServerlessApplication": {"Type": "AWS::Serverless::Application"},
     },
     "Parameters": {
         "MyResourceParameter": {"Type": "String", "Default": "MyBucket"},
@@ -102,7 +103,8 @@ class _Fail(CfnLintKeyword):
             [
                 ValidationError(
                     "'Foo' is not one of ['MyBucket', "
-                    "'MyCodePipeline', 'DocDBCluster']",
+                    "'MyCodePipeline', 'DocDBCluster', "
+                    "'MyServerlessApplication']",
                     path=deque(["Fn::GetAtt", 0]),
                     schema_path=deque(["enum"]),
                     validator="fn_getatt",
@@ -199,6 +201,14 @@ class _Fail(CfnLintKeyword):
             [],
         ),
         (
+            "Valid GetAtt to a serverless application output",
+            {"Fn::GetAtt": "MyServerlessApplication.Outputs.TopicArn"},
+            {"type": "string"},
+            _template,
+            {},
+            [],
+        ),
+        (
             "Valid Ref in GetAtt for resource",
             {"Fn::GetAtt": [{"Ref": "MyResourceParameter"}, "Arn"]},
             {"type": "string"},
@@ -249,7 +259,8 @@ class _Fail(CfnLintKeyword):
             [
                 ValidationError(
                     "'Arn' is not one of ['MyBucket', "
-                    "'MyCodePipeline', 'DocDBCluster'] when "
+                    "'MyCodePipeline', 'DocDBCluster', "
+                    "'MyServerlessApplication'] when "
                     "{'Ref': 'MyAttributeParameter'} is resolved",
                     path=deque(["Fn::GetAtt", 0]),
                     schema_path=deque(["enum"]),
@@ -276,3 +287,62 @@ def test_validate(name, instance, schema, child_rules, expected, validator, rule
     rule.child_rules = child_rules
     errs = list(rule.fn_getatt(validator, schema, instance, {}))
     assert errs == expected, f"Test {name!r} got {errs!r}"
+
+
+_sam_template = {
+    "Transform": "AWS::Serverless-2016-10-31",
+    "Resources": {
+        "Lambda": {
+            "Type": "AWS::Serverless::Function",
+            "Properties": {"AutoPublishAlias": "live"},
+        },
+    },
+}
+
+
+@pytest.mark.parametrize(
+    "name,template,value,expected",
+    [
+        (
+            "SAM synthetic Version resource keeps the dotted logical id together",
+            _sam_template,
+            ["Lambda", "Version.FunctionArn"],
+            ["Lambda.Version", "FunctionArn"],
+        ),
+        (
+            "SAM synthetic Alias resource keeps the dotted logical id together",
+            _sam_template,
+            ["Lambda", "Alias.Arn"],
+            ["Lambda.Alias", "Arn"],
+        ),
+        (
+            "List form with the dotted logical id already intact is unchanged",
+            _sam_template,
+            ["Lambda.Version", "FunctionArn"],
+            ["Lambda.Version", "FunctionArn"],
+        ),
+        (
+            "A plain attribute on the function itself is unchanged",
+            _sam_template,
+            ["Lambda", "Arn"],
+            ["Lambda", "Arn"],
+        ),
+        (
+            "No matching synthetic resource leaves the split unchanged",
+            _template,
+            ["MyBucket", "Foo.Bar"],
+            ["MyBucket", "Foo.Bar"],
+        ),
+        (
+            "A resolved (non string) resource name is left untouched",
+            _sam_template,
+            [{"Ref": "Lambda"}, "Version.FunctionArn"],
+            [{"Ref": "Lambda"}, "Version.FunctionArn"],
+        ),
+    ],
+    indirect=["template"],
+)
+def test_resolve_sam_getatt(name, value, expected, validator, rule):
+    assert rule._resolve_sam_getatt(value, validator) == expected, (
+        f"Test {name!r} got {rule._resolve_sam_getatt(value, validator)!r}"
+    )

@@ -24,32 +24,41 @@ class TestGetUrlRetrieve(BaseTestCase):
         mocked_urlretrieve.assert_called_with(url)
         self.assertEqual(result, "file/path")
 
-    @patch("cfnlint.helpers.urlopen")
+    @patch("cfnlint.helpers.get_metadata_filename")
     @patch("cfnlint.helpers.load_metadata")
     @patch("cfnlint.helpers.save_metadata")
-    @patch("cfnlint.helpers.urlretrieve")
-    def test_get_url_retrieve_cached(
-        self, mocked_urlretrieve, mock_save_metadata, mock_load_metadata, mocked_urlopen
+    @patch("cfnlint.helpers.urlopen")
+    def test_get_url_metadata_returns_without_persisting(
+        self,
+        mocked_urlopen,
+        mock_save_metadata,
+        mock_load_metadata,
+        mock_get_metadata_filename,
     ):
-        """Test the basics of URL retrieve"""
-        etag = "ETAG_ONE"
+        """get_url_metadata computes updated metadata but does not persist it"""
         url = "http://foo.com"
-
         mock_load_metadata.return_value = {}
+        mock_get_metadata_filename.return_value = "metadata.json"
 
         cm = MagicMock()
-        cm.getcode.return_value = 200
-        cm.info.return_value = {"Content-Encoding": "gzip", "ETag": etag}
+        cm.info.return_value = {"ETag": "ETAG_ONE"}
         cm.__enter__.return_value = cm
         mocked_urlopen.return_value = cm
 
-        mocked_urlretrieve.return_value = ("file/path", None)
+        result = cfnlint.helpers.get_url_metadata(url)
 
-        result = cfnlint.helpers.get_url_retrieve(url, caching=True)
-        mocked_urlretrieve.assert_called_with(url)
-        mock_load_metadata.assert_called_once()
-        mock_save_metadata.assert_called_once()
-        self.assertEqual(result, "file/path")
+        self.assertEqual(result, ({"etag": "ETAG_ONE", "url": url}, "metadata.json"))
+        mock_save_metadata.assert_not_called()
+
+    @patch("cfnlint.helpers.urlopen")
+    def test_get_url_metadata_returns_none_without_etag(self, mocked_urlopen):
+        """get_url_metadata returns None when the response has no ETag"""
+        cm = MagicMock()
+        cm.info.return_value = {}
+        cm.__enter__.return_value = cm
+        mocked_urlopen.return_value = cm
+
+        self.assertIsNone(cfnlint.helpers.get_url_metadata("http://foo.com"))
 
     @patch("cfnlint.helpers.time.sleep")
     @patch("cfnlint.helpers.urlretrieve")
